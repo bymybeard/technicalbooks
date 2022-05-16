@@ -1,0 +1,592 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj02x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj03x.html" tppabs="http://newdata.box.sk/bx/java/tyj03x.html">
+<LINK REL="Previous" HREF="tyj01x.html" tppabs="http://newdata.box.sk/bx/java/tyj01x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj01x.html" tppabs="http://newdata.box.sk/bx/java/tyj01x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj03x.html" tppabs="http://newdata.box.sk/bx/java/tyj03x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 2</A></LI>
+<UL>
+<LI>
+<A HREF = "#I2"  >Object-Oriented Programming and Java</A></LI>
+<UL>
+<LI>
+<A HREF = "#I5"  >Thinking in Objects An Analogy</A></LI>
+<LI>
+<A HREF = "#I6"  >Objects and Classes</A></LI>
+<LI>
+<A HREF = "#I17"  >Behavior and Attributes</A></LI>
+<UL>
+<LI>
+<A HREF = "#I18"  >Attributes</A></LI>
+<LI>
+<A HREF = "#I30"  >Behavior</A></LI>
+<LI>
+<A HREF = "#I39"  >Creating a Class</A></LI></UL>
+<LI>
+<A HREF = "#I78"  >Inheritance, Interfaces, and Packages</A></LI>
+<UL>
+<LI>
+<A HREF = "#I79"  >Inheritance</A></LI>
+<LI>
+<A HREF = "#I94"  >Creating a Class Hierarchy</A></LI>
+<LI>
+<A HREF = "#I103"  >How Inheritance Works</A></LI>
+<LI>
+<A HREF = "#I113"  >Single and Multiple Inheritance</A></LI>
+<LI>
+<A HREF = "#I118"  >Interfaces and Packages</A></LI></UL>
+<LI>
+<A HREF = "#I131"  >Creating a Subclass</A></LI>
+<LI>
+<A HREF = "#I160"  >Summary</A></LI>
+<LI>
+<A HREF = "#I161"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><B>Day 2</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I2" NAME = "I2"  >
+<foNT SIZE=5><B>Object-Oriented Programming and Java</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>Object-oriented programming (OOP) is one <A ID = "I3" NAME = "I3"  ></A><A ID = "I4" NAME = "I4"  ></A>of the biggest programming ideas of recent years, and you might worry that you must spend years learning all about object-oriented programming methodologies and how they can make your life easier than The Old Way of programming. It all comes down to organizing your programs in ways that echo how things are put together in the real world.
+<BR></P>
+<P>Today, you'll get an overview of object-oriented programming concepts in Java and how they relate to how you structure your own programs:
+<BR></P>
+<UL>
+<LI>What classes and objects are, and how they relate to each other
+<BR>
+<BR></LI>
+<LI>The two main parts of a class or object: its behaviors and its attributes
+<BR>
+<BR></LI>
+<LI>Class inheritance and how inheritance affects the way you design your programs
+<BR>
+<BR></LI>
+<LI>Some information about packages and interfaces
+<BR>
+<BR></LI></UL>
+<P>If you're already familiar with object-oriented programming, much of today's lesson will be old hat to you. You may want to skim it and go to a movie today instead. Tomorrow, you'll get into more specific details.
+<BR></P>
+<H3><A ID = "I5" NAME = "I5"  >
+<foNT SIZE=4><B>Thinking in Objects An Analogy</B>
+<BR></FONT></A></H3>
+<P>Consider, if you will, Legos. Legos, for those who do not spend much time with children, are small plastic building blocks in various colors and sizes. They have small round bits on one side that fit into small round holes on other Legos so that they fit together snugly to create larger shapes. With different Lego bits (Lego wheels, Lego engines, Lego hinges, Lego pulleys), you can put together castles, automobiles, giant robots that swallow cities, or just about anything else you can imagine. Each Lego bit is a small object that fits together with other small objects in predefined ways to create other larger objects.
+<BR></P>
+<P>Here's another example. You can walk into a computer store and, with a little background and often some help, assemble an entire PC computer system from various components: a motherboard, a CPU chip, a video card, a hard disk, a keyboard, and so on. Ideally, when you finish assembling all the various self-contained units, you have a system in which all the units work together to create a larger system with which you can solve the problems you bought the computer for in the first place.
+<BR></P>
+<P>Internally, each of those components may be vastly complicated and engineered by different companies with different methods of design. But you don't need to know how the component works, what every chip on the board does, or how, when you press the A key, an &quot;A&quot; gets sent to your computer. As the assembler of the overall system, each component you use is a self-contained unit, and all you are interested in is how the units interact with each other. Will this video card fit into the slots on the motherboard and will this monitor work with this video card? Will each particular component speak the right commands to the other components it interacts with so that each part of the computer is understood by every other part? Once you know what the interactions are between the components and can match the interactions, putting together the overall system is easy.
+<BR></P>
+<P>What does this have to do with programming? Everything. Object-oriented programming works in exactly this same way. Using object-oriented programming, your overall program is made up of lots of different self-contained components (objects), each of which has a specific role in the program and all of which can talk to each other in predefined ways.
+<BR></P>
+<H3><A ID = "I6" NAME = "I6"  >
+<foNT SIZE=4><B>Objects and Classes</B>
+<BR></FONT></A></H3>
+<P>Object-oriented programming is modeled on how, in the real world, objects are often made up of many kinds of smaller objects. This capability of combining objects, however, is only one very general aspect of object-oriented programming. Object-oriented programming provides several other concepts and features to make creating and using objects easier and more flexible, and the most important of these features is that of classes.
+<BR></P>
+<P>A <I>class</I> is a template for <A ID = "I7" NAME = "I7"  ></A><A ID = "I8" NAME = "I8"  ></A>multiple objects with similar features. Classes embody all the features of a particular set of objects.
+<BR></P>
+<P>When you write a program in an object-oriented language, you don't define actual objects. You define classes of <A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A>objects.
+<BR></P>
+<P>For example, you might have a Tree class that describes the features of all trees (has leaves and roots, grows, creates chlorophyll). The Tree class serves as an abstract model for the concept of a tree&#151;to reach out and grab, or interact with, or cut down a tree you have to have a concrete instance of that tree. Of course, once you have a tree class, you can create lots of different instances of that tree, and each different tree instance can have different features (short, tall, bushy, drops leaves in Autumn), while still behaving like and being immediately recognizable as a tree (see Figure 2.1).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/02tyj01.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/02tyj01.gif'" tppabs="http://newdata.box.sk/bx/java/02tyj01.gif"  >Figure 2.1. The tree class and tree instances.</B></A>
+<BR></P>
+<P>
+<BR><B>Figure 2.2. A class hierarchy.</B>
+<BR></P>
+<P>
+<BR><B>Figure 2.3. The basic vehicle hierarchy.</B>
+<BR></P>
+<P>
+<BR><B>Figure 2.4. Two-wheeled and four-wheeled vehicles.</B>
+<BR></P>
+<P>
+<BR><B>Figure 2.5. How methods are located.</B>
+<BR></P>
+<P>
+<BR><B>Figure 2.6. Overriding methods.</B>
+<BR></P>
+<P>
+<BR><B>Figure 2.7. The Hello Again applet.</B>
+<BR></P>
+<P>An <I>instance </I>of a <A ID = "I11" NAME = "I11"  ></A><A ID = "I12" NAME = "I12"  ></A>class is another word for an actual object. If class is the general (generic) representation of an object, an instance is its concrete representation.
+<BR></P>
+<P>So what, precisely, is the difference between an instance and an object? Nothing, really. Object is the more general term, but both instances and objects are the concrete representation of a class. In fact, the terms instance and object are often used interchangeably in OOP language. An instance of a tree and a tree object are both the same thing.
+<BR></P>
+<P>In an example closer to the sort of things you might want to do in Java programming, you might create <A ID = "I13" NAME = "I13"  ></A><A ID = "I14" NAME = "I14"  ></A>a class for the user interface element called a button. The Button class defines the features of a button (its label, its size, its appearance) and how it behaves (does it need a single click or a double click to activate it, does it change color when it's clicked, what does it do when it's activated?). Once you define the Button class, you can then easily create instances of that button&#151;that is, button objects&#151;that all take on the basic features of the button as defined by the class, but may have different appearances and behavior based on what you want that particular button to do. By creating a Button class, you don't have to keep rewriting the code for each individual button you want to use in your program, and you can reuse the Button class to create different kinds of buttons as you need them in this program and in other programs.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="imp.gif" tppabs="http://newdata.box.sk/bx/java/imp.gif" WIDTH = 68 HEIGHT = 35><B>Tip:</B> If you're used to programming in C, you can think of a class as sort of creating a new composite data type by using struct and typedef. Classes, however, can provide much more than just a collection of data, as you'll discover in the rest of today's lesson.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>When you write a Java program, you design and construct a set of classes. Then, when your program runs, instances of those classes are created and discarded as needed. Your task, as a Java programmer, is to create the right set of classes to accomplish what your program needs to accomplish.
+<BR></P>
+<P>Fortunately, you don't have to start from the very beginning: the Java environment comes with a library of classes that implement a lot of the basic behavior you need&#151;not only for basic programming tasks (classes to provide basic math functions, arrays, strings, and so on), but also for graphics and networking behavior. In many cases, the Java class <A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A>libraries may be enough so that all you have to do in your Java program is create a single class that uses the standard class libraries. For complicated Java programs, you may have to create a whole set of classes with defined interactions between them.
+<BR></P>
+<P>A <I>class library </I>is a set of classes.
+<BR></P>
+<H3><A ID = "I17" NAME = "I17"  >
+<foNT SIZE=4><B>Behavior and Attributes</B>
+<BR></FONT></A></H3>
+<P>Every class you write in Java is generally made up of two components: attributes and behavior. In this section, you'll learn about each one as it applies to a thoeretical class called Motorcycle. To finish up this section, you'll create the Java code to implement a representation of a motorcycle.
+<BR></P>
+<H4><A ID = "I18" NAME = "I18"  >
+<foNT SIZE=3><B>Attributes</B>
+<BR></FONT></A></H4>
+<P>Attributes are the <A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A>individual things that differentiate one object from another and determine the appearance, state, or other qualities of that object. Let's create a theoretical class called Motorcycle. The attributes of a motorcycle might include the following:
+<BR></P>
+<UL>
+<LI><I>Color:</I> red, green, silver, brown
+<BR>
+<BR></LI>
+<LI><I>Style:</I> cruiser, sport bike, standard
+<BR>
+<BR></LI>
+<LI><I>Make:</I> Honda, BMW, Bultaco
+<BR>
+<BR></LI></UL>
+<P>Attributes of an object can also include information about its state; for example, you could have features for engine condition (off or on) or current gear selected.
+<BR></P>
+<P>Attributes are defined by <A ID = "I21" NAME = "I21"  ></A><A ID = "I22" NAME = "I22"  ></A>variables; in fact, you can consider them analogous to &quot;global&quot; variables for the entire object. Because each instance of a class can have different values for its variables, each variable is called an instance variable.
+<BR></P>
+<P><I>Instance variables</I> define <A ID = "I23" NAME = "I23"  ></A><A ID = "I24" NAME = "I24"  ></A><A ID = "I25" NAME = "I25"  ></A>the attributes of an object. The class defines the type of the attribute, and each instance stores its own value for that attribute.
+<BR></P>
+<P>Each attribute, as the term is used here, has a single corresponding instance variable; changing the value of a variable changes the attribute of that object. Instance variables may be set when an object is created and stay constant throughout the life of the object, or they may be able to change at will as the program runs.
+<BR></P>
+<P>In addition to instance variables, there are <A ID = "I26" NAME = "I26"  ></A><A ID = "I27" NAME = "I27"  ></A>also class variables, which apply to the class itself and to all its instances. Unlike instance variables, whose values <A ID = "I28" NAME = "I28"  ></A><A ID = "I29" NAME = "I29"  ></A>are stored in the instance, class variables' values are stored in the class itself. You'll learn about class variables later on this week; you'll learn more specifics about instance variables tomorrow.
+<BR></P>
+<H4><A ID = "I30" NAME = "I30"  >
+<foNT SIZE=3><B>Behavior</B>
+<BR></FONT></A></H4>
+<P>A class's behavior <A ID = "I31" NAME = "I31"  ></A><A ID = "I32" NAME = "I32"  ></A>determines what instances of that class do to change their internal state changes or when that instance is asked to do something by another class or object. Behavior is the only way objects can do anything to themselves or have anything done to them. For example, to go back to the theoretical Motorcycle class, here are some behaviors that the Motorcycle class might have:
+<BR></P>
+<UL>
+<LI>Start the engine
+<BR>
+<BR></LI>
+<LI>Stop the engine
+<BR>
+<BR></LI>
+<LI>Speed up
+<BR>
+<BR></LI>
+<LI>Change gear
+<BR>
+<BR></LI>
+<LI>Stall
+<BR>
+<BR></LI></UL>
+<P>To define an object's behavior, you <A ID = "I33" NAME = "I33"  ></A>create methods, which look and behave just like functions in other languages, but are defined inside a class. Java does not have functions defined outside classes (as C++ does). 
+<BR></P>
+<P><I>Methods</I> are functions defined <A ID = "I34" NAME = "I34"  ></A>inside classes that operate on instances of those classes.
+<BR></P>
+<P>Methods don't always affect only a single object; objects communicate with each other using methods as well. A class or object can call methods in another class or object to communicate changes in the environment or to ask that object to change its state. 
+<BR></P>
+<P>Just as there are instance and class variables, there are also instance <A ID = "I35" NAME = "I35"  ></A><A ID = "I36" NAME = "I36"  ></A><A ID = "I37" NAME = "I37"  ></A><A ID = "I38" NAME = "I38"  ></A>and class methods. Instance methods (which are so common they're usually just called methods) apply and operate on an instance of a class; class methods apply and operate on the class itself. You'll learn more about class methods later on this week.
+<BR></P>
+<H4><A ID = "I39" NAME = "I39"  >
+<foNT SIZE=3><B>Creating a Class</B>
+<BR></FONT></A></H4>
+<P>Up to this point, today's <A ID = "I40" NAME = "I40"  ></A><A ID = "I41" NAME = "I41"  ></A>lesson has been pretty theoretical. In this section, you'll create a working example of the Motorcycle class so that you can see how instance variables and methods are defined in a class. You'll also create a Java application that creates a new instance of the Motorcycle class and shows its instance variables.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> I'm not going to go into a lot of detail about the actual syntax of this example here. Don't worry too much about it if you're not really sure what's going on; it will become clear to you later on this week. All you really need to worry about in this example is understanding the basic parts of this class definition.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Ready? Let's start with a basic class definition. Open up that editor and enter the following:
+<BR></P>
+<PRE>class Motorcycle {
+}</PRE>
+<P>Congratulations! You've now created a class. Of course, it doesn't do very much at the moment, but that's a Java class at its very simplest.
+<BR></P>
+<P>First, let's create some instance <A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A><A ID = "I44" NAME = "I44"  ></A>variables for this class&#151;three of them, to be specific. Just below the first line, add the following three lines:
+<BR></P>
+<PRE>String make;
+String color;
+boolean engineState;</PRE>
+<P>Here, you've created <A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A>three instance variables: two, make and color, can contain String objects (String is part of that standard class library mentioned earlier). The third, engineState, is a boolean that refers to whether the engine is off or on.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> boolean in Java is <A ID = "I47" NAME = "I47"  ></A>a real data type that can have the value true or false. Unlike C, booleans are not numbers. You'll hear about this again tomorrow so you won't forget.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Now let's add some behavior (methods) to <A ID = "I48" NAME = "I48"  ></A><A ID = "I49" NAME = "I49"  ></A>the class. There are all kinds of things a motorcycle can do, but to keep things short, let's add just one method&#151;a method that starts the engine. Add the following lines below the instance variables in your class definition:
+<BR></P>
+<PRE>void startEngine() {
+    if (engineState == true)
+        System.out.println(&quot;The engine is already on.&quot;);
+    else {
+        engineState = true;
+        System.out.println(&quot;The engine is now on.&quot;);
+    }
+}</PRE>
+<P>The startEngine method tests to see whether the engine is already running (in the line engineState == true) and, if it is, merely prints a message to that effect. If the engine isn't already running, it changes the state of the engine to true and then prints a message.
+<BR></P>
+<P>With your methods and variables in place, save the program to a file called Motorcycle.java (remember, you <A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A>should always name your Java files the same names as the class they define). Here's what your program should look like so far:
+<BR></P>
+<PRE>class Motorcycle {
+    String make;
+    String color;
+    boolean engineState;
+    void startEngine() {
+        if (engineState == true)
+            System.out.println(&quot;The engine is already on.&quot;);
+        else {
+            engineState = true;
+            System.out.println(&quot;The engine is now on.&quot;);
+        }
+    }
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="imp.gif" tppabs="http://newdata.box.sk/bx/java/imp.gif" WIDTH = 68 HEIGHT = 35><B>Tip:</B> The indentation of <A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A><A ID = "I54" NAME = "I54"  ></A>each part of the class isn't important to the Java compiler. Using some form of indentation, however, makes your class definition easier for you and for other people to read. The indentation used here, with instance variables and methods indented from the class definition, is the style used throughout this book. The Java class libraries use a similar indentation. You can choose any indentation style that you like. 
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Before you compile this class, let's add one more method. The showAtts method prints <A ID = "I55" NAME = "I55"  ></A><A ID = "I56" NAME = "I56"  ></A><A ID = "I57" NAME = "I57"  ></A><A ID = "I58" NAME = "I58"  ></A>the current values of the instance variables in an instance of your Motorcycle class. Here's what it looks like:
+<BR></P>
+<PRE>void showAtts() {
+    System.out.println(&quot;This motorcycle is a &quot;
+        + color + &quot; &quot; + make);
+    if (engineState == true)
+        System.out.println(&quot;The engine is on.&quot;);
+    else System.out.println(&quot;The engine is off.&quot;);
+}</PRE>
+<P>The showAtts method prints two lines to the screen: the make and color of the motorcycle object, and whether or not the engine is on or off.
+<BR></P>
+<P>Save that file again and compile it using javac:
+<BR></P>
+<PRE>javac Motorcycle.java</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> After this point, I'm going to assume you know how to compile and run Java programs. I won't repeat this information after this.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>What happens if you now <A ID = "I59" NAME = "I59"  ></A><A ID = "I60" NAME = "I60"  ></A><A ID = "I61" NAME = "I61"  ></A>use the Java interpreter to run this compiled class? Try it. Java assumes that this class is an application and looks for a main method. This is just a class, however, so it doesn't have a main method. The Java interpreter (java) gives you an error like this one:
+<BR></P>
+<PRE>In class Motorcycle: void main(String argv[]) is not defined</PRE>
+<P>To do something with the Motorcycle class&#151;for example, to create instances of that class and play with them&#151;you're going to need to create a Java application that uses this class or add a main method to this one. For simplicity's sake, let's do the latter. Listing 2.1 shows the main() method you'll add to the Motorcycle class (you'll go over what this does in a bit). 
+<BR></P>
+<UL>
+<LH><B>Listing 2.1. The </B><B>main</B><B>()</B><B> method for </B><B>Motorcycle.java</B><B>.</B><A ID = "I62" NAME = "I62"  ></A></LH></UL>
+<PRE> 1: public static void main (String args[]) {
+ 2:    Motorcycle m = new Motorcycle();
+ 3:    m.make = &quot;Yamaha RZ350&quot;;
+ 4:    m.color = &quot;yellow&quot;;
+ 5:    System.out.println(&quot;Calling showAtts...&quot;);
+ 6:    m.showAtts();
+ 7:    System.out.println(&quot;&#151;&#151;&#151;&#151;&quot;);
+ 8:    System.out.println(&quot;Starting engine...&quot;);
+ 9:    m.startEngine();
+10:    System.out.println(&quot;&#151;&#151;&#151;&#151;&quot;);
+11:    System.out.println(&quot;Calling showAtts...&quot;);
+12:    m.showAtts();
+13:    System.out.println(&quot;&#151;&#151;&#151;&#151;&quot;);
+14:    System.out.println(&quot;Starting engine...&quot;);
+15:    m.startEngine();
+16:}</PRE>
+<P>With the main() method, the Motorcycle class is now an application, and you can compile it again and this time it'll run. Here's how the output should look:
+<BR></P>
+<PRE>Calling showAtts...
+This motorcycle is a yellow Yamaha RZ350
+The engine is off.
+&#151;&#151;&#151;&#151;
+Starting engine...
+The engine is now on.
+&#151;&#151;&#151;&#151;
+Calling showAtts...
+This motorcycle is a yellow Yamaha RZ350
+The engine is on.
+&#151;&#151;&#151;&#151;
+Starting engine...
+The engine is already on.</PRE>
+<P>The contents of the main() method are all going to look very new to you, so let's go through it line by line so that you at least have a basic idea of what it does (you'll get details about the specifics of all of this tomorrow and the day after).
+<BR></P>
+<P>The first line declares the main() method. The main() method <A ID = "I63" NAME = "I63"  ></A><A ID = "I64" NAME = "I64"  ></A><A ID = "I65" NAME = "I65"  ></A>always looks like this; you'll learn the specifics of each part later this week.
+<BR></P>
+<P>Line 2, Motorcycle m = new Motorcycle(), creates a <A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A><A ID = "I68" NAME = "I68"  ></A>new instance of the Motorcycle class and stores a reference to it in the variable m. Remember, you don't usually operate directly on classes in your Java programs; instead, you create objects from those classes and then call methods in those objects.
+<BR></P>
+<P>Lines 3 and 4 set the instance variables <A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A>for this motorcycle object: the make is now a Yamaha RZ350 (a very pretty motorcycle from the mid-1980s), and the color is yellow.
+<BR></P>
+<P>Lines 5 and 6 call the showAtts() method, defined in your motorcycle object. (Actually, only 6 does; 5 just prints a message that you're about to call this method.) The new motorcycle object then prints out the values of its instance variables&#151;the make and color as you set in the previous lines&#151;and shows that the engine is off.
+<BR></P>
+<P>Line 7 prints a divider line to<A ID = "I71" NAME = "I71"  ></A><A ID = "I72" NAME = "I72"  ></A> the screen; this is just for prettier output.
+<BR></P>
+<P>Line 9 calls the startEngine() method in <A ID = "I73" NAME = "I73"  ></A><A ID = "I74" NAME = "I74"  ></A>the motorcycle object to start the engine. The engine should now be on.
+<BR></P>
+<P>Line 12 prints the values of <A ID = "I75" NAME = "I75"  ></A><A ID = "I76" NAME = "I76"  ></A><A ID = "I77" NAME = "I77"  ></A>the instance variables again. This time, the report should say the engine is now on.
+<BR></P>
+<P>Line 15 tries to start the engine again, just for fun. Because the engine is already on, this should print the error message.
+<BR></P>
+<H3><A ID = "I78" NAME = "I78"  >
+<foNT SIZE=4><B>Inheritance, Interfaces, and Packages</B>
+<BR></FONT></A></H3>
+<P>Now that you have a basic grasp of classes, objects, methods, variables, and how to put it all together in a Java program, it's time to confuse you again. Inheritance, interfaces, and packages are all mechanisms for organizing classes and class behaviors. The Java class libraries use all these concepts, and the best class libraries you write for your own programs will also use these concepts.
+<BR></P>
+<H4><A ID = "I79" NAME = "I79"  >
+<foNT SIZE=3><B>Inheritance</B>
+<BR></FONT></A></H4>
+<P>Inheritance is one of <A ID = "I80" NAME = "I80"  ></A>the most crucial concepts in object-oriented programming, and it has a very direct effect on how you design and write your Java classes. Inheritance is a powerful mechanism that means when you write a class you only have to specify how that class is different from some other class; inheritance will give you automatic access to the information contained in that other class.
+<BR></P>
+<P>With inheritance, all classes&#151;those you write, those from other class libraries that you use, and those from the standard utility classes as well&#151;are arranged in a strict hierarchy (see Figure 2.2). 
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/02tyj02.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/02tyj02.gif'" tppabs="http://newdata.box.sk/bx/java/02tyj02.gif"  >Figure 2.2. A class hierarchy.</B></A><A ID = "I81" NAME = "I81"  ></A><A ID = "I82" NAME = "I82"  ></A>
+<BR></P>
+<P>Each class has <A ID = "I83" NAME = "I83"  ></A><A ID = "I84" NAME = "I84"  ></A>a superclass (the class above it in the hierarchy), and each class can have one or more subclasses <A ID = "I85" NAME = "I85"  ></A><A ID = "I86" NAME = "I86"  ></A>(classes below that class in the hierarchy). Classes further down in the hierarchy are said to inherit from classes further up in the hierarchy.
+<BR></P>
+<P>Subclasses inherit all <A ID = "I87" NAME = "I87"  ></A><A ID = "I88" NAME = "I88"  ></A>the methods and variables from their superclasses&#151;that is, in any particular class, if the superclass defines behavior that your class needs, you don't have to redefine it or copy that code from some other class. Your class automatically gets that behavior from its superclass, that superclass gets behavior from its superclass, and so on all the way up the hierarchy. Your class becomes a combination of all the features of the classes above it in the hierarchy.
+<BR></P>
+<P>At the top of the Java class hierarchy is <A ID = "I89" NAME = "I89"  ></A><A ID = "I90" NAME = "I90"  ></A>the class Object; all classes inherit from this one superclass. Object is the most general class in the hierarchy; it defines behavior inherited by all the classes in the Java class hierarchy. Each class farther down in the hierarchy adds more information and becomes more tailored to a specific purpose. In this way, you can think of a class hierarchy as defining very abstract concepts at the top of the hierarchy and those ideas becoming more concrete the farther down the chain of superclasses you go.
+<BR></P>
+<P>Most of the time when you write new Java classes, you'll want to create a class that has all the information some other class has, plus some extra information. For example, you may want a version of a Button with its own built-in label. To get all the Button information, all you have to do is define your class to inherit from Button. Your class will automatically get all the behavior defined in Button (and in Button's superclasses), so all you have to worry about are the things that make your class different from Button itself. This mechanism for <A ID = "I91" NAME = "I91"  ></A><A ID = "I92" NAME = "I92"  ></A><A ID = "I93" NAME = "I93"  ></A>defining new classes as the differences between them and their superclasses is called <I>subclassing</I>.  
+<BR></P>
+<P><I>Subclassing</I> involves creating a new class that inherits from some other class in the class hierarchy. Using subclassing, you only need to define the differences between your class and its parent; the additional behavior is all available to your class through inheritance. 
+<BR></P>
+<P>What if your class defines entirely new behavior, and isn't really a subclass of another class? Your class can also inherit directly from Object, which still allows it to fit neatly into the Java class hierarchy. In fact, if you create a class definition that doesn't indicate its superclass in the first line, Java automatically assumes you're inheriting from Object. The Motorcycle class you created in the previous section inherited from Object.
+<BR></P>
+<H4><A ID = "I94" NAME = "I94"  >
+<foNT SIZE=3><B>Creating a Class Hierarchy</B>
+<BR></FONT></A></H4>
+<P>If you're creating <A ID = "I95" NAME = "I95"  ></A><A ID = "I96" NAME = "I96"  ></A>a larger set of classes, it makes sense for your classes not only to inherit from the existing class hierarchy, but also to make up a hierarchy themselves. This may take some planning beforehand when you're trying to figure out how to organize your Java code, but the advantages are significant once it's done:
+<BR></P>
+<UL>
+<LI>When you develop your classes in a hierarchy, you can factor out information common to multiple classes in superclasses, and then reuse that superclass's information over and over again. Each subclass gets that common information from its superclass.
+<BR>
+<BR></LI>
+<LI>Changing (or inserting) a class <A ID = "I97" NAME = "I97"  ></A><A ID = "I98" NAME = "I98"  ></A><A ID = "I99" NAME = "I99"  ></A>further up in the hierarchy automatically changes the behavior of the lower classes&#151;no need to change or recompile any of the lower classes, because they get the new information through inheritance and not by copying any of the code.
+<BR>
+<BR></LI></UL>
+<P>For example, let's go back to that Motorcycle class, and pretend you created a Java program to implement all the features of a motorcycle. It's done, it works, and everything is fine. Now, your next task is to create a Java class called Car.
+<BR></P>
+<P>Car and Motorcycle have many similar features&#151;both are vehicles driven by engines. Both have transmissions and headlamps and speedometers. So, your first impulse may be to open up your Motorcycle class file and copy over a lot of the information you already defined into the new class Car.
+<BR></P>
+<P>A far better plan is to factor out the common information for Car and Motorcycle into a more general class hierarchy. This may be a lot of work just for the classes Motorcycle and Car, but once you add Bicycle, Scooter, Truck, and so on, having common behavior in a reuseable superclass significantly reduces the amount of work you have to do overall.
+<BR></P>
+<P>Let's design a class hierarchy <A ID = "I100" NAME = "I100"  ></A><A ID = "I101" NAME = "I101"  ></A><A ID = "I102" NAME = "I102"  ></A>that might serve this purpose. Starting at the top is the class Object, which is the root of all Java classes. The most general class to which motorcycle and car both belong might be called Vehicle. A vehicle, generally, is defined as a thing that propels someone from one place to another. In the Vehicle class, you define only the behavior that enables someone to be propelled from point a to point b, and nothing more.
+<BR></P>
+<P>Below Vehicle? How about two classes: PersonPoweredVehicle and EnginePoweredVehicle? EnginePoweredVehicle is different from Vehicle because is has an engine, and the behaviors might include stopping and starting the engine, having certain amounts of gasoline and oil, and perhaps the speed or gear in which the engine is running. Person-powered vehicles have some kind of mechanism for translating people motion into vehicle motion&#151;pedals, for example. Figure 2.3 shows what you have so far.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/02tyj03.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/02tyj03.gif'" tppabs="http://newdata.box.sk/bx/java/02tyj03.gif"  >Figure 2.3. The basic vehicle hierarchy.</B></A>
+<BR></P>
+<P>Now, let's become even more specific. With EnginePoweredVehicle, you might have several classes: Motorcycle, Car, Truck, and so on. Or you can factor out still more behavior and have intermediate classes for TwoWheeled and FourWheeled vehicles, with different behaviors for each (see Figure 2.4).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/02tyj04.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/02tyj04.gif'" tppabs="http://newdata.box.sk/bx/java/02tyj04.gif"  >Figure 2.4. Two-wheeled and four-wheeled vehicles.</B></A>
+<BR></P>
+<P>Finally, with a subclass for the two-wheeled engine-powered vehicles you can finally have a class for motorcycles. Alternatively, you could additionally define scooters and mopeds, both of which are two-wheeled engine-powered vehicles but have different qualities from motorcycles.
+<BR></P>
+<P>Where do qualities such as make or color come in? Wherever you want them to go&#151;or, more usually, where they fit most naturally in the class hierarchy. You can define the make and color on Vehicle, and all the subclasses will have those variables as well. The point to remember is that you have to define a feature or a behavior only once in the hierarchy; it's automatically reused by each subclass.
+<BR></P>
+<H4><A ID = "I103" NAME = "I103"  >
+<foNT SIZE=3><B>How Inheritance Works</B>
+<BR></FONT></A></H4>
+<P>How does inheritance work? How is it that instances of one class can automatically get variables and methods from the classes further up in the hierarchy?
+<BR></P>
+<P>For instance variables, when you <A ID = "I104" NAME = "I104"  ></A><A ID = "I105" NAME = "I105"  ></A><A ID = "I106" NAME = "I106"  ></A>create a new instance of a class, you get a &quot;slot&quot; for each variable defined in the current class and for each variable defined in all its superclasses. In this way, all the classes combine to form a template for the current object and then each object fills in the information appropriate to its situation.
+<BR></P>
+<P>Methods operate <A ID = "I107" NAME = "I107"  ></A><A ID = "I108" NAME = "I108"  ></A>similarly: new objects have access to all the method names of its class and its superclasses, but method definitions are chosen dynamically when a method is called. That is, if you call a method on a particular object, Java first checks the object's class for the definition of that method. If it's not defined in the object's class, it looks in that class's superclass, and so on up the chain until the method definition is found (see Figure 2.5).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/02tyj05.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/02tyj05.gif'" tppabs="http://newdata.box.sk/bx/java/02tyj05.gif"  >Figure 2.5.  How methods are located.</B></A><A ID = "I109" NAME = "I109"  ></A><A ID = "I110" NAME = "I110"  ></A>
+<BR></P>
+<P>Things get complicated when a subclass defines a method that has the same signature (name and number and type of arguments) as a method defined in a superclass. In this case, the method definition that is found first (starting at the bottom and working upward toward the top of the hierarchy) is the one that is actually executed. Because of this, you can purposefully define a method in a subclass that has the same signature as a method in a superclass, which then &quot;hides&quot; the superclass's method. This is <A ID = "I111" NAME = "I111"  ></A><A ID = "I112" NAME = "I112"  ></A>called <I>overriding</I> a method. You'll learn all about methods on Day 7.
+<BR></P>
+<P><I>Overriding</I> a method is creating a method in a subclass that has the same signature (name, number and type of arguments) as a method in a superclass. That new method then hides the superclass's method (see Figure 2.6).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/02tyj06.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/02tyj06.gif'" tppabs="http://newdata.box.sk/bx/java/02tyj06.gif"  >Figure 2.6.  Overriding methods.</B></A>
+<BR></P>
+<H4><A ID = "I113" NAME = "I113"  >
+<foNT SIZE=3><B>Single and Multiple Inheritance</B>
+<BR></FONT></A></H4>
+<P>Java's form of inheritance, as you learned in the previous sections, is called single inheritance. Single <A ID = "I114" NAME = "I114"  ></A><A ID = "I115" NAME = "I115"  ></A>inheritance means that each Java class can have only one superclass (although any given superclass can have multiple subclasses).
+<BR></P>
+<P>In other object-oriented programming languages, such as C++, classes can have more than one superclass, and they inherit combined variables and methods from all those classes. This is called <A ID = "I116" NAME = "I116"  ></A><A ID = "I117" NAME = "I117"  ></A>multiple inheritance. Multiple inheritance can provide enormous power in terms of being able to create classes that factor just about all imaginable behavior, but it can also significantly complicate class definitions and the code to produce them. Java makes inheritance simpler by being only singly inherited.
+<BR></P>
+<H4><A ID = "I118" NAME = "I118"  >
+<foNT SIZE=3><B>Interfaces and Packages</B>
+<BR></FONT></A></H4>
+<P>Java has two remaining concepts to discuss here: packages and interfaces. Both are advanced topics for implementing and designing groups of classes and class behavior. You'll learn about both interfaces and packages on Day 16, but they are worth at least introducing here.
+<BR></P>
+<P>Recall that Java classes have only a single superclass, and they inherit variables and methods from that superclass and all its superclasses. Although single inheritance makes the relationship between classes and the functionality those classes implement easy to understand and to design, it can also be somewhat restricting&#151;in particular, when you have similar behavior that needs to be duplicated <A ID = "I119" NAME = "I119"  ></A><A ID = "I120" NAME = "I120"  ></A>across different &quot;branches&quot; of the class hierarchy. Java solves this problem of shared behavior by using the concept of interfaces.
+<BR></P>
+<P>An <I>interface</I> is a <A ID = "I121" NAME = "I121"  ></A><A ID = "I122" NAME = "I122"  ></A>collection of method names, without actual definitions, that indicate that a class has a set of behaviors in addition to the behaviors the class gets from its superclasses.
+<BR></P>
+<P>Although a single Java class can have only one superclass (due to single inheritance), that class can also implement any number of interfaces. By implementing an interface, a class provides method implementations (definitions) for the method names defined by the interface. If two very disparate classes implement the same interface, they can both respond to the same method calls (as defined by that interface), although what each class actually does in response to those method calls may be very different.
+<BR></P>
+<P>You don't need to know very much about interfaces right now. You'll learn more as the book progresses, so if all this is very confusing, don't panic!
+<BR></P>
+<P>The final new Java concept for today is that of packages. 
+<BR></P>
+<P><I>Packages</I> in Java <A ID = "I123" NAME = "I123"  ></A><A ID = "I124" NAME = "I124"  ></A><A ID = "I125" NAME = "I125"  ></A>are a way of grouping together related classes and interfaces. Packages enable modular groups of classes to be available only if they are needed and eliminate potential conflicts between class names in different groups of classes.
+<BR></P>
+<P>You'll learn all about packages, including how to create and use them, in Week 3. For now, there are only a few things you need to know:
+<BR></P>
+<UL>
+<LI>The class libraries in the <A ID = "I126" NAME = "I126"  ></A><A ID = "I127" NAME = "I127"  ></A>Java Developer's Kit are contained in a package called java. The classes in the java package are guaranteed to be available in any Java implementation, and are the <I>only</I> classes guaranteed to be available across different implementations. The java package itself contains other packages for classes that define the language itself, the input and output classes, some basic networking, and the window toolkit functions. Classes in other packages (for example, classes in the sun or netscape packages) may be available only in specific implementations.
+<BR>
+<BR></LI>
+<LI>By default, your Java classes have access to only the classes in java.lang (the base language package inside the java package). To use classes from any other package, you have to either refer to them explicitly by package name or import them in your source file.
+<BR>
+<BR></LI>
+<LI>To refer to a <A ID = "I128" NAME = "I128"  ></A><A ID = "I129" NAME = "I129"  ></A><A ID = "I130" NAME = "I130"  ></A>class within a package, list all the packages that class is contained in and the class name, all separated by periods (.). For example, take the Color class, which is contained in the awt package (awt stands for Abstract Windowing Toolkit). The awt package, in turn, is inside the java package. To refer to the Color class in your program, you use the notation java.awt.Color.
+<BR>
+<BR></LI></UL>
+<H3><A ID = "I131" NAME = "I131"  >
+<foNT SIZE=4><B>Creating a Subclass</B>
+<BR></FONT></A></H3>
+<P>To finish up today, let's <A ID = "I132" NAME = "I132"  ></A><A ID = "I133" NAME = "I133"  ></A><A ID = "I134" NAME = "I134"  ></A>create a class that is a subclass of another class and override some methods. You'll also get a basic feel for how packages work in this example.
+<BR></P>
+<P>Probably the most typical instance of creating a subclass, at least when you first start programming in Java, is in creating an applet. All applets are subclasses of the <A ID = "I135" NAME = "I135"  ></A><A ID = "I136" NAME = "I136"  ></A>class Applet (which is part of the java.applet package). By creating a subclass of Applet, you automatically get all the behavior from the window toolkit and the layout classes that enables your applet to be drawn in the right place on the page and to interact with system operations, such as keypresses and mouse clicks.
+<BR></P>
+<P>In this example, you'll create an applet similar to the Hello World applet from yesterday, but one that draws the Hello string in a larger font and a different color. To start this example, let's first construct the class definition itself. Remember the HTML and classes directories you created yesterday? Let's go back to those, go back to your text editor, and enter the following class definition:
+<BR></P>
+<PRE>public class HelloAgainApplet extends java.applet.Applet {
+}</PRE>
+<P>Here, you're creating a class called HelloAgainApplet. Note the part that says extends java.applet.Applet&#151;that's the part that says your applet class is a subclass of the Applet class. Note that because the Applet class is contained in the java.applet package, you don't have automatic access to that class, and you have to refer to it explicitly by package and class name.
+<BR></P>
+<P>The other part of this class <A ID = "I137" NAME = "I137"  ></A><A ID = "I138" NAME = "I138"  ></A>definition is the public keyword. Public means that your class is available to the Java system at <A ID = "I139" NAME = "I139"  ></A><A ID = "I140" NAME = "I140"  ></A>large once it is loaded. Most of the time you need to make a class public only if you want it to be visible to all the other classes in your Java program; but applets, in particular, must be declared to be public. (You'll learn more about public classes in Week 3.)
+<BR></P>
+<P>A class definition with <A ID = "I141" NAME = "I141"  ></A><A ID = "I142" NAME = "I142"  ></A>nothing in it doesn't really have much of a point; without adding or overriding any of its superclasses' variables or methods, there's little point to creating a subclass at all. Let's add some information to this class to make it different from its superclass.
+<BR></P>
+<P>First, add an instance variable to contain a Font object:
+<BR></P>
+<PRE>Font f = new Font(&quot;TimesRoman&quot;, Font.BOLD, 36);</PRE>
+<P>The f instance variable now contains a new instance of the class Font, part of the java.awt package. This particular font object is a Times Roman font, boldface, 36 points high. In the previous Hello World applet, the font used for the text was the default font: 12 point Times Roman. Using a font object, you can change the font of the text you draw in your applet. 
+<BR></P>
+<P>By creating an instance variable to hold this font object, you make it available to all the methods in your class. Now let's create a method that uses it.
+<BR></P>
+<P>When you write applets, there are several &quot;standard&quot; methods defined in the applet <A ID = "I143" NAME = "I143"  ></A><A ID = "I144" NAME = "I144"  ></A>superclasses that you will commonly override in your applet class. These include methods to initialize the applet, to start it running, to handle operations such as mouse movements or mouse clicks, or to clean up when the applet stops running. One of those standard methods is the paint() method, which actually displays your applet on screen. The default definition of paint() doesn't do anything&#151;it's an empty method. By overriding paint(), you tell the applet just what to draw on the screen. Here's a definition of paint():
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    g.setFont(f);
+    g.setColor(Color.red);
+    g.drawString(&quot;Hello again!&quot;, 5, 25);
+}</PRE>
+<P>There are two things to know <A ID = "I145" NAME = "I145"  ></A><A ID = "I146" NAME = "I146"  ></A>about the paint() method.  First, note that this method is declared public, just as the applet itself was. The paint() method is actually public for a different reason&#151;because the method it's overriding is also public. If a superclass's method is defined as Public, your override method also has to be public or<A ID = "I147" NAME = "I147"  ></A> you'll get an error when you compile the class.
+<BR></P>
+<P>Secondly, note that the paint() method takes <A ID = "I148" NAME = "I148"  ></A><A ID = "I149" NAME = "I149"  ></A><A ID = "I150" NAME = "I150"  ></A>a single argument: an instance of the Graphics class. The Graphics class provides platform-independent behavior <A ID = "I151" NAME = "I151"  ></A><A ID = "I152" NAME = "I152"  ></A>for rendering fonts, colors, and basic drawing operations. You'll learn a lot more about the Graphics class in Week 2, when you create more extensive applets.
+<BR></P>
+<P>Inside your paint() method, you've done three things:
+<BR></P>
+<UL>
+<LI>You've told the graphics object that the default drawing font will be the one contained in the instance variable f.
+<BR>
+<BR></LI>
+<LI>You've told the graphics object that the default color is an instance of the Color class for the color red.
+<BR>
+<BR></LI>
+<LI>Finally, you've drawn your &quot;Hello Again!&quot; string onto the screen itself, at the x and y positions of 5 and 25. The string will be rendered in the new font and color.
+<BR>
+<BR></LI></UL>
+<P>For an applet this simple, this is all you need to do. Here's what the applet looks like so far:
+<BR></P>
+<PRE>public class HelloAgainApplet extends java.applet.Applet {
+  Font f = new Font(&quot;TimesRoman&quot;,Font.BOLD,36);
+  public void paint(Graphics g) {
+    g.setFont(f);
+    g.setColor(Color.red);
+    g.drawString(&quot;Hello again!&quot;, 5, 50);
+  }
+}</PRE>
+<P>If you've been paying attention, <A ID = "I153" NAME = "I153"  ></A>you'll notice something is wrong with this example up to this point. If you don't know what it is, try saving this file (remember, save it to the same name as the class: HelloAgainApplet.java) and compiling it using the Java compiler. You should get a bunch of errors similar to this one:
+<BR></P>
+<PRE>HelloAgainApplet.java:7: Class Graphics not found in type declaration.</PRE>
+<P>Why are you getting these errors? Because the classes you're referring to are part of a package. Remember that the only package you have access to automatically is java.lang. You referred to the Applet class in the first line of the class definition by referring to its full package name (java.applet.Applet). Further on in the program, however, you referred to all kinds of other classes as if they were already available.
+<BR></P>
+<P>There are two ways to solve this problem: refer to all external classes by full package name or import the appropriate class or package at the beginning of your class file. Which one you choose to do is mostly a matter of choice, although if you find yourself referring to a class in another package lots of times, you may want to import it to cut down on the amount of typing.
+<BR></P>
+<P>In this example, you'll import <A ID = "I154" NAME = "I154"  ></A><A ID = "I155" NAME = "I155"  ></A>the classes you need. There are three of them: Graphics, Font, and Color. All three are part of the java.awt package. Here are the lines to import these classes. These lines go at the top of your program, before the actual class definition:
+<BR></P>
+<PRE>import java.awt.Graphics;
+import java.awt.Font;
+import java.awt.Color;</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="imp.gif" tppabs="http://newdata.box.sk/bx/java/imp.gif" WIDTH = 68 HEIGHT = 35><B>Tip:</B> You also <A ID = "I156" NAME = "I156"  ></A><A ID = "I157" NAME = "I157"  ></A>can import an entire package of (public) classes by using an asterisk (*) in <A ID = "I158" NAME = "I158"  ></A><A ID = "I159" NAME = "I159"  ></A>place of a specific class name. For example, to import all the classes in the awt package, you can use this line:
+<BR>
+import java.awt.*;
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Now, with the proper classes imported into your program, HelloAgainApplet should compile cleanly to a class file. To test it, create an HTML file with the &lt;APPLET&gt; tag as you did yesterday. Here's an HTML file to use:
+<BR></P>
+<PRE>&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;Another Applet&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;P&gt;My second Java applet says:
+&lt;APPLET CODE=&quot;HelloAgainApplet.class&quot; WIDTH=200 HEIGHT=50&gt;
+&lt;/APPLET&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</PRE>
+<P>For this HTML example, your Java class file is in the same directory as this HTML file. Save the file to HelloAgainApplet.html and fire up your Java-capable browser or the Java applet viewer. Figure 2.7 shows the result you should be getting (the Hello Again string is red).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/02tyj07.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/02tyj07.gif'" tppabs="http://newdata.box.sk/bx/java/02tyj07.gif"  >Figure 2.7.  The Hello Again applet.</B></A>
+<BR></P>
+<H3><A ID = "I160" NAME = "I160"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>If this is your first encounter with object-oriented programming, a lot of the information in this chapter is going to seem really theoretical and overwhelming. Fear not&#151;the further along in this book you get, and the more Java applications you create, the easier it is to understand.
+<BR></P>
+<P>One of the biggest hurdles of object-oriented programming is not necessarily the concepts, it's their names. OOP has lots of jargon surrounding it. To summarize today's material, here's a glossary of terms and concepts you learned today:
+<BR></P>
+<P><I>Class:</I> A template for an object, which contains variables and methods representing behavior and attributes. Classes can inherit variables and methods from other classes.
+<BR></P>
+<P><I>Object:</I> A concrete instance of some class. Multiple objects that are instances of the same class have access to the same methods, but often have different values for their instance variables.
+<BR></P>
+<P><I>Instance:</I> The same thing as an object; each object is an instance of some class.
+<BR></P>
+<P><I>Superclass:</I> A class further up in the inheritance hierarchy than its child, the subclass.
+<BR></P>
+<P><I>Subclass:</I> A class lower in the inheritance hierarchy than its parent, the superclass. When you create a new class, that's often called <I>subclassing</I>.
+<BR></P>
+<P><I>Instance method:</I> A method defined in a class, which operates on an instance of that class. Instance methods are usually called just <I>methods</I>.
+<BR></P>
+<P><I>Class method:</I> A method defined in a class, which operates on the class itself, and can be called via the class or any of its instances.
+<BR></P>
+<P><I>Instance variable: </I>A variable that is owned by an individual instance and whose value is stored in the instance.
+<BR></P>
+<P><I>Class variable: </I>A variable that is &quot;owned&quot; by the class and all its instances as a whole, and is stored in the class.
+<BR></P>
+<P><I>Interface: </I>A collection of abstract behavior specifications that individual classes can then implement.
+<BR></P>
+<P><I>Package: </I>A collection of classes and interfaces. Classes from packages other than java.lang must be explicitly imported or referred to by full package name.
+<BR></P>
+<H3><A ID = "I161" NAME = "I161"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: Methods are effectively functions that are defined inside classes. If </B><B>they look like functions and </B><A ID = "I162" NAME = "I162"  ></A><A ID = "I163" NAME = "I163"  ></A><A ID = "I164" NAME = "I164"  ></A><B>act like functions, why aren't they </B><B>called functions?</B>
+<BR></P>
+<P><B>A: </B>Some object-oriented programming languages do call them functions (C++ calls them member functions). Other object-oriented languages differentiate between functions inside and outside a body of a class or object, where having separate terms is important to understanding how each works. Because the difference is relevant in other languages, and because the term method is now in such common use in object-oriented technology, Java uses the word as well.
+<BR></P>
+<P><B>Q: I understand instance variables and methods, but not class variables </B><B>and methods.</B>
+<BR></P>
+<P><B>A: </B>Most everything you do in a Java program will be with objects. Some behaviors and attributes, however, make more sense if they are stored in the class itself rather than in the object. For example, to create a new instance of a class, you need a method that is defined for the class itself, not for an object. (Otherwise, how can you create an instance of a class? You need an object to call the new method in, but you don't have an object yet.) Class variables, on the other hand, are often used when you have an attribute whose value you want to share with all the instances of a class.
+<BR>
+<BR>Most of the time, you'll use instance variables and methods. You'll learn more about class variables and methods later on this week.</P>
+<P><A HREF = "tyj01x.html" tppabs="http://newdata.box.sk/bx/java/tyj01x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj03x.html" tppabs="http://newdata.box.sk/bx/java/tyj03x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

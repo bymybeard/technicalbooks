@@ -1,0 +1,946 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyjxax.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyjxbx.html" tppabs="http://newdata.box.sk/bx/java/tyjxbx.html">
+<LINK REL="Previous" HREF="tyj21x.html" tppabs="http://newdata.box.sk/bx/java/tyj21x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj21x.html" tppabs="http://newdata.box.sk/bx/java/tyj21x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyjxbx.html" tppabs="http://newdata.box.sk/bx/java/tyjxbx.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >A</A></LI>
+<UL>
+<LI>
+<A HREF = "#I2"  >Language Summary</A></LI>
+<UL>
+<LI>
+<A HREF = "#I8"  >Reserved Words</A></LI>
+<LI>
+<A HREF = "#I13"  >Comments</A></LI>
+<LI>
+<A HREF = "#I21"  >Operators</A></LI>
+<LI>
+<A HREF = "#I23"  >Objects</A></LI>
+<LI>
+<A HREF = "#I25"  >Arrays</A></LI>
+<LI>
+<A HREF = "#I29"  >Loops and Conditionals</A></LI>
+<LI>
+<A HREF = "#I32"  >Class Definitions</A></LI>
+<LI>
+<A HREF = "#I36"  >Method and Constructor Definitions</A></LI>
+<LI>
+<A HREF = "#I48"  >Packages, Interfaces, and Importing</A></LI>
+<LI>
+<A HREF = "#I52"  >Exceptions and Guarding</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><B>A</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I2" NAME = "I2"  >
+<foNT SIZE=5><B>Language Summary</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>This appendix contains a summary or quick reference for the Java language, as described in this book.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> This is not a grammar overview, nor is it a technical overview of the language itself. It's a quick reference to be used after you already know the basics of how the language works. If you need a technical description of the language, your best bet is to visit the Java Web site (<A HREF = "javascript:if(confirm('http://java.sun.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://java.sun.com/'" tppabs="http://java.sun.com/"  >http://java.sun.com</A>) and download the actual specification, which includes a full BNF grammar.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Language keywords and <A ID = "I3" NAME = "I3"  ></A>symbols are shown in a monospace font. Arguments and other <A ID = "I4" NAME = "I4"  ></A>parts to be substituted are in italic monospace.
+<BR></P>
+<P>Optional parts are indicated <A ID = "I5" NAME = "I5"  ></A>by brackets (except in the array syntax section). If there are several options that are mutually exclusive, they are <A ID = "I6" NAME = "I6"  ></A><A ID = "I7" NAME = "I7"  ></A>shown separated by pipes ([|]) like this:
+<BR></P>
+<PRE>[ public | private | protected ] <I>type varname</I></PRE>
+<H3><A ID = "I8" NAME = "I8"  >
+<foNT SIZE=4><B>Reserved Words</B>
+<BR></FONT></A></H3>
+<P>The following words<A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A><A ID = "I11" NAME = "I11"  ></A><A ID = "I12" NAME = "I12"  ></A> are reserved for use by the Java language itself (some of them are reserved but not currently used). You cannot use these words to refer to classes, methods, or variable names:
+<BR></P>
+<H3><A ID = "I13" NAME = "I13"  >
+<foNT SIZE=4><B>Comments</B><A ID = "I14" NAME = "I14"  ></A>
+<BR></FONT></A></H3>
+<P>/* this is a multiline comment */</P>
+<P>// this is a single-line comment</P>
+<P>/** Javadoc comment */</P>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>number</P>
+<TD>
+<P>Type int</P>
+<TR>
+<TD>
+<P><I>number</I>[l | L]</P>
+<TD>
+<P>Type long</P>
+<TR>
+<TD>
+<P>0x<I>hex</I></P>
+<TD>
+<P>Hex integer</P>
+<TR>
+<TD>
+<P>0X<I>hex</I></P>
+<TD>
+<P>Hex integer</P>
+<TR>
+<TD>
+<P>0octal</P>
+<TD>
+<P>Octal integer</P>
+<TR>
+<TD>
+<P>[ number ].number</P>
+<TD>
+<P>Type double</P>
+<TR>
+<TD>
+<P><I>number</I>[ f | f]</P>
+<TD>
+<P>Type float</P>
+<TR>
+<TD>
+<P><I>number</I>[ d | D]</P>
+<TD>
+<P>Type double</P>
+<TR>
+<TD>
+<P>[ + | - ]<I> number</I></P>
+<TD>
+<P>Signed</P>
+<TR>
+<TD>
+<P>numberenumber</P>
+<TD>
+<P>Exponent</P>
+<TR>
+<TD>
+<P>numberEnumber</P>
+<TD>
+<P>Exponent</P>
+<TR>
+<TD>
+<P>'character'</P>
+<TD>
+<P>Single character</P>
+<TR>
+<TD>
+<P>&quot;characters&quot;</P>
+<TD>
+<P>String</P>
+<TR>
+<TD>
+<P>&quot;&quot;</P>
+<TD>
+<P>Empty string</P>
+<TR>
+<TD>
+<P>\b</P>
+<TD>
+<P>Backspace</P>
+<TR>
+<TD>
+<P>\t</P>
+<TD>
+<P>Tab</P>
+<TR>
+<TD>
+<P>\n</P>
+<TD>
+<P>Line feed</P>
+<TR>
+<TD>
+<P>\f</P>
+<TD>
+<P>Form feed</P>
+<TR>
+<TD>
+<P>\r</P>
+<TD>
+<P>Carriage return</P>
+<TR>
+<TD>
+<P>\&quot;</P>
+<TD>
+<P>Double quote</P>
+<TR>
+<TD>
+<P>\'</P>
+<TD>
+<P>Single quote</P>
+<TR>
+<TD>
+<P>\\</P>
+<TD>
+<P>Backslash</P>
+<TR>
+<TD>
+<P>\uNNNN</P>
+<TD>
+<P>Unicode escape (NNNN is hex)</P>
+<TR>
+<TD>
+<P>true</P>
+<TD>
+<P>Boolean</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>false</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Boolean</CENTER></P>
+<TR>
+<TD>
+<P>[ byte | short | int | long ] <I>varname</I> </P>
+<TD>
+<P>Integers (pick one type)</P>
+<TR>
+<TD>
+<P>[ float | double ] <I>varname</I></P>
+<TD>
+<P>Floats (pick one type)</P>
+<TR>
+<TD>
+<P>char varname</P>
+<TD>
+<P>Characters</P>
+<TR>
+<TD>
+<P>boolean <I>varname</I></P>
+<TD>
+<P>Boolean</P>
+<TR>
+<TD>
+<P>classname varname</P>
+<TD>
+<P>Class types</P>
+<TR>
+<TD>
+<P>interfacename varname</P>
+<TD>
+<P>Interface types</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>type varname, varname, varname</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Multiple variables</CENTER></P></TABLE>
+<P>The following options are <A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A><A ID = "I17" NAME = "I17"  ></A><A ID = "I18" NAME = "I18"  ></A><A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A>available only for class and instance variables. Any of these options can be used with a variable declaration:
+<BR></P>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>[ static ] variableDeclaration</P>
+<TD>
+<P>Class variable</P>
+<TR>
+<TD>
+<P>[ final ] variableDeclaration</P>
+<TD>
+<P>Constants</P>
+<TR>
+<TD>
+<P>[ public | private | protected ] <I>variableDeclaration</I> </P>
+<TD>
+<P>Access control</P>
+<TR>
+<TD>
+<P>[volatile] <I>varname</I></P>
+<TD>
+<P>Modified asynchronously </P>
+<TR>
+<TD>
+<P>[transient] <I>varname</I></P>
+<TD>
+<P>Not persistent (not yet implemented)</P>
+<TR>
+<TD>
+<P>variable = value</P>
+<TD>
+<P>Assignment</P>
+<TR>
+<TD>
+<P>variable++</P>
+<TD>
+<P>Postfix Increment</P>
+<TR>
+<TD>
+<P>++variable</P>
+<TD>
+<P>Prefix Increment</P>
+<TR>
+<TD>
+<P>variable&#151;&#151;</P>
+<TD>
+<P>Postfix Decrement</P>
+<TR>
+<TD>
+<P>&#151;&#151;variable</P>
+<TD>
+<P>Prefix Decrement</P>
+<TR>
+<TD>
+<P>variable += value</P>
+<TD>
+<P>Add and assign</P>
+<TR>
+<TD>
+<P>variable &#151;= value</P>
+<TD>
+<P>Subtract and assign</P>
+<TR>
+<TD>
+<P>variable /= value</P>
+<TD>
+<P>Multiply and assign</P>
+<TR>
+<TD>
+<P>variable &#150;= value</P>
+<TD>
+<P>Divide and assign</P>
+<TR>
+<TD>
+<P>variable %= value</P>
+<TD>
+<P>Modulus and assign</P>
+<TR>
+<TD>
+<P>variable &amp;= value</P>
+<TD>
+<P>AND and assign</P>
+<TR>
+<TD>
+<P>variable |= value</P>
+<TD>
+<P>OR and assign</P>
+<TR>
+<TD>
+<P>variable ^= value</P>
+<TD>
+<P>XOR and assign</P>
+<TR>
+<TD>
+<P>variable &lt;&lt;= value</P>
+<TD>
+<P>Left-shift and assign</P>
+<TR>
+<TD>
+<P>variable &gt;&gt;= value</P>
+<TD>
+<P>Right-shift and assign</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>variable &gt;&gt;&gt;= value</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Zero-fill right-shift and assign</CENTER></P></TABLE>
+<H3><A ID = "I21" NAME = "I21"  >
+<foNT SIZE=4><B>Operators</B><A ID = "I22" NAME = "I22"  ></A>
+<BR></FONT></A></H3>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>arg + arg</P>
+<TD>
+<P>Addition</P>
+<TR>
+<TD>
+<P>arg &#151; arg</P>
+<TD>
+<P>Subtraction</P>
+<TR>
+<TD>
+<P>arg * arg</P>
+<TD>
+<P>Multiplication</P>
+<TR>
+<TD>
+<P>arg / arg</P>
+<TD>
+<P>Division</P>
+<TR>
+<TD>
+<P>arg % arg</P>
+<TD>
+<P>Modulus</P>
+<TR>
+<TD>
+<P>arg &lt; arg</P>
+<TD>
+<P>Less than</P>
+<TR>
+<TD>
+<P>arg &gt; arg</P>
+<TD>
+<P>Greater than</P>
+<TR>
+<TD>
+<P>arg &lt;= arg</P>
+<TD>
+<P>Less than or equal to</P>
+<TR>
+<TD>
+<P>arg &gt;= arg</P>
+<TD>
+<P>Greater than or equal to</P>
+<TR>
+<TD>
+<P>arg == arg</P>
+<TD>
+<P>Equal</P>
+<TR>
+<TD>
+<P>arg != arg</P>
+<TD>
+<P>Not equal</P>
+<TR>
+<TD>
+<P><I>arg</I> &amp;&amp; <I>arg</I></P>
+<TD>
+<P>Logical AND</P>
+<TR>
+<TD>
+<P><I>arg</I> || <I>arg</I></P>
+<TD>
+<P>Logical OR</P>
+<TR>
+<TD>
+<P>! <I>arg</I></P>
+<TD>
+<P>Logical NOT</P>
+<TR>
+<TD>
+<P><I>arg</I> &amp; <I>arg</I></P>
+<TD>
+<P>AND</P>
+<TR>
+<TD>
+<P><I>arg</I> | <I>arg</I></P>
+<TD>
+<P>OR</P>
+<TR>
+<TD>
+<P><I>arg</I> ^ <I>arg</I></P>
+<TD>
+<P>XOR</P>
+<TR>
+<TD>
+<P>arg &lt;&lt; arg</P>
+<TD>
+<P>Left-shift</P>
+<TR>
+<TD>
+<P>arg &gt;&gt; arg</P>
+<TD>
+<P>Right-shift</P>
+<TR>
+<TD>
+<P>arg &gt;&gt;&gt; arg</P>
+<TD>
+<P>Zero-fill right-shift</P>
+<TR>
+<TD>
+<P>~ <I>arg</I></P>
+<TD>
+<P>Complement</P>
+<TR>
+<TD>
+<P>(type)thing</P>
+<TD>
+<P>Casting</P>
+<TR>
+<TD>
+<P><I>arg</I> instanceof class</P>
+<TD>
+<P>Instance of</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>test ? trueOp : falseOp</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Tenary (if) operator</CENTER></P></TABLE>
+<H3><A ID = "I23" NAME = "I23"  >
+<foNT SIZE=4><B>Objects</B><A ID = "I24" NAME = "I24"  ></A>
+<BR></FONT></A></H3>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>new <I>class</I>()</P>
+<TD>
+<P>Create new instance</P>
+<TR>
+<TD>
+<P>new class(arg,arg,arg...)</P>
+<TD>
+<P>New instance with parameters</P>
+<TR>
+<TD>
+<P>object.variable</P>
+<TD>
+<P>Instance variable</P>
+<TR>
+<TD>
+<P>object.classvar</P>
+<TD>
+<P>Class variable</P>
+<TR>
+<TD>
+<P>Class.classvar</P>
+<TD>
+<P>Class variable</P>
+<TR>
+<TD>
+<P>object.method()</P>
+<TD>
+<P>Instance method (no args)</P>
+<TR>
+<TD>
+<P>object.method(arg,arg,arg...)</P>
+<TD>
+<P>Instance method</P>
+<TR>
+<TD>
+<P>object.classmethod()</P>
+<TD>
+<P>Class method (no args)</P>
+<TR>
+<TD>
+<P>object.classmethod(arg,arg,arg...)</P>
+<TD>
+<P>Class method</P>
+<TR>
+<TD>
+<P>Class.classmethod()</P>
+<TD>
+<P>Class method (no args)</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Class.classmethod(arg,arg,arg...)</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Class method</CENTER></P></TABLE>
+<H3><A ID = "I25" NAME = "I25"  >
+<foNT SIZE=4><B>Arrays</B>
+<BR></FONT></A></H3>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The brackets in this <A ID = "I26" NAME = "I26"  ></A><A ID = "I27" NAME = "I27"  ></A><A ID = "I28" NAME = "I28"  ></A>section are parts of the array creation or access statements. They do not denote optional parts as they do in other parts of this appendix.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>type varname[]</P>
+<TD>
+<P>Array variable</P>
+<TR>
+<TD>
+<P>type[] varname</P>
+<TD>
+<P>Array variable</P>
+<TR>
+<TD>
+<P>new type[numElements]</P>
+<TD>
+<P>New array object</P>
+<TR>
+<TD>
+<P>array[index]</P>
+<TD>
+<P>Element access</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER><I>array</I>.length</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Length of array</CENTER></P></TABLE>
+<H3><A ID = "I29" NAME = "I29"  >
+<foNT SIZE=4><B>Loops and Conditionals</B><A ID = "I30" NAME = "I30"  ></A><A ID = "I31" NAME = "I31"  ></A>
+<BR></FONT></A></H3>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>if ( test) block</P>
+<TD>
+<P>Conditional</P>
+<TR>
+<TD>
+<P>&lt;tb rule&gt;if ( <I>test</I> ) <I>block</I></P>
+<TD>
+<TR>
+<TD>
+<P>&lt;tb rule&gt;else <I>block </I></P>
+<TD>
+<P>Conditional with else</P>
+<TR>
+<TD>
+<P>switch (<I>test</I>) {</P>
+<TD>
+<P>switch (only with integer or char types)</P>
+<TR>
+<TD>
+<P>    case value : statements</P>
+<TD>
+<TR>
+<TD>
+<P>    case value : statements</P>
+<TD>
+<TR>
+<TD>
+<P>    ...</P>
+<TD>
+<TR>
+<TD>
+<P>    default : <I>statement</I></P>
+<TD>
+<TR>
+<TD>
+<P>&lt;tb rule&gt;}</P>
+<TD>
+<TR>
+<TD>
+<P>&lt;tb rule&gt;for (<I>initializer</I>;</P>
+<TD>
+<P>for loop</P>
+<TR>
+<TD>
+<P><I>test</I>; change ) <I>block</I></P>
+<TD>
+<TR>
+<TD>
+<P>&lt;tb rule&gt;while ( <I>test</I> ) <I>block</I></P>
+<TD>
+<P>while loop</P>
+<TR>
+<TD>
+<P>do block</P>
+<TD>
+<P>do loop</P>
+<TR>
+<TD>
+<P>&lt;tb rule&gt;while (<I>test</I>)</P>
+<TD>
+<TR>
+<TD>
+<P>&lt;tb rule&gt;break [ <I>label</I> ]</P>
+<TD>
+<P>break from loop or switch</P>
+<TR>
+<TD>
+<P>&lt;tb rule&gt;continue [ <I>label</I> ]</P>
+<TD>
+<P>continue loops</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>&lt;tb rule&gt;label:</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Labeled loops</CENTER></P></TABLE>
+<H3><A ID = "I32" NAME = "I32"  >
+<foNT SIZE=4><B>Class Definitions</B><A ID = "I33" NAME = "I33"  ></A><A ID = "I34" NAME = "I34"  ></A>
+<BR></FONT></A></H3>
+<TABLE BORDER>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>class classname <I>block</I></CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Simple Class definition</CENTER></P></TABLE>
+<P>Any of the following <A ID = "I35" NAME = "I35"  ></A>optional modifiers can be added to the class definition:
+<BR></P>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>[ final ] class <I>classname</I> <I>block</I></P>
+<TD>
+<P>Cannot be subclassed</P>
+<TR>
+<TD>
+<P>[ abstract ] class <I>classname</I> <I>block</I></P>
+<TD>
+<P>Cannot be instantiated</P>
+<TR>
+<TD>
+<P>[ public ] class <I>classname</I> <I>block</I></P>
+<TD>
+<P>Accessible outside package</P>
+<TR>
+<TD>
+<P>class classname [ extends Superclass ] block</P>
+<TD>
+<P>Define superclass</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>class <I>classname</I> [ implements <I>interfaces</I> ] <I>block</I></CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Implement one or more interfaces</CENTER></P></TABLE>
+<H3><A ID = "I36" NAME = "I36"  >
+<foNT SIZE=4><B>Method and Constructor Definitions</B>
+<BR></FONT></A></H3>
+<P>The basic method looks like <A ID = "I37" NAME = "I37"  ></A><A ID = "I38" NAME = "I38"  ></A><A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A>this, where <I>returnType</I> is a type name, a class name, or void.
+<BR></P>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>returnType methodName() block </P>
+<TD>
+<P>Basic method</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>returnType methodName(parameter, parameter, ...) block</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Method with parameters</CENTER></P></TABLE>
+<P>Method parameters look <A ID = "I41" NAME = "I41"  ></A><A ID = "I42" NAME = "I42"  ></A>like this:
+<BR></P>
+<P ALIGN="CENTER">
+<CENTER>type parameterName</CENTER></P>
+<P>Method variations can include <A ID = "I43" NAME = "I43"  ></A><A ID = "I44" NAME = "I44"  ></A>any of the following optional keywords:
+<BR></P>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>[ abstract ] returnType methodName() block</P>
+<TD>
+<P>Abstract method</P>
+<TR>
+<TD>
+<P>[ static ] returnType methodName() block</P>
+<TD>
+<P>Class method</P>
+<TR>
+<TD>
+<P>[ native ] returnType methodName() block</P>
+<TD>
+<P>Native method</P>
+<TR>
+<TD>
+<P>[ final ] <I>returnType methodName</I>() <I>block</I></P>
+<TD>
+<P>final method</P>
+<TR>
+<TD>
+<P>[ synchronized ] returnType methodName() block</P>
+<TD>
+<P>Thread lock before executing</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>[ public | private | protected ]</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Access control</CENTER></P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER><I>returnType</I> <I>methodName</I>()</CENTER></P>
+<TD></TABLE>
+<P>Constructors <A ID = "I45" NAME = "I45"  ></A>look like this:
+<BR></P>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>classname() block</P>
+<TD>
+<P>basic constructor</P>
+<TR>
+<TD>
+<P>classname(parameter, parameter, parameter...) block</P>
+<TD>
+<P>constructor with parameters</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>[ public | private | protected] <I>classname</I>()<I> block</I></CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Access control</CENTER></P></TABLE>
+<P>In the method/constructor body <A ID = "I46" NAME = "I46"  ></A><A ID = "I47" NAME = "I47"  ></A>you can use these references and methods:
+<BR></P>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>this</P>
+<TD>
+<P>Refers to current object</P>
+<TR>
+<TD>
+<P>super</P>
+<TD>
+<P>Refers to superclass</P>
+<TR>
+<TD>
+<P>super.methodName()</P>
+<TD>
+<P>Call a superclass's method</P>
+<TR>
+<TD>
+<P>this(...)</P>
+<TD>
+<P>Calls class's constructor</P>
+<TR>
+<TD>
+<P>super(...)</P>
+<TD>
+<P>Calls superclass's constructor</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>return [ <I>value</I> ]</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Returns a value</CENTER></P></TABLE>
+<H3><A ID = "I48" NAME = "I48"  >
+<foNT SIZE=4><B>Packages, Interfaces, and Importing</B><A ID = "I49" NAME = "I49"  ></A><A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A>
+<BR></FONT></A></H3>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>import package.className</P>
+<TD>
+<P>Imports specific class name</P>
+<TR>
+<TD>
+<P>import <I>package</I>.*</P>
+<TD>
+<P>Imports all public classes in package</P>
+<TR>
+<TD>
+<TD>
+<TR>
+<TD>
+<P>package packagename</P>
+<TD>
+<P>Classes in this file belong </P>
+<TR>
+<TD>
+<TD>
+<P>to this package</P>
+<TR>
+<TD>
+<P>interface interfaceName [ extends anotherInterface ] block</P>
+<TD>
+<TR>
+<TD>
+<P>[ public ] interface <I>interfaceName</I> <I>block</I></P>
+<TD>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>[ abstract ] interface <I>interfaceName</I> <I>block</I></CENTER></P>
+<TD></TABLE>
+<H3><A ID = "I52" NAME = "I52"  >
+<foNT SIZE=4><B>Exceptions and Guarding</B><A ID = "I53" NAME = "I53"  ></A><A ID = "I54" NAME = "I54"  ></A>
+<BR></FONT></A></H3>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>synchronized ( <I>object</I> ) <I>block</I></P>
+<TD>
+<P>Waits for lock on <I>object</I></P>
+<TR>
+<TD>
+<P>try <I>block</I></P>
+<TD>
+<P>Guarded statements</P>
+<TR>
+<TD>
+<P>catch ( exception ) block</P>
+<TD>
+<P>Executed if <I>exception</I> is thrown</P>
+<TR>
+<TD>
+<P>[ finally <I>block</I> ]</P>
+<TD>
+<P>Cleanup code</P>
+<TR>
+<TD>
+<P>try <I>block</I></P>
+<TD>
+<P>Same as previous example (can</P>
+<TR>
+<TD>
+<P>[ catch ( <I>exception</I> ) <I>block</I> ] </P>
+<TD>
+<P>use optional catch or finally, </P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>finally <I>block </I></CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>but not both)</CENTER></P></TABLE>
+<P>abstract</P>
+<P>boolean</P>
+<P>break</P>
+<P>byte</P>
+<P>case</P>
+<P>catch</P>
+<P>char</P>
+<P>class</P>
+<P>const</P>
+<P>continue</P>
+<P>do</P>
+<P>double</P>
+<P>else</P>
+<P>extends</P>
+<P>final</P>
+<P>finally</P>
+<P>float</P>
+<P>for</P>
+<P>goto</P>
+<P>if</P>
+<P>implements</P>
+<P>import</P>
+<P>instanceof</P>
+<P>int</P>
+<P>interface</P>
+<P>long</P>
+<P>native</P>
+<P>new</P>
+<P>null</P>
+<P>package</P>
+<P>private</P>
+<P>protected</P>
+<P>public</P>
+<P>return</P>
+<P>short</P>
+<P>static</P>
+<P>super</P>
+<P>switch</P>
+<P>synchronized</P>
+<P>this</P>
+<P>throw</P>
+<P>throws</P>
+<P><A ID = "I55" NAME = "I55"  ></A>transient</P>
+<P>try</P>
+<P>void</P>
+<P>volatile</P>
+<P>while</P>
+<P><A HREF = "tyj21x.html" tppabs="http://newdata.box.sk/bx/java/tyj21x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyjxbx.html" tppabs="http://newdata.box.sk/bx/java/tyjxbx.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

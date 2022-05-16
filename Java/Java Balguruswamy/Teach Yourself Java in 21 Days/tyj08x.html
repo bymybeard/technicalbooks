@@ -1,0 +1,582 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj08x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj09x.html" tppabs="http://newdata.box.sk/bx/java/tyj09x.html">
+<LINK REL="Previous" HREF="tyjwg2.html" tppabs="http://newdata.box.sk/bx/java/tyjwg2.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyjwg2.html" tppabs="http://newdata.box.sk/bx/java/tyjwg2.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj09x.html" tppabs="http://newdata.box.sk/bx/java/tyj09x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 8</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Java Applet Basics</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >How Applets and Applications Are Different</A></LI>
+<LI>
+<A HREF = "#I18"  >Creating Applets</A></LI>
+<UL>
+<LI>
+<A HREF = "#I27"  >Major Applet Activities</A></LI>
+<UL>
+<LI>
+<A HREF = "#I30"  >Initialization</A></LI>
+<LI>
+<A HREF = "#I36"  >Starting</A></LI>
+<LI>
+<A HREF = "#I41"  >Stopping</A></LI>
+<LI>
+<A HREF = "#I46"  >Destroying</A></LI>
+<LI>
+<A HREF = "#I50"  >Painting</A></LI></UL>
+<LI>
+<A HREF = "#I55"  >A Simple Applet</A></LI></UL>
+<LI>
+<A HREF = "#I60"  >Including an Applet on a Web Page</A></LI>
+<UL>
+<LI>
+<A HREF = "#I65"  >The &lt;APPLET&gt; Tag</A></LI>
+<LI>
+<A HREF = "#I74"  >Testing the Result</A></LI>
+<LI>
+<A HREF = "#I77"  >Making Java Applets Available to the Web</A></LI></UL>
+<LI>
+<A HREF = "#I80"  >More About the &lt;APPLET&gt; Tag</A></LI>
+<UL>
+<LI>
+<A HREF = "#I82"  >ALIGN</A></LI>
+<LI>
+<A HREF = "#I88"  >HSPACE and VSPACE</A></LI>
+<LI>
+<A HREF = "#I91"  >CODE and CODEBASE</A></LI></UL>
+<LI>
+<A HREF = "#I95"  >Passing Parameters to Applets</A></LI>
+<LI>
+<A HREF = "#I115"  >Summary</A></LI>
+<LI>
+<A HREF = "#I120"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 8</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Java Applet Basics</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>Much of Java's current popularity has come about because of Java-capable World Wide Web browsers and their support for applets: small programs that run inside a Web page and can be used to create dynamic, interactive Web designs. Applets, as I noted at the beginning of this book, are written in the Java language, and can be viewed in any browser that supports Java, including Sun's HotJava and Netscape's Navigator 2.0. Learning how to create applets is most likely the reason you bought this book, so let's waste no more time.
+<BR></P>
+<P>Last week, you focused on learning about the Java language itself, and most of the little programs you created were Java applications. This week, now that you have the basics down, you move on to creating and using applets, which includes a discussion of many of the classes in the standard Java class library.
+<BR></P>
+<P>Today, you'll start with the basics:
+<BR></P>
+<UL>
+<LI>A small review of differences between Java applets and applications
+<BR>
+<BR></LI>
+<LI>Getting started with applets: the basics of how an applet works and how to create your own simple applets
+<BR>
+<BR></LI>
+<LI>Including an applet on a Web page by using the &lt;APPLET&gt; tag, including the various features of that tag
+<BR>
+<BR></LI>
+<LI>Passing parameters to applets
+<BR>
+<BR></LI></UL>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>How Applets and Applications Are Different</B>
+<BR></FONT></A></H3>
+<P>Although you explored <A ID = "I5" NAME = "I5"  ></A><A ID = "I6" NAME = "I6"  ></A><A ID = "I7" NAME = "I7"  ></A>the differences between Java applications and Java applets in the early part of this book, let's review them.
+<BR></P>
+<P>In short, Java applications are stand-alone Java programs that can be run by using just the Java interpreter, for example, from a command line. Most everything you've used up to this point in the book has been a Java application, albeit a simple one.
+<BR></P>
+<P>Java applets, however, are <A ID = "I8" NAME = "I8"  ></A><A ID = "I9" NAME = "I9"  ></A>run from inside a World Wide Web browser. A reference to an applet is embedded in a Web page using a special HTML tag. When a reader, using a Java-enabled browser, loads a Web page with an applet in it, the browser downloads that applet from a Web server and executes it on the local system (the one the browser is running on).
+<BR></P>
+<P>Because Java applets run inside a Java browser, they have the advantage of the structure the browser provides: an existing window, an event-handling and graphics context, and the surrounding user interface. Java applications can also create this structure, but they don't require it (you'll learn how to create Java applications that use applet-like graphics and UI features on Day 14).
+<BR></P>
+<P>The convenience that applets have over applications in terms of structure and UI capabilities, however, is hampered by restrictions on what applets can do. Given the fact that Java applets can be downloaded from anywhere and run on a client's system, restrictions are necessary to prevent an applet from causing system damage or security breaches. Without these restrictions in place, Java applets could be written to contain viruses or trojan horses (programs that seem friendly but do some sort of damage to the system), or be used to compromise the security of the system that runs them. The restrictions on what an applet <A ID = "I10" NAME = "I10"  ></A><A ID = "I11" NAME = "I11"  ></A>can do include the following:
+<BR></P>
+<UL>
+<LI>Applets can't read <A ID = "I12" NAME = "I12"  ></A><A ID = "I13" NAME = "I13"  ></A>or write to the reader's file system, except in specific directories (which are defined by the user through an access control list that, by default, is empty). Some browsers may not even allow an applet to read or write to the file system at all, or at the same time as using the network.
+<BR>
+<BR></LI>
+<LI>Applets can't usually <A ID = "I14" NAME = "I14"  ></A><A ID = "I15" NAME = "I15"  ></A>communicate with a server other than the one that had originally stored the applet. (This may be configurable by the browser; however, you should not depend on having this behavior available.)
+<BR>
+<BR></LI>
+<LI>Applets can't run any <A ID = "I16" NAME = "I16"  ></A>programs on the reader's system. For Unix systems, this includes forking a process.
+<BR>
+<BR></LI>
+<LI>Applets can't load programs <A ID = "I17" NAME = "I17"  ></A>native to the local platform, including shared libraries such as DLLs.
+<BR>
+<BR></LI></UL>
+<P>In addition, Java itself includes various forms of security and consistency checking in the Java compiler and interpreter to prevent unorthodox use of the language (you'll learn more about this on Day 21). This combination of restrictions and security features make it more difficult for a rogue Java applet to do damage to the client's system.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> These restrictions prevent all of the traditional ways of causing damage to a client's system, but it's impossible to be absolutely sure that a clever programmer cannot somehow work around these restrictions, violate privacy, use CPU resources, and be annoying. Sun has asked the Net at large to try to break Java's security and to create an applet that can work around the restrictions imposed on it. You'll learn about more issues in Java security on Day 21.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H3><A ID = "I18" NAME = "I18"  >
+<foNT SIZE=4><B>Creating Applets</B>
+<BR></FONT></A></H3>
+<P>For the most <A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A>part, all the Java programs you've created up to this point have been Java applications&#151;simple programs with a single main() method that created objects, set instance variables, and ran methods. Today and in the days following, you'll be creating applets exclusively, so you will need a good grasp of how an applet works, the sorts of features an applet has, and where to start when you first create your own applets. Without further ado, let's get on with it.
+<BR></P>
+<P>To create an applet, you create a subclass of the class Applet, in the java.applet package. The Applet class <A ID = "I21" NAME = "I21"  ></A><A ID = "I22" NAME = "I22"  ></A>provides behavior to enable your applet not only to work within the browser itself, but also to take advantage of the capabilities of AWT to include UI elements, to handle mouse and keyword events, and to draw to the screen. Although your applet can have as many &quot;helper&quot; classes as it needs, it's the main applet class that triggers the execution of the applet. That initial applet class always has a signature like this:
+<BR></P>
+<PRE>public class myClass extends java.applet.Applet {
+    ...
+}</PRE>
+<P>Note the public keyword. Java <A ID = "I23" NAME = "I23"  ></A><A ID = "I24" NAME = "I24"  ></A>requires that your applet subclass be declared public. Again, this is true only of your main applet class; any helper classes you create can be public or private as you wish. Public, private, and other forms of access control are described on Day 15.
+<BR></P>
+<P>When Java encounters your applet in a Web page, it loads your initial applet class over <A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A>the network, as well as any other helper classes that first class uses. Unlike with applications, where Java calls the main() method directly on your initial class, when your applet is loaded, Java creates an instance of that class, and a series of Applet methods are called on that instance. Different applets that use the same class use different instances, so each one can behave differently from the other applets running in the same browser.
+<BR></P>
+<H4><A ID = "I27" NAME = "I27"  >
+<foNT SIZE=3><B>Major Applet Activities</B>
+<BR></FONT></A></H4>
+<P>To create a basic <A ID = "I28" NAME = "I28"  ></A><A ID = "I29" NAME = "I29"  ></A>Java application, your class has to have one method, main(), with a specific signature. Then, when your application starts up, main() is executed, and from main() you can set up the behavior that your program needs. Applets are similar but more complicated. Applets have many different activities that correspond to various major events in the life cycle of the applet&#151;for example, initialization, painting, or mouse events. Each activity has a corresponding method, so when an event occurs, the browser or other Java-capable tool calls those specific methods.
+<BR></P>
+<P>The default implementations of these activity methods do nothing; to provide behavior for an event you must override the appropriate method in your applet's subclass. You don't have to override all of them, of course; different applet behavior requires different methods to be overridden.
+<BR></P>
+<P>You'll learn about the various important methods to override as the week progresses, but, for a general overview, here are five of the more important methods in an applet's execution: initialization, starting, stopping, destroying, and painting.
+<BR></P>
+<H5><A ID = "I30" NAME = "I30"  >
+<foNT SIZE=3><B>Initialization</B>
+<BR></FONT></A></H5>
+<P>Initialization occurs when <A ID = "I31" NAME = "I31"  ></A><A ID = "I32" NAME = "I32"  ></A>the applet is <A ID = "I33" NAME = "I33"  ></A>first loaded (or reloaded). Initialization might include creating the objects it needs, setting up an initial state, loading images or fonts, or setting parameters. To provide behavior for the <A ID = "I34" NAME = "I34"  ></A><A ID = "I35" NAME = "I35"  ></A>initialization of your applet, override the init() method:
+<BR></P>
+<PRE>public void init() {
+    ...
+}</PRE>
+<H5><A ID = "I36" NAME = "I36"  >
+<foNT SIZE=3><B>Starting</B>
+<BR></FONT></A></H5>
+<P>After an applet is <A ID = "I37" NAME = "I37"  ></A><A ID = "I38" NAME = "I38"  ></A>initialized, it is started. Starting can also occur if the applet was previously stopped. For example, an applet is stopped if the reader follows a link to a different page, and it is started again when the reader returns to this page. Note that starting can occur several times during an applet's life cycle, whereas initialization happens only once. To provide <A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A>startup behavior for your applet, override the start() method:
+<BR></P>
+<PRE>public void start() {
+    ...
+}</PRE>
+<P>Functionality that you put in the start() method might include starting up a thread to control the applet, sending the appropriate messages to helper objects, or in some way telling the applet to begin running. You'll learn more about starting applets on Day 10.
+<BR></P>
+<H5><A ID = "I41" NAME = "I41"  >
+<foNT SIZE=3><B>Stopping</B>
+<BR></FONT></A></H5>
+<P>Stopping and starting <A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A>go hand in hand. Stopping occurs when the reader leaves the page that contains a currently running applet, or you can stop the applet yourself by <A ID = "I44" NAME = "I44"  ></A><A ID = "I45" NAME = "I45"  ></A>calling stop(). By default, when the reader leaves a page any threads the applet had started will continue running. You'll learn more about threads in Day 10. By overriding stop(), you can suspend execution of these threads and then restart them if the applet is viewed again: 
+<BR></P>
+<PRE>public void stop() {
+    ...
+}</PRE>
+<H5><A ID = "I46" NAME = "I46"  >
+<foNT SIZE=3><B>Destroying</B>
+<BR></FONT></A></H5>
+<P>Destroying sounds more <A ID = "I47" NAME = "I47"  ></A>violent than it is. Destroying enables the applet to clean up after itself just before it is freed or the browser exits&#151;for example, to kill any running threads or to release any other running objects. Generally, you won't want to override destroy() unless <A ID = "I48" NAME = "I48"  ></A><A ID = "I49" NAME = "I49"  ></A>you have specific resources that need to be released&#151;for example, threads that the applet has created. To provide clean up behavior for your applet, override the destroy() method:
+<BR></P>
+<PRE>public void destroy() {
+    ...
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> How is destroy() different from finalize(), which was described on Day 7? First, destroy() applies only to applets. finalize() is a more general-purpose way for a single object of any type to clean up after itself.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I50" NAME = "I50"  >
+<foNT SIZE=3><B>Painting</B>
+<BR></FONT></A></H5>
+<P>Painting is how <A ID = "I51" NAME = "I51"  ></A><A ID = "I52" NAME = "I52"  ></A>an applet actually draws something on the screen, be it text, a line, a colored background, or an image. Painting can occur many hundreds of times during an applet's life cycle&#151;for example, once after the applet is initialized, if the browser is placed behind another window on the screen and then brought forward again, if the browser window is moved to a different position on the screen, or perhaps repeatedly in the case of animations. You override <A ID = "I53" NAME = "I53"  ></A><A ID = "I54" NAME = "I54"  ></A>the paint() method for your applet to have an actual appearance on the screen. The paint() method looks like this:
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    ...
+}</PRE>
+<P>Note that unlike the other major methods in this section, paint() takes an argument, an instance of the class Graphics. This object is created and passed to paint by the browser, so you don't have to worry about it. However, you will have to make sure that the Graphics class (part of the java.awt package) gets imported into your applet code, usually through an import statement at the top of your Java file:
+<BR></P>
+<PRE>import java.awt.Graphics;</PRE>
+<H4><A ID = "I55" NAME = "I55"  >
+<foNT SIZE=3><B>A Simple Applet</B>
+<BR></FONT></A></H4>
+<P>On Day 2, you created a simple applet called HelloAgainApplet (this was the one with the big red Hello Again). There, you created and used that applet as an example of creating a subclass. Let's go over the code for that applet again, this time looking at it slightly differently in light of the things you just learned about applets. Listing 8.1 shows the code for that applet.
+<BR></P>
+<UL>
+<LH><B>Listing 8.1. The Hello Again applet.</B><A ID = "I56" NAME = "I56"  ></A></LH></UL>
+<PRE> 1:  import java.awt.Graphics;
+ 2:  import java.awt.Font;
+ 3:  import java.awt.Color;
+ 4:
+ 5:  public class HelloAgainApplet extends java.applet.Applet {
+ 6:
+ 7:     Font f = new Font(&quot;TimesRoman&quot;, Font.BOLD, 36);
+ 8:
+ 9:     public void paint(Graphics g) {
+10:        g.setFont(f);
+11:        g.setColor(Color.red);
+12:        g.drawString(&quot;Hello again!&quot;, 5, 50);
+13:     }
+14: }</PRE>
+<P>This applet <A ID = "I57" NAME = "I57"  ></A><A ID = "I58" NAME = "I58"  ></A><A ID = "I59" NAME = "I59"  ></A>overrides paint(), one of the major methods described in the previous section. Because the applet doesn't actually do much (all it does is print a couple of words to the screen), and there's not really anything to initialize, you don't need a start() or a stop() or an init() method.
+<BR></P>
+<P>The paint method is where the real work of this applet (what little work goes on) really occurs. The Graphics object passed into the paint() method holds the graphics state&#151;that is, the current features of the drawing surface. Lines 10 and 11 set up the font and color for this graphics state (here, the font object held in the f instance variable, and an object representing the color red that's stored in the Color class's variable red).
+<BR></P>
+<P>Line 12 then draws the string &quot;Hello Again!&quot; by using the current font and color at the position 5, 50. Note that the 0 point for x, y is at the top left of the applet's drawing surface, with positive y moving downward, so 50 is actually at the bottom of the applet. Figure 8.1 shows how the applet's bounding box and the string are drawn on the page.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/08tyj01.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/08tyj01.gif'" tppabs="http://newdata.box.sk/bx/java/08tyj01.gif"  >Figure 8.1. Drawing the applet.</B></A>
+<BR></P>
+<H3><A ID = "I60" NAME = "I60"  >
+<foNT SIZE=4><B>Including an Applet on a Web Page</B>
+<BR></FONT></A></H3>
+<P>After you create <A ID = "I61" NAME = "I61"  ></A><A ID = "I62" NAME = "I62"  ></A>a class or classes that contain your applet and compile them into class files as you would any other Java program, you have to create a Web page that will hold that applet by using the HTML language. There <A ID = "I63" NAME = "I63"  ></A>is a special HTML tag for including <A ID = "I64" NAME = "I64"  ></A>applets in Web pages; Java-capable browsers use the information contained in that tag to locate the compiled class files and execute the applet itself. In this section, you'll learn about how to put Java applets in a Web page and how to serve those files to the Web at large.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The following section assumes you have at least a passing understanding of writing HTML pages. If you need help in this area, you may find the book <I>Teach Yourself </I><I>Web Publishing with HTML in 14 Days</I> useful. It is also from Sams.Net (and also written by one of the authors of this book).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I65" NAME = "I65"  >
+<foNT SIZE=3><B>The </B><B>&lt;APPLET&gt;</B><B> Tag</B>
+<BR></FONT></A></H4>
+<P>To include an applet <A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A>on a Web page, use the &lt;APPLET&gt; tag. &lt;APPLET&gt; is a special extension to HTML for including applets in Web pages. Listing 8.2 shows a very simple example of a Web page with an applet included in it.
+<BR></P>
+<UL>
+<LH><B>Listing 8.2. A simple HTML page.</B><A ID = "I68" NAME = "I68"  ></A></LH></UL>
+<PRE> 1:  &lt;HTML&gt;
+ 2:  &lt;HEAD&gt;
+ 3:  &lt;TITLE&gt;This page has an applet on it&lt;/TITLE&gt;
+ 4:  &lt;/HEAD&gt;
+ 5:  &lt;BODY&gt;
+ 6:  &lt;P&gt;My second Java applet says:
+ 7:  &lt;BR&gt;
+ 8:  &lt;APPLET CODE=&quot;HelloAgainApplet.class&quot; WIDTH=200 HEIGHT=50&gt;
+ 9:  There would be an applet here if your browser
+10:  supported Java.
+11:  &lt;/APPLET&gt;
+12:  &lt;/BODY&gt;
+13:  &lt;/HTML&gt;</PRE>
+<P>There are three things to note about the &lt;APPLET&gt; tag in this page:
+<BR>
+<BR></P>
+<UL>
+<LI>The CODE attribute indicates <A ID = "I69" NAME = "I69"  ></A>the name of the class file that contains this applet, including the .class extension. In this case, the class file must be in the same directory as this HTML file. To indicate applets are in a specific directory, use CODEBASE, described later today.
+<BR>
+<BR></LI>
+<LI>WIDTH and HEIGHT are <A ID = "I70" NAME = "I70"  ></A><A ID = "I71" NAME = "I71"  ></A>required and are used to indicate the bounding box of the applet&#151;that is, how big a box to draw for the applet on the Web page. Be sure you set WIDTH and HEIGHT to be an appropriate size for the applet; depending on the browser, if your applet draws outside the boundaries of the space you've given it, you may not be able to see or get to those parts of the applet outside the bounding box.
+<BR>
+<BR></LI>
+<LI>The text between the &lt;APPLET&gt; and &lt;/APPLET&gt; tags is displayed by browsers that do <A ID = "I72" NAME = "I72"  ></A><A ID = "I73" NAME = "I73"  ></A>not understand the &lt;APPLET&gt; tag (which includes most browsers that are not Java-capable). Because your page may be viewed in many different kinds of browsers, it is a very good idea to include alternate text here so that readers of your page who don't have Java will see something other than a blank line. Here, you include a simple statement that says There would be an applet here if your browser supported Java.
+<BR>
+<BR></LI></UL>
+<P>Note that the &lt;APPLET&gt; tag, like the &lt;IMG&gt; tag, is not itself a paragraph, so it should be enclosed inside a more general text tag, such as &lt;P&gt; or one of the heading tags (&lt;H1&gt;, &lt;H2&gt;, and so on).
+<BR></P>
+<H4><A ID = "I74" NAME = "I74"  >
+<foNT SIZE=3><B>Testing the Result</B>
+<BR></FONT></A></H4>
+<P>Now with a <A ID = "I75" NAME = "I75"  ></A><A ID = "I76" NAME = "I76"  ></A>class file and an HTML file that refers to your applet, you should be able to load that HTML file into your Java-capable browser (using either the Open File... menu item or a file URL, or by indicating the filename on a command line). The browser loads and parses your HTML file, and then loads and executes your applet class.
+<BR></P>
+<P>Figure 8.2 shows the Hello Again applet, in case you've forgotten what it looks like.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/08tyj02.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/08tyj02.gif'" tppabs="http://newdata.box.sk/bx/java/08tyj02.gif"  >Figure 8.2.  The Hello Again applet.</B></A>
+<BR></P>
+<H4><A ID = "I77" NAME = "I77"  >
+<foNT SIZE=3><B>Making Java Applets Available to the Web</B>
+<BR></FONT></A></H4>
+<P>After you have <A ID = "I78" NAME = "I78"  ></A><A ID = "I79" NAME = "I79"  ></A>an applet and an HTML file, and you've verified that everything is working correctly on your local system, the last step is making that applet available to the World Wide Web at large so that anyone with a Java-capable browser can view that applet.
+<BR></P>
+<P>Java applets are served by a Web server the same way that HTML files, images, and other media are. You don't need special server software to make Java applets available to the Web; you don't even need to configure your server to handle Java files. If you have a Web server up and running, or space on a Web server available to you, all you have to do is move your HTML and compiled class files to that server, as you would any other file.
+<BR></P>
+<P>If you don't have a Web server, you have to rent space on one or set one up yourself. (Web server setup and administration, as well as other facets of Web publishing in general, are outside the scope of this book.)
+<BR></P>
+<H3><A ID = "I80" NAME = "I80"  >
+<foNT SIZE=4><B>More About the </B><B>&lt;APPLET&gt;</B><B> Tag</B>
+<BR></FONT></A></H3>
+<P>In its simplest <A ID = "I81" NAME = "I81"  ></A>form, by using CODE, WIDTH, and HEIGHT, the &lt;APPLET&gt; tag merely creates a space of the appropriate size and then loads and runs the applet in that space. The &lt;APPLET&gt; tag, however, does include several attributes that can help you better integrate your applet into the overall design of your Web page.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The attributes available for the &lt;APPLET&gt; tag are almost identical to those for the HTML &lt;IMG&gt; tag.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I82" NAME = "I82"  >
+<foNT SIZE=3><B>ALIGN</B>
+<BR></FONT></A></H4>
+<P>The ALIGN attribute <A ID = "I83" NAME = "I83"  ></A>defines how the applet will be aligned <A ID = "I84" NAME = "I84"  ></A><A ID = "I85" NAME = "I85"  ></A>on the page. This attribute can have one of nine values: LEFT, RIGHT, TOP, TEXTTOP, MIDDLE, ABSMIDDLE, BASELINE, BOTTOM, and ABSBOTTOM.
+<BR></P>
+<P>In the case of ALIGN=LEFT and ALIGN=RIGHT, the applet is placed at the left or right margins of the page, respectively, and all text following that applet flows in the space to the right or left of that applet. The text will continue to flow in that space until the end of the applet, or you can use <A ID = "I86" NAME = "I86"  ></A><A ID = "I87" NAME = "I87"  ></A>a line break tag (&lt;BR&gt;) with the CLEAR attribute to start the left line of text below that applet. The CLEAR attribute can have one of three values: CLEAR=LEFT starts the text at the next clear left margin, CLEAR=RIGHT does the same for the right margin, and CLEAR=ALL starts the text at the next line where both margins are clear.
+<BR></P>
+<P>For example, here's a snippet of HTML code that aligns an applet against the left margin, has some text flowing alongside it, and then breaks at the end of the paragraph so that the next bit of text starts below the applet:
+<BR></P>
+<PRE>&lt;P&gt;&lt;APPLET CODE=&quot;HelloAgainApplet&quot; WIDTH=300 HEIGHT=200
+ALIGN=LEFT&gt;Hello Again!&lt;/APPLET&gt;
+To the left of this paragraph is an applet. It's a
+simple, unassuming applet, in which a small string is
+printed in red type, set in 36 point Times bold.
+&lt;BR CLEAR=ALL&gt;
+&lt;P&gt;In the next part of the page, we demonstrate how
+under certain conditions, styrofoam peanuts can be
+used as a healthy snack.</PRE>
+<P>Figure 8.3 shows how this applet and the text surrounding it might appear in a Java-capable browser.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/08tyj03.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/08tyj03.gif'" tppabs="http://newdata.box.sk/bx/java/08tyj03.gif"  >Figure 8.3.  An applet aligned left.</B></A>
+<BR></P>
+<P>For smaller applets, you may want to include your applet within a single line of text. To do this, there are seven values for ALIGN that determine how the applet is vertically aligned with the text:
+<BR></P>
+<UL>
+<LI>ALIGN=TEXTTTOP aligns the top of the applet with the top of the tallest text in the line.
+<BR>
+<BR></LI>
+<LI>ALIGN=TOP aligns the applet with the topmost item in the line (which may be another applet, or an image, or the top of the text).
+<BR>
+<BR></LI>
+<LI>ALIGN=ABSMIDDLE aligns the middle of the applet with the middle of the largest item in the line.
+<BR>
+<BR></LI>
+<LI>ALIGN=MIDDLE aligns the middle of the applet with the middle of the baseline of the text.
+<BR>
+<BR></LI>
+<LI>ALIGN=BASELINE aligns the bottom of the applet with the baseline of the text. ALIGN=BASELINE is the same as ALIGN=BOTTOM, but ALIGN=BASELINE is a more descriptive name.
+<BR>
+<BR></LI>
+<LI>ALIGN=ABSBOTTOM aligns the bottom of the applet with the lowest item in the line (which may be the baseline of the text or another applet or image).
+<BR>
+<BR></LI></UL>
+<P>Figure 8.4 shows the various alignment options, where the line is an image and the arrow is a small applet.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/08tyj04.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/08tyj04.gif'" tppabs="http://newdata.box.sk/bx/java/08tyj04.gif"  >Figure 8.4.  Applet alignment options.</B></A>
+<BR></P>
+<H4><A ID = "I88" NAME = "I88"  >
+<foNT SIZE=3><B>HSPACE and VSPACE</B>
+<BR></FONT></A></H4>
+<P>The HSPACE and VSPACE attributes <A ID = "I89" NAME = "I89"  ></A><A ID = "I90" NAME = "I90"  ></A>are used to set the amount of space, in pixels, between an applet and its surrounding text. HSPACE controls the horizontal space (the space to the left and right of the applet). VSPACE controls the vertical space (the space above and below). For example, here's that sample snippet of HTML with vertical space of 50 and horizontal space of 10:
+<BR></P>
+<PRE>&lt;P&gt;&lt;APPLET CODE=&quot;HelloAgainApplet&quot; WIDTH=300 HEIGHT=200
+ALIGN=LEFT VSPACE=50 HSPACE=10&gt;Hello Again!&lt;/APPLET&gt;
+To the left of this paragraph is an applet. It's a
+simple, unassuming applet, in which a small string is
+printed in red type, set in 36 point Times bold.
+&lt;BR CLEAR=ALL&gt;
+&lt;P&gt;In the next part of the page, we demonstrate how
+under certain conditions, styrofoam peanuts can be
+used as a healthy snack.</PRE>
+<P>The result in a typical Java browser might look like that in Figure 8.5.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/08tyj05.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/08tyj05.gif'" tppabs="http://newdata.box.sk/bx/java/08tyj05.gif"  >Figure 8.5.  Vertical and horizontal space.</B></A>
+<BR></P>
+<H4><A ID = "I91" NAME = "I91"  >
+<foNT SIZE=3><B>CODE and CODEBASE</B>
+<BR></FONT></A></H4>
+<P>CODE is used to indicate the <A ID = "I92" NAME = "I92"  ></A><A ID = "I93" NAME = "I93"  ></A>name of the class file that holds the current applet. If CODE is used alone in the &lt;APPLET&gt; tag, the class file is searched for in the same directory as the HTML file that references it.
+<BR></P>
+<P>If you want to store your class <A ID = "I94" NAME = "I94"  ></A>files in a different directory than that of your HTML files, you have to tell the Java-capable browser where to find those class files. To do this, you use CODEBASE. CODE contains only the name of the class file; CODEBASE contains an alternate pathname where classes are contained. For example, if you store your class files in a directory called /classes, which is in the same directory as your HTML files, CODEBASE is the following:
+<BR></P>
+<PRE>&lt;APPLET CODE=&quot;myclass.class&quot; CODEBASE=&quot;classes&quot;
+    WIDTH=100 HEIGHT=100&gt;&lt;/APPLET&gt;</PRE>
+<H3><A ID = "I95" NAME = "I95"  >
+<foNT SIZE=4><B>Passing Parameters to Applets</B>
+<BR></FONT></A></H3>
+<P>With Java applications, you <A ID = "I96" NAME = "I96"  ></A><A ID = "I97" NAME = "I97"  ></A><A ID = "I98" NAME = "I98"  ></A>can pass parameters to your main() routine by using arguments on the command line. You can then parse those arguments inside the body of your class, and the application acts accordingly based on the arguments it is given.
+<BR></P>
+<P>Applets, however, don't have a command line. How do you pass in different <A ID = "I99" NAME = "I99"  ></A><A ID = "I100" NAME = "I100"  ></A><A ID = "I101" NAME = "I101"  ></A>arguments to an applet? Applets can get different input from the HTML file that contains the &lt;APPLET&gt; tag through the use of applet parameters. To set up and handle parameters in an applet, you need two things:
+<BR></P>
+<UL>
+<LI>A special parameter tag in the HTML file
+<BR>
+<BR></LI>
+<LI>Code in your applet to parse those parameters
+<BR>
+<BR></LI></UL>
+<P>Applet <A ID = "I102" NAME = "I102"  ></A><A ID = "I103" NAME = "I103"  ></A>parameters come in two parts: a name, which <A ID = "I104" NAME = "I104"  ></A><A ID = "I105" NAME = "I105"  ></A>is simply a name you pick, and a value, which determines the value of that particular parameter. So, for example, you can indicate the color of text in an applet by using a parameter with the name color and the value red. You can determine an animation's speed using a parameter with the name speed and the value 5.
+<BR></P>
+<P>In the HTML fie that contains the embedded applet, you indicate each parameter using the &lt;PARAM&gt; tag, which has two attributes for the name and the value, called (surprisingly enough), NAME and VALUE. The &lt;PARAM&gt; tag goes inside the opening and closing &lt;APPLET&gt; tags:
+<BR></P>
+<PRE>&lt;APPLET CODE=&quot;MyApplet.class&quot; WIDTH=100 HEIGHT=100&gt;
+&lt;PARAM NAME=font VALUE=&quot;TimesRoman&quot;&gt;
+&lt;PARAM NAME=size VALUE=&quot;36&quot;&gt;
+A Java applet appears here.&lt;/APPLET&gt;</PRE>
+<P>This particular example defines two parameters to the MyApplet applet: one whose name is font and whose value is TimesRoman, and one whose name is size and whose value is 36.
+<BR></P>
+<P>Parameters are passed to your applet when it is loaded. In the init() method for your applet, you can then get hold of those parameters by using the getParameter() method. getParameter() takes one argument&#151;a string representing the name of the parameter you're looking for&#151;and returns a string containing the corresponding value of that parameter. (Like arguments in Java applications, all the parameter values are strings.) To get the value of the font parameter from the HTML file, you might have a line such as this in your init() method:
+<BR></P>
+<PRE>String theFontName = getParameter(&quot;font&quot;);</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The names of the <A ID = "I106" NAME = "I106"  ></A><A ID = "I107" NAME = "I107"  ></A>parameters as specified in &lt;PARAM&gt; and the names of the parameters in getParameter() must match identically, including having the same case. In other words, &lt;PARAM NAME=&quot;name&quot;&gt; is different from &lt;PARAM NAME=&quot;Name&quot;&gt;. If your parameters are not being properly passed to your applet, make sure the parameter cases match.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Note that if a parameter you expect has not been specified in the HTML file, getParameter() returns null. Most often, you will want to test for a null parameter and supply a reasonable default:
+<BR></P>
+<PRE>if (theFontName == null)
+    theFontName = &quot;Courier&quot;</PRE>
+<P>Keep in mind that getParameter() returns strings&#151;if you want a parameter to be some other object or type, you have to convert it yourself. To parse the size parameter from that same HTML file and assign it to an integer variable called theSize, you might use the following lines:
+<BR></P>
+<PRE>int theSize;
+String s = getParameter(&quot;size&quot;);
+if (s == null)
+    theSize = 12;
+else theSize = Integer.parseInt(s);</PRE>
+<P>Get it? Not yet? Let's create an example of an applet that uses this technique. You'll modify the HelloAgainApplet so that it says hello to a specific name, for example &quot;Hello Bill&quot; or &quot;Hello Alice&quot;. The name is passed into the applet through an HTML parameter.
+<BR></P>
+<P>Let's start by copying the original HelloAgainApplet class:
+<BR></P>
+<PRE>import java.awt.Graphics;
+import java.awt.Font;
+import java.awt.Color;
+public class MoreHelloApplet extends java.applet.Applet {
+    Font f = new Font(&quot;TimesRoman&quot;, Font.BOLD, 36);
+    public void paint(Graphics g) {
+        g.setFont(f);
+        g.setColor(Color.red);
+        g.drawString(&quot;Hello Again!&quot;, 5, 50);
+    }
+}</PRE>
+<P>The first thing you need to add to this class is a place for the name. Because you'll need that name throughout the applet, let's add an instance variable for the name, just after the variable for the font:
+<BR></P>
+<PRE>String name;</PRE>
+<P>To set a <A ID = "I108" NAME = "I108"  ></A><A ID = "I109" NAME = "I109"  ></A>value for the name, you have to get the parameter. The best place to handle parameters to an applet is inside an init() method. The init() method is defined similarly to paint() (public, with no arguments, and a return type of void). Make sure when you test for a parameter that you test for a value of null. The default, in this case, if a name isn't indicated, is to say hello to &quot;Laura&quot;:
+<BR></P>
+<PRE>public void init() {
+name = getParameter(&quot;name&quot;);
+    if (name == null)
+        name = &quot;Laura&quot;;
+    }</PRE>
+<P>One last thing to do now that you have the name from the HTML parameters is to modify the name so that it's a complete string&#151;that is, to tack &quot;Hello &quot; onto the beginning, and an exclamation point onto the end. You could do this in the paint method just before printing the string to the screen. Here it's done only once, however, whereas in paint() it's done every time the screen is repainted&#151;in other words, it's slightly more efficient to do it inside init() instead:
+<BR></P>
+<PRE>name = &quot;Hello &quot; + name + &quot;!&quot;;</PRE>
+<P>And now, all that's left is to modify the paint() method. The original drawString() method looked like this:
+<BR></P>
+<PRE>g.drawString(&quot;Hello Again!&quot;, 5, 50);</PRE>
+<P>To draw the new string you have stored in the name instance variable, all you need to do is substitute that variable for the literal string:
+<BR></P>
+<PRE>g.drawString(name, 5, 50);</PRE>
+<P>Listing 8.3 shows the final result of the MoreHelloApplet class. Compile it so that you have a class file ready.
+<BR></P>
+<UL>
+<LH><B>Listing 8.3. The </B><B>MoreHelloApplet</B><B> class.</B><A ID = "I110" NAME = "I110"  ></A></LH></UL>
+<PRE> 1:  import java.awt.Graphics;
+ 2:  import java.awt.Font;
+ 3:  import java.awt.Color;
+ 4:
+ 5:  public class MoreHelloApplet extends java.applet.Applet {
+ 6:
+ 7:     Font f = new Font(&quot;TimesRoman&quot;, Font.BOLD, 36);
+ 8:     String name;
+ 9:
+10:     public void init() {
+11:         name = getParameter(&quot;name&quot;);
+12:         if (name == null)
+13:             name = &quot;Laura&quot;;
+14:
+15:         name = &quot;Hello &quot; + name + &quot;!&quot;;
+16:     }
+17:
+18:     public void paint(Graphics g) {
+19:         g.setFont(f);
+20:         g.setColor(Color.red);
+21:         g.drawString(name, 5, 50);
+22:     }
+23: }</PRE>
+<P>Now, let's create the HTML <A ID = "I111" NAME = "I111"  ></A><A ID = "I112" NAME = "I112"  ></A>file that contains this applet. Listing 8.4 shows a new Web page for the MoreHelloApplet applet.
+<BR></P>
+<UL>
+<LH><B>Listing 8.4. The HTML file for the MoreHelloApplet applet.</B><A ID = "I113" NAME = "I113"  ></A></LH></UL>
+<PRE> 1:  &lt;HTML&gt;
+ 2:  &lt;HEAD&gt;
+ 3:  &lt;TITLE&gt;Hello!&lt;/TITLE&gt;
+ 4:  &lt;/HEAD&gt;
+ 5:  &lt;BODY&gt;
+ 6:  &lt;P&gt;
+ 7:  &lt;APPLET CODE=&quot;MoreHelloApplet.class&quot; WIDTH=300 HEIGHT=50&gt;
+ 8:  &lt;PARAM NAME=name VALUE=&quot;Bonzo&quot;&gt;
+ 9:  Hello to whoever you are!
+10: &lt;/APPLET&gt;
+11: &lt;/BODY&gt;
+12: &lt;/HTML&gt;</PRE>
+<P>Note the &lt;APPLET&gt; tag, which points to the class file for the applet with the appropriate width and height (300 and 50). Just below it (line 8) is the &lt;PARAM&gt; tag, which you use to pass in the name. Here, the NAME parameter is simply name, and the VALUE is the string &quot;Bonzo&quot;.
+<BR></P>
+<P>Loading up this HTML file produces the result shown in Figure 8.6.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/08tyj06.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/08tyj06.gif'" tppabs="http://newdata.box.sk/bx/java/08tyj06.gif"  >Figure 8.6.  The result of MoreHelloApplet, </B><B>first try.</B></A>
+<BR></P>
+<P>Let's try a second example. Remember that in the code for MoreHelloApplet, if no name is specified, the default is the name &quot;Laura&quot;. Listing 8.5 creates an HTML file with no parameter tag for name.
+<BR></P>
+<UL>
+<LH><B>Listing 8.5. Another HTML File for the MoreHelloApplet applet.</B><A ID = "I114" NAME = "I114"  ></A></LH></UL>
+<PRE> 1: &lt;HTML&gt;
+ 2: &lt;HEAD&gt;
+ 3: &lt;TITLE&gt;Hello!&lt;/TITLE&gt;
+ 4: &lt;/HEAD&gt;
+ 5: &lt;BODY&gt;
+ 6: &lt;P&gt;
+ 7: &lt;APPLET CODE=&quot;MoreHelloApplet.class&quot; WIDTH=300 HEIGHT=50&gt;
+ 8: Hello to whoever you are!
+ 9: &lt;/APPLET&gt;
+10: &lt;/BODY&gt;
+11: &lt;/HTML&gt;</PRE>
+<P>Here, because no name was supplied, the applet uses the default, and the result is what you might expect (see Figure 8.7).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/08tyj07.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/08tyj07.gif'" tppabs="http://newdata.box.sk/bx/java/08tyj07.gif"  >Figure 8.7. The result of MoreHelloApplet, </B><B>second try.</B></A>
+<BR></P>
+<H3><A ID = "I115" NAME = "I115"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Applets are probably the most common use of the Java language today. Applets are more complicated than many Java applications because they are executed and drawn inline within Web pages, but they can access the graphics, user interface, and event structure provided by the Web browser itself. Today, you learned the basics of creating applets, including the following things:
+<BR></P>
+<UL>
+<LI>All applets you develop using Java inherit from the Applet class, part of the java.applet package. The Applet class provides basic behavior for how the applet will be integrated with and react to the browser and various forms of input from that browser and the person running it. By subclassing Applet, you have access to all that behavior.
+<BR>
+<BR></LI>
+<LI>Applets have five main methods, which are <A ID = "I116" NAME = "I116"  ></A><A ID = "I117" NAME = "I117"  ></A>used for the basic activities an applet performs during its life cycle: init(), start(), stop(), destroy(), and paint(). Although you don't need to override all these methods, these are the most common methods you'll see repeated in many of the applets you'll create in this book and in other sample programs.
+<BR>
+<BR></LI>
+<LI>To run a compiled applet <A ID = "I118" NAME = "I118"  ></A><A ID = "I119" NAME = "I119"  ></A>class file, you include it in an HTML Web page by using the &lt;APPLET&gt; tag. When a Java-capable browser comes across &lt;APPLET&gt;, it loads and runs the applet described in that tag. Note that to publish Java applets on the World Wide Web alongside HTML files you do not need special server software; any plain old Web server will do just fine.
+<BR>
+<BR></LI>
+<LI>Unlike applications, applets do not have a common line on which to pass arguments, so those arguments must be passed into the applet through the HTML file that contains it. You indicate parameters in an HTML file by using the &lt;PARAM&gt; tag inside the opening and closing &lt;APPLET&gt; tags. &lt;PARAM&gt; has two attributes: NAME for the name of the parameter, and VALUE for its value. Inside the body of your applet (usually in init()), you can then gain access to those parameters using the getParameter() method.
+<BR>
+<BR></LI></UL>
+<H3><A ID = "I120" NAME = "I120"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: In the first part of </B><A ID = "I121" NAME = "I121"  ></A><B>today's lesson, you say that applets are </B><B>downloaded from random Web servers and run on the client's system. What's </B><B>to stop an applet developer from creating an applet that deletes all the </B><B>files on that system, or in some other way compromises the security of </B><B>the system?</B>
+<BR></P>
+<P><B>A: </B>Recall that Java applets have several restrictions that make it difficult for all of the more obvious malicious behavior to take place. For example, because Java applets cannot read or write files on the client system, they cannot delete files or read system files that might contain private information. Because they cannot run programs on the client's system without your express permission, they cannot, for example, run system programs pretending to be you. Nor can they run so many programs that your system crashes.
+<BR>
+<BR>In addition, Java's very architecture makes it difficult to circumvent these restrictions. The language itself, the Java compiler, and the Java interpreter all have checks to make sure that no one has tried to sneak in bogus code or play games with the system itself. You'll learn more about these checks at the end of this book.
+<BR>
+<BR>Of course, no system can claim to be 100% secure, and the fact that Java applets are run on your system should make you suspicious&#151;see Day 21 for more on security.
+<BR></P>
+<P><B>Q: Wait a minute. If I can't read or write files or run programs on the </B><B>system the applet is running on, doesn't that mean I basically can't do </B><B>anything other than simple animations and flashy graphics? How can I </B><B>save state in an applet? How can I create, say, a word processor or a </B><B>spreadsheet as a Java applet?</B>
+<BR></P>
+<P><B>A: </B>For everyone who doesn't believe that Java is secure enough, there is someone who believes that Java's security restrictions are too severe for just these reasons. Yes, Java applets are limited because of the security restrictions. But given the possibility for abuse, I believe that it's better to err on the side of being more conservative as far as security is concerned. Consider it a challenge.
+<BR>
+<BR>Keep in mind, also, that Java applications have none of the restrictions that Java applets do, but because they are also compiled to bytecode, they are portable across platforms. It may be that the thing you want to create would make a much better application than an applet.
+<BR></P>
+<P><B>Q: I have an older version of HotJava. I followed all the examples in </B><B>this section, but HotJava cannot read my applets (it seems to ignore </B><B>them). What's going on?</B>
+<BR></P>
+<P><B>A: </B>You most likely have an alpha version of HotJava. Recall that significant changes were made to the Java API and how Java applets are written between alpha and the 1.0 release. The results of these changes are that browsers that support alpha applets cannot read beta applets, and vice versa. The HTML tags are even different, so an older browser just skips over newer applets, and vice versa.
+<BR>
+<BR>By the time you read this, there may be a new version of HotJava with support for 1.0. If not, you can use Netscape 2.0 or the JDK's applet viewer to view applets written to the beta specification.
+<BR></P>
+<P><B>Q: I noticed in my documentation that the </B><B>&lt;APPLET&gt;</B><B> tag also has a </B><B>NAME</B><B> </B><B>attribute. You didn't discuss it here.</B>
+<BR></P>
+<P><B>A: </B>NAME is used when you have multiple applets on a page that need to communicate with each other. You'll learn about this on Day 12.
+<BR></P>
+<P><B>Q: I have an applet that takes parameters and an HTML file that passes </B><B>it those parameters. But when my applet runs, all I get are </B><B>null</B><B> values. </B><B>What's going on here?</B>
+<BR></P>
+<P><B>A: </B>Do the names of your parameters (in the NAME attribute) match exactly with the names you're testing for in getParameter()? They must be exact, including case, for the match to be made. Make sure also that your &lt;PARAM&gt; tags are inside the opening and closing &lt;APPLET&gt; tags, and that you haven't misspelled anything.</P>
+<P><A HREF = "tyjwg2.html" tppabs="http://newdata.box.sk/bx/java/tyjwg2.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj09x.html" tppabs="http://newdata.box.sk/bx/java/tyj09x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

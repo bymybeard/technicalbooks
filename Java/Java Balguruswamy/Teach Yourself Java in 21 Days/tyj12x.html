@@ -1,0 +1,762 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj12x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj13x.html" tppabs="http://newdata.box.sk/bx/java/tyj13x.html">
+<LINK REL="Previous" HREF="tyj11x.html" tppabs="http://newdata.box.sk/bx/java/tyj11x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj11x.html" tppabs="http://newdata.box.sk/bx/java/tyj11x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj13x.html" tppabs="http://newdata.box.sk/bx/java/tyj13x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 12</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Managing Simple Events and Interactivity</A></LI>
+<UL>
+<LI>
+<A HREF = "#I6"  >Mouse Clicks</A></LI>
+<UL>
+<LI>
+<A HREF = "#I8"  >mouseDown and mouseUp</A></LI>
+<LI>
+<A HREF = "#I21"  >An Example Spots</A></LI></UL>
+<LI>
+<A HREF = "#I35"  >Mouse Movements</A></LI>
+<UL>
+<LI>
+<A HREF = "#I38"  >mouseDrag and mouseMove</A></LI>
+<LI>
+<A HREF = "#I44"  >mouseEnter and mouseExit</A></LI>
+<LI>
+<A HREF = "#I49"  >(d)An Example Drawing Lines</A></LI></UL>
+<LI>
+<A HREF = "#I60"  >Keyboard Events</A></LI>
+<UL>
+<LI>
+<A HREF = "#I63"  >The keyDown and keyUp Methods</A></LI>
+<LI>
+<A HREF = "#I72"  >Default Keys</A></LI>
+<LI>
+<A HREF = "#I77"  >An Example Entering, Displaying, and Moving Characters</A></LI>
+<LI>
+<A HREF = "#I83"  >Testing for Modifier Keys</A></LI></UL>
+<LI>
+<A HREF = "#I93"  >The AWT Event Handler</A></LI>
+<LI>
+<A HREF = "#I104"  >Summary</A></LI>
+<LI>
+<A HREF = "#I105"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 12</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Managing Simple Events and Interactivity</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>Java events are part of the Java AWT (Abstract Windowing Toolkit)<A ID = "I4" NAME = "I4"  ></A><A ID = "I5" NAME = "I5"  ></A> package. An event is the way that the AWT communicates to you, as the programmer, and to other Java AWT components that <I>something</I> has happened. That something can be input from the user (mouse movements or clicks, keypresses), changes in the system environment (a window opening or closing, the window being scrolled up or down), or a host of other things that might, in some way, be interesting to the operation of the program.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Java's Abstract Windowing Toolkit is a package of classes that implements most common UI components, such as windows, buttons, menus, and so on. It is also specifically the AWT, and not Java, that generates and manages events.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>In other words, whenever just about anything happens to a Java AWT component, including an applet, an event is generated. Some events are handled by the AWT or by the browser without your needing to do anything. paint() methods, for example, are generated and handled by the browser&#151;all you have to do is tell the AWT what you want painted when it gets to your part of the window. Some events, however&#151;for example, a mouse click inside the boundaries of your applet&#151;you may need to know about. Writing your Java programs to handle these kinds of events enables you to get input from the user and have your applet change its behavior based on that input.
+<BR></P>
+<P>Today, you'll learn about managing simple events, including the following basics:
+<BR></P>
+<UL>
+<LI>Mouse clicks
+<BR>
+<BR></LI>
+<LI>Mouse movements, including mouse dragging
+<BR>
+<BR></LI>
+<LI>Keyboard actions
+<BR>
+<BR></LI></UL>
+<P>You'll also learn about the handleEvent() method, which is the basis for collecting, handling, and passing on events of all kinds from your applet to other UI components in the window or in your applet itself. Tomorrow, you'll learn how to combine events with the AWT to create a complete interface for your applet.
+<BR></P>
+<H3><A ID = "I6" NAME = "I6"  >
+<foNT SIZE=4><B>Mouse Clicks</B>
+<BR></FONT></A></H3>
+<P>Let's start with the <A ID = "I7" NAME = "I7"  ></A>most common event you might be interested in: mouse clicks. Mouse-click events occur when your user clicks the mouse somewhere in the body of your applet. You can intercept mouse clicks to do very simple things&#151;for example, to toggle the sound on and off in your applet, to move to the next slide in a presentation, or to clear the screen and start over&#151;or you can use mouse clicks in conjunction with mouse movements to perform more complex motions inside your applet.
+<BR></P>
+<H4><A ID = "I8" NAME = "I8"  >
+<foNT SIZE=3><B>mouseDown and mouseUp</B>
+<BR></FONT></A></H4>
+<P>When you click <A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A><A ID = "I11" NAME = "I11"  ></A><A ID = "I12" NAME = "I12"  ></A>the mouse once, the AWT generates two events: a mouseDown event when the mouse button is pressed, and a mouseUp event when the button is released. Why two individual events for a single mouse action? Because you may want to do different things for the &quot;down&quot; and the &quot;up.&quot; For example, look at a pull-down menu. The mouseDown extends the menu, and the mouseUp selects an item (with mouseDrags between&#151;but you'll learn about that one later). If you have only one event for both actions (mouseUp and mouseDown), you cannot implement that sort of user interaction.
+<BR></P>
+<P>Handling mouse events in your applet is easy&#151;all you have to do is override the right method definition in your applet. That method will be called when that particular event occurs. Here's an example of the method signature for a mouseDown event:
+<BR></P>
+<PRE>public boolean mouseDown(Event evt, int x, int y) {
+...
+}</PRE>
+<P>The mouseDown() method<A ID = "I13" NAME = "I13"  ></A><A ID = "I14" NAME = "I14"  ></A> (and the mouseUp() method<A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A> as well) takes three parameters: the event itself and the x and y coordinates where the mouseDown or mouseUp event occurred.
+<BR></P>
+<P>The event argument is <A ID = "I17" NAME = "I17"  ></A><A ID = "I18" NAME = "I18"  ></A>an instance of <A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A>the class Event. All system events generate an instance of the Event class, which contains information about where and when the event took place, the kind of event it is, and other information that you might want to know about this event. Sometimes having a handle to that event object is useful, as you'll discover later on in this section.
+<BR></P>
+<P>The x and the y coordinates of the event, as passed in through the x and y arguments, are particularly nice to know because you can use them to determine precisely where the mouse click took place.
+<BR></P>
+<P>For example, here's a simple method that prints out information about a mouseDown when it occurs:
+<BR></P>
+<PRE>public boolean mouseDown(Event evt, int x, int y) {
+    System.out.println(&quot;Mouse down at &quot; + x + &quot;,&quot; + y);
+    return true;
+}</PRE>
+<P>By including this method in your applet, every time your user clicks the mouse inside your applet, this message will get printed.
+<BR></P>
+<P>Note that this method, unlike the other system methods you've studied this far, returns a boolean value instead of not returning anything (void). This will become important tomorrow when you create user interfaces and then manage input to these interfaces; having an event handler return true or false determines whether a given UI component can intercept an event or whether it needs to pass it on to the enclosing component. The general rule is that if your method deals with the event, it should return true, which for the focus of today's lesson is almost always the case.
+<BR></P>
+<P>The second half of the mouse click is the mouseUp() method, which is called when the mouse button is released. To handle a mouseUp event, add the mouseUp() method to your applet. mouseUp() looks just like mouseDown():
+<BR></P>
+<PRE>public boolean mouseUp(Event evt, int x, int y) {
+    ....
+}</PRE>
+<H4><A ID = "I21" NAME = "I21"  >
+<foNT SIZE=3><B>An Example Spots</B>
+<BR></FONT></A></H4>
+<P>In this section, you'll create an example of an applet that uses mouse events&#151;mouseDown events in particular. The Spots applet starts with a blank screen and then sits and waits. When you click the mouse on that screen, a blue dot is drawn. You can place up to ten dots on the screen. Figure 12.1 shows the Spots applet.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/12tyj01.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/12tyj01.gif'" tppabs="http://newdata.box.sk/bx/java/12tyj01.gif"  >Figure 12.1. The Spots applet.</B></A>
+<BR></P>
+<P>Let's start from the beginning and build this applet, starting from the initial class definition:
+<BR></P>
+<PRE>import java.awt.Graphics;
+import java.awt.Color;
+import java.awt.Event;
+public class Spots extends java.applet.Applet {
+    final int MAXSPOTS = 10;
+    int xspots[] = new int[MAXSPOTS];
+    int yspots[] = new int[MAXSPOTS];
+    int currspots = 0;
+}</PRE>
+<P>This class uses three other AWT<A ID = "I22" NAME = "I22"  ></A><A ID = "I23" NAME = "I23"  ></A><A ID = "I24" NAME = "I24"  ></A><A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A><A ID = "I27" NAME = "I27"  ></A> classes: Graphics, Color, and Event. That last class, Event, needs to be imported in any applets that use events. The class has four instance variables: a constant to determine the maximum number of spots that can be drawn, two arrays to store the x and y coordinates of the spots that have already been drawn, and an integer to keep track of the number of the current spot.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>This class doesn't include the implements Runnable words in its definition. As you'll see later on as you build this applet, it also doesn't have a run() method. Why not? Because it doesn't actually do anything on its own&#151;all it does is wait for input and then do stuff when input happens. There's no need for threads if your applet isn't actively doing something all the time.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Let's start with the init() method<A ID = "I28" NAME = "I28"  ></A><A ID = "I29" NAME = "I29"  ></A>, which has one line, to set the background to white:
+<BR></P>
+<PRE>public void init() {
+        setBackground(Color.white);
+}</PRE>
+<P>Set the background here, instead of in paint(), because paint() is called repeatedly each time a new spot is added. Because you really need to set the background only once, putting it in the paint() method unnecessarily slows down that method. Putting it here is a much better idea.
+<BR></P>
+<P>The main action of this applet occurs on the mouseDown() method, so let's add that one now:
+<BR></P>
+<PRE>public boolean mouseDown(Event evt, int x, int y) {
+    if (currspots &lt; MAXSPOTS)
+            addspot(x,y);
+        else System.out.println(&quot;Too many spots.&quot;);
+        return true;
+}</PRE>
+<P>When the mouse click occurs, the mouseDown() method tests to see whether there are less than ten spots. If so, it calls the <A ID = "I30" NAME = "I30"  ></A><A ID = "I31" NAME = "I31"  ></A>addspot() method (which you'll write soon). If not, it just prints an error message. Finally, it returns true, because all the event methods have to return a boolean value (usually true).
+<BR></P>
+<P>What does addspot() do? It adds <A ID = "I32" NAME = "I32"  ></A><A ID = "I33" NAME = "I33"  ></A>the coordinates of the spot to the arrays that store the coordinates, increments the currspots variable, and then calls repaint():
+<BR></P>
+<PRE>void addspot(int x, int y) {
+        xspots[currspots] = x;
+        yspots[currspots] = y;
+        currspots++;
+        repaint();
+    }</PRE>
+<P>You may be wondering why you have to keep track of all the past spots in addition to the current spot. The reason is because of repaint(): each time you paint the screen, you have to paint all the old spots in addition to the newest spot. Otherwise, each time you painted a new spot, the older spots would get erased. Now, on to the paint() method:
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    g.setColor(Color.blue);
+    for (int i = 0; i &lt; currspots; i++) {
+        g.fillOval(xspots[i] -10, yspots[i] - 10, 20, 20);
+    }
+}</PRE>
+<P>Inside paint, you just loop through the spots you've stored in the xspots and yspots arrays, painting each one (actually, painting them a little to the right and upward so that the spot is painted around the mouse pointer rather than below and to the right).
+<BR></P>
+<P>That's it! That's all you need to create an applet that handles mouse clicks. Everything else is handled for you. You have to add the appropriate behavior to mouseDown() or mouseUp() to intercept and handle that event. Listing 12.1 shows the full text for the Spots applet.
+<BR></P>
+<UL>
+<LH><B>Listing 12.1. The Spots applet.</B><A ID = "I34" NAME = "I34"  ></A></LH></UL>
+<PRE> 1: import java.awt.Graphics;
+ 2: import java.awt.Color;
+ 3: import java.awt.Event;
+ 4:
+ 5: public class Spots extends java.applet.Applet {
+ 6:
+ 7: final int MAXSPOTS = 10;
+ 8:     int xspots[] = new int[MAXSPOTS];
+ 9:     int yspots[] = new int[MAXSPOTS];
+10:     int currspots = 0;
+11:
+12:     public void init() {
+13:         setBackground(Color.white);
+14:     }
+15:
+16:     public boolean mouseDown(Event evt, int x, int y) {
+17:         if (currspots &lt; MAXSPOTS)
+18:             addspot(x,y);
+19:         else System.out.println(&quot;Too many spots.&quot;);
+20:         return true;
+21: }
+22:
+23:     void addspot(int x,int y) {
+24:         xspots[currspots] = x;
+25:         yspots[currspots] = y;
+26:         currspots++;
+27:         repaint();
+28:     }
+29:
+30:     public void paint(Graphics g) {
+31:         g.setColor(Color.blue);
+32:         for (int i = 0; i &lt; currspots; i++) {
+33:             g.fillOval(xspots[i] - 10, yspots[i] - 10, 20, 20);
+34:         }
+35:     }
+36: }</PRE>
+<H3><A ID = "I35" NAME = "I35"  >
+<foNT SIZE=4><B>Mouse Movements</B>
+<BR></FONT></A></H3>
+<P>Every time the mouse <A ID = "I36" NAME = "I36"  ></A><A ID = "I37" NAME = "I37"  ></A>is moved a single pixel in any direction, a mouse move event is generated. There are two mouse movement events: mouse drags, where the movement occurs with the mouse button pressed down, and plain mouse movements, where the mouse button isn't pressed.
+<BR></P>
+<P>To manage mouse movement events, use the mouseDrag() and mouseMove() methods.
+<BR></P>
+<H4><A ID = "I38" NAME = "I38"  >
+<foNT SIZE=3><B>mouseDrag and mouseMove</B>
+<BR></FONT></A></H4>
+<P>The mouseDrag()<A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A> and mouseMove() methods<A ID = "I41" NAME = "I41"  ></A><A ID = "I42" NAME = "I42"  ></A>, when included in your applet code, intercept and handle mouse movement events. The mouseMove() method, for plain mouse pointer <A ID = "I43" NAME = "I43"  ></A>movements without the mouse button pressed, looks much like the mouse-click methods:
+<BR></P>
+<PRE>public boolean mouseMove(Event evt, int x, int y) {
+    ...
+}</PRE>
+<P>The mouseDrag() method handles mouse movements made with the mouse button pressed down (a complete dragging movement consists of a mouseDown event, a series of mouseDrag events for each pixel the mouse is moved, and a mouseUp even when the button is released). The mouseDrag() method looks like this:
+<BR></P>
+<PRE>public boolean mouseDrag(Event evt, int x, int y) {
+    ...
+}</PRE>
+<H4><A ID = "I44" NAME = "I44"  >
+<foNT SIZE=3><B>mouseEnter and mouseExit</B>
+<BR></FONT></A></H4>
+<P>Finally, there are the mouseEnter()<A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A> and mouseExit() method<A ID = "I47" NAME = "I47"  ></A><A ID = "I48" NAME = "I48"  ></A>s. These two methods are called when the mouse pointer enters the applet or when it exits the applet. (In case you're wondering why you might need to know this, it's more useful on components of user interfaces that you might put inside an applet. You'll learn more about UI tomorrow).
+<BR></P>
+<P>Both mouseEnter() and mouseExit() have similar signatures&#151;three arguments: the event object and the x and y coordinates of the point where the mouse entered or exited the applet.
+<BR></P>
+<PRE>public boolean mouseEnter(Event evt, int x, int y) {
+    ...
+}
+public boolean mouseExit(Event evt, int x, int y) {
+    ...
+}</PRE>
+<H4><A ID = "I49" NAME = "I49"  >
+<foNT SIZE=3><B>(d)An Example Drawing Lines</B>
+<BR></FONT></A></H4>
+<P>Examples always help to <A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A>make concepts more concrete. In this section you'll create an applet that enables you to draw straight lines on the screen by dragging from the startpoint to the endpoint. Figure 12.2 shows the applet at work.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/12tyj02.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/12tyj02.gif'" tppabs="http://newdata.box.sk/bx/java/12tyj02.gif"  >Figure 12.2. Drawing <I>Lines</I>.</B></A>
+<BR></P>
+<P>As with the Spots applet (on which this applet is based), let's start with the basic definition and work our way through it. Listing 12.2 shows the top of the Lines applet.
+<BR></P>
+<UL>
+<LH><B>Listing 12.2. The top of the Lines applet.</B><A ID = "I52" NAME = "I52"  ></A></LH></UL>
+<PRE> 1: import java.awt.Graphics;
+ 2: import java.awt.Color;
+ 3: import java.awt.Event;
+ 4: import java.awt.Point;
+ 5:
+ 6: public class Lines extends java.applet.Applet {
+ 7:
+ 8:     final int MAXLINES = 10;
+ 9:     Point starts[] = new Point[MAXLINES]; // starting points
+10:     Point ends[] = new Point[MAXLINES];    // ending points
+11:     Point anchor;    // start of current line
+12:     Point currentpoint; // current end of line
+13:     int currline = 0; // number of lines
+14:
+15:     public void init() {
+16:         setBackground(Color.white);
+17:     }
+18:</PRE>
+<P>Compared to Spots, this applet added a few extra things. Unlike Spots, which keeps track of individual integer coordinates, this one keeps track of Point objects. Points represent an x and a y coordinate, encapsulated in a single object. To deal with points, you import the Point class<A ID = "I53" NAME = "I53"  ></A><A ID = "I54" NAME = "I54"  ></A> (line 4) and set up a bunch of instance variables that hold points:
+<BR></P>
+<UL>
+<LI>The starts array holds points representing the starts of lines already drawn.
+<BR>
+<BR></LI>
+<LI>The ends array holds the endpoints of those same lines.
+<BR>
+<BR></LI>
+<LI>anchor holds the starting point of the line currently being drawn.
+<BR>
+<BR></LI>
+<LI>currentpoint holds the current endpoint of the line currently being drawn.
+<BR>
+<BR></LI>
+<LI>currline holds the current number of lines (to make sure you don't go over MAXLINES).
+<BR>
+<BR></LI></UL>
+<P>Finally, the init() method (lines 15 through 17), as in the Spots applet, sets the background of the applet to white.
+<BR></P>
+<P>The three main events this applet deals with are mouseDown(), to set the anchor point for the current line, mouseDrag(), to animate the current line as it's being drawn, and mouseUp(), to set the ending point for the new line. Given that you have instance variables to hold each of these values, it's merely a matter of plugging the right variables into the right methods. Here's mouseDown(), which sets the anchor point:
+<BR></P>
+<PRE>public boolean mouseDown(Event evt, int x, int y) {
+    anchor = new Point(x, y);
+    return true;
+}</PRE>
+<P>While the mouse is being <A ID = "I55" NAME = "I55"  ></A>dragged to draw the line, the applet animates the line being drawn. As you drag the mouse around, the new line moves with it from the anchor point to the tip of the mouse. The mouseDrag event contains the current point each time the mouse moves, so use that method to keep track of the current point (and to repaint for each movement so the line &quot;animates&quot;):
+<BR></P>
+<PRE>public boolean mouseDrag(Event evt, int x, int y) {
+    currentpoint = new Point(x, y);
+    repaint();
+    return true;
+}</PRE>
+<P>The new line doesn't get added to the arrays of old lines until the mouse button is released. Here's mouseUp(), which tests to make sure you haven't exceeded the maximum number of lines before calling the addline() method (described next):
+<BR></P>
+<PRE>public boolean mouseUp(Event evt, int x, int y) {
+    if (currline &lt; MAXLINES)
+        addline(x, y);
+    else System.out.println(&quot;Too many lines.&quot;);
+    return true;
+}</PRE>
+<P>The addline() method<A ID = "I56" NAME = "I56"  ></A><A ID = "I57" NAME = "I57"  ></A> is where the arrays of lines get updated and where the applet is repainted to take the new line into effect:
+<BR></P>
+<PRE>void addline(int x, int y) {
+    starts[currline] = anchor;
+    ends[currline] = new Point(x, y);
+    currline++;
+    currentpoint = null;
+    repaint();
+}</PRE>
+<P>Note that in this line you <A ID = "I58" NAME = "I58"  ></A>also set currentpoint to null. Why? Because the current line you were drawing is over. By setting currentpoint to null, you can test for that value in the paint() method.
+<BR></P>
+<P>Painting the applet means drawing all the old lines stored in the starts and ends arrays, as well as drawing the current line in process (whose endpoints are in anchor and currentpoint, respectively). To show the animation of the current line, draw it in blue. Here's the paint() method for the Lines applet:
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    // Draw existing lines
+    for (int i = 0; i &lt; currline; i++) {
+        g.drawLine(starts[i].x, starts[i].y,
+            ends[i].x, ends[i].y);
+    }
+    // Draw current line
+    g.setColor(Color.blue);
+    if (currentpoint != null)
+        g.drawLine(anchor.x, anchor.y,
+            currentpoint.x, currentpoint.y);
+}</PRE>
+<P>In paint, when you're drawing the current line, you test first to see whether currentpoint is null. If it is, the applet isn't in the middle of drawing a line, so there's no reason to try drawing a line that doesn't exist. By testing for currentpoint (and by setting currentpoint to null in the addline() method), you can paint only what you need.
+<BR></P>
+<P>That's it&#151;just 60 lines of code and a few basic methods, and you have a very basic drawing application in your Web browser. Listing 12.3 shows the full text of the Lines applet so that you can put the pieces together.
+<BR></P>
+<UL>
+<LH><B>Listing 12.3. The Lines applet.</B><A ID = "I59" NAME = "I59"  ></A></LH></UL>
+<PRE> 1: import java.awt.Graphics;
+ 2: import java.awt.Color;
+ 3: import java.awt.Event;
+ 4: import java.awt.Point;
+ 5:
+ 6: public class Lines extends java.applet.Applet {
+ 7:
+ 8:     final int MAXLINES = 10;
+ 9:     Point starts[] = new Point[MAXLINES]; // starting points
+10:     Point ends[] = new Point[MAXLINES];    // endingpoints
+11:     Point anchor;    // start of current line
+12:     Point currentpoint; // current end of line
+13:     int currline = 0; // number of lines
+14:
+15:     public void init() {
+16:         setBackground(Color.white);
+17:     }
+18:
+19:     public boolean mouseDown(Event evt, int x, int y) {
+20:         anchor = new Point(x,y);
+21:         return true;
+22:     }
+23:
+24:     public boolean mouseUp(Event evt, int x, int y) {
+25:         if (currline &lt; MAXLINES)
+26:             addline(x,y);
+27:         else System.out.println(&quot;Too many lines.&quot;);
+28:         return true;
+29:     }
+30:
+31:     public boolean mouseDrag(Event evt, int x, int y) {
+32:         currentpoint = new Point(x,y);
+33:         repaint();
+34:         return true;
+35:     }
+36:
+37:     void addline(int x,int y) {
+38:         starts[currline] = anchor;
+39:         ends[currline] = new Point(x,y);
+40:         currline++;
+41:         currentpoint = null;
+42:         repaint();
+43:     }
+44:
+45:     public void paint(Graphics g) {
+46:
+47:         // Draw existing lines
+48:         for (int i = 0; i &lt; currline; i++) {
+49:             g.drawLine(starts[i].x, starts[i].y,
+50:                  ends[i].x, ends[i].y);
+51:         }
+52:
+53:         // draw current line
+54:         g.setColor(Color.blue);
+55:         if (currentpoint != null)
+56:             g.drawLine(anchor.x,anchor.y,
+57:             currentpoint.x,currentpoint.y);
+58:     }
+59: }</PRE>
+<H3><A ID = "I60" NAME = "I60"  >
+<foNT SIZE=4><B>Keyboard Events</B>
+<BR></FONT></A></H3>
+<P>Keyboard <A ID = "I61" NAME = "I61"  ></A><A ID = "I62" NAME = "I62"  ></A>events are generated whenever users press a key on the keyboard. By using key events, you can get hold of the values of the keys they pressed to perform an action or merely to get character input from the users of your applet.
+<BR></P>
+<H4><A ID = "I63" NAME = "I63"  >
+<foNT SIZE=3><B>The </B><B>keyDown </B><B>and </B><B>keyUp</B><B> Methods</B>
+<BR></FONT></A></H4>
+<P>To capture a keyboard <A ID = "I64" NAME = "I64"  ></A>event, use the keyDown() method<A ID = "I65" NAME = "I65"  ></A><A ID = "I66" NAME = "I66"  ></A>:
+<BR></P>
+<PRE>public boolean keyDown(Event evt, int key) {
+    ...
+}</PRE>
+<P>The keys generated by keyDown events (and passed into keyDown() as the key argument) are integers representing ASCII character values, which include alphanumeric characters, function keys, tabs, returns, and so on. To use <A ID = "I67" NAME = "I67"  ></A><A ID = "I68" NAME = "I68"  ></A><A ID = "I69" NAME = "I69"  ></A>them as characters (for example, to print them), you need to cast them to characters:
+<BR></P>
+<PRE>currentchar = (char)key;</PRE>
+<P>Here's a simple example of a keyDown() method that does nothing but print the key you just typed in both its ASCII and character representation:
+<BR></P>
+<PRE>public boolean keyDown(Event evt, int key) {
+    System.out.println(&quot;ASCII value: &quot; + key);
+    System.out.println(&quot;Character: &quot; + (char)key);
+    return true;
+}</PRE>
+<P>As with mouse clicks, each keyDown event also has a corresponding keyUp event. To intercept keyUp events, use the keyUp() method<A ID = "I70" NAME = "I70"  ></A><A ID = "I71" NAME = "I71"  ></A>:
+<BR></P>
+<PRE>public booklean keyUp(Event evt, int key)  {
+   ...
+}</PRE>
+<H4><A ID = "I72" NAME = "I72"  >
+<foNT SIZE=3><B>Default Keys</B>
+<BR></FONT></A></H4>
+<P>The Event class provides <A ID = "I73" NAME = "I73"  ></A><A ID = "I74" NAME = "I74"  ></A>a set of class variables that refer to several standard nonalphanumeric keys, such as the arrow keys. If your interface uses these keys, you can provide more readable code by testing for these names in your keyDown() method rather than testing for their numeric values. For example, to test whether the up arrow was pressed, you might use the following snippet of code:
+<BR></P>
+<PRE>if (key == Event.UP) {
+    ...
+}</PRE>
+<P>Because the values these class variables hold are integers, you also can use the switch statement to test for them.
+<BR></P>
+<P>Table 12.1 shows the standard event class variables for various keys and the actual keys they represent.
+<BR></P>
+<UL>
+<LH><B>Table 12.1. Standard keys </B><A ID = "I75" NAME = "I75"  ></A><A ID = "I76" NAME = "I76"  ></A><B>defined by the event class.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Class Variable</I>
+<BR></PRE>
+<TD>
+<PRE><I>Represened Key</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>Event.HOME</P>
+<TD>
+<P>The Home key</P>
+<TR>
+<TD>
+<P>Event.END</P>
+<TD>
+<P>The End key</P>
+<TR>
+<TD>
+<P>Event.PGUP</P>
+<TD>
+<P>The Page Up key</P>
+<TR>
+<TD>
+<P>Event.PGDN</P>
+<TD>
+<P>The Page Down key</P>
+<TR>
+<TD>
+<P>Event.UP</P>
+<TD>
+<P>The up arrow</P>
+<TR>
+<TD>
+<P>Event.DOWN</P>
+<TD>
+<P>The down arrow</P>
+<TR>
+<TD>
+<P>Event.LEFT</P>
+<TD>
+<P>The left arrow</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Event.RIGHT</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>The right arrow</CENTER></P></TABLE>
+<H4><A ID = "I77" NAME = "I77"  >
+<foNT SIZE=3><B>An Example Entering, Displaying, and Moving Characters</B>
+<BR></FONT></A></H4>
+<P>Let's look at an applet that demonstrates keyboard events. This one enables you to type a <A ID = "I78" NAME = "I78"  ></A><A ID = "I79" NAME = "I79"  ></A>character, and it displays that character in the center of the applet window. You then can move that character around on the screen by using the arrow keys. Typing another character at any time changes the character as it's currently displayed. Figure 12.3 shows an example.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/12tyj03.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/12tyj03.gif'" tppabs="http://newdata.box.sk/bx/java/12tyj03.gif"  >Figure 12.3. The Keys applet.</B></A>
+<BR></P>
+<P>This applet is actually less complicated than the previous applets you've used. This one has only three methods: init(), keyDown(), and paint(). The instance variables are also simpler, because the only things you need to keep track of are the x and y positions of the current character and the values of that character itself. Here's the top of this class definition:
+<BR></P>
+<PRE>import java.awt.Graphics;
+import java.awt.Event;
+import java.awt.Font;
+public class Keys extends java.applet.Applet {
+    char currkey;
+    int currx;
+    int curry;</PRE>
+<P>The init() method is responsible for three things: setting the background color, setting the applet's font (here, 36 point Helvetica bold), and setting the beginning position for the character (the middle of the screen, minus a few points to nudge it up and to the right):
+<BR></P>
+<PRE>    public void init() {
+        currx = (size().width / 2) - 8;  // default
+        curry = (size().height / 2) - 16;
+        setBackground(Color.white);
+        setFont(new Font(&quot;Helvetica&quot;, Font.BOLD, 36));
+    }</PRE>
+<P>Because this applet's behavior is based on keyboard input, the keyDown() method is where most of the work of the applet takes place:
+<BR></P>
+<PRE>public boolean keyDown(Event evt, int key) {
+   switch (key) {
+         case Event.DOWN:
+             curry += 5;
+             break;
+         case Event.UP:
+             curry -= 5;
+             break;
+         case Event.LEFT:
+             currx -= 5;
+             break;
+         case Event.RIGHT:
+             currx += 5;
+             break;
+         default:
+             currkey = (char)key;
+         }
+         repaint();
+         return true;
+}</PRE>
+<P>In the center of <A ID = "I80" NAME = "I80"  ></A><A ID = "I81" NAME = "I81"  ></A>the keyDown() applet is a switch statement that tests for different key events. If the event is an arrow key, the appropriate change is made to the character's position. If the event is any other key, the character itself is changed. The method finishes up with a repaint() and returns true.
+<BR></P>
+<P>The paint() method here is almost trivial; just display the current character at the current position. However, note that when the applet starts up, there's no initial character and nothing to draw, so you have to take that into account. The currkey variable is initialized to 0, so you paint the applet only if currkey has an actual value:
+<BR></P>
+<PRE>    public void paint(Graphics g) {
+        if (currkey != 0) {
+            g.drawString(String.valueOf(currkey), currx,curry);
+        }
+    }</PRE>
+<P>Listing 12.4 shows the complete source for the Keys applet:
+<BR></P>
+<UL>
+<LH><B>Listing 12.4. The Keys applet.</B><A ID = "I82" NAME = "I82"  ></A></LH></UL>
+<PRE> 1: import java.awt.Graphics;
+ 2: import java.awt.Event;
+ 3: import java.awt.Font;
+ 4:
+ 5: public class Keys extends java.applet.Applet {
+ 6:
+ 7:    char currkey;
+ 8:    int currx;
+ 9:     int curry;
+10:
+11:     public void init() {
+12:         currx = (size().width / 2) -8;  // default
+13:         curry = (size().height / 2) -16;
+14:
+15:         setBackground(Color.white);
+16:         setFont(new Font(&quot;Helvetica&quot;,Font.BOLD,36));
+17:     }
+18:
+19:     public boolean keyDown(Event evt, int key) {
+20:         switch (key) {
+21:         case Event.DOWN:
+22:             curry += 5;
+23:             break;
+24:         case Event.UP:
+25:             curry -= 5;
+26:             break;
+27:         case Event.LEFT:
+28:             currx -= 5;
+29:             break;
+30:         case Event.RIGHT:
+31:             currx += 5;
+32:             break;
+33:         default:
+34:             currkey = (char)key;
+35:         }
+36:
+37:         repaint();
+38:         return true;
+39:     }
+40:
+41:     public void paint(Graphics g) {
+42:         if (currkey != 0) {
+43:             g.drawString(String.valueOf(currkey), currx,curry);
+44:         }
+45:     }
+46: }</PRE>
+<H4><A ID = "I83" NAME = "I83"  >
+<foNT SIZE=3><B>Testing for Modifier Keys</B>
+<BR></FONT></A></H4>
+<P>Shift, control, and <A ID = "I84" NAME = "I84"  ></A><A ID = "I85" NAME = "I85"  ></A><A ID = "I86" NAME = "I86"  ></A>meta are modifier keys. They don't generate key events themselves, but when you get an ordinary mouse or keyboard event, you can test to see whether those keys were held down when the event occurred. Sometimes it may be obvious&#151;shifted alphanumeric keys produce different key events than unshifted ones, for example. For other events, however&#151;mouse events in particular&#151;you may want to handle an event with a modifier key held down differently from a regular version of that event.
+<BR></P>
+<P>The Event class provides three methods for testing whether or not a modifier key is held down: shiftDown()<A ID = "I87" NAME = "I87"  ></A><A ID = "I88" NAME = "I88"  ></A>, metaDown()<A ID = "I89" NAME = "I89"  ></A><A ID = "I90" NAME = "I90"  ></A>, and controlDown()<A ID = "I91" NAME = "I91"  ></A><A ID = "I92" NAME = "I92"  ></A>. All return boolean values based on whether that modifier key is indeed held down. You can use these three methods in any of the event handling methods (mouse or keyboard) by calling them on the event object passed into that method:
+<BR></P>
+<PRE>public boolean mouseDown(Event evt, int x, int y ) {
+    if (evt.shiftDown())
+         // handle shift-click
+    else // handle regular click
+}</PRE>
+<H3><A ID = "I93" NAME = "I93"  >
+<foNT SIZE=4><B>The AWT Event Handler</B>
+<BR></FONT></A></H3>
+<P>The default methods <A ID = "I94" NAME = "I94"  ></A><A ID = "I95" NAME = "I95"  ></A>you've learned about today for handling basic events in applets are actually called by a generic event handler method called handleEvent(). The handleEvent() method<A ID = "I96" NAME = "I96"  ></A><A ID = "I97" NAME = "I97"  ></A> is how the AWT generically deals with events that occur between application components and events based on user input.
+<BR></P>
+<P>In the default handleEvent() method, basic events are processed and the methods you learned about today are called. To handle events other than those mentioned here, to change the default event handling behavior, or to create and pass around your own events, you need to override handleEvent() in your own Java programs. The handleEvent() method looks like this:
+<BR></P>
+<PRE>public boolean handleEvent(Event evt) {
+    ...
+}</PRE>
+<P>To test for specific <A ID = "I98" NAME = "I98"  ></A><A ID = "I99" NAME = "I99"  ></A>events, examine the ID instance variable of the Event object that gets passed in. The event ID is an integer, but fortunately, the Event class defines a whole set of event IDs as class variables that you can test for in the body of the handleEvent(). Because these class variables are integer constants, a switch statement works particularly well. For example, here's a simple handleEvent() method to print out debugging information about mouse events:
+<BR></P>
+<PRE>public boolean handleEvent(Event evt) {
+    switch (evt.id) {
+    case Event.MOUSE_DOWN:
+        System.out.println(&quot;MouseDown: &quot; +
+                evt.x + &quot;,&quot; + evt.y);
+        return true;
+    case Event.MOUSE_UP:
+        System.out.println(&quot;MouseUp: &quot; +
+                evt.x + &quot;,&quot; + evt.y);
+        return true;
+    case Event.MOUSE_MOVE:
+        System.out.println(&quot;MouseMove: &quot; +
+                evt.x + &quot;,&quot; + evt.y);
+        return true;
+    case Event.MOUSE_DRAG:
+        System.out.println(&quot;MouseDown: &quot; +
+                evt.x + &quot;,&quot; + evt.y);
+        return true;
+    default:
+        return false;
+    }
+}</PRE>
+<P>You can test for <A ID = "I100" NAME = "I100"  ></A><A ID = "I101" NAME = "I101"  ></A>the following keyboard events:
+<BR></P>
+<UL>
+<LI>Event.KEY_PRESS is generated when a key is pressed (the same as the keyDown() method).
+<BR>
+<BR></LI>
+<LI>Event.KEY_RELEASE is generated when a key is released.
+<BR>
+<BR></LI>
+<LI>Event.KEY_ACTION and Event.KEY_ACTION_RELEASE are generated when a key is pressed and released.
+<BR>
+<BR></LI></UL>
+<P>You can test for these<A ID = "I102" NAME = "I102"  ></A><A ID = "I103" NAME = "I103"  ></A> mouse events:
+<BR></P>
+<UL>
+<LI>Event.MOUSE_DOWN is generated when the mouse button is pressed (the same as the mouseDown() method).
+<BR>
+<BR></LI>
+<LI>Event.MOUSE_UP is generated when the mouse button is released (the same as the mouseUp() method).
+<BR>
+<BR></LI>
+<LI>Event.MOUSE_MOVE is generated when the mouse is moved (the same as the mouseMove() method).
+<BR>
+<BR></LI>
+<LI>Event.MOUSE_DRAG is generated when the mouse is moved with the button pressed (the same as the mouseDrag() method).
+<BR>
+<BR></LI>
+<LI>Event.MOUSE_ENTER is generated when the mouse enters the applet (or a component of that applet). You can also use the mouseEnter() method.
+<BR>
+<BR></LI>
+<LI>Event.MOUSE_EXIT is generated when the mouse exits the applet. You can also use the mouseExit() method.
+<BR>
+<BR></LI></UL>
+<P>In addition to these events, the Event class has a whole suite of methods for handling UI components. You'll learn more about these events tomorrow.
+<BR></P>
+<P>Note that if you override handleEvent() in your class, none of the default event handling methods you learned about today will get called unless you explicitly call them in the body of handleEvent(), so be careful if you decide to do this. One way to get around this is to test for the event you're interested in, and if that event isn't it, to call super.handleEvent() so that the superclass that defines handleEvent() can process things. Here's an example of how to do this:
+<BR></P>
+<PRE>public boolean handleEvent(Event evt) {
+    if (evt.id == Event.MOUSE_DOWN) {
+        // process the mouse down
+        return true;
+    } else {
+        return super.handleEvent(evt);
+    }
+}</PRE>
+<H3><A ID = "I104" NAME = "I104"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Handling events in Java's Abstract Windowing Toolkit (AWT) is easy. Most of the time, all you need to do is stick the right method in your applet code, and your applet intercepts and handles that method. Here are some of the basic events you can manage in this way:
+<BR></P>
+<UL>
+<LI>Mouse clicks&#151;mouseUp() and mouseDown() methods for each part of a mouse click.
+<BR>
+<BR></LI>
+<LI>Mouse movements&#151;mouseMove() and mouseDrag() for mouse movement with the mouse button released and pressed, respectively, as well as mouseEnter() and mouseExit() for when the mouse enters and exits the applet area.
+<BR>
+<BR></LI>
+<LI>keyDown() and keyUp() for when a key on the keyboard is pressed.
+<BR>
+<BR></LI></UL>
+<P>All events in the AWT generate an Event object; inside that object, you can find out information about the event, when it occurred, and its x and y coordinates (if applicable). You can also test that event to see whether a modifier key was pressed when the event occurred, by using the shiftDown(), controlDown(), and metaDown() methods.
+<BR></P>
+<P>Finally, there is the handleEvent()method, the &quot;parent&quot; of the individual event methods. The handleEvent() method is actually what the Java system calls to manage events; the default implementation calls the individual method events where necessary. To override how methods are managed in your applet, override handleEvent.
+<BR></P>
+<H3><A ID = "I105" NAME = "I105"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: In the Spots applet, the spot coordinates are stored in arrays, which </B><B>have a limited size. How can I modify this applet so that it will drawn </B><B>an unlimited number of spots?</B>
+<BR></P>
+<P><B>A: </B>You can do one of a couple things:
+<BR>
+<BR>The first thing to do is test, in your addspot() method, whether the number of spots has exceeded MAXSPOTS. Then create a bigger array, copy the elements of the old array into that bigger array (use the System.arraycopy() method to do that), and reassign the x and y arrays to that new, bigger array.
+<BR>
+<BR>The second thing to do is to use the Vector class. Vector, part of the java.util package, implements an array that is automatically growable&#151;sort of like a linked list is in other languages. The disadvantage of Vector is that to put something into Vector, it has to be an actual object. This means you'll have to cast integers to Integer objects, and then extract their values from Integer objects to treat them as integers again. The Vector class allows you to access and change elements in the Vector just as you can in an array (by using method calls, rather than array syntax). Check it out.
+<BR></P>
+<P><B>Q: </B><B>mouseDown</B><B>()</B><B> and </B><B>mouseUp</B><B>()</B><B> seem to apply to only a single mouse button. How </B><B>can I determine which button on the mouse has been pressed?</B>
+<BR></P>
+<P><B>A: </B>At the moment, you can't. AWT assumes that you're using only one mouse button, or if you have a mouse with multiple buttons, that you're using only the left one. Although this provides some limitations on the kinds of actions you can perform in your applet, it does provide a cross-platform solution. Remember&#151; different systems have different mice, so writing your applet to do something specific with the right mouse button isn't a good idea if the people running your applet are using Macintoshes and have only one mouse button. If you really want to have different mouse actions perform different things, test for modifier keys in your mouseDown() and mouseUp() methods.
+<BR></P>
+<P><B>Q: What's a meta key?</B>
+<BR></P>
+<P><B>A: </B>It's popular in Unix systems, and often mapped to Alt on most keyboards. Because Shift and Ctrl are much more popular and widespread, it's probably a good idea to base your interfaces on those modifier keys if you can.
+<BR></P>
+<P><B>Q: How do I test to see whether the Return key has been pressed?</B>
+<BR></P>
+<P><B>A: </B>Return (line feed) is character 10; Enter (carriage return) is character 13. Note that different platforms may send different keys for the actual key marked Return. In particular, Unix systems send line feeds, Macintoshes send carriage returns, and DOS systems send both. So, to provide a cross-platform behavior, you may want to test for both line feed and carriage return.
+<BR>
+<BR>The word from the Java team is that a Return is a Return is a Return regardless of the platform. However, at the time of this writing, it is questionable whether or not this is currently true in the Java developer's kit. You may want to check the API documentation for the Event class to see whether this has changed in the interim.
+<BR></P>
+<P><B>Q: I looked at the API for the </B><B>Event</B><B> class, and there are many more event </B><B>types listed there than the ones you mention today.</B>
+<BR></P>
+<P><B>A: </B>Yes. The Event class defines many different kinds of events, both for general user input, such as the mouse and keyboard events you learned about here, and also events for managing changes to the state of user interface components, such as windows and scroll bars. Tomorrow, you'll learn about those other events.
+<BR></P>
+<P><A HREF = "tyj11x.html" tppabs="http://newdata.box.sk/bx/java/tyj11x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj13x.html" tppabs="http://newdata.box.sk/bx/java/tyj13x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyjxdx.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Previous" HREF="tyjxcx.html" tppabs="http://newdata.box.sk/bx/java/tyjxcx.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+
+<P><A HREF = "tyjxcx.html" tppabs="http://newdata.box.sk/bx/java/tyjxcx.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >D</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >How Java Differs from C and C++</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >Pointers</A></LI>
+<LI>
+<A HREF = "#I8"  >Arrays</A></LI>
+<LI>
+<A HREF = "#I13"  >Strings</A></LI>
+<LI>
+<A HREF = "#I16"  >Memory Management</A></LI>
+<LI>
+<A HREF = "#I18"  >Data Types</A></LI>
+<LI>
+<A HREF = "#I27"  >Operators</A></LI>
+<LI>
+<A HREF = "#I32"  >Control Flow</A></LI>
+<LI>
+<A HREF = "#I34"  >Arguments</A></LI>
+<LI>
+<A HREF = "#I37"  >Other Differences</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>D</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>How Java Differs from C and C++</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>This appendix contains a description of most of the major differences between C, C++ , and the Java language. If you are a programmer familiar with either C or C++, you may want to review this appendix to catch some of the common mistakes and assumptions programmers make when using Java.
+<BR></P>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>Pointers</B>
+<BR></FONT></A></H3>
+<P>Java does not have an <A ID = "I5" NAME = "I5"  ></A>explicit pointer type. Instead of pointers, all references to objects&#151;including variable assignments, arguments passed into methods, and array elements&#151;are accomplished by using implicit <A ID = "I6" NAME = "I6"  ></A><A ID = "I7" NAME = "I7"  ></A>references. References and pointers are essentially the same thing except that you can't do pointer arithmetic on references (nor do you need to).
+<BR></P>
+<P>References also allow structures such as linked lists to be created easily in Java without explicit pointers; simply create a linked list node with variables that point to the next and the previous node. Then, to insert items in the list, assign those variables to other node objects.
+<BR></P>
+<H3><A ID = "I8" NAME = "I8"  >
+<foNT SIZE=4><B>Arrays</B>
+<BR></FONT></A></H3>
+<P>Arrays in Java are <A ID = "I9" NAME = "I9"  ></A>first class objects, and references to arrays and their contents are accomplished through implicit references rather than via point arithmetic. Array boundaries are strictly <A ID = "I10" NAME = "I10"  ></A>enforced; attempting to read past the end of an array is a compile or run-time error. As with other objects, passing an array to a method passes a reference to the original array, so changing the contents of that array reference changes the original array object.
+<BR></P>
+<P>Arrays of <A ID = "I11" NAME = "I11"  ></A><A ID = "I12" NAME = "I12"  ></A>objects are arrays of references that are not automatically initialized to contain actual objects. Using the following Java code produces an array of type MyObject with ten elements, but that array initially contains only nulls:
+<BR></P>
+<PRE>MyObject arrayofobjs[] = new MyObject[10];</PRE>
+<P>You must now add actual MyObject objects to that array:
+<BR></P>
+<PRE>for (int i=0; i &lt; arrayofobjs.length; i++) {
+    arrayofobjs[i] = new MyObject();</PRE>
+<P>Java does not support multidimensional arrays as in C and C++.  In Java, you must create arrays that contain other arrays.
+<BR></P>
+<H3><A ID = "I13" NAME = "I13"  >
+<foNT SIZE=4><B>Strings</B>
+<BR></FONT></A></H3>
+<P>Strings in C and C++ are arrays <A ID = "I14" NAME = "I14"  ></A>of characters, terminated by a null character ('\0'). To operate on and manage strings, you treat them as you would any other array, with all the inherent difficulties of keeping track of pointer arithmetic and being careful not to stray off the end of the array.
+<BR></P>
+<P>Strings in Java are <A ID = "I15" NAME = "I15"  ></A>objects, and all methods that operate on strings can treat the string as a complete entity. Strings are not terminated by a null, nor can you accidentally overstep the end of a string (like arrays, string boundaries are strictly enforced).
+<BR></P>
+<H3><A ID = "I16" NAME = "I16"  >
+<foNT SIZE=4><B>Memory Management</B>
+<BR></FONT></A></H3>
+<P>All memory management <A ID = "I17" NAME = "I17"  ></A>in Java is automatic; memory is allocated automatically when an object is created, and a run-time garbage collector (the &quot;gc&quot;) frees that memory when the object is no longer in use. C's malloc() and free() functions do not exist in Java.
+<BR></P>
+<P>To &quot;force&quot; an object to be freed, remove all references to that object (assign all variables and array elements holding it to null). The next time the Java gc runs, that object is reclaimed.
+<BR></P>
+<H3><A ID = "I18" NAME = "I18"  >
+<foNT SIZE=4><B>Data Types</B>
+<BR></FONT></A></H3>
+<P>As mentioned in the <A ID = "I19" NAME = "I19"  ></A>early part of this book, all Java primitive data types (char, int, long, and so on) have consistent sizes and behavior across platforms and operating systems. There are no unsigned data types as in C and C++ (except for char, which is a 16-bit unsigned integer).
+<BR></P>
+<P>The boolean primitive <A ID = "I20" NAME = "I20"  ></A><A ID = "I21" NAME = "I21"  ></A><A ID = "I22" NAME = "I22"  ></A>data type can have two values: true or false. Boolean is not an integer, nor can it be treated as one, although you can cast 0 or 1 (integers) to boolean types in Java.
+<BR></P>
+<P>Composite data types <A ID = "I23" NAME = "I23"  ></A><A ID = "I24" NAME = "I24"  ></A>are accomplished in Java exclusively through the use of class definitions. The struct, union, and typedef keywords have all been removed in favor of classes.
+<BR></P>
+<P>Casting between data types <A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A>is much more controlled in Java; automatic casting occurs only when there will be no loss of information. All other casts must be explicit. The primitive data types (int, float, long, char, boolean, and so on) cannot be cast to objects or vice versa; there are methods and special &quot;wrapper&quot; classes to convert values between objects and primitive types.
+<BR></P>
+<H3><A ID = "I27" NAME = "I27"  >
+<foNT SIZE=4><B>Operators</B>
+<BR></FONT></A></H3>
+<P>Operator precedence and <A ID = "I28" NAME = "I28"  ></A><A ID = "I29" NAME = "I29"  ></A>association behaves as it does in C. Note, however, that the new keyword (for creating a new object) binds tighter than dot notation (.), which is different behavior from C++. In particular, note the following expression:
+<BR></P>
+<PRE>new foo().bar;</PRE>
+<P>This expression operates as if it were written like this:
+<BR></P>
+<PRE>(new foo()).bar;</PRE>
+<P>Operator overloading, <A ID = "I30" NAME = "I30"  ></A><A ID = "I31" NAME = "I31"  ></A>as in C++, cannot be accomplished in Java. The , operator of C has been deleted.
+<BR></P>
+<P>The &gt;&gt;&gt; operator produces an unsigned logical right shift (remember, there are no unsigned integer data types).
+<BR></P>
+<P>The + operator can be used to concatenate strings.
+<BR></P>
+<H3><A ID = "I32" NAME = "I32"  >
+<foNT SIZE=4><B>Control Flow</B>
+<BR></FONT></A></H3>
+<P>Although the if, while, for, <A ID = "I33" NAME = "I33"  ></A>and do statements in Java are syntactically the same as they are in C and C++, there is one significant difference. The test expression for each control flow construct must return an actual boolean value (true or false). In C and C++, the expression can return an integer.
+<BR></P>
+<H3><A ID = "I34" NAME = "I34"  >
+<foNT SIZE=4><B>Arguments</B>
+<BR></FONT></A></H3>
+<P>Java does not support <A ID = "I35" NAME = "I35"  ></A>mechanisms for variable-length argument lists to functions as in C and C++. All method definitions must have a specific number of arguments.
+<BR></P>
+<P>Command-line arguments <A ID = "I36" NAME = "I36"  ></A>in Java behave differently from those in C and C++. The first element in the argument vector (argv[0]) in C and C++ is the name of the program itself; in Java, that first argument is the first of the additional arguments. In other words, in Java, argv[0] is argv[1] in C and C++; there is no way to get hold of the actual name of the Java program.
+<BR></P>
+<H3><A ID = "I37" NAME = "I37"  >
+<foNT SIZE=4><B>Other Differences</B>
+<BR></FONT></A></H3>
+<P>The following other minor differences from C and C++ exist in Java:
+<BR></P>
+<UL>
+<LI>Java does not have <A ID = "I38" NAME = "I38"  ></A>a preprocessor, and as such, does not have #defines or macros. Constants can be created by using <A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A>the final modifier when declaring class and instance variables.
+<BR>
+<BR>
+<BR></LI>
+<LI>Java does not have template <A ID = "I41" NAME = "I41"  ></A><A ID = "I42" NAME = "I42"  ></A>classes as in C++.
+<BR>
+<BR>
+<BR></LI>
+<LI>Java does <A ID = "I43" NAME = "I43"  ></A><A ID = "I44" NAME = "I44"  ></A>not include C's const keyword or the ability to pass by const reference explicitly.
+<BR>
+<BR>
+<BR></LI>
+<LI>Java classes are singly inherited, with <A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A>some multiple-inheritance features provided through interfaces.
+<BR>
+<BR>
+<BR></LI>
+<LI>All functions must be methods. There <A ID = "I47" NAME = "I47"  ></A><A ID = "I48" NAME = "I48"  ></A>are no functions that are not tied to classes.
+<BR>
+<BR>
+<BR></LI>
+<LI>The goto keyword does <A ID = "I49" NAME = "I49"  ></A><A ID = "I50" NAME = "I50"  ></A>not exist in Java (it's a reserved word, but currently unimplemented). You can, however, use labeled breaks and continues to break out of and continue executing complex switch or loop constructs.
+<BR>
+<BR>
+<BR></LI></UL>
+<P><A HREF = "tyjxcx.html" tppabs="http://newdata.box.sk/bx/java/tyjxcx.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

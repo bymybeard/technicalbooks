@@ -1,0 +1,168 @@
+Once applications are deployed, the problems start: Multiple users connect to the application and complain about the speed. Where do you start to locate the problem? Is it the operating system? What about garbage collection? Is the architecture of the application a problem? In this post we give a starting point in how to analyze a problem and act accordingly.
+
+We outline best practices for solving production problems in three parts:
+
+    System performance
+    Performance in general
+    Solve performance problems
+
+Before we start with tuning the performance, it is important to have an overview of the internal architecture of the WebLogic Server. The processing of requests is based on the following components: listen threads, the socket muxer and the execute queue. When the server boots, the server mounts a listen thread to each configured port. The socket muxer detects an incoming request and places it in the execute queue. A free execute thread picks up the request from the queue and executes it. The execute thread processes the request in whole, in other words, the call to a servlet, the servlet call to an EJB and the EJB call to JDBC to query a database, are handled by one execute thread.
+
+An important observation is that if application code blocks an execute thread for a long time, the server can not use this execute thread to process other requests. If the application is in a state where each thread is blocked for an indefinite period, the server stops responding or additional threads are created. Creation of additional threads that eventually will block does not help the situation. Threads that are not processed in the foreseeable future, does not benefit the performance.
+System performance
+
+A good understanding of the operating system, network, JVM and server resources (such as connection pools, JMS servers) and the associated tuning options help enormously in applying best practices. In general it is not enough to know what to do, we should also know why it works.
+
+When we design an application, we must first understand the application itself and how users interact with it. We should investigate all system components to identify and understand the interaction between these components. By determining the workload over all layers, we get an understanding which components are most affected by the activity of users. A good understanding of the system allows us to choose the right system architecture. Once the system architecture is set, we can begin to focus on the architecture of the application. Some very wise man once said: “Architecture matters, and in systems of scale and systems that require availability, architecture matters absolutely! Failure to achieve a solid architecture will doom in advance any hope of significant scalability, and will leave the effects of failure within the system to pure chance.”
+
+If after well-considered decisions, there are still performance problems in production and we want the maximum from the server, we need to tune. The tuning is done at different layers within the production environment. In the following discussion we start at the bottom and then work our way steadily upwards.
+Tuning the operating system
+
+In general, Java EE applications have some kind of Web interface. Usually, this type of applications have a few thousand concurrent users. As a result that a high number of connections between the browser and the server are opened and closed. These connections are nothing more than TCP sockets on operating system level. Most operating systems handle sockets as a form of file access and use file descriptors to keep track of which sockets are open. To contain the resources per process, the operating system restricts the number of file descriptors per process.
+
+A TCP connection that is properly closed by an application is in the TIME_WAIT state before it is returned to the operating system. While the connection is in TIME_WAIT, all the used resources (including the file descriptor) stay allocated to the process. The result is that the file descriptor table can fill up. This means that we have to tune the operating system so that a scalable application does not run against an operating system restriction. Tuning basically means following recommendations from the hardware vendor.
+
+A number of useful tools which can be used are netstat (to determine the number of sockets in TIME_WAIT state, for example by using, netstat –a | grep TIME_WAIT | wc –l) or iostat (to determine disk I/O on the operating system, for example, iostat 5 5). Note that iostat is part of the sysstat package, which can be installed by using: yum -y install sysstat.
+Tuning the Java Virtual Machine (JVM)
+
+The JVM used to run the WebLogic Server and the deployed applications is of great importance in the final performance of the WebLogic Server. Keep in mind that performance is nothing if we do not have stability – fast applications do not do the users any good if they are not running. So when choosing a JVM look for stability first, then the performance.
+
+The garbage collection is the most important factor in tuning a JVM. Poorly tuned garbage collectors or applications that create an unnecessary numbers of objects, can have dramatic effects on the performance of the application. A proper tuning of the garbage collector, greatly reduces the processing time resulting in a significant improvement in application performance. More information on JVM tuning is presented in this post.
+Tuning the server
+
+During performance tests it is important to enlarge the listen queue. WebLogic Server uses the Accept Backlog parameter to specify the size of the queue. If client requests are rejected it may be that the size of the queue is too small. The login timeout parameter is used to specify the maximum time to set up a connection. By default, this value is 5 seconds (25 seconds for SSL), which may be too small for systems with a heavy load.
+
+Thread management optimization is handled by the WebLogic Server itself. By collecting performance information, the number of execute threads are adapted to the workload of the application. By default every deployed application is assigned to the default WorkManager. This gives each application the same priority and prevents applications to use more than their fair share of server resources. In general, the default WorkManager suffices. A number point are of interrest in this respect:
+
+    Database Connection Pool – If the application depends on database connections, it is important to note that no more concurrent requests can be processed than there are connections in the pool. In this case we can override the default WorkManager by imposing a maximum thread constraint. This constraint is set to be equal to the number of connections in the connection pool.
+    Server Deadlock – Some applications call resources in a different server instance, which in turn calls resources in the calling server. In this case, we must take extra care so that a server deadlock does not occur. A deadlock occurs when all threads are waiting for requests from the remote application and no thread is available to handle the callback process. In this case we can configure a minimum thread constraint so that a number of execute threads are available at all times to the process the callback.
+    Server Overload – If we tune the server to achieve a certain response time, it is important to note that at some point the server must no longer accept new requests. If a request is in the queue, it takes some time before it can be processed (the request queued is waiting for an execute thread). To ensure that the queue is not cluttered with long waiting requests, we setup a capacity constraint. If the capacity is exceeded, a 503 response is send back to the user.
+
+WebLogic Server uses resource pooling to optimize performance. For example, stateless session beans and message-driven beans are pooled. If all resources are used, the server will increase the pool to suit the requests of the application’s requirements. Increasing the pool adds overhead to process a request. This overhead depends on the type of resource. When the pool reaches its maximum, the server can not increase the pool. If this situation occurs, requests must wait until a resource is released before the request can be processed. An obvious rule of thumb is to ensure that the pool is large enough to process the number of simultaneous requests.
+
+Once optimum settings are found, there usually can be achieved some improvements in garbage collection.
+
+Before an application is put into production, it is important to conduct long-term load tests. These tests generally reveal problems, that only surface in production after a long time, such as memory leaks.
+Performance in general
+
+An appropriate architecture (the right patterns) can improve performance. Understanding where the application runs, such as in a Web and/or EJB container, and what these containers have to offer for is very important.
+Design
+
+Good application performace starts with a good design. Too complex an application will always perform badly, and tuning will not help. Proper use of design patterns could lead to significant advantages, such as standardizing default design problems. A number of design patterns also offer a performance enhancement, examples of these are the session facade and the command pattern:
+
+    Session facades improve performance by offering high level business operations. Especially, when calling EJB by using remote interfaces (also when calling EJBs locally, because the EJB container provides services such as security, lifecycle management and transaction management).
+    The command pattern uses one command object to process requests. By using this pattern with the session facade the number of remote calls can be reduced, and as such we are also reducing remote network calls.
+
+Web container
+
+Many applications complement the HTTP protocol by storing objects in the HTTP session. In the same browser session, the session data is available to subsequent requests. In a high-available application, the session data must be available even when the original server fails. This means that the session data must be replicated to other servers within a cluster. Keep in mind that there is a cost attached to replicating session data. If a web application changes the HTTP session object, the server must store these changes at the end of each request. The amount of data that the server is to store depends on the data structure of the HTTP session object. If the web application changes a small amount of data in a large object structure, the server replicates this large object structure not just the changes, so it is important to divide large structures into small pieces. An HTTP session object also uses resources, so it is important to clean it up when you are done.
+EJB container
+
+EJB components can have a dramatic effect on performance, because they generally do more work than a web component. We can optimize calls to EJBs. If the caller and the EJB are in the same JVM and loaded by the same classloader, we can ensure that a pass-by-reference optimization occurs. This optimization must be turned on by using the deployment override weblogic-ejb-jar.xml, i.e., set the enable-call-by-reference element of a particular EJB component to true.
+Database access
+
+Efficient database access is vital to obtain scalability and a high throughput. If database access is slow all other tuning, such as JVM, EJB container etcetare, will be futile. First, we need an effective database design. A classic in this area is “An Introduction to Database Systems” written by CJ Tate. Many database designers have a preference for normalizing their design. With the result that multi-way joins are needed to retrieve data for a business object. A design that looks good on paper, is generally a disaster in production. If performance is the issue at hand, it is time to sit down with the database designer and denormalize critical tables.
+
+The next step is that the physical database must meet the performance requirements. A DBA must use all the optimization options in order to achieve the best possible performance. Here it is important that the DBA has a complete list of all queries within the application so that the appropriate indexes can be made.
+
+WebLogic Server supports both local and global transactions. Global operations include multiple resources. Global transactions have additional logging and extra network I/O is needed, which makes it slower than local transactions. If possible, use local transactions.
+Solve performance problems
+
+Now that the application and the environment are tuned to perfection, users are happy and the system shamelessly handles hundreds of requests per second, or not? As mentioned above a requirement for successful troubleshooting we need a good understanding of the system and its components. Each system is different and every performance problem is probably different. There are, however, a number of best practices that can help pinpoint problems.
+Preparation
+
+Solving problems is difficult and time-consuming. If users are unhappy, we need the right infrastructure, processes and people to solve the problem.
+
+First, the application must be thoroughly tested. It is important to find out how the application behaved in the test, in order to know if the problem we have to find a solution for is normal during peak loads. Test results also gives us insight in the resource usage. Testing is half the work for solving production problems.
+
+Additionally, all performance monitoring mechanisms must be in place in order to provide information on system performance and activity. Unfortunately, performance problems are not there on request, so we must have some form of logging in order to reconstruct the resource usage and activity during a given period.
+
+Last be not least; it is not a bad idea to have a multi-disciplinary team available before the problems arise.
+Identifying and correcting bottlenecks
+
+A bottleneck is a resource within a system, which reduces the throughput of a system or affects the response time significantly. To fix bottlenecks in a distributed system is not one of the easiest tasks in IT. In general, there are multi-disciplinary teams required. The advent of performance monitoring tools makes fixing problems somewhat easier. Bottlenecks can occur in the web server, application code, application server, database, network, hardware or operating systems.
+Examples
+
+Web Server
+Problem description: WebLogic proxy plug-in closes keep-alive connections to clients randomly.
+
+Configuration
+1	KeepAliveTimeout 90
+2	MaxKeepAliveRequests 0
+3	KeepAliveSecs 55
+
+Why does the WebLogic proxy plug-in ignore the KeepAlive directives and decides to the close connection to the client by itself?
+
+    Is this related to the WebLogic proxy plug-in?
+    What about the thread configuration in the Web Server?
+
+From the Web Server documentation: In addition to the set of active child processes, there may be additional child processes which are terminating but where at least one server thread is still handling an existing client connection. Up to MaxClients terminating processes may be present, though the actual number can be expected to be much smaller. This behavior can be avoided by disabling the termination of individual child processes, which is achieved by the following:
+
+    set the value of MaxRequestsPerChild to zero.
+    set the value of MaxSpareThreads to the same value as MaxClients.
+
+By applying these guidelines in the Web Server worker configuration the problem got resolved
+1	<IfModule mpm_worker_module>
+2	    StartServers 2
+3	    MinSpareThreads 25
+4	    MaxSpareThreads 75 --> 2000
+5	    ThreadLimit 200
+6	    ThreadsPerChild 200
+7	    MaxClients 2000
+8	    MaxRequestsPerChild 0
+9	</IfModule>
+
+JVM and Code.
+Problem description: On Linux 64-bit machine and WebLogic 10.3.2 we are getting an out-of-memory very frequently (java.lang.OutOfMemoryError: class allocation...). Configured parameters of the JRockit JVM: -Xms2048m -Xmx2048m -Xns:1536m -XXsetGC:genparcon.
+
+Symptoms indicate a native memory leak due to dynamically creating classes and not letting them be garbage collected. We need to have information on the class loading. To check if the number of loaded classes constantly increase, we can use -Xverbose:class.
+
+Obtained information: Many classes are created as follows [INFO ][class ] created: #23722 com/beans/FactuurResponse$JobInfo$JaxbAccessorF_subjobInfo.
+
+Now what; we need Java knowledge:
+
+    The classes are used to marshal and unmarshal XML payload from a web service request/response.
+    It looks like JAXB is creating the subjobInfo and many similar classes on the fly.
+    Invoking JAXBContext.newInstance() causes a reload of all classes as per specification, it is not designed as a singleton.
+    Solution is to create only one instance (singleton) of a JAXBContext and reuse it.
+
+Application Server I
+Problem description: Illegal memory access [54].
+
+This you have to know
+
+    JRockit has issues with Apache Axis and it crashes whenever a SOAP request is submitted to a web service.
+    The reason for the crash is that there are two versions of javax.xml.soap.SOAPPart, and the wrong one is loaded before the right one.
+    So this is actually not a JVM related issue, but an issue with the configured classpath on the application server.
+
+Steps to resolve the issue
+
+    Add the JVM option -Xverify:all to check to correctness of the loaded bytecode.
+    Edit the classpath so that the right version of the class is loaded.
+    Add the axis.jar to the WEB-INF/lib directory.
+    Edit the deployment override weblogic.xml to tell WebLogic to prefer the application classes before the system classes, i.e.
+
+1	<container-descriptor>
+2	    <prefer-web-inf-classes>true</prefer-web-inf-classes>
+3	</container-descriptor>
+
+Another option to edit the classpath is to add the jars to the APP-INF/lib directory of the EAR file and use a filtering classloader.
+
+Application Server II
+Problem description: Running SOA suite 11g in a single server environment. Everything was running fine until the application adapters for SAP were deployed – after a restart of the server the enterprise manager does not start anymore.
+
+Scanning the logging for errors: java.lang.NoSuchMethodError: org.apache.xerces.util.DOMEntityResolverWrapper.setEntityResolver(...). NoSuchMethodError is thrown when the definition of a class has incompatible changed. Again a very weird issue concerning classloading.
+
+The application adapter iwafjca.rar contains the malefactor, i.e., the jar file xercesimpl.jar which contains the wrong version of the class.
+Some Final Words
+
+As you can tell from the wide-ranging discussion, there is a lot to know and consider when tuning or troubleshooting a complex Java EE system. Nothing beats experience, go home, make your users angry and do some performance tuning.
+References
+
+[1] Tate, “Bitter Java”, Manning, 2002. This book explores the topic of antipatterns with specific examples. There is a lot of code, which is refactored many times to improve performance and readability until the final examples are decidedly sweeter.
+[2] System Tuning Info for Linux Servers.
+[3] Linux Performance and Tuning Guidelines.
+[4] Tuning Garbage Collection with the Java Virtual Machine.
+[5] Performance White Paper.
+[6] Top Tuning Recommendations for WebLogic Server.
+- See more at: http://middlewaremagic.com/weblogic/?p=6384#sthash.ik9zieys.dpuf

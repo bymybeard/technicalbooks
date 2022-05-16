@@ -1,0 +1,749 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj11x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj12x.html" tppabs="http://newdata.box.sk/bx/java/tyj12x.html">
+<LINK REL="Previous" HREF="tyj10x.html" tppabs="http://newdata.box.sk/bx/java/tyj10x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj10x.html" tppabs="http://newdata.box.sk/bx/java/tyj10x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj12x.html" tppabs="http://newdata.box.sk/bx/java/tyj12x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 11</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >More Animation, Images, and Sound</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >Retrieving and Using Images</A></LI>
+<UL>
+<LI>
+<A HREF = "#I7"  >Getting Images</A></LI>
+<LI>
+<A HREF = "#I24"  >Drawing Images</A></LI>
+<LI>
+<A HREF = "#I51"  >Modifying Images</A></LI></UL>
+<LI>
+<A HREF = "#I54"  >Creating Animation Using Images</A></LI>
+<UL>
+<LI>
+<A HREF = "#I57"  >An Example Neko</A></LI></UL>
+<LI>
+<A HREF = "#I82"  >Retrieving and Using Sounds</A></LI>
+<LI>
+<A HREF = "#I103"  >Sun's Animator Applet</A></LI>
+<LI>
+<A HREF = "#I113"  >More About Flicker Double-Buffering</A></LI>
+<UL>
+<LI>
+<A HREF = "#I116"  >Creating Applets with Double-Buffering</A></LI>
+<LI>
+<A HREF = "#I120"  >An Example Checkers Revisited</A></LI></UL>
+<LI>
+<A HREF = "#I122"  >Summary</A></LI>
+<LI>
+<A HREF = "#I123"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 11</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>More Animation, Images, and Sound</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>Animations are fun and easy to do in Java, but there's only so much you can do with the built-in Java methods for lines and fonts and colors. For really interesting animations, you have to provide your own images for each frame of the animation&#151;and having sounds is nice, as well. Today, you'll do more with animations, incorporating images and sounds into Java applets.
+<BR></P>
+<P>Specifically, you'll explore the following topics:
+<BR></P>
+<UL>
+<LI>Using images&#151;getting them from the server, loading them into Java, and displaying them in your applet
+<BR>
+<BR></LI>
+<LI>Creating animations by using images, including an extensive example
+<BR>
+<BR></LI>
+<LI>Using sounds&#151;getting them and playing them at the appropriate times
+<BR>
+<BR></LI>
+<LI>Sun's Animator applet&#151;an easy way to organize animations and sounds in Java
+<BR>
+<BR></LI>
+<LI>Double-buffering&#151;hardcore flicker avoidance
+<BR>
+<BR></LI></UL>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>Retrieving and Using Images</B>
+<BR></FONT></A></H3>
+<P>Basic image handling in Java is easy. The Image class <A ID = "I5" NAME = "I5"  ></A><A ID = "I6" NAME = "I6"  ></A>in java.awt provides abstract methods to represent common image behavior, and special methods defined in Applet and Graphics give you everything you need to load and display images in your applet as easily as drawing a rectangle. In this section, you'll learn about how to get and draw images in your Java applets.
+<BR></P>
+<H4><A ID = "I7" NAME = "I7"  >
+<foNT SIZE=3><B>Getting Images</B>
+<BR></FONT></A></H4>
+<P>To display <A ID = "I8" NAME = "I8"  ></A><A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A>an image in your applet, you first must <A ID = "I11" NAME = "I11"  ></A>load that image over the net into your Java program. Images are stored as separate files from your Java class files, so you have to tell Java where to find them.
+<BR></P>
+<P>The Applet class provides a method called getImage<A ID = "I12" NAME = "I12"  ></A><A ID = "I13" NAME = "I13"  ></A>, which loads an image and automatically creates an instance of the Image class for you. To use it, all you have to do is import the java.awt.Image class, and then give getImage the URL of the image you want to load. There are two ways of doing the latter step:
+<BR></P>
+<UL>
+<LI>The getImage() method with a <A ID = "I14" NAME = "I14"  ></A>single argument (an object of type URL) retrieves the image at that URL.
+<BR>
+<BR></LI>
+<LI>The getImage() method with two arguments: the base URL (also a URL object) and a string representing the path or filename of the actual image (relative to the base).
+<BR>
+<BR></LI></UL>
+<P>Although the first way may seem easier (just plug in the URL as a URL object), the second is more flexible. Remember, because you're compiling Java files, if you include a hard-coded URL of an image and then move your files around to a different location, you have to recompile all your Java files.
+<BR></P>
+<P>The latter form, therefore, is usually the one to use. The Applet class also provides two methods that will help with the base URL argument to getImage():
+<BR></P>
+<UL>
+<LI>The getDocumentBase() method returns <A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A>a URL object representing the directory of the HTML file that contains this applet. So, for example, if the HTML file is located at http://www.myserver.com/htmlfiles/javahtml/, getDocumentBase returns a URL pointing to that path.
+<BR>
+<BR></LI>
+<LI>The getCodeBase() method returns <A ID = "I17" NAME = "I17"  ></A><A ID = "I18" NAME = "I18"  ></A>a string representing the directory in which this applet is contained&#151;which may or may not be the same directory as the HTML file, depending on whether the CODEBASE attribute in &lt;APPLET&gt; is set or not.
+<BR>
+<BR></LI></UL>
+<P>Whether you use getDocumentBase() or getCodebase() depends on whether your images are relative to your HTML files or relative to your Java class files. Use whichever one applies better to your situation. Note that either of these methods is more flexible than hard-coding a URL or pathname into the getImage() method; using either getDocumentBase() or getCodeBase() enables you to move your HTML files and applets around and Java can still find your images.
+<BR></P>
+<P>Here are a few examples of getImage, to give you an idea of how to use it. This first call to getImage() retrieves the file at that <A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A>specific URL (&quot;http://www.server.com/files/image.gif&quot;). If any part of that URL changes, you have to recompile your Java applet to take the new path into account:
+<BR></P>
+<PRE>Image img = getImage(
+    new URL(&quot;http://www.server.com/files/image.gif&quot;));</PRE>
+<P>In the following form of getImage, the image.gif file is in the same directory as the HTML files that refer to this applet:
+<BR></P>
+<PRE>Image img = getImage(getDocumentBase(), &quot;image.gif&quot;)</PRE>
+<P>In this similar form, the file image.gif is in the same directory as the applet itself:
+<BR></P>
+<PRE>Image img = getImage(getCodeBase(), &quot;image.gif&quot;)</PRE>
+<P>If you have lots of image files, it's common to put them into their <A ID = "I21" NAME = "I21"  ></A>own subdirectory. This form of getImage() looks for the file image.gif in the directory images, which, in turn, is in the same directory as the Java applet:
+<BR></P>
+<PRE>Image img = getImage(getCodeBase(), &quot;images/image.gif&quot;)</PRE>
+<P>If getImage() can't find the file indicated, it returns null. drawImage() on a null image will simply draw nothing. Using a null image in other ways will probably cause an error.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Currently, Java <A ID = "I22" NAME = "I22"  ></A><A ID = "I23" NAME = "I23"  ></A>supports images in the GIF and JPEG formats. Other image formats may be available later; however, for now, your images should be in either GIF or JPEG.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I24" NAME = "I24"  >
+<foNT SIZE=3><B>Drawing Images</B>
+<BR></FONT></A></H4>
+<P>All that <A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A>stuff with getImage() does nothing except go off and retrieve an image and stuff it into an instance of the Image class. Now that you have an image, you have to do something with it.
+<BR></P>
+<P>The most likely thing you're going to want to do is display it as you would a rectangle or a text string. The <A ID = "I27" NAME = "I27"  ></A><A ID = "I28" NAME = "I28"  ></A>Graphics class provides two methods to do just this, all called drawImage()<A ID = "I29" NAME = "I29"  ></A><A ID = "I30" NAME = "I30"  ></A>.
+<BR></P>
+<P>The first version of <A ID = "I31" NAME = "I31"  ></A>drawImage() takes four arguments: the image to display, the x and y positions of the top left corner, and this:
+<BR></P>
+<PRE>public void paint() {
+    g.drawImage(img, 10, 10, this);
+}</PRE>
+<P>This first form does what you would expect it to: it draws the image in its original dimensions with the top left corner at the given x and y positions. Listing 11.1 shows the code for a very simple applet that loads in an image called ladybug.gif and displays it. Figure 11.1 shows the obvious result.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/11tyj01.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/11tyj01.gif'" tppabs="http://newdata.box.sk/bx/java/11tyj01.gif"  >Figure 11.1. The <I>Ladybug</I> image.</B></A>
+<BR></P>
+<UL>
+<LH><B>Listing 11.1. The Ladybug applet.</B><A ID = "I32" NAME = "I32"  ></A></LH></UL>
+<PRE> 1: import java.awt.Graphics;
+ 2: import java.awt.Image;
+ 3:
+ 4: public class LadyBug extends java.applet.Applet {
+ 5:
+ 6:     Image bugimg;
+ 7:
+ 8:     public void init() {
+ 9:        bugimg = getImage(getCodeBase(),
+10:           &quot;images/ladybug.gif&quot;);
+11:     }
+12:
+13:     public void paint(Graphics g) {
+14:       g.drawImage(bugimg, 10, 10,this);
+15:     }
+16: }</PRE>
+<P>In this example we have an instance variable bugimg to hold the ladybug image, which is loaded <A ID = "I33" NAME = "I33"  ></A><A ID = "I34" NAME = "I34"  ></A>in the int() method. The paint() method then draws that image on the screen.
+<BR></P>
+<P>The second form <A ID = "I35" NAME = "I35"  ></A><A ID = "I36" NAME = "I36"  ></A>of drawImage takes six arguments: the image to draw, the x and y coordinates, a width and height of the image bounding box, and this. If the width and <A ID = "I37" NAME = "I37"  ></A><A ID = "I38" NAME = "I38"  ></A><A ID = "I39" NAME = "I39"  ></A>height arguments for the bounding box are smaller or larger than the actual image, the image is automatically scaled to fit. Using those extra arguments enables you to squeeze and expand images into whatever space you need them to fit in (keep in mind, however, that there may be some image degradation from scaling it smaller or larger than its intended size).
+<BR></P>
+<P>One helpful hint for <A ID = "I40" NAME = "I40"  ></A><A ID = "I41" NAME = "I41"  ></A>scaling images is to find out the size of the actual image that you've loaded, so you can then scale it to a specific percentage and avoid distortion in either direction. Two methods defined for the Image class enable <A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A>you do this: getWidth() and getHeight()<A ID = "I44" NAME = "I44"  ></A><A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A><A ID = "I47" NAME = "I47"  ></A>. Both take a single argument, an instance of ImageObserver, which is used to track the loading of the image (more about this later). Most of the time, you can use just this as an argument to either getWidth() or getHeight(). 
+<BR></P>
+<P>If you stored the ladybug image in a variable called bugimg, for example, this line returns the width of that image, in pixels:
+<BR></P>
+<PRE>theWidth = bugimg.getWidth(this);</PRE>
+<P>Listing 11.2 shows another use of the ladybug image, this time scaled several times to different sizes (Figure 11.2 shows the result).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/11tyj02.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/11tyj02.gif'" tppabs="http://newdata.box.sk/bx/java/11tyj02.gif"  >Figure 11.2. The second Ladybug applet.</B></A>
+<BR></P>
+<UL>
+<LH><B>Listing 11.2. More </B><B>Ladybug</B><B>s</B><B>, scaled.</B><A ID = "I48" NAME = "I48"  ></A></LH></UL>
+<PRE> 1:  import java.awt.Graphics;
+ 2: import java.awt.Image;
+ 3:
+ 4: public class LadyBug2 extends java.applet.Applet {
+ 5:
+ 6:     Image bugimg;
+ 7:
+ 8:     public void init() {
+ 9:         bugimg = getImage(getCodeBase(),
+10:             &quot;images/ladybug.gif&quot;);
+11:     }
+12:
+13:     public void paint(Graphics g) {
+14:         int iwidth = bugimg.getWidth(this);
+15:         int iheight = bugimg.getHeight(this);
+16:         int xpos = 10;
+17:
+18:         // 25 %
+19:        g.drawImage(bugimg, xpos, 10,
+20:            iwidth / 4, iheight / 4, this);
+21:
+22:          // 50 %
+23:          xpos += (iwidth / 4) + 10;
+24:          g.drawImage(bugimg, xpos , 10,
+25:              iwidth / 2, iheight / 2, this);
+26:
+27:          // 100%
+28:          xpos += (iwidth / 2) + 10;
+29:          g.drawImage(bugimg, xpos, 10, this);
+30:
+31:          // 150% x, 25% y
+32:          g.drawImage(bugimg, 10, iheight + 30,
+33:              (int)(iwidth * 1.5), iheight / 4, this);
+34:      }
+35: }</PRE>
+<P>I've been steadfastly ignoring mentioning that last argument to drawImage(): the mysterious <A ID = "I49" NAME = "I49"  ></A><A ID = "I50" NAME = "I50"  ></A>this, which also appears as an argument to getWidth() and getHeight(). Why is this argument used? Its official use is to pass in an object that functions as an ImageObserver (that is, an object that implements the ImageObserver interface). Image observers enable you to watch the progress of how far along an image is in the loading process and to make decisions when the image is only fully or partially loaded. The Applet class, which your applet inherits from, contains default behavior for watching for images that should work in the majority of cases&#151;hence, the this argument to drawImage(), getWidth(), and getHeight(). The only reason you'll want to use an alternate argument in its place is if you are tracking lots of images loading asynchronously. See the java.awt.image.ImageObserver class for more details.
+<BR></P>
+<H4><A ID = "I51" NAME = "I51"  >
+<foNT SIZE=3><B>Modifying Images</B>
+<BR></FONT></A></H4>
+<P>In addition to <A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A>the basics of handling images described in this section, the java.awt.image package provides more classes and interfaces that enable you to modify images and their internal colors, or to create bitmap images by hand. Most of these classes require background knowledge in image processing, including a good grasp of color models and bitwise operations. All these things are outside the scope of an introductory book on Java, but if you have this background (or you're interested in trying it out), the classes in java.awt.image will be helpful to you. Take a look at the example code for creating and using images that comes with the Java development kit for examples of how to use the image classes.
+<BR></P>
+<H3><A ID = "I54" NAME = "I54"  >
+<foNT SIZE=4><B>Creating Animation Using Images</B>
+<BR></FONT></A></H3>
+<P>Creating animations by <A ID = "I55" NAME = "I55"  ></A><A ID = "I56" NAME = "I56"  ></A>using images is much the same as creating images by using fonts, colors, or shapes&#151;you use the same methods, the same procedures for painting, repainting, and reducing flicker that you learned about yesterday. The only difference is that you have a stack of images to flip through rather than a set of painting methods.
+<BR></P>
+<P>Probably the best way to show you how to use images for animation is simply to walk through an example. Here's an extensive one of an animation of a small cat called Neko.
+<BR></P>
+<H4><A ID = "I57" NAME = "I57"  >
+<foNT SIZE=3><B>An Example Neko</B>
+<BR></FONT></A></H4>
+<P>Neko was <A ID = "I58" NAME = "I58"  ></A>a small Macintosh animation/game written and drawn by Kenji Gotoh in 1989. &quot;Neko&quot; is Japanese for &quot;cat,&quot; and the animation is of a small kitten that chases the mouse pointer around the screen, sleeps, scratches, and generally acts cute. The Neko program has since been ported to just about every possible platform, as well as rewritten as a popular screensaver.
+<BR></P>
+<P>For this example, you'll implement a small animation based on the original Neko graphics. Unlike the original Neko the cat, which was autonomous (it could &quot;sense&quot; the edges of the window and turn and run in a different direction), this applet merely causes Neko to run in from the left side of the screen, stop in the middle, yawn, scratch its ear, sleep a little, and then run off to the right.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> This is by far the largest of the applets discussed in this book, and if I either print it here and then describe it, or build it up line by line, you'll be here for days. Instead, I'm going to describe the parts of this applet independently, and I'm going to leave out the basics&#151;the stuff you learned yesterday about starting and stopping threads, what the run() method does, and so on. All the code is printed later today so that you can put it all together.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Before you begin writing Java code to construct an animation, you should have all the images that form the animation itself. For this version of Neko there are nine of them (the original has 36), as shown in Figure 11.3.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/11tyj03.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/11tyj03.gif'" tppabs="http://newdata.box.sk/bx/java/11tyj03.gif"  >Figure 11.3. The images for <I>Neko</I>.</B></A>
+<BR></P>
+<P>I've stored these images in a directory called, appropriately, images. Where you store your images isn't all the important, but you should take note of where you've put them because you'll need that information.
+<BR></P>
+<P>Now, onto the applet. The basic idea of animation by using images is that you have a set of images, and you display them one at a time, rapidly, so they give the appearance of movement. The easiest way to manage this in Java is to store the images in an array of class Image, and then to have a special variable that stores a reference to the current image.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> The java.util class <A ID = "I59" NAME = "I59"  ></A><A ID = "I60" NAME = "I60"  ></A>contains a class (HashTable) that implements a hash table. For large numbers of images, a hash table <A ID = "I61" NAME = "I61"  ></A><A ID = "I62" NAME = "I62"  ></A>is faster to find and retrieve images from than an array is. Because there's small number of images here, and because arrays are better for fixed-length, repeating aninations, I'll use an array here.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>For the Neko applet, you'll include instance variables to implement both these things: an array to hold the images called nekopics, and a variable of type Image to hold the current image:
+<BR></P>
+<PRE>Image nekopics[] = new Image[9];
+Image currentimg;</PRE>
+<P>Because you'll need to pass the position of the current image around between the methods in this applet, you'll also need to keep track of the current x and y positions. The y stays constant for this particular applet, but the x may vary. let's add two instance variables for those two positions:
+<BR></P>
+<PRE>int xpos;
+int ypos = 50;</PRE>
+<P>Now, onto the body of the applet. During the applet's initialization, you'll read in all the images and store them in the nekopics array. This is the sort of operation that works especially well in an init() method.
+<BR></P>
+<P>Given that you have nine images with nine different filenames, you could do a separate call to getImage for each one. You can save at least a little typing, however, by creating an array of the file names (nekosrc, an array of strings) and then just using a for loop to iterate over each one. Here's the init() method for the Neko applet that loads all the images into the nekopics array:
+<BR></P>
+<PRE>public void init() {
+    String nekosrc[] = { &quot;right1.gif&quot;, &quot;right2.gif&quot;,
+            &quot;stop.gif&quot;, &quot;yawn.gif&quot;, &quot;scratch1.gif&quot;,
+            &quot;scratch2.gif&quot;,&quot;sleep1.gif&quot;, &quot;sleep2.gif&quot;,
+            &quot;awake.gif&quot; };
+    for (int i=0; i &lt; nekopics.length; i++) {
+        nekopics[i] = getImage(getCodeBase(),
+            &quot;images/&quot; + nekosrc[i]);
+    }
+}</PRE>
+<P>Note here in the call to getImage() that the directory these images are stored in is included as part of the path.
+<BR></P>
+<P>With the images loaded, the next step is to start animating the bits of the applet. You do this inside the applet's thread's run() method. In this applet, Neko does five main things:
+<BR></P>
+<UL>
+<LI>Runs in from the left side of the screen
+<BR>
+<BR></LI>
+<LI>Stops in the middle and yawns
+<BR>
+<BR></LI>
+<LI>Scratches four times
+<BR>
+<BR></LI>
+<LI>Sleeps
+<BR>
+<BR></LI>
+<LI>Wakes up and runs off to the right side of the screen
+<BR>
+<BR></LI></UL>
+<P>Because you could animate this applet by merely painting the right image to the screen at the right time, it makes more sense to write this applet so that many of Neko's activities are contained in individual methods. This way, you can reuse some of the activities (the animation of Neko running, in particular) if you want Neko to do things in a different order.
+<BR></P>
+<P>Let's start by creating a method to make Neko run. Because you're going to be using this one twice, making it generic is a good plan. Let's create the nekorun() method<A ID = "I63" NAME = "I63"  ></A><A ID = "I64" NAME = "I64"  ></A>, which takes two arguments: the x position to start, and the x position to end. Neko then runs between those two positions (the y remains constant).
+<BR></P>
+<P>There are two images that represent Neko running; so, to create the running effect, you need to alternate between those two images (stored in positions 0 and 1 of the image array), as well as move them across the screen. The moving <A ID = "I65" NAME = "I65"  ></A>part is a simple for loop between the start and end arguments, setting the x position to the current loop value. Swapping the images means merely testing to see which one is active at any turn of the loop and assigning the other one to the current image. Finally, at each new frame, you'll call repaint() and sleep() for a bit.
+<BR></P>
+<P>Actually, given that during this animation there will be a lot of sleeping of various intervals, it makes sense to create a method that does the sleeping for the appropriate <A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A><A ID = "I68" NAME = "I68"  ></A>time interval. Call it pause&#151;here's its definition:
+<BR></P>
+<PRE>void pause(int time) {
+    try { Thread.sleep(time); }
+    catch (InterruptedException e) { }
+}</PRE>
+<P>Back to the nekorun() method. To summarize, nekorun() iterates from the start position to the end position. For each turn of the loop, it sets the current x position, sets currentimg to the right animation frame, calls repaint(), and pauses. Got it? Here's the definition of nekorun:
+<BR></P>
+<PRE>void nekorun(int start, int end) {
+    for (int i = start; i &lt; end; i+=10) {
+        xpos = i;
+        // swap images
+        if (currentimg == nekopics[0])
+            currentimg = nekopics[1];
+        else if (currentimg == nekopics[1])
+            currentimg = nekopics[0];
+            else currentimg = nekopics[0];
+        repaint();
+        pause(150);
+    }
+}</PRE>
+<P>Note that in that second line you increment the loop by ten pixels. Why ten pixels, and not, say, five or eight? The answer is determined mostly through trial and error to see what looks right. Ten seems to work best for the animation. When you write your own animations, you have to play with both the distances and the sleep times until you get an animation you like.
+<BR></P>
+<P>Speaking of repaint, let's cover the paint() method<A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A>, which paints each frame. Here the paint() method is trivially simple; all paint() is responsible for is painting the current image at the current x and y positions. All that information is stored in instance variables, so the paint() method has only a single line in it:
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    g.drawImage(currentimg, xpos, ypos, this);
+}</PRE>
+<P>Now let's back up to the run() method<A ID = "I71" NAME = "I71"  ></A><A ID = "I72" NAME = "I72"  ></A>, where the main processing of this animation is happening. You've created the nekorun() method; in run you'll call that method with the appropriate values to make Neko run from the left edge of the screen to the center:
+<BR></P>
+<PRE>// run from one side of the screen to the middle
+nekorun(0, size().width / 2);</PRE>
+<P>The second major thing Neko does in this animation is stop and yawn. You have a single frame for each of these things (in positions 2 and 3 in the array), so you don't really need a separate method for them. All you need to do is set the appropriate image, call repaint(), and pause for the right amount of time. This example pauses for a second each time for both stopping and yawning&#151;again, using trial and error. Here's the code:
+<BR></P>
+<PRE>// stop and pause
+currentimg = nekopics[2];
+repaint();
+pause(1000);
+// yawn
+currentimg = nekopics[3];
+repaint();
+pause(1000);</PRE>
+<P>Let's move on to the third part <A ID = "I73" NAME = "I73"  ></A>of the animation: scratching. There's no horizontal for this part of the animation. You alternate between the two scratching images (stored in positions 4 and 5 of the image array). Because scratching is a distinct action, however, let's create a separate method for it.
+<BR></P>
+<P>The nekoscratch() method<A ID = "I74" NAME = "I74"  ></A><A ID = "I75" NAME = "I75"  ></A> takes a single argument: the number of times to scratch. With that argument, you can iterate, and then, inside the loop, alternate between the two scratching images and repaint each time:
+<BR></P>
+<PRE>void nekoscratch(int numtimes) {
+    for (int i = numtimes; i &gt; 0; i&#151;) {
+        currentimg = nekopics[4];
+        repaint();
+        pause(150);
+        currentimg = nekopics[5];
+        repaint();
+        pause(150);
+    }
+}</PRE>
+<P>Inside the run method, you can then call nekoscratch() with an argument of (4):
+<BR></P>
+<PRE>// scratch four times
+nekoscratch(4);</PRE>
+<P>Onward! After scratching, Neko sleeps. Again, you have two images for sleeping (in positions 6 and 7 of the array), which you'll alternate a <A ID = "I76" NAME = "I76"  ></A>certain number of times. Here's the nekosleep() method<A ID = "I77" NAME = "I77"  ></A><A ID = "I78" NAME = "I78"  ></A>, which takes a single number argument, and animates for that many &quot;turns&quot;:
+<BR></P>
+<PRE>void nekosleep(int numtimes) {
+    for (int i = numtimes; i &gt; 0; i&#151;) {
+        currentimg = nekopics[6];
+        repaint();
+        pause(250);
+        currentimg = nekopics[7];
+        repaint();
+        pause(250);
+    }
+}</PRE>
+<P>Call nekosleep in the run() method like this:
+<BR></P>
+<PRE>// sleep for 5 &quot;turns&quot;
+nekosleep(5);</PRE>
+<P>Finally, to finish off the applet, Neko wakes up and runs off to the right side of the screen. awake up is your last image in the array (position eight), and you can reuse the nekorun method to finish:
+<BR></P>
+<PRE>// wake up and run off
+currentimg = nekopics[8];
+repaint();
+pause(500);
+nekorun(xpos, size().width + 10);</PRE>
+<P>There's one more thing left to do to finish the applet. The images for the animation all have white backgrounds. Drawing those images on the default applet background (a medium grey) means an unsightly white box around <A ID = "I79" NAME = "I79"  ></A><A ID = "I80" NAME = "I80"  ></A>each image. To get around the problem, merely set the applet's background to white at the start of the run() method:
+<BR></P>
+<PRE>setBackground(Color.white);</PRE>
+<P>Got all that? There's a lot of code in this applet, and a lot of individual methods to accomplish a rather simple animation, but it's not all that complicated. The heart of it, as in the heart of all Java animations, is to set up the frame and then call repaint() to enable the screen to be drawn.
+<BR></P>
+<P>Note that you don't do anything to reduce the amount of flicker in this applet. It turns out that the images are small enough, and the drawing area also small enough, that flicker is not a problem for this applet. It's always a good idea to write your animations to do the simplest thing first, and then add behavior to make them run cleaner.
+<BR></P>
+<P>To finish up this section, Listing 11.3 shows the complete code for the Neko applet.
+<BR></P>
+<UL>
+<LH><B>Listing 11.3. The final Neko applet.</B><A ID = "I81" NAME = "I81"  ></A></LH></UL>
+<PRE>  1:  import java.awt.Graphics;
+  2:  import java.awt.Image;
+  3:  import java.awt.Color;
+  4:
+  5:  public class Neko extends java.applet.Applet
+  6:      implements Runnable {
+  7:
+  8:      Image nekopics[] = new Image[9];
+  9:      Image currentimg;
+ 10:      Thread runner;
+ 11:      int xpos;
+ 12:      int ypos = 50;
+ 13:
+ 14:      public void init() {
+ 15:              String nekosrc[] = { &quot;right1.gif&quot;, &quot;right2.gif&quot;,
+ 16:              &quot;stop.gif&quot;, &quot;yawn.gif&quot;, &quot;scratch1.gif&quot;,
+ 17:              &quot;scratch2.gif&quot;,&quot;sleep1.gif&quot;, &quot;sleep2.gif&quot;,
+ 18:              &quot;awake.gif&quot; };
+ 19:
+ 20:          for (int i=0; i &lt; nekopics.length; i++) {
+ 21:              nekopics[i] = getImage(getCodeBase(),
+ 22:              &quot;images/&quot; + nekosrc[i]);
+ 23:          }
+ 24:      }
+ 25:      public void start() {
+ 26:          if (runner == null) {
+ 27:              runner = new Thread(this);
+ 28:              runner.start();
+ 29:          }
+ 30:      }
+ 31:
+ 32:      public void stop() {
+ 33:          if (runner != null) {
+ 34:              runner.stop();
+ 35:              runner = null;
+ 36:          }
+ 37:      }
+ 38:
+ 39:      public void run() {
+ 40:
+ 41:          setBackground(Color.white);
+ 42:
+ 43:          // run from one side of the screen to the middle
+ 44:          nekorun(0, size().width / 2);
+ 45:
+ 46:          // stop and pause
+ 47:          currentimg = nekopics[2];
+ 48:          repaint();
+ 49:          pause(1000);
+ 50:
+ 51:          // yawn
+ 52:          currentimg = nekopics[3];
+ 53:          repaint();
+ 54:          pause(1000);
+ 55:
+ 56:          // scratch four times
+ 57:          nekoscratch(4);
+ 58:
+ 59:          // sleep for 5 &quot;turns&quot;
+ 60:          nekosleep(5);
+ 61:
+ 62:          // wake up and run off
+ 63:          currentimg = nekopics[8];
+ 64:          repaint();
+ 65:          pause(500);
+ 66:          nekorun(xpos, size().width + 10);
+ 67:      }
+ 68:
+ 69:      void nekorun(int start, int end) {
+ 70:          for (int i = start; i &lt; end; i += 10) {
+ 71:              xpos = i;
+ 72:              // swap images
+ 73:              if (currentimg == nekopics[0])
+ 74:          currentimg = nekopics[1];
+ 75:              else if (currentimg == nekopics[1])
+ 76:          currentimg = nekopics[0];
+ 77:              else currentimg = nekopics[0];
+ 78:              repaint();
+ 79:              pause(150);
+ 80:          }
+ 81:      }
+ 82:
+ 83:      void nekoscratch(int numtimes) {
+ 84:          for (int i = numtimes; i &gt; 0; i&#151;) {
+ 85:              currentimg = nekopics[4];
+ 86:              repaint();
+ 87:              pause(150);
+ 88:              currentimg = nekopics[5];
+ 89:              repaint();
+ 90:              pause(150);
+ 91:          }
+ 92:      }
+ 93:
+ 94:      void nekosleep(int numtimes) {
+ 95:          for (int i = numtimes; i &gt; 0; i&#151;) {
+ 96:              currentimg = nekopics[6];
+ 97:              repaint();
+ 98:              pause(250);
+ 99:              currentimg = nekopics[7];
+100:              repaint();
+101:              pause(250);
+102:          }
+103:
+104:      void pause(int time) {
+105:          try { Thread.sleep(time); }
+106:          catch (InterruptedException e) { }
+107:      }
+108:
+109:      public void paint(Graphics g) {
+110:        g.drawImage(currentimg, xpos, ypos, this);
+111:      }
+112: }</PRE>
+<H3><A ID = "I82" NAME = "I82"  >
+<foNT SIZE=4><B>Retrieving and Using Sounds</B>
+<BR></FONT></A></H3>
+<P>Java has built-in support <A ID = "I83" NAME = "I83"  ></A>for playing sounds in conjunction with running animations or for sounds on their own. In fact, support for sound, like support for images, is built into the Applet and awt classes, so using sound in your Java applets is as easy as loading and using images.
+<BR></P>
+<P>Currently, the only sound format that Java supports is Sun's AU format, <A ID = "I84" NAME = "I84"  ></A><A ID = "I85" NAME = "I85"  ></A><A ID = "I86" NAME = "I86"  ></A>sometimes called m-law format. AU files tend to be smaller than sound files in other formats, but the sound quality is not very good. If you're especially concerned with sound quality, you may want your sound clips to be references in the traditional HTML way (as links to external files) rather than included in a Java applet.
+<BR></P>
+<P>The simplest way to retrieve <A ID = "I87" NAME = "I87"  ></A><A ID = "I88" NAME = "I88"  ></A><A ID = "I89" NAME = "I89"  ></A><A ID = "I90" NAME = "I90"  ></A>and play a sound is through the play() method, part of the Applet class and therefore available to you in your applets. The play() method is similar to the getImage method in that it takes one of two forms:
+<BR></P>
+<UL>
+<LI>play() with one <A ID = "I91" NAME = "I91"  ></A><A ID = "I92" NAME = "I92"  ></A>argument, a URL object, loads and plays the given audio clip at that URL.
+<BR>
+<BR></LI>
+<LI>play() with two arguments, one a base URL and one a pathname, loads and plays that audio file. The first argument can most usefully be either a call to getDocumentBase() or getCodeBase().
+<BR>
+<BR></LI></UL>
+<P>For example, the following line of code retrieves and plays the sound meow.au, which is contained in the audio directory. The audio directory, in turn, is located in the same directory as this applet:
+<BR></P>
+<PRE>play(getCodeBase(), &quot;audio/meow.au&quot;);</PRE>
+<P>The play() method retrieves and plays the given sound as soon as possible after it is called. If it can't find the sound, you won't get an error; you just won't get any audio when you expect it.
+<BR></P>
+<P>If you want to play a <A ID = "I93" NAME = "I93"  ></A><A ID = "I94" NAME = "I94"  ></A><A ID = "I95" NAME = "I95"  ></A>sound repeatedly, start and stop the sound clip, or run the clip as a loop (play it over and over), things are slightly more complicated&#151;but not much more so. In this case, you use the applet method getAudioClip()<A ID = "I96" NAME = "I96"  ></A><A ID = "I97" NAME = "I97"  ></A> to load the sound clip into an instance of the class AudioClip (part of java.applet&#151;don't forget to import it) and then operate directly on that AudioClip object.
+<BR></P>
+<P>Suppose, for example, that you have a sound loop that you want to play in the background of your applet. In your initialization code, you can use this line to get the audio clip:
+<BR></P>
+<PRE>AudioClip clip = getAudioClip(getCodeBase(),
+    &quot;audio/loop.au&quot;);</PRE>
+<P>Then, to play the clip once, use the play() method:
+<BR></P>
+<PRE>clip.play();</PRE>
+<P>To stop a currently playing sound clip, use the stop() method:
+<BR></P>
+<PRE>clip.stop();</PRE>
+<P>To loop <A ID = "I98" NAME = "I98"  ></A><A ID = "I99" NAME = "I99"  ></A>the clip (play it repeatedly), use the loop() method:
+<BR></P>
+<PRE>clip.loop();</PRE>
+<P>If the getAudioClip method can't find the sound you indicate, or can't load it for any reason, tit returns null. It's a good idea to test for this case in your code before trying to play the audio clip, because trying to call the play(), stop(), and loop() methods on a null object will result in an error (actually, an exception).
+<BR></P>
+<P>In your applet, you can play as many audio clips as you need; all the sounds you use will mix together properly as they are played by your applet.
+<BR></P>
+<P>Note that if you use a <A ID = "I100" NAME = "I100"  ></A><A ID = "I101" NAME = "I101"  ></A>background sound&#151;a sound clip that loops repeatedly&#151;that sound clip will not stop playing automatically when you suspend the applet's thread. This means that even if your reader moves to another page, the first applet's sounds will continue to play. You can fix this problem by stopping the applet's background sound in your stop() method:
+<BR></P>
+<PRE>public void stop() {
+    if (runner != null) {
+        if (bgsound != null) 
+            bgsound.stop();
+        runner.stop();
+        runner = null;
+    }
+}</PRE>
+<P>Listing 11.4 shows a simple framework for an applet that plays two sounds: the first, a background sound called loop.au, plays repeatedly. The second, a horn honking (beep.au) plays every five seconds. (I won't bother giving you a picture of this applet, because it doesn't actually display anything other than a simple string to the screen).
+<BR></P>
+<UL>
+<LH><B>Listing 11.4. The AudioLoop applet.</B><A ID = "I102" NAME = "I102"  ></A></LH></UL>
+<PRE> 1: import java.awt.Graphics;
+ 2: import java.applet.AudioClip;
+ 3:
+ 4: public class AudioLoop extends java.applet.Applet
+ 5:  implements Runnable {
+ 6:
+ 7:     AudioClip bgsound;
+ 8:     AudioClip beep;
+ 9:     Thread runner;
+10:
+11:     public void start() {
+12:         if (runner == null) {
+13:             runner = new Thread(this);
+14:             runner.start();
+15:          }
+16:      }
+17:
+18:     public void stop() {
+19:         if (runner != null) {
+20:             if (bgsound != null) bgsound = null;} bgsound.stop();
+21:             runner.stop();
+22:             runner = null;
+23:         }
+24:     }
+25:
+26:     public void init() {
+27:         bgsound = getAudioClip(getCodeBase(),&quot;audio/loop.au&quot;);
+28:         beep = getAudioClip(getCodeBase(), &quot;audio/beep.au&quot;);
+29:     }
+30:
+31:     public void run() {
+32:         if (bgsound != null) bgsound.loop();
+33:         while (runner != null) {
+34:             try { Thread.sleep(5000); }
+35:             catch (InterruptedException e) { }
+36:             if (bgsound != null) beep.play();
+37:         }
+38:     }
+39:
+40:     public void paint(Graphics g) {
+41:         g.drawString(&quot;Playing Sounds....&quot;, 10, 10);
+42:     }
+43: }</PRE>
+<H3><A ID = "I103" NAME = "I103"  >
+<foNT SIZE=4><B>Sun's Animator Applet</B>
+<BR></FONT></A></H3>
+<P>Because most Java <A ID = "I104" NAME = "I104"  ></A><A ID = "I105" NAME = "I105"  ></A>animations have a lot of code in common, being able to reuse all that code as much as possible makes creating animations with images and sounds much easier, particular for Java developers who aren't as good at the programming side of Java. For just this reason, Sun provides an Animator class as part of the standard Java release.
+<BR></P>
+<P>The Animator applet provides a simple, general-purpose animation interface. You compile the code and create an HTML file with the appropriate parameters for the animation. Using the Animator applet, you can do the following:
+<BR></P>
+<UL>
+<LI>Create an animation loop, that is, an <A ID = "I106" NAME = "I106"  ></A><A ID = "I107" NAME = "I107"  ></A>animation that plays repeatedly.
+<BR>
+<BR></LI>
+<LI>Add a soundtrack to the <A ID = "I108" NAME = "I108"  ></A>applet.
+<BR>
+<BR></LI>
+<LI>Add sounds to be played at individual frames.
+<BR>
+<BR></LI>
+<LI>Indicate the speed at which<A ID = "I109" NAME = "I109"  ></A><A ID = "I110" NAME = "I110"  ></A> the animation is to occur.
+<BR>
+<BR></LI>
+<LI>Specify the order of <A ID = "I111" NAME = "I111"  ></A><A ID = "I112" NAME = "I112"  ></A>the frames in the animation&#151;which means that you can reuse frames that repeat during the course of the animation.
+<BR>
+<BR></LI></UL>
+<P>Even if you don't intend to use Sun's Animator code, it's a great example of how animations work in Java and the sorts of clever tricks you can use in a Java applet.
+<BR></P>
+<P>The Animator class is part of the Java distribution (in the demo directory), or you can find out more information about it at the Java home page, <A HREF = "javascript:if(confirm('http://java.sun.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://java.sun.com/'" tppabs="http://java.sun.com/"  >http://java.sun.com</A>.
+<BR></P>
+<H3><A ID = "I113" NAME = "I113"  >
+<foNT SIZE=4><B>More About Flicker Double-Buffering</B>
+<BR></FONT></A></H3>
+<P>Yesterday, you learned <A ID = "I114" NAME = "I114"  ></A><A ID = "I115" NAME = "I115"  ></A>two simple ways to reduce flickering in animations. Although you learned specifically about animations using drawing, flicker can also result from animations using images. In addition to the two flicker-reducing methods described yesterday, there is one other way to reduce flicker in an application: double-buffering.
+<BR></P>
+<P>With <I>double-buffering</I>, you create a second surface (offscreen, so to speak), do all your painting to that offscreen surface, and then draw the whole surface at once onto the actual applet (and onto the screen) at the end&#151;rather than drawing to the applet's actual graphics surface. Because all the work actually goes on behind the scenes, there's no opportunity for interim parts of the drawing process to appear accidentally and disrupt the smoothness of the animation.
+<BR></P>
+<P>Double-buffering isn't always the best solution. If your applet is suffering from flicker, try overriding update() and drawing only portions of the screen first; that may solve your problem. Double-buffering is less efficient than regular buffering, and also takes up more memory and space, so if you can avoid it, make an effort to do so. In terms of nearly eliminating animation flicker, however, double-buffering works exceptionally well.
+<BR></P>
+<H4><A ID = "I116" NAME = "I116"  >
+<foNT SIZE=3><B>Creating Applets with Double-Buffering</B>
+<BR></FONT></A></H4>
+<P>To create an applet <A ID = "I117" NAME = "I117"  ></A><A ID = "I118" NAME = "I118"  ></A><A ID = "I119" NAME = "I119"  ></A>that uses double-buffering, you need two things: an offscreen image to draw on and a graphics context for that image. Those two together mimic the effect of the applet's drawing surface: the graphics context (an instance of Graphics) to provide the drawing methods, such as drawImage and drawString, and the Image to hold the dots that get drawn.
+<BR></P>
+<P>There are four major steps to adding double-buffering to your applet. First, your offscreen image and graphics context need to be stored in instance variables so that you can pass them to the paint() method. Declare the following instance variables in your class definition:
+<BR></P>
+<PRE>Image offscreenImage;
+Graphics offscreenGraphics;</PRE>
+<P>Second, during the initialization of the applet, you'll create an Image and a Graphics object and assign them to these variables (you have to wait until initialization so you know how big they're going to be). The createImage() method gives you an instance of Image, which you can then send the getGraphics() method in order to get a new graphics context for that image:
+<BR></P>
+<PRE>offscreenImage = createImage(size().width,
+    size().height);
+offscreenGraphics = offscreenImage.getGraphics();</PRE>
+<P>Now, whenever you have to draw to the screen (usually in your paint() method), rather than drawing to paint's graphics, draw to the offscreen graphics. For example, to draw an image called img at position 10,10, use this line:
+<BR></P>
+<PRE>offscreenGraphics.drawImage(img, 10, 10, this);</PRE>
+<P>Finally, at the end of your paint method, after all the drawing to the offscreen image is done, add the following line to place the offscreen buffer on to the real screen:
+<BR></P>
+<PRE>g.drawImage(offscreenImage, 0, 0, this);</PRE>
+<P>Of course, you most likely will want to override update() so that it doesn't clear the screen between paintings:
+<BR></P>
+<PRE>public void update(Graphics g) {
+    paint(g);
+}</PRE>
+<P>Let's review those four steps:
+<BR></P>
+<UL>
+<LI>Add instance variables to hold the image and graphics contexts for the offscreen buffer.
+<BR>
+<BR></LI>
+<LI>Create an image and a graphics context when your applet is initialized.
+<BR>
+<BR></LI>
+<LI>Do all your applet painting to the offscreen buffer, not the applet's drawing surface.
+<BR>
+<BR></LI>
+<LI>At the end of your paint method, draw the offscreen buffer to the real screen.
+<BR>
+<BR></LI></UL>
+<H4><A ID = "I120" NAME = "I120"  >
+<foNT SIZE=3><B>An Example Checkers Revisited</B>
+<BR></FONT></A></H4>
+<P>Yesterday's example featured the <A ID = "I121" NAME = "I121"  ></A>animated moving red oval to demonstrate animation flicker and how to reduce it. Even with the operations you did yesterday, however, the Checkers applet still flashed occasionally. Let's revise that applet to include double-buffering.
+<BR></P>
+<P>First, add the instance variables for the offscreen image and its graphics context:
+<BR></P>
+<PRE>Image offscreenImg;
+Graphics offscreenG;</PRE>
+<P>Second, add an init method to initialize the offscreen buffer:
+<BR></P>
+<PRE>public void init() {
+    offscreenImg = createImage(size().width,
+    size().height);
+    offscreenG = offscreenImg.getGraphics();
+}</PRE>
+<P>Third, modify the paint() method to draw to the offscreen buffer instead of to the main graphics buffer:
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    // Draw background
+    offscreenG.setColor(Color.black);
+    offscreenG.fillRect(0, 0, 100, 100);
+    offscreenG.setColor(Color.white);
+    offscreenG.fillRect(100, 0, 100, 100);
+    // Draw checker
+    offscreenG.setColor(Color.red);
+    offscreenG.fillOval(xpos, 5, 90, 90);
+    g.drawImage(offscreenImg, 0, 0, this);
+}</PRE>
+<P>Note that you're still clipping the main graphics rectangle in the update() method, as you did yesterday; you don't have to change that part. The only part that is relevant is that final paint method wherein everything is drawn offscreen before finally being displayed.
+<BR></P>
+<H3><A ID = "I122" NAME = "I122"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Three major topics were the focus of today's lesson. First, you learned about using images in your applets&#151;locating them, loading them, and using the drawImage() method to display them, either at their normal size or scaled to different sizes. You also learned how to create animations using images.
+<BR></P>
+<P>Secondly, you learned how to use sounds, which can be included in your applets any time you need them&#151;at specific moments, or as background sounds that can be repeated while the applet executes. You learned how to locate, load, and play sounds both using the play() and the getAudioClip() methods.
+<BR></P>
+<P>Finally, you learned about double-buffering, a technique that enables you virtually to eliminate flicker in animations, at some expense of animation efficiency and speed. Using images and graphics contexts, you can create an offscreen buffer to draw to, the result of which is then displayed to the screen at the last possible moment.
+<BR></P>
+<H3><A ID = "I123" NAME = "I123"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: In the Neko program, you put the image loading into the </B><B>init()</B><B> method. It </B><B>seems to me that it might take Java a long time to load all those </B><B>images, and because </B><B>init()</B><B> isn't in the main thread of the applet, there's </B><B>going to be a distinct pause there. Why not put the image loading at the </B><B>beginning of the </B><B>run()</B><B> method instead?</B>
+<BR></P>
+<P><B>A: </B>There are sneaky things going on behind the scenes. The getImage() method doesn't actually load the image; in fact, it returns an Image object almost instantaneously, so it isn't taking up a large amount of processing time during initialization. The image data that getImage() points to isn't actually loaded until the image is needed. This way, Java doesn't have to keep enormous images around in memory if the program is going to use only a small piece. Instead, it can just keep a reference to that data and retrieve what it needs later.
+<BR></P>
+<P><B>Q: I wrote an applet to do a background sound using the </B><B>getAudioClip()</B><B> and </B><B>loop()</B><B> </B><B>methods. The sounds works great, but it won't stop. I've tried </B><B>suspending the current thread and killing, but the sound goes on.</B>
+<BR></P>
+<P><B>A: </B>I mentioned this as a small note in the section on sounds; background sounds don't run in the main thread of the applet, so if you stop the thread, the sound keeps going. The solution is easy&#151;in the same method where you stop the thread, also stop the sound, like this:
+<BR>
+<BR>runner.stop()  //stop the thread
+<BR>bgsound.stop() //also stop the sound
+<BR></P>
+<P><B>Q: If I use double-buffering, do I still have to clip to a small region </B><B>of the screen? Because double-buffering eliminates flicker, it seems </B><B>easier to draw the whole frame every time.</B>
+<BR></P>
+<P><B>A: </B>Easier, yes, but less efficient. Drawing only part of the screen not only reduces flicker, it often also limits the amount of work your applet has to do in the paint() method. The faster the paint() method works, the faster and smoother your animation will run. Using clip regions and drawing only what is necessary is a good practice to follow in general&#151;not just if you have a problem with flicker.
+<BR></P>
+<P><A HREF = "tyj10x.html" tppabs="http://newdata.box.sk/bx/java/tyj10x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj12x.html" tppabs="http://newdata.box.sk/bx/java/tyj12x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

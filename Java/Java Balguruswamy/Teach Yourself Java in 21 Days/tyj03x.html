@@ -1,0 +1,1178 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj03x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj04x.html" tppabs="http://newdata.box.sk/bx/java/tyj04x.html">
+<LINK REL="Previous" HREF="tyj02x.html" tppabs="http://newdata.box.sk/bx/java/tyj02x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj02x.html" tppabs="http://newdata.box.sk/bx/java/tyj02x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj04x.html" tppabs="http://newdata.box.sk/bx/java/tyj04x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 3</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Java Basics</A></LI>
+<UL>
+<LI>
+<A HREF = "#I5"  >Statements and Expressions</A></LI>
+<LI>
+<A HREF = "#I14"  >Variables and Data Types</A></LI>
+<UL>
+<LI>
+<A HREF = "#I31"  >Declaring Variables</A></LI>
+<LI>
+<A HREF = "#I44"  >Notes on Variable Names</A></LI>
+<LI>
+<A HREF = "#I49"  >Variable Types</A></LI>
+<LI>
+<A HREF = "#I73"  >Assigning Values to Variables</A></LI></UL>
+<LI>
+<A HREF = "#I79"  >Comments</A></LI>
+<LI>
+<A HREF = "#I86"  >Literals</A></LI>
+<UL>
+<LI>
+<A HREF = "#I88"  >Number Literals</A></LI>
+<LI>
+<A HREF = "#I98"  >Boolean Literals</A></LI>
+<LI>
+<A HREF = "#I101"  >Character Literals</A></LI>
+<LI>
+<A HREF = "#I116"  >String Literals</A></LI></UL>
+<LI>
+<A HREF = "#I119"  >Expressions and Operators</A></LI>
+<UL>
+<LI>
+<A HREF = "#I122"  >Arithmetic</A></LI>
+<LI>
+<A HREF = "#I140"  >More About Assignment</A></LI>
+<LI>
+<A HREF = "#I147"  >Incrementing and Decrementing</A></LI>
+<LI>
+<A HREF = "#I153"  >Comparisons</A></LI>
+<LI>
+<A HREF = "#I168"  >Logical Operators</A></LI>
+<LI>
+<A HREF = "#I175"  >Bitwise Operators</A></LI>
+<LI>
+<A HREF = "#I178"  >Operator Precedence</A></LI></UL>
+<LI>
+<A HREF = "#I184"  >String Arithmetic</A></LI>
+<LI>
+<A HREF = "#I191"  >Summary</A></LI>
+<LI>
+<A HREF = "#I192"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 3</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Java Basics</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>On Days 1 and 2, you learned about Java programming in very broad terms&#151;what a Java program and an executable look like, and how to create simple classes. For the remainder of this week, you're going to get down to details and deal with the specifics of what the Java language looks like.
+<BR></P>
+<P>Today, you won't define any classes or objects or worry about how any of them communicate inside a Java program. Rather, you'll draw closer and examine simple Java statements&#151;the basic things you can do in Java within a method definition such as main().
+<BR></P>
+<P>Today you'll learn about the following:
+<BR></P>
+<UL>
+<LI>Java statements and expressions
+<BR>
+<BR></LI>
+<LI>Variables and data types
+<BR>
+<BR></LI>
+<LI>Comments
+<BR>
+<BR></LI>
+<LI>Literals
+<BR>
+<BR></LI>
+<LI>Arithmetic
+<BR>
+<BR></LI>
+<LI>Comparisons
+<BR>
+<BR></LI>
+<LI>Logical operators
+<BR>
+<BR></LI></UL>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> Java looks a lot like C++, and&#151;by extension&#151;like C. Much of the <A ID = "I4" NAME = "I4"  ></A>syntax will be very familiar to you if you are used to working in these languages. If you are an experienced C or C++ programmer, you may want to pay special attention to the Technical Notes (such as this one), because they will provide information about the specific differences between these and other traditional languages and Java.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H3><A ID = "I5" NAME = "I5"  >
+<foNT SIZE=4><B>Statements and Expressions</B>
+<BR></FONT></A></H3>
+<P>A statement is the simplest <A ID = "I6" NAME = "I6"  ></A>thing you can do in Java; a statement forms a single Java operation. All the following are simple Java statements:
+<BR></P>
+<PRE>int i = 1;
+import java.awt.Font;
+System.out.println(&quot;This motorcycle is a &quot;
+    + color + &quot; &quot; + make);
+m.engineState = true;</PRE>
+<P>Statements sometimes <A ID = "I7" NAME = "I7"  ></A><A ID = "I8" NAME = "I8"  ></A><A ID = "I9" NAME = "I9"  ></A>return values&#151;for example, when you add two numbers together or test to see whether one value is equal to another. These kind of statements are called <A ID = "I10" NAME = "I10"  ></A>expressions. We'll discuss these later on today.
+<BR></P>
+<P>The most important thing to remember about Java statements is that each one ends with a semicolon. Forget the semicolon and your Java program won't compile.
+<BR></P>
+<P>Java also has compound <A ID = "I11" NAME = "I11"  ></A><A ID = "I12" NAME = "I12"  ></A>statements, or blocks, which can be placed wherever a single statement can. Block statements are <A ID = "I13" NAME = "I13"  ></A>surrounded by braces ({}). You'll learn more about blocks in Chapter 5, &quot;Arrays, Conditionals, and Loops.&quot;
+<BR></P>
+<H3><A ID = "I14" NAME = "I14"  >
+<foNT SIZE=4><B>Variables and Data Types</B>
+<BR></FONT></A></H3>
+<P>Variables are locations <A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A><A ID = "I17" NAME = "I17"  ></A>in memory in which values can be stored. They have a name, a type, and a value. Before you can use a variable, you have to declare it. After it is declared, you can then assign values to it.
+<BR></P>
+<P>Java actually has three kinds of variables: instance <A ID = "I18" NAME = "I18"  ></A><A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A><A ID = "I21" NAME = "I21"  ></A><A ID = "I22" NAME = "I22"  ></A><A ID = "I23" NAME = "I23"  ></A>variables, class variables, and local variables.
+<BR></P>
+<P>Instance variables, as <A ID = "I24" NAME = "I24"  ></A><A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A>you learned yesterday, are used <A ID = "I27" NAME = "I27"  ></A>to define attributes or the state for a particular object. Class variables are similar to instance variables, except their values apply to all that class's instances (and to the class itself) rather than having different values for each object.
+<BR></P>
+<P>Local variables are <A ID = "I28" NAME = "I28"  ></A>declared and used inside method definitions, for example, for index counters in loops, as temporary variables, or to hold values that you need only inside the method definition itself. They can also be used inside blocks ({}), which you'll learn about later this week. Once the method (or block) finishes executing, the variable definition and its value cease to exist. Use local variables to store information needed by a single method and instance variables to store information needed by multiple methods in the object.
+<BR></P>
+<P>Although all three kinds of variables are declared in much the same ways, class and instance variables are accessed and assigned in slightly different ways from local variables. Today, you'll focus on variables as used within method definitions; tomorrow, you'll learn how to deal with instance and class variables.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Unlike other languages, Java <A ID = "I29" NAME = "I29"  ></A><A ID = "I30" NAME = "I30"  ></A>does not have global variables&#151;that is, variables that are global to all parts of a program. Instance and class variables can be used to communicate global information between and among objects. Remember, Java is an object-oriented language, so you should think in terms of objects and how they interact, rather than in terms of programs.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I31" NAME = "I31"  >
+<foNT SIZE=3><B>Declaring Variables</B>
+<BR></FONT></A></H4>
+<P>To use any <A ID = "I32" NAME = "I32"  ></A><A ID = "I33" NAME = "I33"  ></A>variable in a Java program, you must first declare it. Variable declarations consist of a type and a variable name:
+<BR></P>
+<PRE>int myAge;
+String myName;
+boolean isTired;</PRE>
+<P>Variable definitions can go <A ID = "I34" NAME = "I34"  ></A><A ID = "I35" NAME = "I35"  ></A><A ID = "I36" NAME = "I36"  ></A>anywhere in a method definition (that is, anywhere a regular Java statement can go), although they are most commonly declared at the beginning of the definition before they are used:
+<BR></P>
+<PRE>public static void main (String args[]) {
+    int count;
+    String title;
+    boolean isAsleep;
+...
+}</PRE>
+<P>You can string together variable names with the same type:
+<BR></P>
+<PRE>int x, y, z;
+String firstName, LastName;</PRE>
+<P>You can also give each variable <A ID = "I37" NAME = "I37"  ></A>an initial value when you declare it:
+<BR></P>
+<PRE>int myAge, mySize, numShoes = 28;
+String myName = &quot;Laura&quot;;
+boolean isTired = true;
+int a = 4, b = 5, c = 6;</PRE>
+<P>If there are multiple variables on <A ID = "I38" NAME = "I38"  ></A><A ID = "I39" NAME = "I39"  ></A>the same line with only one initializer (as in the first of the previous examples), the initial value applies to only the last variable in a declaration. You can also group individual variables and initializers on the same line using commas, as with the last example, above.
+<BR></P>
+<P>Local variables <A ID = "I40" NAME = "I40"  ></A><A ID = "I41" NAME = "I41"  ></A><A ID = "I42" NAME = "I42"  ></A>must be given values before they can be used (your Java program will not compile if you try to use an unassigned local variable). For this reason, it's a good idea <A ID = "I43" NAME = "I43"  ></A>always to give local variables initial values. Instance and class variable definitions do not have this restriction (their initial value depends on the type of the variable: null for instances of classes, 0 for numeric variables, '\0' for characters, and false for booleans).
+<BR></P>
+<H4><A ID = "I44" NAME = "I44"  >
+<foNT SIZE=3><B>Notes on Variable Names</B>
+<BR></FONT></A></H4>
+<P>Variable names in <A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A>Java can start with a letter, an underscore (_), or a dollar sign ($). They cannot start with a number. After the first character, your variable names can include any letter or number. Symbols, such as %, *, @, and so on, are often reserved for operators in Java, so be careful when using symbols in variable names.
+<BR></P>
+<P>In addition, the Java language uses the <A ID = "I47" NAME = "I47"  ></A>Unicode character set. Unicode is a character set definition that not only offers characters in the standard ASCII character set, but also several million other characters for representing most international alphabets. This means that you can use accented characters and other glyphs as legal characters in variable names, as long as they have a Unicode character number above 00C0.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="caution.gif" tppabs="http://newdata.box.sk/bx/java/caution.gif" WIDTH = 37 HEIGHT = 35><B>Caution: </B>The Unicode specification is a two-volume set of lists of thousands of characters. If you don't understand Unicode, or don't think you have a use for it, it's safest just to use plain numbers and letters in your variable names. You'll learn a little more about Unicode later on.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Finally, note that the Java <A ID = "I48" NAME = "I48"  ></A>language is case-sensitive, which means that uppercase letters are different from lowercase letters. This means that the variable X is different from the variable x, and a rose is not a Rose is not a ROSE. Keep this in mind as you write your own Java programs and as you read Java code other people have written.
+<BR></P>
+<P>By convention, Java variables have meaningful names, often made up of several words combined. The first word is lowercase, but all following words have an initial uppercase letter:
+<BR></P>
+<PRE>Button theButton;
+long reallyBigNumber;
+boolean currentWeatherStateOfPlanetXShortVersion;</PRE>
+<H4><A ID = "I49" NAME = "I49"  >
+<foNT SIZE=3><B>Variable Types</B>
+<BR></FONT></A></H4>
+<P>In addition to the <A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A>variable name, each variable declaration must have a type, which defines what values that variable can hold. The variable type can be one of three things:
+<BR></P>
+<UL>
+<LI>One of the eight basic primitive data types
+<BR>
+<BR></LI>
+<LI>The name of a class or interface
+<BR>
+<BR></LI>
+<LI>An array 
+<BR>
+<BR></LI></UL>
+<P>You'll learn about how to declare and use array variables in Chapter 5.
+<BR></P>
+<P>The eight primitive data types <A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A><A ID = "I54" NAME = "I54"  ></A>handle common types for <A ID = "I55" NAME = "I55"  ></A><A ID = "I56" NAME = "I56"  ></A><A ID = "I57" NAME = "I57"  ></A>integers, floating-point numbers, characters, and boolean values (true or false). They're called primitive because they're built into the system and are not actual objects, which makes them more efficient to use. Note that these data types are machine-independent, which means that you can rely on their sizes and characteristics to be consistent across your Java programs.
+<BR></P>
+<P>There are four Java <A ID = "I58" NAME = "I58"  ></A>integer types, each with a different range of values (as listed in Table 3.1). All are signed, which means they can hold either positive or negative numbers. Which type you choose for your variables depends on the range of values you expect that variable to hold; if a value becomes too big for the variable type, it is silently truncated.
+<BR></P>
+<UL>
+<LH><B>Table 3.1. Integer types.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Type</I>
+<BR></PRE>
+<TD>
+<PRE><I>Size</I>
+<BR></PRE>
+<TD>
+<PRE><I>Range</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>byte</P>
+<TD>
+<P> 8 bits</P>
+<TD>
+<P>&#151;128 to 127</P>
+<TR>
+<TD>
+<P>short</P>
+<TD>
+<P>16 bits</P>
+<TD>
+<P>&#151;32,768 to 32,767</P>
+<TR>
+<TD>
+<P>int</P>
+<TD>
+<P>32 bits</P>
+<TD>
+<P>&#151;2,147,483,648 to 2,147,483,647</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>long</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>64 bits</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>&#151;9223372036854775808 to 9223372036854775807</CENTER></P></TABLE>
+<P>Floating-point numbers <A ID = "I59" NAME = "I59"  ></A><A ID = "I60" NAME = "I60"  ></A>are used for <A ID = "I61" NAME = "I61"  ></A><A ID = "I62" NAME = "I62"  ></A>numbers with a decimal part. Java floating-point numbers are compliant with IEEE 754 (an international standard for defining floating-point numbers and arithmetic). There are two floating-point types: float (32 bits, single-precision) and double (64 bits, double-precision).
+<BR></P>
+<P>The char type is used <A ID = "I63" NAME = "I63"  ></A><A ID = "I64" NAME = "I64"  ></A><A ID = "I65" NAME = "I65"  ></A>for individual characters. Because Java uses the Unicode character set, the char type has 16 bits of precision, unsigned.
+<BR></P>
+<P>Finally, the boolean type can have one of two values, true or false. Note that unlike in other C-like languages, boolean is not a number, nor can it be treated as one. All tests of boolean variables should test for true or false.
+<BR></P>
+<P>In addition to the eight basic data types, variables in Java can also be declared to hold an <A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A><A ID = "I68" NAME = "I68"  ></A>instance of a particular class:
+<BR></P>
+<PRE>String LastName;
+Font basicFont;
+OvalShape myOval;</PRE>
+<P>Each of these variables can then hold only instances of the given class. As you create new classes, you can declare variables to hold instances of those classes (and their subclasses) as well.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> Java does not <A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A>have a typedef statement (as in C and C++). To declare new <A ID = "I71" NAME = "I71"  ></A><A ID = "I72" NAME = "I72"  ></A>types in Java, you declare a new class; then variables can be declared to be of that class's type.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I73" NAME = "I73"  >
+<foNT SIZE=3><B>Assigning Values to Variables</B>
+<BR></FONT></A></H4>
+<P>Once a variable has been <A ID = "I74" NAME = "I74"  ></A><A ID = "I75" NAME = "I75"  ></A><A ID = "I76" NAME = "I76"  ></A>declared, you can assign a value to that variable by using the <A ID = "I77" NAME = "I77"  ></A><A ID = "I78" NAME = "I78"  ></A>assignment operator =:
+<BR></P>
+<PRE>size = 14;
+tooMuchCaffiene = true;</PRE>
+<H3><A ID = "I79" NAME = "I79"  >
+<foNT SIZE=4><B>Comments</B>
+<BR></FONT></A></H3>
+<P><A ID = "I80" NAME = "I80"  ></A>Java has three kinds <A ID = "I81" NAME = "I81"  ></A>of comments. /* and */ surround multiline comments, as in C or C++. All text between the two delimiters is ignored:
+<BR></P>
+<PRE>/* I don't know how I wrote this next part; I was working
+    really late one night and it just sort of appeared. I
+    suspect the code elves did it for me. It might be wise
+    not to try and change it.
+*/</PRE>
+<P>These comments <A ID = "I82" NAME = "I82"  ></A><A ID = "I83" NAME = "I83"  ></A>cannot be nested; that is, you cannot have a comment inside a comment.
+<BR></P>
+<P>Double-slashes (//) can be <A ID = "I84" NAME = "I84"  ></A><A ID = "I85" NAME = "I85"  ></A>used for a single line of comment. All the text up to the end of the line is ignored:
+<BR></P>
+<PRE>int vices = 7; // are there really only 7 vices?</PRE>
+<P>The final type of comment begins with /** and ends with */. The contents of these special comments are used by the javadoc system, but are otherwise used indentically to the first type of comment. Javadoc is used to generate API documentation from the code. You won't learn about javadoc in this book; you can find out more information from the documentation that came with Sun's Java Developer's Kit or from Sun's Java home page (&lt;A HREF=&quot;http://java.sun.com&quot;&gt; http://java.sun.com&lt;/A&gt;).
+<BR></P>
+<H3><A ID = "I86" NAME = "I86"  >
+<foNT SIZE=4><B>Literals</B>
+<BR></FONT></A></H3>
+<P>Literals are used <A ID = "I87" NAME = "I87"  ></A>to indicate simple values in your Java programs.
+<BR></P>
+<P><I>Literal</I> is a programming language term, which essentially means that what you type is what you get. For example, if you type 4 in a Java program, you automatically get an integer with the value 4. If you type 'a', you get a character with the value a.
+<BR></P>
+<P>Literals may seem intuitive most of the time, but there are some special cases of literals in Java for different kinds of numbers, characters, strings, and boolean values.
+<BR></P>
+<H4><A ID = "I88" NAME = "I88"  >
+<foNT SIZE=3><B>Number Literals</B>
+<BR></FONT></A></H4>
+<P>There are several <A ID = "I89" NAME = "I89"  ></A><A ID = "I90" NAME = "I90"  ></A>integer literals. 4, for example, is a <A ID = "I91" NAME = "I91"  ></A>decimal integer literal of type int (although you can assign it to a variable of type byte or short because it's small enough to fit into those types). A decimal integer literal larger than an int is automatically of type long. You also can force a smaller number to a long by appending an L or l to that number (for example, 4L is a long integer of value 4). Negative integers are preceded by a minus sign&#151;for example, -45.
+<BR></P>
+<P>Integers can also be expressed <A ID = "I92" NAME = "I92"  ></A><A ID = "I93" NAME = "I93"  ></A><A ID = "I94" NAME = "I94"  ></A><A ID = "I95" NAME = "I95"  ></A>as octal or hexadecimal: a leading 0 indicates that a number is octal&#151;for example, 0777 or 0004. A leading 0x (or 0X) means that it is in hex (0xFF, 0XAF45). Hexadecimal numbers can contain regular digits (0&#151;9) or upper- or lowercase hex digits (a&#151;f or A&#151;F).
+<BR></P>
+<P>Floating-point literals <A ID = "I96" NAME = "I96"  ></A><A ID = "I97" NAME = "I97"  ></A>usually have two parts: the integer part and the decimal part&#151;for example, 5.677777. Floating-point literals result in a floating-point number of type double, regardless of the precision of that number. You can force the number to the type float by appending the letter f (or F) to that number&#151;for example, 2.56F.
+<BR></P>
+<P>You can use exponents in floating-point literals using the letter e or E followed by the exponent (which can be a negative number): 10e45 or .36E-2.
+<BR></P>
+<H4><A ID = "I98" NAME = "I98"  >
+<foNT SIZE=3><B>Boolean Literals</B>
+<BR></FONT></A></H4>
+<P>Boolean literals consist <A ID = "I99" NAME = "I99"  ></A><A ID = "I100" NAME = "I100"  ></A>of the keywords true and false. These keywords can be used anywhere you need a test or as the only possible values for boolean variables.
+<BR></P>
+<H4><A ID = "I101" NAME = "I101"  >
+<foNT SIZE=3><B>Character Literals</B>
+<BR></FONT></A></H4>
+<P>Character literals <A ID = "I102" NAME = "I102"  ></A><A ID = "I103" NAME = "I103"  ></A>are expressed by a single character surrounded by single quotes: 'a', '#', '3', and so on. Characters are stored as 16-bit Unicode characters. Table 3.2 lists the special codes that can represent nonprintable characters, as well as characters from the Unicode character set. The letter d in the octal, hex, and Unicode escapes represents a number or a hexadecimal digit (a&#151;f or A&#151;F).
+<BR></P>
+<UL>
+<LH><B>Table 3.2. Character escape codes.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Escape</I>
+<BR></PRE>
+<TD>
+<PRE><I>Meaning</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>\n</P>
+<TD>
+<P>Newline<A ID = "I104" NAME = "I104"  ></A><A ID = "I105" NAME = "I105"  ></A></P>
+<TR>
+<TD>
+<P>\t</P>
+<TD>
+<P>Tab<A ID = "I106" NAME = "I106"  ></A></P>
+<TR>
+<TD>
+<P>\b</P>
+<TD>
+<P>Backspace<A ID = "I107" NAME = "I107"  ></A></P>
+<TR>
+<TD>
+<P>\r</P>
+<TD>
+<P>Carriage return<A ID = "I108" NAME = "I108"  ></A></P>
+<TR>
+<TD>
+<P>\f</P>
+<TD>
+<P>Formfeed<A ID = "I109" NAME = "I109"  ></A></P>
+<TR>
+<TD>
+<P>\\</P>
+<TD>
+<P>Backslash<A ID = "I110" NAME = "I110"  ></A></P>
+<TR>
+<TD>
+<P>\'</P>
+<TD>
+<P>Single quote<A ID = "I111" NAME = "I111"  ></A></P>
+<TR>
+<TD>
+<P>\&quot;</P>
+<TD>
+<P>Double quote<A ID = "I112" NAME = "I112"  ></A></P>
+<TR>
+<TD>
+<P>\ddd</P>
+<TD>
+<P>Octal<A ID = "I113" NAME = "I113"  ></A></P>
+<TR>
+<TD>
+<P>\xdd</P>
+<TD>
+<P>Hexadecimal<A ID = "I114" NAME = "I114"  ></A></P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>\udddd</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Unicode character<A ID = "I115" NAME = "I115"  ></A></CENTER></P></TABLE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> C and C++ programmers should note that Java does not include character codes for \a (bell) or \v (vertical tab).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I116" NAME = "I116"  >
+<foNT SIZE=3><B>String Literals</B>
+<BR></FONT></A></H4>
+<P>A combination of characters <A ID = "I117" NAME = "I117"  ></A><A ID = "I118" NAME = "I118"  ></A>is a string. Strings in Java are instances of the class String. Strings are not simple arrays of characters as they are in C or C++, although they do have many array-like characteristics (for example, you can test their length and access and change individual characters). Because string objects are real objects in Java, they have methods that enable you to combine, test, and modify strings very easily.
+<BR></P>
+<P>String literals consist of a series of characters inside double quotes:
+<BR></P>
+<PRE>&quot;Hi, I'm a string literal.&quot;
+&quot;&quot; //an empty string</PRE>
+<P>Strings can contain character constants such as newline, tab, and Unicode characters:
+<BR></P>
+<PRE>&quot;A string with a \t tab in it&quot;
+&quot;Nested strings are \&quot;strings inside of\&quot; other strings&quot;
+&quot;This string brought to you by Java\u2122&quot;</PRE>
+<P>In the last example, the Unicode code sequence for \u2122 produces a trademark symbol (_).
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Just because you can represent a character using a Unicode escape does not mean your computer can display that character&#151;the computer or operating system you are running may not support Unicode, or the font you're using may not have a glyph (picture) for that character. All that Unicode escapes in Java provide is a way to encode special characters for systems that support Unicode.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>When you use a string literal in your Java program, Java automatically creates an instance of the class String for you with the value you give it. Strings are unusual in this respect; the other literals do not behave in this way (none of the primitive base types are actual objects), and usually creating a new object involves explicitly creating a new instance of a class. You'll learn more about strings, the String class, and the things you can do with strings later today and tomorrow.
+<BR></P>
+<H3><A ID = "I119" NAME = "I119"  >
+<foNT SIZE=4><B>Expressions and Operators</B>
+<BR></FONT></A></H3>
+<P>Expressions are the <A ID = "I120" NAME = "I120"  ></A><A ID = "I121" NAME = "I121"  ></A>simplest form of statement in Java that actually accomplishes something.
+<BR></P>
+<P><I>Expressions</I> are statements that return a value. 
+<BR></P>
+<P><I>Operators</I> are special symbols that are commonly used in expressions. 
+<BR></P>
+<P>Arithmetic and tests for equality and magnitude are common examples of expressions. Because they return a value, you can assign that result to a variable or test that value in other Java statements.
+<BR></P>
+<P>Operators in Java include arithmetic, various forms of assignment, increment and decrement, and logical operations. This section describes all these things.
+<BR></P>
+<H4><A ID = "I122" NAME = "I122"  >
+<foNT SIZE=3><B>Arithmetic</B>
+<BR></FONT></A></H4>
+<P>Java has five <A ID = "I123" NAME = "I123"  ></A><A ID = "I124" NAME = "I124"  ></A>operators for basic arithmetic (see Table 3.3).
+<BR></P>
+<UL>
+<LH><B>Table 3.3. Arithmetic operators.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Operator</I>
+<BR></PRE>
+<TD>
+<PRE><I>Meaning</I>
+<BR></PRE>
+<TD>
+<PRE><I>Example</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>+</P>
+<TD>
+<P>Addition<A ID = "I125" NAME = "I125"  ></A><A ID = "I126" NAME = "I126"  ></A></P>
+<TD>
+<P>3 + 4</P>
+<TR>
+<TD>
+<P>&#151;</P>
+<TD>
+<P>Subtraction<A ID = "I127" NAME = "I127"  ></A><A ID = "I128" NAME = "I128"  ></A></P>
+<TD>
+<P>5 &#151; 7</P>
+<TR>
+<TD>
+<P>*</P>
+<TD>
+<P>Multiplication<A ID = "I129" NAME = "I129"  ></A><A ID = "I130" NAME = "I130"  ></A></P>
+<TD>
+<P>5 * 5</P>
+<TR>
+<TD>
+<P>/</P>
+<TD>
+<P>Division<A ID = "I131" NAME = "I131"  ></A><A ID = "I132" NAME = "I132"  ></A></P>
+<TD>
+<P>14 / 7</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>%</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Modulus<A ID = "I133" NAME = "I133"  ></A><A ID = "I134" NAME = "I134"  ></A></CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>20 % 7</CENTER></P></TABLE>
+<P>Each operator takes two operands, one on either side of the operator. The subtraction operator (&#151;) can also be used to negate a single operand.
+<BR></P>
+<P>Integer division <A ID = "I135" NAME = "I135"  ></A>results in an integer. Because integers don't have decimal fractions, any remainder is ignored. The expression 31 / 9, for example, results in 3 (9 goes into 31 only 3 times).
+<BR></P>
+<P>Modulus (%) gives the remainder once the operands have been evenly divided. For example, 31 % 9 results in 4 because 9 goes into 31 three times, with 4 left over.
+<BR></P>
+<P>Note that, for integers, the result type of most operations is an int regardless of the original type of the operands. If either or both operands is of type long, the result is of type long. If one operand is an integer and another is a floating point number, the result is a floating point. (If you're interested in the details of how Java promotes and converts numeric types from one type to another, you may want to check out the Java Language Specification at Sun's official Java Web site; that's more detail than I want to cover here.)
+<BR></P>
+<P>Listing 3.1 is an example of simple arithmetic.
+<BR></P>
+<UL>
+<LH><B>Listing 3.1. Simple arithmetic.</B><A ID = "I136" NAME = "I136"  ></A></LH></UL>
+<PRE> 1: class ArithmeticTest {
+ 2: public static void main (String args[]) {
+ 3:     short x = 6;
+ 4:     int y = 4;
+ 5:     float a = 12.5f;
+ 6:     float b = 7f;
+ 7: 
+ 8:     System.out.println(&quot;x is &quot; + x + &quot;, y is &quot; + y);
+ 9:     System.out.println(&quot;x + y = &quot; + (x + y));
+10:     System.out.println(&quot;x - y = &quot; + (x - y));
+11:     System.out.println(&quot;x / y = &quot; + (x / y));
+12:     System.out.println(&quot;x % y = &quot; + (x % y));
+13: 
+14:     System.out.println(&quot;a is &quot; + a + &quot;, b is &quot; + b;
+15:     System.out.println(&quot;a / b = &quot; + (a / b));
+16: }
+17: 
+18: }
+x is 6, y is 4
+x + y = 10
+x - y = 2
+x / y = 1
+x % y = 2
+a is 12.5, b is 7
+a / b = 1.78571</PRE>
+<P>In this simple Java application (note the main() method), you initially define four variables in <A ID = "I137" NAME = "I137"  ></A><A ID = "I138" NAME = "I138"  ></A>lines 3 through 6: x and y, which are integers (type int), and a and b, which are floating-point numbers (type float). Keep in mind that the default type for floating-point literals (such as 12.5) is double, so to make sure these are numbers of type float, you have to use an f after each one (lines 5 and 6).
+<BR></P>
+<P>The remainder of the program merely does some math with integers and floating point numbers and prints out the results.
+<BR></P>
+<P>There is one other thing to mention about this program: the method System.out.println(). You've seen this method on previous days, but you haven't really learned exactly what it does. The System.out.println() method merely prints a message to the standard <A ID = "I139" NAME = "I139"  ></A>output of your system&#151;to the screen, to a special window, or maybe just to a special log file, depending on your system and the development environment you're running (Sun's JDK prints it to the screen). The System.out.println() method takes a single argument&#151;a string&#151;but you can use + to concatenate values into a string, as you'll learn later today.
+<BR></P>
+<H4><A ID = "I140" NAME = "I140"  >
+<foNT SIZE=3><B>More About Assignment</B>
+<BR></FONT></A></H4>
+<P>Variable assignment is <A ID = "I141" NAME = "I141"  ></A><A ID = "I142" NAME = "I142"  ></A>a form of expression; in fact, because one assignment expression results in a value, you can string them together like this:
+<BR></P>
+<PRE>x = y = z = 0;</PRE>
+<P>In this example, all three variables now have the value 0.
+<BR></P>
+<P>The right side of an assignment <A ID = "I143" NAME = "I143"  ></A><A ID = "I144" NAME = "I144"  ></A>expression is always evaluated before the assignment takes place. This means that expressions such as x = x + 2 do the right thing; 2 is added to the value of x, and then that new value is reassigned to x. In fact, this sort of operation is so common that Java has several operators to do a shorthand version of this, borrowed from C and C++. Table 3.4 shows these shorthand assignment operators.
+<BR></P>
+<UL>
+<LH><B>Table 3.4. Assignment operators.</B><A ID = "I145" NAME = "I145"  ></A><A ID = "I146" NAME = "I146"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Expression</I>
+<BR></PRE>
+<TD>
+<PRE><I>Meaning</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>x += y</P>
+<TD>
+<P>x = x + y</P>
+<TR>
+<TD>
+<P>x &#151;= y</P>
+<TD>
+<P>x = x &#151; y</P>
+<TR>
+<TD>
+<P>x *= y</P>
+<TD>
+<P>x = x * y</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>x /= y</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>x = x / y</CENTER></P></TABLE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> If you rely on complicated side effects of subexpressions on either side of these assignments, the shorthand expressions may not be entirely equivalent to their longhand equivalents. For more information about very complicated expressions, evaluation order, and side effects, you may want to consult the Java Language Specification.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I147" NAME = "I147"  >
+<foNT SIZE=3><B>Incrementing and Decrementing</B>
+<BR></FONT></A></H4>
+<P>As in C and C++, the ++ and &#151;&#151; operators <A ID = "I148" NAME = "I148"  ></A><A ID = "I149" NAME = "I149"  ></A>are used to increment or decrement a value by 1. For example, x++ increments the value of x by 1 just as if you had used the expression x = x + 1. Similarly x&#151;&#151; decrements the value of x by 1. (Unlike C and C++, Java allows x to be floating point.)
+<BR></P>
+<P>These increment and decrement operators <A ID = "I150" NAME = "I150"  ></A><A ID = "I151" NAME = "I151"  ></A>can be prefixed or postfixed; that is, the ++ or &#151;&#151; can appear before or after the value it increments or decrements. For simple increment or decrement expressions, which one you use isn't overly important. In complex assignments, where you are assigning the result of an increment or decrement expression, which one you use makes a difference.
+<BR></P>
+<P>Take, for example, the following two expressions:
+<BR></P>
+<PRE>y = x++;
+y = ++x;</PRE>
+<P>These two expressions give very different results because of the difference between prefix and postfix. When you use postfix operators (x++ or x&#151;&#151;), y gets the value of x before x is changed; using prefix, the value of x is assigned to y after the change has occurred. Listing 3.2 is a Java example of how all this works.
+<BR></P>
+<UL>
+<LH><B>Listing 3.2. Test of prefix and postfix </B><A ID = "I152" NAME = "I152"  ></A><B>increment operators.</B></LH></UL>
+<PRE> 1: class PrePostFixTest {
+ 2: 
+ 3: public static void main (String args[]) {
+ 4:     int x = 0;
+ 5:     int y = 0;
+ 6: 
+ 7:     System.out.println(&quot;x and y are &quot; + x + &quot; and &quot; + y );
+ 8:     x++;
+ 9:     System.out.println(&quot;x++ results in &quot; + x);
+10:     ++x;
+11:     System.out.println(&quot;++x results in &quot; + x);
+12:     System.out.println(&quot;Resetting x back to 0.&quot;);
+13:     x = 0;
+14:     System.out.println(&quot;&#151;&#151;&#151;&#151;&#151;&#151;&quot;);
+15:     y = x++;
+16:     System.out.println(&quot;y = x++ (postfix) results in:&quot;);
+17:     System.out.println(&quot;x is &quot; + x);
+18:     System.out.println(&quot;y is &quot; + y);
+19:     System.out.println(&quot;&#151;&#151;&#151;&#151;&#151;&#151;&quot;);
+20: 
+21:     y = ++x;
+22:     System.out.println(&quot;y = ++x (prefix) results in:&quot;);
+23:     System.out.println(&quot;x is &quot; + x);
+24:     System.out.println(&quot;y is &quot; + y);
+25:     System.out.println(&quot;&#151;&#151;&#151;&#151;&#151;&#151;&quot;);
+26: 
+27: }
+28: 
+29: }
+x and y are 0 and 0
+x++ results in 1
+++x results in 2
+Resetting x back to 0.
+&#151;&#151;&#151;&#151;&#151;&#151;
+y = x++ (postfix) results in:
+x is 1
+y is 0
+&#151;&#151;&#151;&#151;&#151;&#151;
+y = ++x (prefix) results in:
+x is 2
+y is 2
+&#151;&#151;&#151;&#151;&#151;&#151;</PRE>
+<P>In the first part of this example, you increment x alone using both prefix and postfix increment operators. In each, x is incremented by 1 each time. In this simple form, using either prefix or postfix works the same way.
+<BR></P>
+<P>In the second part of this example, you use the expression y = x++, in which the postfix increment operator is used. In this result, the value of x is incremented <I>after</I> that value is assigned to y. Hence the result: y is assigned the original value of x (0), and then x is incremented by 1.
+<BR></P>
+<P>In the third part, you use the prefix expression y = ++x. Here, the reverse occurs: x is incremented before its value is assigned to y. Because x is 1 from the previous step, its value is incremented (to 2), and then that value is assigned to y. Both x and y end up being 2.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> Technically, this description is not entirely correct. In reality, Java <I>always</I> completely evaluates all expressions on the right of an expression before assigning that value to a variable, so the concept of &quot;assigning x to y before x is incremented&quot; isn't precisely right. Instead, Java takes the value of x and &quot;remembers&quot; it, evaluates (increments) x, and <I>then</I> assigns the original value of x to y. Although in most simple cases this distinction may not be important, for more complex expressions with side effects it may change the behavior of the expression overall. See the Language Specification for many more details about the details of expression evaluation in Java. 
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I153" NAME = "I153"  >
+<foNT SIZE=3><B>Comparisons</B>
+<BR></FONT></A></H4>
+<P>Java has several expressions <A ID = "I154" NAME = "I154"  ></A><A ID = "I155" NAME = "I155"  ></A>for testing equality and magnitude. All of these expressions return a boolean value (that is, true or false). Table 3.5 shows the comparison operators:
+<BR></P>
+<UL>
+<LH><B>Table 3.5. Comparison operators.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Operator</I>
+<BR></PRE>
+<TD>
+<PRE><I>Meaning</I>
+<BR></PRE>
+<TD>
+<PRE><I>Example</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>==</P>
+<TD>
+<P>Equal<A ID = "I156" NAME = "I156"  ></A><A ID = "I157" NAME = "I157"  ></A></P>
+<TD>
+<P>x == 3</P>
+<TR>
+<TD>
+<P>!=</P>
+<TD>
+<P>Not equal<A ID = "I158" NAME = "I158"  ></A><A ID = "I159" NAME = "I159"  ></A></P>
+<TD>
+<P>x != 3</P>
+<TR>
+<TD>
+<P>&lt;</P>
+<TD>
+<P>Less than<A ID = "I160" NAME = "I160"  ></A><A ID = "I161" NAME = "I161"  ></A></P>
+<TD>
+<P>x &lt; 3</P>
+<TR>
+<TD>
+<P>&gt;</P>
+<TD>
+<P>Greater than<A ID = "I162" NAME = "I162"  ></A><A ID = "I163" NAME = "I163"  ></A></P>
+<TD>
+<P>x &gt; 3</P>
+<TR>
+<TD>
+<P>&lt;=</P>
+<TD>
+<P>Less than or equal to<A ID = "I164" NAME = "I164"  ></A><A ID = "I165" NAME = "I165"  ></A></P>
+<TD>
+<P>x &lt;= 3</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>&gt;=</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Greater than or equal to<A ID = "I166" NAME = "I166"  ></A><A ID = "I167" NAME = "I167"  ></A></CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>x &gt;= 3</CENTER></P></TABLE>
+<H4><A ID = "I168" NAME = "I168"  >
+<foNT SIZE=3><B>Logical Operators</B>
+<BR></FONT></A></H4>
+<P>Expressions that <A ID = "I169" NAME = "I169"  ></A><A ID = "I170" NAME = "I170"  ></A>result in boolean values (for example, the comparison operators) can be combined by using logical operators that represent the logical combinations AND, OR, XOR, and logical NOT.
+<BR></P>
+<P>For AND combinations, use <A ID = "I171" NAME = "I171"  ></A>either the &amp; or &amp;&amp;. The expression will be true only if both expressions are also true; if either expression is false, the entire expression is false. The difference between the two operators is in expression evaluation. Using &amp;, both sides of the expression are evaluated regardless of the outcome. Using &amp;&amp;, if the left side of the expression is false, the entire expression returns false, and the right side of the expression is never evaluated.
+<BR></P>
+<P>For OR expressions, use <A ID = "I172" NAME = "I172"  ></A>either | or ||. OR expressions result in true if either or both of the operands is also true; if both operands are false, the expression is false. As with &amp; and &amp;&amp;, the single | evaluates both sides of the expression regardless of the outcome; with ||, if the left expression is true, the expression returns true and the right side is never evaluated.
+<BR></P>
+<P>In addition, there is the XOR operator ^, which <A ID = "I173" NAME = "I173"  ></A>returns true only if its operands are different (one true and one false, or vice versa) and false otherwise (even if both are true).
+<BR></P>
+<P>In general, only the &amp;&amp; and || are commonly used as actual logical combinations. &amp;, |, and ^ are more commonly used for bitwise logical operations.
+<BR></P>
+<P>For NOT, use the ! operator <A ID = "I174" NAME = "I174"  ></A>with a single expression argument. The value of the NOT expression is the negation of the expression; if x is true, !x is false.
+<BR></P>
+<H4><A ID = "I175" NAME = "I175"  >
+<foNT SIZE=3><B>Bitwise Operators</B>
+<BR></FONT></A></H4>
+<P>Finally, here's a short summary of the bitwise <A ID = "I176" NAME = "I176"  ></A><A ID = "I177" NAME = "I177"  ></A>operators in Java. These are all inherited from C and C++ and are used to perform operations on individual bits in integers. This book does not go into bitwise operations; it's an advanced topic covered better in books on C or C++. Table 3.6 summarizes the bitwise operators.
+<BR></P>
+<UL>
+<LH><B>Table 3.6. Bitwise operators.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Operator</I>
+<BR></PRE>
+<TD>
+<PRE><I>Meaning</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>&amp;</P>
+<TD>
+<P>Bitwise AND</P>
+<TR>
+<TD>
+<P>|</P>
+<TD>
+<P>Bitwise OR</P>
+<TR>
+<TD>
+<P>^</P>
+<TD>
+<P>Bitwise XOR</P>
+<TR>
+<TD>
+<P>&lt;&lt;</P>
+<TD>
+<P>Left shift</P>
+<TR>
+<TD>
+<P>&gt;&gt;</P>
+<TD>
+<P>Right shift</P>
+<TR>
+<TD>
+<P>&gt;&gt;&gt;</P>
+<TD>
+<P>Zero fill right shift</P>
+<TR>
+<TD>
+<P>~</P>
+<TD>
+<P>Bitwise complement</P>
+<TR>
+<TD>
+<P>&lt;&lt;=</P>
+<TD>
+<P>Left shift assignment (x = x &lt;&lt; y)</P>
+<TR>
+<TD>
+<P>&gt;&gt;=</P>
+<TD>
+<P>Right shift assignment (x = x &gt;&gt; y)</P>
+<TR>
+<TD>
+<P>&gt;&gt;&gt;=</P>
+<TD>
+<P>Zero fill right shift assignment (x = x &gt;&gt;&gt; y)</P>
+<TR>
+<TD>
+<P>x&amp;=y</P>
+<TD>
+<P>AND assignment (x = x &amp; y)</P>
+<TR>
+<TD>
+<P>x|=y</P>
+<TD>
+<P>OR assignment (x + x | y)</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>x^=y</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>XOR assignment (x = x ^ y)</CENTER></P></TABLE>
+<H4><A ID = "I178" NAME = "I178"  >
+<foNT SIZE=3><B>Operator Precedence</B>
+<BR></FONT></A></H4>
+<P>Operator precedence <A ID = "I179" NAME = "I179"  ></A><A ID = "I180" NAME = "I180"  ></A>determines the order in which expressions are evaluated. This, in some cases, can determine the overall value of the expression. For example, take the following expression:
+<BR></P>
+<PRE>y = 6 + 4 / 2</PRE>
+<P>Depending on whether the 6 + 4 expression or the 4 / 2 expression is evaluated first, the value of y can end up being 5 or 8. Operator precedence determines the order in which expressions are evaluated, so you can predict the outcome of an expression. In general, increment and decrement are evaluated before arithmetic, arithmetic expressions are evaluated before comparisons, and comparisons are evaluated before logical expressions. Assignment expressions are evaluated last.
+<BR></P>
+<P>Table 3.8 shows the specific precedence of the various operators in Java. Operators further up in the table are evaluated first; operators on the same line have the same precedence and are evaluated left to right based on how they appear in the expression itself. For example, give that same expression y = 6 + 4 / 2, you now know, according to this table, that division is evaluated before addition, so the value of y will be 8.
+<BR></P>
+<UL>
+<LH><B>Table 3.7. Operator precedence.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Operator</I>
+<BR></PRE>
+<TD>
+<PRE><I>Notes</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>. [] ()</P>
+<TD>
+<P>Parentheses () <A ID = "I181" NAME = "I181"  ></A><A ID = "I182" NAME = "I182"  ></A><A ID = "I183" NAME = "I183"  ></A>group expressions; dot (.) is used for access to methods and variables within objects and classes (discussed tomorrow); [] is used for arrays (discussed later on in the week)</P>
+<TR>
+<TD>
+<P>++ &#151;&#151; ! ~ instanceof</P>
+<TD>
+<P>Returns true or false based on whether the object is an instance of the named class or any of that class's superclasses (discussed tomorrow)</P>
+<TR>
+<TD>
+<P>new (type)expression </P>
+<TD>
+<P>The new operator is used for creating new instances of classes; () in this case is for casting a value to another type (you'll learn about both of these tomorrow)</P>
+<TR>
+<TD>
+<P>* / %</P>
+<TD>
+<P>Multiplication, division, modulus</P>
+<TR>
+<TD>
+<P>+ &#151;</P>
+<TD>
+<P>Addition, subtraction</P>
+<TR>
+<TD>
+<P>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</P>
+<TD>
+<P>Bitwise left and right shift</P>
+<TR>
+<TD>
+<P>&lt; &gt; &lt;= &gt;=</P>
+<TD>
+<P>Relational comparison tests</P>
+<TR>
+<TD>
+<P>== !=</P>
+<TD>
+<P>Equality</P>
+<TR>
+<TD>
+<P>&amp;</P>
+<TD>
+<P>AND</P>
+<TR>
+<TD>
+<P>^</P>
+<TD>
+<P>XOR</P>
+<TR>
+<TD>
+<P>|</P>
+<TD>
+<P>OR</P>
+<TR>
+<TD>
+<P>&amp;&amp;</P>
+<TD>
+<P>Logical AND</P>
+<TR>
+<TD>
+<P>||</P>
+<TD>
+<P>Logical OR</P>
+<TR>
+<TD>
+<P>? :</P>
+<TD>
+<P>Shorthand for if...then...else (discussed on Day 5)</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>= += &#151;= *= /= %= ^= &amp;= |= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;=</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Various assignments</CENTER></P></TABLE>
+<P>You can always change the order in which expressions are evaluated by using parentheses around the expressions you want to evaluate first. You can nest parentheses to make sure expressions evaluate in the order you want them to (the innermost parenthetical expression is evaluated first). The following expression results in a value of 5, because the 6 + 4 expression is evaluated first, and then the result of that expression (10) is divided by 2:
+<BR></P>
+<PRE>y = (6 + 4) / 2</PRE>
+<P>Parentheses also can be useful in cases where the precedence of an expression isn't immediately clear&#151;in other words, they can make your code easier to read. Adding parentheses doesn't hurt, so if they help you figure out how expressions are evaluated, go ahead and use them.
+<BR></P>
+<H3><A ID = "I184" NAME = "I184"  >
+<foNT SIZE=4><B>String Arithmetic</B>
+<BR></FONT></A></H3>
+<P>One special <A ID = "I185" NAME = "I185"  ></A><A ID = "I186" NAME = "I186"  ></A>expression in Java is the use of the addition operator (+) to create and concatenate strings. In most <A ID = "I187" NAME = "I187"  ></A><A ID = "I188" NAME = "I188"  ></A>of the previous examples shown today and in earlier lessons, you've seen lots of lines that looked something like this:
+<BR></P>
+<PRE>System.out.println(name + &quot; is a &quot; + color &quot; beetle&quot;);</PRE>
+<P>The output of that line (to the standard output) is a single string, with the values of the variables (here, name and color), inserted in the appropriate spots in the string. So what's going on here?
+<BR></P>
+<P>The + operator, when used with strings and other objects, creates a single string that contains the concatenation of all its operands. If any of the operands in string concatenation is not a string, it is automatically converted to a string, making it easy to create these sorts of output lines.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> An object <A ID = "I189" NAME = "I189"  ></A><A ID = "I190" NAME = "I190"  ></A>or type can be converted to a string if you implement the method toString(). All objects have a default string representation, but most classes override toString() to provide a more meaningful printable representation.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>String concatenation makes lines such as the previous one especially easy to construct. To create a string, just add all the parts together&#151;the descriptions plus the variables&#151;and output it to the standard output, to the screen, to an applet, or anywhere.
+<BR></P>
+<P>The += operator, which you learned about earlier, also works for strings. For example, take the following expression:
+<BR></P>
+<PRE>myName += &quot; Jr.&quot;;</PRE>
+<P>This expression is equivalent to this:
+<BR></P>
+<PRE>myName = myName + &quot; Jr.&quot;;</PRE>
+<P>just as it would be for numbers. In this case, it changes the value of myName (which might be something like John Smith to have a Jr. at the end (John Smith Jr.).
+<BR></P>
+<H3><A ID = "I191" NAME = "I191"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>As you learned in the last two lessons, a Java program is made up primarily of classes and objects. Classes and objects, in turn, are made up of methods and variables, and methods are made up of statements and expressions. It is those last two things that you've learned about today; the basic building blocks that enable you to create classes and methods and build them up to a full-fledged Java program.
+<BR></P>
+<P>Today, you learned about variables, how to declare them and assign values to them; literals for easily creating numbers, characters, and strings; and operators for arithmetic, tests, and other simple operations. With this basic syntax, you can move on tomorrow to learning about working with objects and building simple useful Java programs.
+<BR></P>
+<P>To finish up this summary, Table 3.8 is a list of all the operators you learned about today so that you can refer back to them.
+<BR></P>
+<UL>
+<LH><B>Table 3.8. Operator summary.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Operator</I>
+<BR></PRE>
+<TD>
+<PRE><I>Meaning</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>+</P>
+<TD>
+<P>Addition</P>
+<TR>
+<TD>
+<P>&#151;</P>
+<TD>
+<P>Subtraction</P>
+<TR>
+<TD>
+<P>*</P>
+<TD>
+<P>Multiplication</P>
+<TR>
+<TD>
+<P>/</P>
+<TD>
+<P>Division</P>
+<TR>
+<TD>
+<P>%</P>
+<TD>
+<P>Modulus</P>
+<TR>
+<TD>
+<P>&lt;</P>
+<TD>
+<P>Less than</P>
+<TR>
+<TD>
+<P>&gt;</P>
+<TD>
+<P>Greater than</P>
+<TR>
+<TD>
+<P>&lt;=</P>
+<TD>
+<P>Less than or equal to</P>
+<TR>
+<TD>
+<P>&gt;=</P>
+<TD>
+<P>Greater than or equal to</P>
+<TR>
+<TD>
+<P>==</P>
+<TD>
+<P>Equal</P>
+<TR>
+<TD>
+<P>!=</P>
+<TD>
+<P>Not equal</P>
+<TR>
+<TD>
+<P>&amp;&amp;</P>
+<TD>
+<P>Logical AND</P>
+<TR>
+<TD>
+<P>||</P>
+<TD>
+<P>Logical OR</P>
+<TR>
+<TD>
+<P>!</P>
+<TD>
+<P>Logical NOT</P>
+<TR>
+<TD>
+<P>&amp;</P>
+<TD>
+<P>AND</P>
+<TR>
+<TD>
+<P>|</P>
+<TD>
+<P>OR</P>
+<TR>
+<TD>
+<P>^</P>
+<TD>
+<P>XOR</P>
+<TR>
+<TD>
+<P>&lt;&lt;</P>
+<TD>
+<P>Left shift</P>
+<TR>
+<TD>
+<P>&gt;&gt;</P>
+<TD>
+<P>Right shift</P>
+<TR>
+<TD>
+<P>&gt;&gt;&gt;</P>
+<TD>
+<P>Zero fill right shift</P>
+<TR>
+<TD>
+<P>~</P>
+<TD>
+<P>Complement</P>
+<TR>
+<TD>
+<P>=</P>
+<TD>
+<P>Assignment</P>
+<TR>
+<TD>
+<P>++</P>
+<TD>
+<P>Increment</P>
+<TR>
+<TD>
+<P>&#151;&#151;</P>
+<TD>
+<P>Decrement</P>
+<TR>
+<TD>
+<P>+=</P>
+<TD>
+<P>Add and assign</P>
+<TR>
+<TD>
+<P>&#151;=</P>
+<TD>
+<P>Subtract and assign</P>
+<TR>
+<TD>
+<P>*=</P>
+<TD>
+<P>Multiply and assign</P>
+<TR>
+<TD>
+<P>/=</P>
+<TD>
+<P>Divide and assign</P>
+<TR>
+<TD>
+<P>%=</P>
+<TD>
+<P>Modulus and assign</P>
+<TR>
+<TD>
+<P>&amp;=</P>
+<TD>
+<P>AND and assign</P>
+<TR>
+<TD>
+<P>|=</P>
+<TD>
+<P>OR and assign</P>
+<TR>
+<TD>
+<P>&lt;&lt;=</P>
+<TD>
+<P>Left shift and assign</P>
+<TR>
+<TD>
+<P>^=</P>
+<TD>
+<P>XOR and assign</P>
+<TR>
+<TD>
+<P>&gt;&gt;=</P>
+<TD>
+<P>Right shift and assign</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>&gt;&gt;&gt;=</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Zero fill right shift and assign</CENTER></P></TABLE>
+<H3><A ID = "I192" NAME = "I192"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: I didn't see any way to define constants.</B>
+<BR></P>
+<P><B>A: </B>You can't create local <A ID = "I193" NAME = "I193"  ></A><A ID = "I194" NAME = "I194"  ></A>constants in Java; you can create only constant instance and class variables. You'll learn how to do this tomorrow.
+<BR></P>
+<P><B>Q: What happens if you </B><A ID = "I195" NAME = "I195"  ></A><A ID = "I196" NAME = "I196"  ></A><B>assign an integer value to a variable that is </B><B>too large for that variable to hold?</B>
+<BR></P>
+<P>A: Logically, you would think that the variable is just converted to the next larger type, but this isn't what happens. What does happen is called <I>overflow.</I> This means that if a number becomes too big for its variable, that number wraps around to the smallest possible negative number for that type and starts counting upward toward zero again.
+<BR>
+<BR> Because this can result in some very confusing (and wrong) results, make sure that you declare the right integer type for all your numbers. If there's a chance a number will overflow its type, use the next larger type instead.
+<BR></P>
+<P><B>Q: How can you find out the type of a given variable?</B>
+<BR></P>
+<P><B>A: </B>If you're using the <A ID = "I197" NAME = "I197"  ></A>base types (int, float, boolean), and so on, you can't. If you care about the type, you can convert the value to some other type by using casting (you'll learn about this tomorrow).
+<BR>
+<BR>If you're using class types, you can use the instanceof operator, which you'll learn more about tomorrow.
+<BR></P>
+<P><B>Q: Why does Java have all these shorthand operators for arithmetic and </B><B>assignment? It's really hard to read that way.</B>
+<BR></P>
+<P><B>A: </B>The syntax of Java is based on C++, and therefore on C. One of C's implicit goals is the capability of doing very powerful things with a minimum of typing. Because of this, shorthand operators, such as the wide array of assignments, are common.
+<BR>
+<BR>There's no rule that says you have to use these operators in your own programs, however. If you find your code to be more readable using the long form, no one will come to your house and make you change it.
+<BR>
+<BR></P>
+<P><A HREF = "tyj02x.html" tppabs="http://newdata.box.sk/bx/java/tyj02x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj04x.html" tppabs="http://newdata.box.sk/bx/java/tyj04x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

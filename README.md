@@ -1,2 +1,2 @@
-# technicalbooks
-Collection of technical books
+# technialbooks
+Collection of tecnical books

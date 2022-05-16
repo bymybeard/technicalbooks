@@ -1,0 +1,759 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" lang="en"><head>
+
+
+<title>What is Linux Shell - Linux Shell Scripting Tutorial - A 
+Beginner's handbook</title>
+<script src="What_is_Linux_Shell_files/a_002" type="text/javascript"></script><script src="What_is_Linux_Shell_files/a" type="text/javascript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="MediaWiki 1.16.0beta3">
+<link rel="alternate" type="application/x-wiki" title="Edit" 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit">
+<link rel="edit" title="Edit" 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit">
+<link rel="shortcut icon" href="http://bash.cyberciti.biz/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" 
+href="http://bash.cyberciti.biz/wiki/opensearch_desc.php" title="Linux 
+Shell Scripting Tutorial - A Beginner's handbook (en)">
+<link title="Creative Commons" type="application/rdf+xml" 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=creativecommons"
+ rel="meta">
+<link rel="copyright" 
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Linux Shell 
+Scripting Tutorial - A Beginner's handbook Atom feed" 
+href="http://bash.cyberciti.biz/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="What_is_Linux_Shell_files/main-ltr.css" 
+media="screen">
+<link rel="stylesheet" href="What_is_Linux_Shell_files/shared.css" 
+media="screen">
+<link rel="stylesheet" href="What_is_Linux_Shell_files/commonPrint.css" 
+media="print">
+<link rel="stylesheet" href="What_is_Linux_Shell_files/index_002.css">
+<link rel="stylesheet" href="What_is_Linux_Shell_files/index.css" 
+media="print">
+<link rel="stylesheet" href="What_is_Linux_Shell_files/index_004.css">
+<link rel="stylesheet" href="What_is_Linux_Shell_files/index_003.css">
+<script>
+var skin="vector",
+stylepath="/wiki/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/guide/$1",
+wgScriptPath="/wiki",
+wgScriptExtension=".php",
+wgScript="/wiki/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://bash.cyberciti.biz",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="What_is_Linux_Shell",
+wgTitle="What is Linux Shell",
+wgAction="view",
+wgArticleId=32,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=2552,
+wgVersion="1.16.0beta3",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "Linux Shell Scripting Tutorial - A Beginner\'s handbook", "5": "Linux Shell Scripting Tutorial - A Beginner\'s handbook talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "linux_shell_scripting_tutorial_-_a_beginner\'s_handbook": 4, "linux_shell_scripting_tutorial_-_a_beginner\'s_handbook_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="Linux Shell Scripting Tutorial - A Beginner\'s handbook",
+wgCategories=["Introduction to Shells"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="What_is_Linux_Shell_files/wikibits.js"></script>
+<script src="What_is_Linux_Shell_files/ajax.js"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/vector/csshover.htc")}</style><![endif]-->
+<script src="What_is_Linux_Shell_files/index.php"></script>
+
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.source-bash .de1, .source-bash .de2 {font-family: monospace; font-weight: normal; font-style: normal; margin:0; padding:0; background:inherit;}
+.source-bash  {font-family: monospace;}
+.source-bash .imp {font-weight: bold; color: red;}
+.source-bash li, .source-bash li.li1 {font-weight: normal;}
+.source-bash li.li2 {font-weight: bold;}
+.source-bash .kw1 {color: #000000; font-weight: bold;}
+.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.source-bash .co0 {color: #666666; font-style: italic;}
+.source-bash .co1 {color: #800000;}
+.source-bash .co2 {color: #cc0000; font-style: italic;}
+.source-bash .es0 {color: #000099; font-weight: bold;}
+.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.source-bash .sy0 {color: #000000; font-weight: bold;}
+.source-bash .st0 {color: #ff0000;}
+.source-bash .nu0 {color: #000000;}
+.source-bash .re0 {color: #007800;}
+.source-bash .re1 {color: #007800;}
+.source-bash .re2 {color: #007800;}
+.source-bash .re4 {color: #007800;}
+.source-bash .re5 {color: #660033;}
+.source-bash .ln-xtra, .source-bash li.ln-xtra, .source-bash div.ln-xtra {background-color: #ffc;}
+.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/wiki/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style></head><body class="mediawiki ltr ns-0 ns-subject 
+page-What_is_Linux_Shell skin-vector">
+		<div id="page-base" class="noprint"></div>
+		<div id="head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display: none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">What is Linux Shell</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+                        <center>  
+ 			<div id="adstopage"><div id="load-adstopage">
+<script type="text/javascript"><!--// <![CDATA[
+    /* [id2] nixCraft Blog - Articles */
+    OA_show(2);
+// ]]> --></script><span><script type="text/javascript"><!--// <![CDATA[
+/* openads=http://simplyguide.com/c/www/delivery bannerid=47 zoneid=25 source= */
+// ]]> --></script><script type="text/javascript"><!--
+google_ad_client = "ca-pub-7825705102693166";
+/* cyberciti.biz-top 728x90 */
+google_ad_slot = "3400670370";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="What_is_Linux_Shell_files/show_ads.js">
+</script><script src="What_is_Linux_Shell_files/expansion_embed.js"></script><script src="What_is_Linux_Shell_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins
+ style="display: inline-table; border: medium none; height: 90px; 
+margin: 0pt; padding: 0pt; position: relative; visibility: visible; 
+width: 728px;"><ins id="google_ads_frame1_anchor" style="display: block;
+ border: medium none; height: 90px; margin: 0pt; padding: 0pt; position:
+ relative; visibility: visible; width: 728px;"><iframe 
+allowtransparency="true" hspace="0" id="google_ads_frame1" 
+marginheight="0" marginwidth="0" name="google_ads_frame" 
+src="What_is_Linux_Shell_files/ads.htm" style="left: 0pt; position: 
+absolute; top: 0pt;" vspace="0" width="728" frameborder="0" height="90" 
+scrolling="no"></iframe></ins></ins><script type="text/javascript" src="What_is_Linux_Shell_files/ag.js"></script></span><div
+ id="beacon_09954f0882" style="position: absolute; left: 0px; top: 0px; 
+visibility: hidden;"><img src="What_is_Linux_Shell_files/lg.gif" alt="" 
+style="width: 0px; height: 0px;" width="0" height="0"></div>
+<noscript><a target='_blank' href='http://simplyguide.com/c/www/delivery/ck.php?n=32d43f3'><img border='0' alt='' src='http://simplyguide.com/c/www/delivery/avw.php?zoneid=2&amp;n=32d43f3' /></a></noscript>
+
+</div></div></center>
+			<div id="bodyContent">
+				<!-- tagline -->
+				<h3 id="siteSub">From Linux Shell Scripting Tutorial - A Beginner's 
+handbook</h3>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to:<a href="#head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<p><br>
+</p>
+<table id="toc" style="width: 100%; background: none repeat scroll 0% 0%
+ rgb(250, 245, 255); border: 0.077em solid rgb(221, 206, 242); padding: 
+0.692em; line-height: 1.5em;"><tbody><tr>
+<td style="text-align: left; width: 33%;"><a 
+href="http://bash.cyberciti.biz/guide/What_is_Linux_Kernel" title="What 
+is Linux Kernel">← What is Linux Kernel</a></td>
+<td style="text-align: center; width: 33%;"><b><a 
+href="http://bash.cyberciti.biz/guide/Main_Page" title="Main Page">Home</a></b></td>
+<td style="text-align: right; width: 33%;"><a 
+href="http://bash.cyberciti.biz/guide/Unix_philosophy" title="Unix 
+philosophy">Unix philosophy →</a></td>
+</tr></tbody></table>
+<p>Computers understand the language of zeros and ones known as <a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=Binary_language&amp;action=edit&amp;redlink=1"
+ class="new" title="Binary language (page does not exist)">binary 
+language</a>. In the early days of computing, instructions were provided
+ using binary language, which is difficult for all of us to read and 
+write. Therefore, in an operating system there is a special program 
+called the shell. The shell accepts human readable commands and 
+translates them into something the kernel can read and process.
+</p>
+<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2>
+ <span class="toctoggle">[<a href="javascript:toggleToc()" 
+class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#What_Is_a_Shell.3F"><span 
+class="tocnumber">1</span> <span class="toctext">What Is a Shell?</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Shell_Prompt"><span 
+class="tocnumber">1.1</span> <span class="toctext">Shell Prompt</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a 
+href="#How_do_I_find_Out_My_Current_Shell_Name.3F"><span 
+class="tocnumber">2</span> <span class="toctext">How do I find Out My 
+Current Shell Name?</span></a></li>
+<li class="toclevel-1 tocsection-4"><a 
+href="#Command_Line_Interface_.28CLI.29"><span class="tocnumber">3</span>
+ <span class="toctext">Command Line Interface (CLI)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a 
+href="#Basic_Command_Line_Editing"><span class="tocnumber">3.1</span> <span
+ class="toctext">Basic Command Line Editing</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Executing_A_Command"><span
+ class="tocnumber">3.2</span> <span class="toctext">Executing A Command</span></a></li>
+<li class="toclevel-2 tocsection-7"><a 
+href="#Command_And_File_Completion"><span class="tocnumber">3.3</span> <span
+ class="toctext">Command And File Completion</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Getting_Help_In_Linux"><span
+ class="tocnumber">3.4</span> <span class="toctext">Getting Help In 
+Linux</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span 
+class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td></tr></tbody></table><script>if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<h2><span class="editsection">[<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit&amp;section=1"
+ title="Edit section: What Is a Shell?">edit</a>]</span> <span 
+class="mw-headline" id="What_Is_a_Shell.3F">What Is a Shell?</span></h2>
+<ul><li> The shell is a user program or it is an environment provided 
+for user interaction. 
+</li><li> It is a command language interpreter that executes commands 
+read from the standard input device such as keyboard or from a file.
+</li><li> The shell gets started when you log in or open a console 
+(terminal).
+</li><li> Quick and dirty way to execute utilities.
+</li><li> The shell is not part of system <a 
+href="http://bash.cyberciti.biz/guide/Kernel" title="Kernel">kernel</a>,
+ but uses the system kernel to execute programs, create files etc.
+</li><li> Several shells are available for <a 
+href="http://bash.cyberciti.biz/guide/Linux" title="Linux">Linux</a> 
+including:
+<ul><li> <a href="http://bash.cyberciti.biz/guide/BASH" title="BASH">BASH</a>
+ ( <a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=Bourne-Again_SHell&amp;action=edit&amp;redlink=1"
+ class="new" title="Bourne-Again SHell (page does not exist)">Bourne-Again
+ SHell</a> ) -	Most common shell in Linux. It's Open Source.
+</li><li> <a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=CSH&amp;action=edit&amp;redlink=1"
+ class="new" title="CSH (page does not exist)">CSH</a> (<a 
+href="http://bash.cyberciti.biz/guide/C_SHell" title="C SHell">C SHell</a>)
+	- The C shell's syntax and usage are very similar to the C programming 
+language.
+</li><li> <a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=KSH&amp;action=edit&amp;redlink=1"
+ class="new" title="KSH (page does not exist)">KSH</a> (<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=Korn_SHell&amp;action=edit&amp;redlink=1"
+ class="new" title="Korn SHell (page does not exist)">Korn SHell</a>) - 
+Created by <a href="http://bash.cyberciti.biz/guide/David_Korn" 
+title="David Korn">David Korn</a> at <a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=AT_%26_T_Bell_Labs&amp;action=edit&amp;redlink=1"
+ class="new" title="AT &amp; T Bell Labs (page does not exist)">AT &amp;
+ T Bell Labs</a>. The Korn Shell also was the base for the POSIX Shell 
+standard specifications.
+</li><li> <a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=TCSH&amp;action=edit&amp;redlink=1"
+ class="new" title="TCSH (page does not exist)">TCSH</a> - It is an 
+enhanced but completely compatible version of the Berkeley <a 
+href="http://bash.cyberciti.biz/guide/UNIX" title="UNIX" 
+class="mw-redirect">UNIX</a> <a 
+href="http://bash.cyberciti.biz/guide/C_shell" title="C shell">C shell</a>
+ (<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=CSH&amp;action=edit&amp;redlink=1"
+ class="new" title="CSH (page does not exist)">CSH</a>).
+</li></ul>
+</li></ul>
+<p>Please note that each shell does the same job, but each understands 
+different command syntax and provides different built-in functions. 
+Under <a href="http://bash.cyberciti.biz/guide/MS-DOS" title="MS-DOS">MS-DOS</a>,
+ the shell name is <a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=COMMAND.COM&amp;action=edit&amp;redlink=1"
+ class="new" title="COMMAND.COM (page does not exist)">COMMAND.COM</a> 
+which is also used for the same purpose, but it is by far not as 
+powerful as our Linux Shells are!
+</p>
+<h3><span class="editsection">[<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit&amp;section=2"
+ title="Edit section: Shell Prompt">edit</a>]</span> <span 
+class="mw-headline" id="Shell_Prompt">Shell Prompt</span></h3>
+<p>There are various ways to get shell access:
+</p>
+<ul><li> <b>Terminal</b> - Linux desktop provide a GUI based login 
+system. Once logged in you can gain access to a shell by running X 
+Terminal (XTerm), Gnome Terminal (GTerm), or KDE Terminal (KTerm) 
+application.
+</li><li> <b>Connect via secure shell (SSH)</b> - You will get a shell 
+prompt as soon as you log in into remote server or workstation.
+</li><li> <b>Use the console</b> - A few Linux system also provides a 
+text-based login system. Generally you get a shell prompt as soon as you
+ log in to the system.
+</li></ul>
+<h2><span class="editsection">[<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit&amp;section=3"
+ title="Edit section: How do I find Out My Current Shell Name?">edit</a>]</span>
+ <span class="mw-headline" 
+id="How_do_I_find_Out_My_Current_Shell_Name.3F">How do I find Out My 
+Current Shell Name?</span></h2>
+<p>To find all of the available shells in your system, type the 
+following command:
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-bash" 
+style="font-family: monospace;"><pre><span class="kw2">cat</span> <span class="sy0">/</span>etc<span class="sy0">/</span>shells</pre></div></div>
+<p>In case the shells file has more than one shell listed under it, then
+ it means that more than one shell is supported by your Platform
+</p><p><br>
+cat /etc/shells
+</p>
+<h2><span class="editsection">[<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit&amp;section=4"
+ title="Edit section: Command Line Interface (CLI)">edit</a>]</span> <span
+ class="mw-headline" id="Command_Line_Interface_.28CLI.29">Command Line 
+Interface (CLI)</span></h2>
+<p>The shell provides an interface to Linux where you can type or enter 
+commands using the keyboard. It is known as the command line interface 
+(CLI). To find out your current shell type following command<sup 
+id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>.:
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-bash" 
+style="font-family: monospace;"><pre><span class="kw3">echo</span> <span class="re1">$SHELL</span>
+<span class="kw2">ps</span> <span class="re4">$$</span>
+<span class="kw2">ps</span> <span class="re5">-p</span> <span class="re4">$$</span></pre></div></div>
+<h3><span class="editsection">[<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit&amp;section=5"
+ title="Edit section: Basic Command Line Editing">edit</a>]</span> <span
+ class="mw-headline" id="Basic_Command_Line_Editing"> Basic Command Line
+ Editing </span></h3>
+<p>You can use the following key combinations to edit and recall 
+commands:
+</p>
+<ul><li> CTRL + L&nbsp;: Clear the screen.
+</li><li> CTRL + W&nbsp;: Delete the word starting at cursor.
+</li><li> CTRL + U&nbsp;: Clear the line i.e. Delete the all words from 
+command line.
+</li><li> Up and Down arrow keys&nbsp;: Recall commands (see <a 
+href="http://bash.cyberciti.biz/guide/Command_history" title="Command 
+history">command history</a>).
+</li><li> Tab&nbsp;: Auto-complete files, directory, command names and 
+much more.
+</li><li> CTRL + R&nbsp;: Search through previously used commands (see <a
+ href="http://bash.cyberciti.biz/guide/Command_history" title="Command 
+history">command history</a>)
+</li><li> CTRL + C&nbsp;: Cancel currently running commands.
+</li><li> CTRL + T&nbsp;: Swap the last two characters before the 
+cursor.
+</li><li> ESC + T&nbsp;:  Swap the last two words before the cursor.
+</li><li> CTRL + H&nbsp;: Delete the letter starting at cursor.
+</li></ul>
+<p><br>
+</p><p>'<i><b>cat /etc/shells</b></i>cat /etc/shells
+</p>
+<h3><span class="editsection">[<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit&amp;section=6"
+ title="Edit section: Executing A Command">edit</a>]</span> <span 
+class="mw-headline" id="Executing_A_Command"> Executing A Command </span></h3>
+<p>Type your command, and press enter key. Try this the <b>date</b> 
+command which will display current date and time:
+</p>
+<div dir="ltr" style="text-align: left;"><div class="source-bash" 
+style="font-family: monospace;"><pre><span class="kw2">date</span></pre></div></div>
+<p>Sample outputs:
+</p>
+<pre>Tue Apr 27 05:20:35 IST 2010</pre>
+<h3><span class="editsection">[<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit&amp;section=7"
+ title="Edit section: Command And File Completion">edit</a>]</span> <span
+ class="mw-headline" id="Command_And_File_Completion"> Command And File 
+Completion </span></h3>
+<p>The Bash shell will complete file and command names, when possible 
+and/or when you tell them to. For example, if you type <b>sle</b> and 
+pressing Tab key will make the shell automatically complete your command
+ name. Another example, if you type <b>ls /e</b> and pressing Tab key 
+will make the shell automatically complete your word to <b>/etc</b> as 
+it sees that <b>/etc/</b> is a directory which starts with /e.
+</p><p><br>
+</p>
+<h3><span class="editsection">[<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit&amp;section=8"
+ title="Edit section: Getting Help In Linux">edit</a>]</span> <span 
+class="mw-headline" id="Getting_Help_In_Linux"> Getting Help In Linux </span></h3>
+<ul><li> Most commands under Linux will come with documentation.
+</li><li> You can view documentation with the <a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=Man_command&amp;action=edit&amp;redlink=1"
+ class="new" title="Man command (page does not exist)">man command</a> 
+or <a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=Info_command&amp;action=edit&amp;redlink=1"
+ class="new" title="Info command (page does not exist)">info command</a>.
+ In this example, open the manpage for <a 
+href="http://bash.cyberciti.biz/guide/Date_command" title="Date command">date
+ command</a>:
+</li></ul>
+<div dir="ltr" style="text-align: left;"><div class="source-bash" 
+style="font-family: monospace;"><pre><span class="kw2">man</span> <span class="kw2">date</span></pre></div></div>
+<ul><li> You can read info documentation as follows for the <a 
+href="http://bash.cyberciti.biz/guide/Ls_command" title="Ls command">ls 
+command</a>: 
+</li></ul>
+<div dir="ltr" style="text-align: left;"><div class="source-bash" 
+style="font-family: monospace;"><pre>info <span class="kw2">ls</span></pre></div></div>
+<ul><li> Many commands accepts --help or -h command line option. In this
+ example, display help options for the <a 
+href="http://bash.cyberciti.biz/guide/Date_command" title="Date command">date
+ command</a>:
+</li></ul>
+<div dir="ltr" style="text-align: left;"><div class="source-bash" 
+style="font-family: monospace;"><pre><span class="kw2">date</span> <span class="re5">--help</span></pre></div></div>
+<ul><li> In short use any one of the following option to get more 
+information about Linux commands:
+</li></ul>
+<div dir="ltr" style="text-align: left;"><div class="source-bash" 
+style="font-family: monospace;"><pre><span class="kw2">man</span> commandName
+info commandName
+commandName <span class="re5">-h</span>
+commandName <span class="re5">--help</span></pre></div></div>
+<h2><span class="editsection">[<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit&amp;section=9"
+ title="Edit section: References">edit</a>]</span> <span 
+class="mw-headline" id="References">References</span></h2>
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <a
+ 
+href="http://www.cyberciti.biz/tips/how-do-i-find-out-what-shell-im-using.html"
+ class="external text" rel="nofollow">Command to find out current shell 
+name</a> from the nixCraft FAQ section.</li></ol>
+<p><br>
+</p>
+<table id="toc" style="width: 100%; background: none repeat scroll 0% 0%
+ rgb(250, 245, 255); border: 0.077em solid rgb(221, 206, 242); padding: 
+0.692em; line-height: 1.5em;"><tbody><tr>
+<td style="text-align: left; width: 33%;"><a 
+href="http://bash.cyberciti.biz/guide/What_is_Linux_Kernel" title="What 
+is Linux Kernel">← What is Linux Kernel</a></td>
+<td style="text-align: center; width: 33%;"><b><a 
+href="http://bash.cyberciti.biz/guide/Main_Page" title="Main Page">Home</a></b></td>
+<td style="text-align: right; width: 33%;"><a 
+href="http://bash.cyberciti.biz/guide/Unix_philosophy" title="Unix 
+philosophy">Unix philosophy →</a></td>
+</tr></tbody></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 158/1000000
+Post-expand include size: 870/2097152 bytes
+Template argument size: 140/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key cbzwikibashportal:pcache:idhash:32-0!1!0!!en!2 and timestamp 20100831154050 -->
+<div class="printfooter">
+Retrieved from "<a 
+href="http://bash.cyberciti.biz/guide/What_is_Linux_Shell">http://bash.cyberciti.biz/guide/What_is_Linux_Shell</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a 
+href="http://bash.cyberciti.biz/guide/Special:Categories" 
+title="Special:Categories">Category</a>: <span dir="ltr"><a 
+href="http://bash.cyberciti.biz/guide/Category:Introduction_to_Shells" 
+title="Category:Introduction to Shells">Introduction to Shells</a></span></div></div>
+				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+					<li id="pt-login"><a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=Special:UserLogin&amp;returnto=What_is_Linux_Shell"
+ title="You are encouraged to log in; however, it is not mandatory 
+[alt-shift-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><a 
+href="http://bash.cyberciti.biz/guide/What_is_Linux_Shell" title="View 
+the content page [alt-shift-c]" accesskey="c"><span>Page</span></a></li>
+					<li id="ca-talk" class="new"><a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=Talk:What_is_Linux_Shell&amp;action=edit&amp;redlink=1"
+ title="Discussion about the content page [alt-shift-t]" accesskey="t"><span>Discussion</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+	<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><a 
+href="http://bash.cyberciti.biz/guide/What_is_Linux_Shell"><span>Read</span></a></li>
+					<li id="ca-edit"><a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=edit"
+ title="You can edit this page. Please use the preview button before 
+saving [alt-shift-e]" accesskey="e"><span>Edit</span></a></li>
+					<li id="ca-history" class="collapsible "><a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;action=history"
+ title="Past revisions of this page [alt-shift-h]" accesskey="h"><span>View
+ history</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="/wiki/index.php" id="searchform">
+		<input name="title" value="Special:Search" type="hidden">
+				<input id="searchInput" name="search" title="Search Linux Shell 
+Scripting Tutorial - A Beginner's handbook [alt-shift-f]" accesskey="f" 
+type="text">
+		<input name="go" class="searchButton" id="searchGoButton" value="Go" 
+title="Go to a page with this exact name if exists" type="submit">
+		<input name="fulltext" class="searchButton" id="mw-searchButton" 
+value="Search" title="Search the pages for this text" type="submit">
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: 
+url(&quot;http://files.cyberciti.biz/assets/i/nixcraft-logo.gif&quot;);"
+ href="http://bash.cyberciti.biz/guide/Main_Page" title="Visit the main 
+page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" id="p-navigation">
+	<h5>Navigation</h5>
+	<div class="body">
+				<ul>
+					<li id="n-mainpage-description"><a 
+href="http://bash.cyberciti.biz/guide/Main_Page" title="Visit the main 
+page [alt-shift-z]" accesskey="z">Main page</a></li>
+					<li id="n-portal"><a 
+href="http://bash.cyberciti.biz/guide/Linux_Shell_Scripting_Tutorial_-_A_Beginner%27s_handbook:Community_portal"
+ title="About the project, what you can do, where to find things">Community
+ portal</a></li>
+					<li id="n-currentevents"><a 
+href="http://bash.cyberciti.biz/guide/Linux_Shell_Scripting_Tutorial_-_A_Beginner%27s_handbook:Current_events"
+ title="Find background information on current events">Current events</a></li>
+					<li id="n-recentchanges"><a 
+href="http://bash.cyberciti.biz/guide/Special:RecentChanges" title="The 
+list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent 
+changes</a></li>
+					<li id="n-randompage"><a 
+href="http://bash.cyberciti.biz/guide/Special:Random" title="Load a 
+random page [alt-shift-x]" accesskey="x">Random page</a></li>
+					<li id="n-help"><a 
+href="http://bash.cyberciti.biz/guide/Help:Contents" title="The place to
+ find out">Help</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal" id="p-tb">
+	<h5>Toolbox</h5>
+	<div class="body">
+		<ul>
+					<li id="t-whatlinkshere"><a 
+href="http://bash.cyberciti.biz/guide/Special:WhatLinksHere/What_is_Linux_Shell"
+ title="List of all wiki pages that link here [alt-shift-j]" 
+accesskey="j">What links here</a></li>
+						<li id="t-recentchangeslinked"><a 
+href="http://bash.cyberciti.biz/guide/Special:RecentChangesLinked/What_is_Linux_Shell"
+ title="Recent changes in pages linked from this page [alt-shift-k]" 
+accesskey="k">Related changes</a></li>
+																																										<li id="t-specialpages"><a 
+href="http://bash.cyberciti.biz/guide/Special:SpecialPages" title="List 
+of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+									<li id="t-print"><a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;printable=yes"
+ rel="alternate" title="Printable version of this page [alt-shift-p]" 
+accesskey="p">Printable version</a></li>
+						<li id="t-permalink"><a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=What_is_Linux_Shell&amp;oldid=2552"
+ title="Permanent link to this revision of the page">Permanent link</a></li>
+						</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+
+<!-- coll-create_a_book -->
+<div class="portal" id="p-coll-create_a_book">
+	<h5>Create a book</h5>
+	<div class="body">
+				<ul id="collectionPortletList"><li>
+	<a 
+href="http://bash.cyberciti.biz/wiki/index.php?title=Special:Book/add_article/&amp;arttitle=What_is_Linux_Shell&amp;oldid=0"
+ onclick="collectionCall('AddArticle', [wgNamespaceNumber, wgTitle, 0]);
+ return false;" rel="nofollow" title="Add the current wiki page to your 
+book">Add wiki page</a>
+</li>							<li><a href="http://bash.cyberciti.biz/guide/Help:Books" 
+title="Show help about the book tool">Books help</a></li></ul><script type="text/javascript">
+/* <![CDATA[ */
+	function collectionCall(func, args) {
+		sajax_request_type = 'POST';
+		sajax_do_call('wfAjaxCollection' + func, args, function(xhr) {
+			sajax_request_type = 'GET';
+			sajax_do_call('wfAjaxCollectionGetPortlet', [func], function(xhr) {
+				document.getElementById('collectionPortletList').parentNode.innerHTML = xhr.responseText;
+			});
+		});
+	}
+/* ]]> */
+</script>			</div>
+</div>
+
+<!-- /coll-create_a_book -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+											<ul id="footer-info">
+																	<li id="footer-info-lastmod"> This page was last 
+modified on 23 August 2010, at 11:56.</li>
+																							<li id="footer-info-copyright">Content is 
+available under <a 
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/" class="external
+ ">Attribution-Noncommercial-Share Alike 3.0 Unported</a>.</li>
+															</ul>
+															<ul id="footer-places">
+																	<li id="footer-places-privacy"><a 
+href="http://bash.cyberciti.biz/guide/Linux_Shell_Scripting_Tutorial_-_A_Beginner%27s_handbook:Privacy_policy"
+ title="Linux Shell Scripting Tutorial - A Beginner's handbook:Privacy 
+policy">Privacy policy</a></li>
+																							<li id="footer-places-about"><a 
+href="http://bash.cyberciti.biz/guide/Linux_Shell_Scripting_Tutorial_-_A_Beginner%27s_handbook:About"
+ title="Linux Shell Scripting Tutorial - A Beginner's handbook:About">About
+ Linux Shell Scripting Tutorial - A Beginner's handbook</a></li>
+																							<li id="footer-places-disclaimer"><a 
+href="http://bash.cyberciti.biz/guide/Linux_Shell_Scripting_Tutorial_-_A_Beginner%27s_handbook:General_disclaimer"
+ title="Linux Shell Scripting Tutorial - A Beginner's handbook:General 
+disclaimer">Disclaimers</a></li>
+															</ul>
+										<ul id="footer-icons" class="noprint">
+								<li id="footer-icon-poweredby"><a 
+href="http://www.mediawiki.org/"><img 
+src="What_is_Linux_Shell_files/poweredby_mediawiki_88x31.png" 
+alt="Powered by MediaWiki" width="88" height="31"></a></li>
+												<li id="footer-icon-copyright"><a 
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img 
+src="What_is_Linux_Shell_files/88x31.png" 
+alt="Attribution-Noncommercial-Share Alike 3.0 Unported" width="88" 
+height="31"></a></li>
+							</ul>
+			<div style="clear: both;"></div>
+		</div>
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="What_is_Linux_Shell_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-108650-10");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>		<!-- Served in 0.135 secs. -->		<script type="text/javascript" src="What_is_Linux_Shell_files/jqads.js"></script>
+<script type="text/javascript" src="What_is_Linux_Shell_files/spcjs.js"></script><script type="text/javascript" src="What_is_Linux_Shell_files/spc.js"></script><script type="text/javascript" src="What_is_Linux_Shell_files/fl.js"></script>
+
+<script type="text/javascript">
+<!--
+  function rotatenixCraftads(nixcraftAds){
+    $("#load-ads" + nixcraftAds).appendTo('#ads' + nixcraftAds)
+  }
+//-->
+</script>
+
+<div style="display: none;">
+
+</div>
+<script type="text/javascript">
+<!--
+rotatenixCraftads('topage');
+//-->
+</script>
+
+	</body></html>

@@ -1,0 +1,526 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj07x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyjwg2.html" tppabs="http://newdata.box.sk/bx/java/tyjwg2.html">
+<LINK REL="Previous" HREF="tyj06x.html" tppabs="http://newdata.box.sk/bx/java/tyj06x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj06x.html" tppabs="http://newdata.box.sk/bx/java/tyj06x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyjwg2.html" tppabs="http://newdata.box.sk/bx/java/tyjwg2.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 7</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >More About Methods</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >Creating Methods with the Same Name, Different Arguments</A></LI>
+<LI>
+<A HREF = "#I21"  >Constructor Methods</A></LI>
+<UL>
+<LI>
+<A HREF = "#I27"  >Basic Constructors</A></LI>
+<LI>
+<A HREF = "#I30"  >Calling Another Constructor</A></LI>
+<LI>
+<A HREF = "#I33"  >Overloading Constructors</A></LI></UL>
+<LI>
+<A HREF = "#I37"  >Overriding Methods</A></LI>
+<UL>
+<LI>
+<A HREF = "#I42"  >Creating Methods that Override Existing Methods</A></LI>
+<LI>
+<A HREF = "#I55"  >Calling the Original Method</A></LI>
+<LI>
+<A HREF = "#I65"  >Overriding Constructors</A></LI></UL>
+<LI>
+<A HREF = "#I75"  >Finalizer Methods</A></LI>
+<LI>
+<A HREF = "#I82"  >Summary</A></LI>
+<LI>
+<A HREF = "#I83"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 7</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>More About Methods</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>Methods are arguably the most important part of any object-oriented language. Whereas classes and objects provide the framework, and class and instance variables provide a way of holding that class or object's attributes and state, it is the methods that actually provide an object's behavior and define how that object interacts with other objects in the system.
+<BR></P>
+<P>Yesterday, you learned a little about defining methods. With what you learned yesterday, you could create lots of Java programs, but you'd be missing some of the features of methods that make them really powerful, that make your objects and classes more efficient and easier to understand. Today, you'll learn about these additional features, including the following:
+<BR></P>
+<UL>
+<LI>Overloading methods&#151;that is, creating methods with multiple signatures and definitions but with the same name
+<BR>
+<BR></LI>
+<LI>Creating constructor methods&#151;methods that enable you to initialize objects to set up their initial state when created
+<BR>
+<BR></LI>
+<LI>Overriding methods&#151;creating a different definition for a method that has been defined in a superclass
+<BR>
+<BR></LI>
+<LI>Finalizer methods&#151;a way for an object to clean up after itself before it is removed from the system
+<BR>
+<BR></LI></UL>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>Creating Methods with the Same Name, Different Arguments</B>
+<BR></FONT></A></H3>
+<P>Yesterday, you learned how <A ID = "I5" NAME = "I5"  ></A><A ID = "I6" NAME = "I6"  ></A>to create methods with a single name and a single signature. Methods in Java can also be overloaded&#151;that is, you can create methods that have the same name, but different signatures and different definitions. Method overloading enables instances of your class to have a simpler interface to other objects (no need for entirely different methods that do essentially the same thing) and to behave differently based on the input to that method.
+<BR></P>
+<P>When you call a method in an object, Java matches up the method name and the number and type of arguments to choose which method definition to execute.
+<BR></P>
+<P>To create an overloaded <A ID = "I7" NAME = "I7"  ></A><A ID = "I8" NAME = "I8"  ></A><A ID = "I9" NAME = "I9"  ></A>method, all you need to do is create several different method definitions in your class, all with the same name, but with different parameter lists (either in number or type of arguments). Java allows method overloading as long as each parameter list is unique for the same method name.
+<BR></P>
+<P>Note that Java differentiates overloaded methods with the same name, based on the number and type of parameters to that method, not on its return type. That is, if you try to create two methods with the same name, same parameter list, but different return types, you'll get a compiler error. The variable names you choose for each parameter to the method are irrelevant&#151;all that matters is the number and the type.
+<BR></P>
+<P>Here's an example of creating an overloaded method. Listing 7.1 shows a simple class definition for a class called MyRect, which defines a rectangular shape. The MyRect class has four instance variables to define the upper left and lower right corners of the rectangle: x1, y1, x2, and y2.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Why did I call it MyRect? Java's awt package has a class called Rectangle that implements much of this same behavior. I called this class MyRect to prevent confusion between the two classes.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<UL>
+<LH><B>Listing 7.1. The </B><B>MyRect</B><B> class.</B><A ID = "I10" NAME = "I10"  ></A></LH></UL>
+<PRE>class MyRect {
+    int x1 = 0;
+    int y1 = 0;
+    int x2 = 0;
+    int y2 = 0;
+}</PRE>
+<P>When a new instance of the myRect class is initially created, all its instance variables are initialized to 0. Let's define a buildRect() method <A ID = "I11" NAME = "I11"  ></A><A ID = "I12" NAME = "I12"  ></A>that takes four integer arguments and &quot;resizes&quot; the rectangle to have the appropriate values for its corners, returning the resulting rectangle <A ID = "I13" NAME = "I13"  ></A><A ID = "I14" NAME = "I14"  ></A>object (note that because the arguments have the same names as the instance variables, you have to make sure to use this to refer to them):
+<BR></P>
+<PRE>MyRect buildRect(int x1, int y1, int x2, int y2) {
+    this.x1 = x1;
+    this.y1 = y1;
+    this.x2 = x2;
+    this.y2 = y2;
+    return this;
+}</PRE>
+<P>What if you want to <A ID = "I15" NAME = "I15"  ></A>define a rectangle's dimensions in a different way&#151;for example, by <A ID = "I16" NAME = "I16"  ></A><A ID = "I17" NAME = "I17"  ></A>using Point objects rather than individual coordinates? You can overload buildRect() so that its parameter list takes two Point objects (note that you'll need to import the Point class at the top of your source file so Java can find it):
+<BR></P>
+<PRE>MyRect buildRect(Point topLeft, Point bottomRight) {
+    x1 = topLeft.x;
+    y1 = topLeft.y;
+    x2 = bottomRight.x;
+    y2 = bottomRight.y;
+    return this;
+}</PRE>
+<P>Perhaps you want to define the rectangle using a top corner and a width and height. Just create a different definition for buildRect():
+<BR></P>
+<PRE>MyRect buildRect(Point topLeft, int w, int h) {
+    x1 = topLeft.x;
+    y1 = topLeft.y;
+    x2 = (x1 + w);
+    y2 = (y1 + h);
+    return this;
+}</PRE>
+<P>To finish up this example, let's create a method to print out the rectangle's coordinates, <A ID = "I18" NAME = "I18"  ></A><A ID = "I19" NAME = "I19"  ></A>and a main() method to test it all (just to prove that this does indeed work). Listing 7.2 shows the completed class definition with all its methods.
+<BR></P>
+<UL>
+<LH><B>Listing 7.2. The complete </B><B>MyRect</B><B> class.</B><A ID = "I20" NAME = "I20"  ></A></LH></UL>
+<PRE>import java.awt.Point;
+class MyRect {
+    int x1 = 0;
+    int y1 = 0;
+    int x2 = 0;
+    int y2 = 0;
+    MyRect buildRect(int x1, int y1, int x2, int y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        return this;
+    }
+    MyRect buildRect(Point topLeft, Point bottomRight) {
+        x1 = topLeft.x;
+        y1 = topLeft.y;
+        x2 = bottomRight.x;
+        y2 = bottomRight.y;
+        return this;
+    }
+    MyRect buildRect(Point topLeft, int w, int h) {
+        x1 = topLeft.x;
+        y1 = topLeft.y;
+        x2 = (x1 + w);
+        y2 = (y1 + h);
+        return this;
+    }
+    void printRect(){
+        System.out.print(&quot;MyRect: &lt;&quot; + x1 + &quot;, &quot; + y1);
+        System.out.println(&quot;, &quot; + x2 + &quot;, &quot; + y2 + &quot;&gt;&quot;);
+    }
+    public static void main(String args[]) {
+        MyRect rect = new MyRect();
+        System.out.println(&quot;Calling buildRect with coordinates 25,25 50,50:&quot;);
+        rect.buildRect(25, 25, 50, 50);
+        rect.printRect();
+        System.out.println(&quot;&#151;&#151;&#151;&#151;&#151;&quot;);
+        System.out.println(&quot;Calling buildRect w/points (10,10), (20,20):&quot;);
+        rect.buildRect(new Point(10,10), new Point(20,20));
+        rect.printRect();
+        System.out.println(&quot;&#151;&#151;&#151;&#151;&#151;&quot;);
+        System.out.print(&quot;Calling buildRect w/1 point (10,10),&quot;);
+        System.out.println(&quot; width (50) and height (50)&quot;);
+        rect.buildRect(new Point(10,10), 50, 50);
+        rect.printRect();
+        System.out.println(&quot;&#151;&#151;&#151;&#151;&#151;&quot;);
+    }
+}</PRE>
+<P>Here's the output of this Java program:
+<BR></P>
+<PRE>Calling buildRect with coordinates 25,25 50,50:
+MyRect: &lt;25, 25, 50, 50&gt;
+&#151;&#151;&#151;&#151;&#151;
+Calling buildRect w/points (10,10), (20,20):
+MyRect: &lt;10, 10, 20, 20&gt;
+&#151;&#151;&#151;&#151;&#151;
+Calling buildRect w/1 point (10,10), width (50) and height (50)
+MyRect: &lt;10, 10, 60, 60&gt;
+&#151;&#151;&#151;&#151;&#151;</PRE>
+<P>As you can see from this example, all the buildRect() methods work based on the arguments with which they are called. You can define as many versions of a method as you need to in your own classes to implement the behavior you need for that class.
+<BR></P>
+<H3><A ID = "I21" NAME = "I21"  >
+<foNT SIZE=4><B>Constructor Methods</B>
+<BR></FONT></A></H3>
+<P>In addition to regular <A ID = "I22" NAME = "I22"  ></A><A ID = "I23" NAME = "I23"  ></A>methods, you can also define constructor methods in your class definition.
+<BR></P>
+<P>A <I>constructor method</I> is a special kind of method that determines how an object is initialized when it's created.
+<BR></P>
+<P>Unlike regular methods, you can't call <A ID = "I24" NAME = "I24"  ></A><A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A>a constructor method by calling it directly; instead, constructor methods are called by Java automatically. Here's how it works: when you use new to create a new instance of a class, Java does three things:
+<BR></P>
+<UL>
+<LI>Allocates memory for the object
+<BR>
+<BR></LI>
+<LI>Initializes that object's instance variables, either to their initial values or to a default (0 for numbers, null for objects, false for booleans, '\0' for characters)
+<BR>
+<BR></LI>
+<LI>Calls the class's constructor method (which may be one of several methods)
+<BR>
+<BR></LI></UL>
+<P>If a class doesn't have any special constructor methods defined, you'll still end up with an object, but you might have to set its instance variables or call other methods that object needs to initialize itself. All the examples you've created up to this point have behaved like this.
+<BR></P>
+<P>By defining constructor methods in your own classes, you can set initial values of instance variables, call methods based on those variables or call methods on other objects, or calculate initial properties of your object. You can also overload constructors, as you would regular methods, to create an object that has specific properties based on the arguments you give to new.
+<BR></P>
+<H4><A ID = "I27" NAME = "I27"  >
+<foNT SIZE=3><B>Basic Constructors</B>
+<BR></FONT></A></H4>
+<P>Constructors look a lot like <A ID = "I28" NAME = "I28"  ></A>regular methods, with two basic differences:
+<BR></P>
+<UL>
+<LI>Constructors always have the same name as the class.
+<BR>
+<BR></LI>
+<LI>Constructors don't have a return type.
+<BR>
+<BR></LI></UL>
+<P>For example, Listing 7.3 shows a simple class called Person, with a constructor that initializes its instance variables based on the arguments to new. The class also includes a method for the object to introduce itself, and a main() method to test each of these things.
+<BR></P>
+<UL>
+<LH><B>Listing 7.3. The </B><B>Person</B><B> class.</B><A ID = "I29" NAME = "I29"  ></A></LH></UL>
+<PRE>class Person {
+    String name;
+    int age;
+    Person(String n, int a) {
+        name = n;
+        age = a;
+    }
+    void printPerson() {
+        System.out.print(&quot;Hi, my name is &quot; + name);
+        System.out.println(&quot;. I am &quot; + age + &quot; years old.&quot;);
+    }
+    public static void main (String args[]) {
+        Person p;
+        p = new Person(&quot;Laura&quot;, 20);
+        p.printPerson();
+        System.out.println(&quot;&#151;&#151;&#151;&#151;&quot;);
+        p = new Person(&quot;Tommy&quot;, 3);
+        p.printPerson();
+        System.out.println(&quot;&#151;&#151;&#151;&#151;&quot;);
+    }
+}</PRE>
+<P>Here's the output for this example program:
+<BR></P>
+<PRE>Hi, my name is Laura. I am 20 years old.
+&#151;&#151;&#151;&#151;
+Hi, my name is Tommy. I am 3 years old.
+&#151;&#151;&#151;&#151;</PRE>
+<H4><A ID = "I30" NAME = "I30"  >
+<foNT SIZE=3><B>Calling Another Constructor</B>
+<BR></FONT></A></H4>
+<P>Some constructors you write <A ID = "I31" NAME = "I31"  ></A><A ID = "I32" NAME = "I32"  ></A>may be a superset of another constructor defined in your class; that is, they might have the same behavior plus a little bit more. Rather than duplicating identical behavior in multiple constructor methods in your class, it makes sense to be able to just call that first constructor from inside the body of the second constructor. Java provides a special syntax for doing this. To call a constructor defined on the current class, use this form:
+<BR></P>
+<PRE>this(arg1, arg2, arg3...);</PRE>
+<P>The arguments to this are, of course, the arguments to the constructor.
+<BR></P>
+<H4><A ID = "I33" NAME = "I33"  >
+<foNT SIZE=3><B>Overloading Constructors</B>
+<BR></FONT></A></H4>
+<P>Like regular methods, constructors <A ID = "I34" NAME = "I34"  ></A><A ID = "I35" NAME = "I35"  ></A>can also take varying numbers and types of parameters, enabling you to create your object with exactly the properties you want it to have, or for it to be able to calculate properties from different kinds of input.
+<BR></P>
+<P>For example, the buildRect() methods you defined in the MyRect class earlier today would make excellent constructors, because what they're doing is initializing an object's instance variables to the appropriate values. So, instead of the original buildRect() method you had defined (which took four parameters for the coordinates of the corners), you can create a constructor instead. Listing 7.4 shows a new class, called MyRect2, that has all the same functionality of the original MyRect, except with overloaded constructor methods instead of the buildRect() method.
+<BR></P>
+<UL>
+<LH><B>Listing 7.4. The </B><B>MyRect2</B><B> class (with constructors).</B><A ID = "I36" NAME = "I36"  ></A></LH></UL>
+<PRE>import java.awt.Point;
+class MyRect2 {
+    int x1 = 0;
+    int y1 = 0;
+    int x2 = 0;
+    int y2 = 0;
+    MyRect2(int x1, int y1, int x2, int y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+    }
+    MyRect2(Point topLeft, Point bottomRight) {
+        x1 = topLeft.x;
+        y1 = topLeft.y;
+        x2 = bottomRight.x;
+        y2 = bottomRight.y;
+    }
+    MyRect2(Point topLeft, int w, int h) {
+        x1 = topLeft.x;
+        y1 = topLeft.y;
+        x2 = (x1 + w);
+        y2 = (y1 + h);
+    }
+    void printRect() {
+        System.out.print(&quot;MyRect: &lt;&quot; + x1 + &quot;, &quot; + y1);
+        System.out.println(&quot;, &quot; + x2 + &quot;, &quot; + y2 + &quot;&gt;&quot;);
+    }
+    public static void main(String args[]) {
+        MyRect2 rect;
+        System.out.println(&quot;Calling MyRect2 with coordinates 25,25 50,50:&quot;);
+        rect = new MyRect2(25, 25, 50,50);
+        rect.printRect();
+        System.out.println(&quot;&#151;&#151;&#151;&#151;&#151;&quot;);
+        System.out.println(&quot;Calling MyRect2 w/points (10,10), (20,20):&quot;);
+        rect= new MyRect2(new Point(10,10), new Point(20,20));
+        rect.printRect();
+        System.out.println(&quot;&#151;&#151;&#151;&#151;&#151;&quot;);
+        System.out.print(&quot;Calling MyRect2 w/1 point (10,10),&quot;);
+        System.out.println(&quot; width (50) and height (50)&quot;);
+        rect = new MyRect2(new Point(10,10), 50, 50);
+        rect.printRect();
+        System.out.println(&quot;&#151;&#151;&#151;&#151;&#151;&quot;);
+    }
+}</PRE>
+<P>Here's the output for this example program (it's the same output from the previous example; only the code to produce it has changed):
+<BR></P>
+<PRE>Calling MyRect2 with coordinates 25,25 50,50:
+MyRect: &lt;25, 25, 50, 50&gt;
+&#151;&#151;&#151;&#151;&#151;
+Calling MyRect2 w/points (10,10), (20,20):
+MyRect: &lt;10, 10, 20, 20&gt;
+&#151;&#151;&#151;&#151;&#151;
+Calling MyRect2 w/1 point (10,10), width (50) and height (50)
+MyRect: &lt;10, 10, 60, 60&gt;
+&#151;&#151;&#151;&#151;&#151;</PRE>
+<H3><A ID = "I37" NAME = "I37"  >
+<foNT SIZE=4><B>Overriding Methods</B>
+<BR></FONT></A></H3>
+<P>When you call a method on an <A ID = "I38" NAME = "I38"  ></A><A ID = "I39" NAME = "I39"  ></A>object, Java looks for that method definition in the class of that object, and if it doesn't find one, it passes the method call up the class hierarchy until a method definition is found. Method inheritance <A ID = "I40" NAME = "I40"  ></A><A ID = "I41" NAME = "I41"  ></A>enables you to define and use methods repeatedly in subclasses without having to duplicate the code itself.
+<BR></P>
+<P>However, there may be times when you want an object to respond to the same methods but have different behavior when that method is called. In this case, you can override that method. Overriding a method involves defining a method in a subclass that has the same signature as a method in a superclass. Then, when that method is called, the method in the subclass is found and executed instead of the one in the superclass.
+<BR></P>
+<H4><A ID = "I42" NAME = "I42"  >
+<foNT SIZE=3><B>Creating Methods that Override Existing Methods</B>
+<BR></FONT></A></H4>
+<P>To override a <A ID = "I43" NAME = "I43"  ></A>method, all you have to do is create a method in your subclass that has the same signature (name, return type, and parameter list) as a method defined by one of your class's superclasses. Because Java executes the first method definition it finds that matches the signature, this effectively &quot;hides&quot; the original method definition. Here's a simple example; Listing 7.5 shows a simple class with a method <A ID = "I44" NAME = "I44"  ></A><A ID = "I45" NAME = "I45"  ></A>called printMe(), which prints out the name of the class and the values of its instance variables.
+<BR></P>
+<UL>
+<LH><B>Listing 7.5. The </B><B>PrintClass</B><B> class.</B><A ID = "I46" NAME = "I46"  ></A><A ID = "I47" NAME = "I47"  ></A><A ID = "I48" NAME = "I48"  ></A></LH></UL>
+<PRE>class PrintClass {
+    int x = 0;
+    int y = 1;
+    void printMe() {
+        System.out.println(&quot;X is &quot; + x + &quot;, Y is &quot; + y);
+        System.out.println(&quot;I am an instance of the class &quot; +
+        this.getClass().getName());
+    }
+}</PRE>
+<P>Listing 7.6 shows a class <A ID = "I49" NAME = "I49"  ></A><A ID = "I50" NAME = "I50"  ></A>called PrintSubClass that is a subclass of (extends) PrintClass. The only difference between PrintClass and PrintSubClass is that the latter has a z instance variable.
+<BR></P>
+<UL>
+<LH><B>Listing 7.6. The </B><B>PrintSubClass</B><B> class.</B><A ID = "I51" NAME = "I51"  ></A></LH></UL>
+<PRE>class PrintSubClass extends PrintClass {
+    int z = 3;
+    public static void main(String args[]) {
+        PrintSubClass obj = new PrintSubClass();
+        obj.printMe();
+    }
+}</PRE>
+<P>Here's the output from PrintSubClass:
+<BR></P>
+<PRE>X is 0, Y is 1
+I am an instance of the class PrintSubClass</PRE>
+<P>In the main() method of PrintSubClass, you create a PrintSubClass object and call the printMe() method. Note that PrintSubClass doesn't define this method, so Java looks for it in each of PrintSubClass's superclasses&#151;and finds it, in this case, in PrintClass. Unfortunately, because printMe() is still defined in PrintClass, it doesn't print the z instance variable.
+<BR></P>
+<P>Now, let's create a <A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A>third class. PrintSubClass2 is nearly identical to PrintSubClass, but you override the printMe() method to include the z variable. Listing 7.7 shows this class.
+<BR></P>
+<UL>
+<LH><B>Listing 7.7. The </B><B>PrintSubClass2</B><B> class.</B><A ID = "I54" NAME = "I54"  ></A></LH></UL>
+<PRE>class PrintSubClass2 extends PrintClass {
+    int z = 3;
+    void printMe() {
+        System.out.println(&quot;x is &quot; + x + &quot;, y is &quot; + y +
+               &quot;, z is &quot; + z);
+        System.out.println(&quot;I am an instance of the class &quot; +
+               this.getClass().getName());
+    }
+    public static void main(String args[]) {
+        PrintSubClass2 obj = new PrintSubClass2();
+        obj.printMe();
+    }
+}</PRE>
+<P>Now, when you instantiate this class and call the printMe() method, the version of printMe() you defined for this class is called instead of the one in the superclass PrintClass (as you can see in this output):
+<BR></P>
+<PRE>x is 0, y is 1, z is 3
+I am an instance of the class PrintSubClass2</PRE>
+<H4><A ID = "I55" NAME = "I55"  >
+<foNT SIZE=3><B>Calling the Original Method</B>
+<BR></FONT></A></H4>
+<P>Usually, there are <A ID = "I56" NAME = "I56"  ></A><A ID = "I57" NAME = "I57"  ></A>two reasons why you want to override a method that a superclass has already implemented:
+<BR></P>
+<UL>
+<LI>To replace the definition of that original method completely
+<BR>
+<BR></LI>
+<LI>To augment the original method with additional behavior
+<BR>
+<BR></LI></UL>
+<P>You've already learned about the first one; by overriding a method and giving that method a new definition, you've hidden the original method definition. But sometimes you may just want to add behavior to the original definition rather than erase it altogether. This is particularly useful where you end up duplicating behavior in both the original method and the method that overrides it; by being able to call the original method in the body of the overridden method, you can add only what you need.
+<BR></P>
+<P>To call the original method from inside a method definition, use the super keyword to <A ID = "I58" NAME = "I58"  ></A><A ID = "I59" NAME = "I59"  ></A>pass the method call up the hierarchy:
+<BR></P>
+<PRE>void myMethod (String a, String b) {
+    // do stuff here
+    super.myMethod(a, b);
+    // maybe do more stuff here
+}</PRE>
+<P>The super keyword, somewhat like the this keyword, is a placeholder for this class's superclass. You can use it anywhere you can use this, but to refer to the superclass rather than to the current class.
+<BR></P>
+<P>For example, Listing 7.8 <A ID = "I60" NAME = "I60"  ></A><A ID = "I61" NAME = "I61"  ></A>shows those printMe() methods used in the previous example.
+<BR></P>
+<UL>
+<LH><B>Listing 7.8. The </B><B>printMe</B><B> methods.</B><A ID = "I62" NAME = "I62"  ></A></LH></UL>
+<PRE>// from PrintClass
+void printMe() {
+        System.out.println(&quot;X is &quot; + x + &quot;, Y is &quot; + y);
+        System.out.println(&quot;I am an instance of the class&quot; +
+               this.getClass().getName());
+    }
+}
+//from PrintSubClass2
+    void printMe() {
+        System.out.println(&quot;X is &quot; + x + &quot;, Y is &quot; + y + &quot;, Z is &quot; + z);
+        System.out.println(&quot;I am an instance of the class &quot; +
+               this.getClass().getName());
+    }</PRE>
+<P>Rather than duplicating most of the behavior of the superclass's method in the subclass, you can rearrange the superclass's method so that additional behavior can easily be added:
+<BR></P>
+<PRE>// from PrintClass
+void printMe() {
+    System.out.println(&quot;I am an instance of the class&quot; +
+                 this.getClass().getName());
+    System.out.println(&quot;X is &quot; + x);
+    System.out.println(&quot;Y is &quot; + y);
+}</PRE>
+<P>Then, in the subclass, when you override printMe, you can merely call the original method and then add the extra stuff:
+<BR></P>
+<PRE>// From PrintSubClass2
+void printMe() {
+    super.printMe();
+    System.out.println(&quot;Z is &quot; + z);
+}</PRE>
+<P>Here's the output of <A ID = "I63" NAME = "I63"  ></A><A ID = "I64" NAME = "I64"  ></A>calling printMe() on an instance of the subclass:
+<BR></P>
+<PRE>I am an instance of the class PrintSubClass2
+X is 0
+Y is 1
+Z is 3</PRE>
+<H4><A ID = "I65" NAME = "I65"  >
+<foNT SIZE=3><B>Overriding Constructors</B>
+<BR></FONT></A></H4>
+<P>Constructors cannot technically <A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A>be overridden. Because they always have the same name as the current class, you're always creating new constructors instead of inheriting the ones you've got. Much of the time, this is fine, because when your class's constructor is called, the constructor with the same signature for all your superclass is also called, so initialization of all the parts of a class you inherit can happen.
+<BR></P>
+<P>However, when you're defining constructors for your own class, you may want to change <A ID = "I68" NAME = "I68"  ></A>how your object is initialized, not only by initializing new variables your class adds, but also to change the contents of variables that are already there. You do this by explicitly calling your superclass's constructors, and then changing whatever you like.
+<BR></P>
+<P>To call a regular <A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A><A ID = "I71" NAME = "I71"  ></A>method in a superclass, you use super.methodname(arguments). Because with constructors you don't have a method name to call, however, you have to use a different form:
+<BR></P>
+<PRE>super(arg1, arg2, ...);</PRE>
+<P>Similar to using this(...) in a constructor, super(...) calls the constructor method for the immediate superclass (which may, in turn, call the constructor of its superclass, and so on).
+<BR></P>
+<P>For example, Listing 7.9 shows a class <A ID = "I72" NAME = "I72"  ></A><A ID = "I73" NAME = "I73"  ></A>called NamedPoint, which extends the class Point from Java's awt package. The Point class has only one constructor, which takes an x and a y argument and returns a Point object. NamedPoint has an additional instance variable (a string for the name) and defines a constructor to initialize x, y, and the name.
+<BR></P>
+<UL>
+<LH><B>Listing 7.9. The </B><B>NamedPoint</B><B> class.</B><A ID = "I74" NAME = "I74"  ></A></LH></UL>
+<PRE>1: import java.awt.Point;
+2: class NamedPoint extends Point {
+3:     String name;
+4:
+5:     NamedPoint(int x, int y, String name) {
+6:        super(x,y);
+7:         this.name = name;
+8:     }
+9: }</PRE>
+<P>The constructor defined here for NamedPoint (lines 6 through 8) calls Point's constructor method to initialize Point's instance variables (x and y). Although you can just as easily initialize x and y yourself, you may not know what other things Point is doing to initialize itself, so it's always a good idea to pass constructors up the hierarchy to make sure everything is set up correctly.
+<BR></P>
+<H3><A ID = "I75" NAME = "I75"  >
+<foNT SIZE=4><B>Finalizer Methods</B>
+<BR></FONT></A></H3>
+<P>Finalizer methods are <A ID = "I76" NAME = "I76"  ></A><A ID = "I77" NAME = "I77"  ></A>like the opposite of constructor methods; whereas a constructor method is used to initialize an object, finalizer methods are called just before the object is garbage-collected and its memory reclaimed.
+<BR></P>
+<P>The finalizer method is <A ID = "I78" NAME = "I78"  ></A><A ID = "I79" NAME = "I79"  ></A>simply finalize(). The Object class defines a default finalizer method, which does nothing. To create a finalizer method for your own classes, override the finalize() method using this signature:
+<BR></P>
+<PRE>protected void finalize() {
+    ...
+}</PRE>
+<P>Inside the body of that finalize() method, include any cleaning up you want to do for that object. You can also call super.finalize() to allow your class's superclasses to finalize your object, if necessary.
+<BR></P>
+<P>You can <A ID = "I80" NAME = "I80"  ></A><A ID = "I81" NAME = "I81"  ></A>always call the finalize() method yourself at any time; it's just a plain method like any other. However, calling finalize() does not trigger an object to be garbage-collected. Only removing all references to an object will cause it to be marked for deleting.
+<BR></P>
+<P>Finalizer methods are best used for optimizing the removal of an object&#151;for example, by removing references to other objects, by releasing external resources that have acquired, or for other behaviors that may make it easier for that object to be removed. In most cases, you will not need to use finalize() at all. See Day 21 for more about garbage collection and finalize().
+<BR></P>
+<H3><A ID = "I82" NAME = "I82"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Today, you learned all kinds of techniques for using, reusing, defining, and redefining methods. You learned how to overload a method name so that the same method can have different behaviors based on the arguments with which it's called. You learned about constructor methods, which are used to initialize a new object when it's created. You learned about method inheritance and how to override methods that have been defined in a class's superclasses. Finally, you learned about finalizer methods, that can be used to clean up after an object just before that object is garbage-collected and its memory reclaimed.
+<BR></P>
+<P>Congratulations on completing your first week of <I>Teach Yourself Java in 21 </I><I>Days</I>! Starting next week, you'll apply everything you've learned this week to writing Java applets and to working with more advanced concepts in putting together Java programs and working with the standard Java class libraries.
+<BR></P>
+<H3><A ID = "I83" NAME = "I83"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: I created two methods with the following signatures:</B>
+<BR>
+<BR><B>int total(int arg1, int arg2, int arg3) {...}</B>
+<BR><B>float total(int arg1, int arg2, int arg3) {...}</B>
+<BR>
+<BR><B>The Java compiler complains when I try to compile the class with these </B><B>method definitions. But their signatures are different&#151;what have I done </B><B>wrong?</B>
+<BR></P>
+<P><B>A: </B>Method overloading in <A ID = "I84" NAME = "I84"  ></A>Java works only if the parameter lists are different&#151;either in number or type of arguments. Return type is not relevant for method overloading. Think about it&#151;if you had two methods with exactly the same parameter list, how would Java know which one to call?
+<BR></P>
+<P><B>Q: Can I overload overridden </B><A ID = "I85" NAME = "I85"  ></A><B>methods (that is, can I create methods </B><B>that have the same name as an inherited method, but a different </B><B>parameter list)?</B>
+<BR></P>
+<P><B>A: </B>Sure! As long as a parameter lists vary, it doesn't matter whether you've defined a new method name or one that you've inherited from a superclass.
+<BR></P>
+<P><A HREF = "tyj06x.html" tppabs="http://newdata.box.sk/bx/java/tyj06x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyjwg2.html" tppabs="http://newdata.box.sk/bx/java/tyjwg2.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

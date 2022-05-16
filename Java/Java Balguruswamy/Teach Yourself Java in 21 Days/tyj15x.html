@@ -1,0 +1,524 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj15x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj16x.html" tppabs="http://newdata.box.sk/bx/java/tyj16x.html">
+<LINK REL="Previous" HREF="tyjwg3.html" tppabs="http://newdata.box.sk/bx/java/tyjwg3.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyjwg3.html" tppabs="http://newdata.box.sk/bx/java/tyjwg3.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj16x.html" tppabs="http://newdata.box.sk/bx/java/tyj16x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 15</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Modifiers</A></LI>
+<UL>
+<LI>
+<A HREF = "#I11"  >Method and Variable Access Control</A></LI>
+<UL>
+<LI>
+<A HREF = "#I14"  >The Four P's of Protection</A></LI>
+<UL>
+<LI>
+<A HREF = "#I16"  >public</A></LI>
+<LI>
+<A HREF = "#I21"  >package</A></LI>
+<LI>
+<A HREF = "#I25"  >protected</A></LI>
+<LI>
+<A HREF = "#I30"  >private</A></LI></UL>
+<LI>
+<A HREF = "#I33"  >The Conventions for Instance Variable Access</A></LI>
+<UL>
+<LI>
+<A HREF = "#I37"  >Accessor Methods</A></LI></UL></UL>
+<LI>
+<A HREF = "#I45"  >Class Variables and Methods</A></LI>
+<LI>
+<A HREF = "#I56"  >The final Modifier</A></LI>
+<UL>
+<LI>
+<A HREF = "#I59"  >final Classes</A></LI>
+<LI>
+<A HREF = "#I63"  >final Variables</A></LI>
+<LI>
+<A HREF = "#I71"  >final Methods</A></LI></UL>
+<LI>
+<A HREF = "#I77"  >abstract Methods and Classes</A></LI>
+<LI>
+<A HREF = "#I89"  >Summary</A></LI>
+<LI>
+<A HREF = "#I90"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 15</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Modifiers</B>
+<BR></FONT></A></H2>
+<P><B>by Charles L. Perkins</B>
+<BR></P>
+<P>Once you begin to program Java for a while, you'll discover that making all your classes, methods, and variables public can become quite annoying. The larger your program becomes, and the more you reuse your classes for new projects, the more you will want some sort of control over their visibility. One of the large-scale solutions to this problem, packages, must wait until tomorrow, but today you'll explore what you can do within a class.
+<BR></P>
+<P>Today, you'll learn how to create and use the following:
+<BR></P>
+<UL>
+<LI>Methods and variables that control their access by other classes
+<BR>
+<BR></LI>
+<LI>Class variables and methods
+<BR>
+<BR></LI>
+<LI>Constant variables, classes that cannot be subclassed, and methods that cannot be overridden
+<BR>
+<BR></LI>
+<LI>Abstract classes and methods
+<BR>
+<BR></LI></UL>
+<P><I>Modifiers</I> are prefixes that <A ID = "I4" NAME = "I4"  ></A>can be applied in various combinations to the methods and variables within a class and, some, to the class itself.
+<BR></P>
+<P>There is a long and varied <A ID = "I5" NAME = "I5"  ></A><A ID = "I6" NAME = "I6"  ></A>list of modifiers. The order of modifiers is irrelevant to their meaning&#151;your order can vary and is really a matter of taste. Pick a style and then be consistent with it throughout all your classes. Here is the recommended order:
+<BR></P>
+<PRE>&lt;<I>access</I>&gt; static abstract synchronized &lt;<I>unusual</I>&gt; final native</PRE>
+<P>where &lt;access&gt; can be public, protected, or private, and &lt;unusual&gt; can be volatile or transient.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> After the alpha release, threadsafe was replaced by volatile. Both have to do with multithreading; no more will be said about them here (see Day 18). transient is a special modifier used to declare a variable to be outside the persistent part of an object. This makes persistent object storage systems easier to implement in Java, and though the compiler supports it, it is not used by the current Java system. Several reserved keywords (const and goto)are included to help catch overzealous C programmers; they are not used by Java. In the 1.0 no &lt;unusual&gt; modifiers appear in the source code for the standard Java library classes.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>All the modifiers are essentially optional; none have to appear in a declaration. Good style suggests adding as many as are needed to best describe the intended use of, and restrictions on, what you're declaring. In some special situations (inside an interface, for example, as described tomorrow), certain modifiers are implicitly defined for you, and you needn't type them&#151;they will be assumed to be there.
+<BR></P>
+<P>The synchronized modifier <A ID = "I7" NAME = "I7"  ></A><A ID = "I8" NAME = "I8"  ></A>is covered on Day 18; it has to do with multithreaded methods. The native <A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A>modifier is covered on Day 20; it specifies that a method is implemented in the native language of your computer (usually C), rather than in Java. How &lt;access&gt; modifiers apply to classes is covered tomorrow.
+<BR></P>
+<H3><A ID = "I11" NAME = "I11"  >
+<foNT SIZE=4><B>Method and Variable Access Control</B>
+<BR></FONT></A></H3>
+<P>Access control is about <A ID = "I12" NAME = "I12"  ></A><A ID = "I13" NAME = "I13"  ></A>controlling visibility. When a method or variable is visible to another class, its methods can reference (call or modify) that method or variable. To &quot;protect&quot; a method or variable from such references, you use the four levels of visibility described in the next sections. Each, in turn, is more restrictive, and thus provides more protection than the one before it.
+<BR></P>
+<H4><A ID = "I14" NAME = "I14"  >
+<foNT SIZE=3><B>The Four P's of Protection</B>
+<BR></FONT></A></H4>
+<P>Learning your <A ID = "I15" NAME = "I15"  ></A>four P's (public, package, protected, and private) comes down to understanding the fundamental relationships that a method or variable within a class can have to the other classes in the system.
+<BR></P>
+<H5><A ID = "I16" NAME = "I16"  >
+<foNT SIZE=3><B>public</B>
+<BR></FONT></A></H5>
+<P>Because any class is an island <A ID = "I17" NAME = "I17"  ></A><A ID = "I18" NAME = "I18"  ></A><A ID = "I19" NAME = "I19"  ></A>unto itself, the first of these relationships builds on the distinction between the inside and the outside of the class. Any method or variable is visible to the class in which it is defined, but what if you want to make it visible to <I>all</I> the classes outside this class?
+<BR></P>
+<P>The answer is obvious: simply declare the method or variable to have public access. Almost every method and variable defined this week will be declared, for simplicity's sake, public. When you use any of the examples provided in your own code, you'll probably decide to restrict this access further. Because you're just learning now, it's not a bad idea to begin with the widest possible access you can imagine (public or package) and then narrow it down as you gain design experience, until the access that each of your variables and methods should have becomes second nature. Here are some examples of public declarations:
+<BR></P>
+<PRE>public class  APublicClass {
+    public int     aPublicInt;
+    public String  aPublicString;
+    public float   aPublicMethod() {
+        . . .
+    }
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The two (or more) spaces <A ID = "I20" NAME = "I20"  ></A>after the prefix of modifiers and type in these declarations are intentional. They make finding the variable or method name within each line a little easier. Further in the book, you'll see that the type and the name are sometimes separately lined up in a column to make it even more evident what is what. When you get enough modifiers on a line, you'll begin to appreciate these small touches.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>A variable or method with public access has the widest possible visibility. Anyone can see it. Anyone can use it. Of course, this may not always be what you want&#151;which brings us to the next level of protection.
+<BR></P>
+<H5><A ID = "I21" NAME = "I21"  >
+<foNT SIZE=3><B>package</B>
+<BR></FONT></A></H5>
+<P>In C, there is <A ID = "I22" NAME = "I22"  ></A><A ID = "I23" NAME = "I23"  ></A><A ID = "I24" NAME = "I24"  ></A>the notion of hiding a name so that only the functions within a given source file can see it. In Java, source files are replaced by the more explicit notion of packages, which can group classes (you learn about these tomorrow). For now, all you need to know is that the relationship you want to support is of a class to its fellow implementors of one piece of a system, library, or program (or to any other grouping of related classes). This defines the next level of increased protection and narrowed visibility.
+<BR></P>
+<P>Due to an idiosyncrasy of the Java language, this next level of access has no precise name. It is indicated by the lack of any access modifier in a declaration. Historically, it has been called various suggestive names, including &quot;friendly&quot; and &quot;package.&quot; The latter usage seems most appropriate and is the one used here. Perhaps in a later release of the system, it will be possible to say package explicitly, but for now it is simply the default protection when none has been specified.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Why would anyone want to make more typing for themselves and explicitly say package? It is a matter of consistency and clarity. If you have a pattern of declarations with varying access modifier prefixes, you may always want the modifier to be stated explicitly, both for the reader's benefit and because, in some contexts, different &quot;default&quot; levels of protection are being assumed, and you want the compiler to notice your intentions and warn you of any conflicts.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Most of the declarations you've seen in the past two weeks have used this default level of protection. Here's a reminder of what they look like:
+<BR></P>
+<PRE>public class  ALessPublicClass {
+    int     aPackageInt    = 2;
+    String  aPackageString = &quot;a 1 and a &quot;;
+    float   aPackageMethod() {     // no access modifier means &quot;package&quot;
+        . . .
+    }
+}
+public class  AClassInTheSamePackage {
+    public void  testUse() {
+        ALessPublicClass  aLPC = new ALessPublicClass();
+        System.out.println(aLPC.aPackageString + aLPC.aPackageInt);
+        aLPC.aPackageMethod();           // all of these are A.O.K.
+    }
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> If a class from any other package tried to access aLPC the way that AClassInTheSamePackage does in this example, it would generate compile-time errors. (You'll learn how to create such classes tomorrow.)
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Why was package made a default? When you're designing a large system and you partition your classes into work groups to implement smaller pieces of that system, the classes often need to share a lot more with one another than with the outside world. The need for this level of sharing is common enough that it was made the default level of protection.
+<BR></P>
+<P>What if you have some details of your implementation that you don't want to share with these &quot;friends&quot;? The answer to this question leads us naturally to the next level of protection.
+<BR></P>
+<H5><A ID = "I25" NAME = "I25"  >
+<foNT SIZE=3><B>protected</B>
+<BR></FONT></A></H5>
+<P>The third relationship <A ID = "I26" NAME = "I26"  ></A><A ID = "I27" NAME = "I27"  ></A><A ID = "I28" NAME = "I28"  ></A>is between a class and its present and future subclasses. These <A ID = "I29" NAME = "I29"  ></A>subclasses are much closer to a parent class than to any other &quot;outside&quot; classes for the following reasons:
+<BR></P>
+<UL>
+<LI>Subclasses are usually more intimately aware of the internals of a parent class.
+<BR>
+<BR></LI>
+<LI>Subclasses are often written by you or by someone to whom you've given your source code.
+<BR>
+<BR></LI>
+<LI>Subclasses frequently need to modify or enhance the representation of the data within a parent class.
+<BR>
+<BR></LI></UL>
+<P>No one else is allowed the privilege of this level of access; they must be content with the public (inter)face that the class presents. To support the level of intimacy reserved for subclasses, modern programming languages have invented an intermediate level of access between the previous two levels and full privacy. This level gives more protection and narrows visibility still further, but still allows subclasses full access. In Java, this level of protection is called, appropriately enough, protected:
+<BR></P>
+<PRE>public class  AProtectedClass {
+    private protected int     aProtectedInt    = 4;
+    private protected String  aProtectedString = &quot;and a 3 and a &quot;;
+    private protected float   aProtectedMethod() {
+        . . .
+    }
+}
+public class  AProtectedClassSubclass extends AProtectedClass {
+    public void  testUse() {
+        AProtectedClassSubclass  aPCs = new AProtectedClassSubclass();
+        System.out.println(aPCs.aProtectedString + aPCs.aProtectedInt);
+        aPCs.aProtectedMethod();           // all of these are A.O.K.
+    }
+}
+public class  AnyClassInTheSamePackage {
+    public void  testUse() {
+        AProtectedClassSubclass  aPCs = new AProtectedClassSubclass();
+        System.out.println(aPCs.aProtectedString + aPCs.aProtectedInt);
+        aPCs.aProtectedMethod();           // NONE of these are legal
+    }
+}</PRE>
+<P>Even though AnyClassInTheSamePackage is in the same package as AProtectedClass, it is not a subclass of it (it's a subclass of Object). Only subclasses are allowed to see, and use, private protected variables and methods. The declarations in AProtectedClass are prefixed by private protected because in 1.0 adding private is required to get the behavior described here. protected alone allows both subclasses <I>and</I> classes in the same package access, thus providing a combined (fifth) level of protection.
+<BR></P>
+<P>One of the most striking examples of the need for this special level of access is when you are supporting a public abstraction with your class. As far as the outside world is concerned, you have a simple, public interface (via methods) to whatever abstraction you've built for your users. A more complex representation, and the implementation that depends on it, is hidden inside. When subclasses extend and modify this representation, or even just your implementation of it, they need to get to the underlying, concrete representation and not simply to the abstraction:
+<BR></P>
+<PRE>public class  SortedList {
+    private protected BinaryTree  theBinaryTree;
+    . . .
+    public Object[]  theList() {
+        return theBinaryTree.asArray();
+    }
+    public void      add(Object o) {
+        theBinaryTree.addObject(o);
+    }
+}
+public class  InsertSortedList extends SortedList {
+    public void      insert(Object o, int position) {
+        theBinaryTree.insertObject(o,     position);
+    }
+}</PRE>
+<P>Without being able to access theBinaryTree directly, the insert() method would have had to get the list as an array of Objects, via the public method theList(), allocate a new, bigger array, and insert the new object by hand. By &quot;seeing&quot; that its parent is using a BinaryTree to implement the sorted list, it can call upon BinaryTree's built-in method insertObject() to get the job done.
+<BR></P>
+<P>Some languages, such as CLU, have experimented with more explicit ways of &quot;raising&quot; and &quot;lowering&quot; your level of abstraction to solve this same problem in a more general way. In Java, protected solves only a part of the problem, by allowing you to separate the concrete from the abstract; the rest is up to you.
+<BR></P>
+<H5><A ID = "I30" NAME = "I30"  >
+<foNT SIZE=3><B>private</B>
+<BR></FONT></A></H5>
+<P>The final relationship <A ID = "I31" NAME = "I31"  ></A><A ID = "I32" NAME = "I32"  ></A>comes full circle, back to the distinction between the inside and outside of the class. private is the most narrowly visible, highest level of protection that you can get&#151;the diametric opposite of public. private methods and variables cannot be seen by any class other than the one in which they are defined:
+<BR></P>
+<PRE>public class  APrivateClass {
+    private int     aPrivateInt;
+    private String  aPrivateString;
+    private float   aPrivateMethod() {
+        . . .
+    }
+}</PRE>
+<P>This may seem extremely restrictive, but it is, in fact, a commonly used level of protection. Any private data, internal state, or representations unique to your implementation&#151;anything that shouldn't be directly shared with subclasses&#151;is private. Remember that an an object's primary job is to encapsulate its data&#151;to hide it from the world's sight and limit its manipulation. The best way to do that is to make as much data as private as possible. Your methods can always be less restrictive, as you'll see below, but keeping a tight rein on your internal representation is important. It separates design from implementation, minimizes the amount of information one class needs to know about another to get its job done, and reduces the extent of the code changes you need when your representation changes.
+<BR></P>
+<H4><A ID = "I33" NAME = "I33"  >
+<foNT SIZE=3><B>The Conventions for Instance Variable Access</B>
+<BR></FONT></A></H4>
+<P>A good rule of thumb is <A ID = "I34" NAME = "I34"  ></A><A ID = "I35" NAME = "I35"  ></A><A ID = "I36" NAME = "I36"  ></A>that unless an instance variable is constant (you'll soon see how to specify this), it should almost certainly be private. If you don't do this, you have the following problem:
+<BR></P>
+<PRE>public class  AFoolishClass {
+    public String  aUsefulString;
+    . . .  // set up the useful value of the string
+}</PRE>
+<P>This class may have thought of setting up aUsefulString for the use of other classes, expecting them to (only) read it. Because it isn't private, however, they can say:
+<BR></P>
+<PRE>AFoolishClass  aFC = new AFoolishClass();
+aFC.aUsefulString = &quot;oops!&quot;;</PRE>
+<P>Because there is no way to specify separately the level of protection for reading from and writing to instance variables, they should almost always be private.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The careful reader may notice that this rule is violated in many examples in this book. Most of these were just for clarity's sake and to make the examples shorter and pithier. (You'll see soon that it takes more space to do the right thing.) One use cannot be avoided: the System.out.print() calls scattered throughout the book <I>must</I> use the public variable out directly. You cannot change this final system class (which <I>you</I> might have written differently). You can imagine the disastrous results if anyone accidentally modifies the contents of this (global) public variable!
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I37" NAME = "I37"  >
+<foNT SIZE=3><B>Accessor Methods</B>
+<BR></FONT></A></H5>
+<P>If instance variables <A ID = "I38" NAME = "I38"  ></A><A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A><A ID = "I41" NAME = "I41"  ></A>are private, how do you give access to them to the outside world? The answer is to write &quot;accessor&quot; methods:
+<BR></P>
+<PRE>public class  ACorrectClass {
+    private           String  aUsefulString;
+    public            String  aUsefulString() {            // &quot;get&quot; the value
+        return aUsefulString;
+    }
+    private protected void    aUsefulString(String s) {    // &quot;set&quot; the value
+        aUsefulString = s;
+    }
+}</PRE>
+<P>Using methods to access an instance variable is one of the most frequently used idioms in object-oriented programs. Applying it liberally throughout all your classes repays you numerous times over with more robust and reusable programs. Notice how separating the reading and writing of the instance variable allows you to specify a public method to return its value and a protected method to set it. This is often a useful pattern of protections, because everyone probably needs to be able to ask for the value, but only you (and your subclasses) should be able to change it. If it is a particularly private piece of data, you could make its &quot;set&quot; method private and its &quot;get&quot; method protected, or any other combination that suits the data's sensitivity to the light of the outside world.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="warning.gif" tppabs="http://newdata.box.sk/bx/java/warning.gif" WIDTH = 37 HEIGHT = 35><B>Note:</B> According to the compiler, and the Java 1.0 language specification, it is legal to have an instance variable and method by the same name. However, some people may find this convention confusing, If so, use the alternate convention suggested in the next paragraph. If not, use the simpler convention throughout your programs&#151;if nearly all your instance variables follow it, you will always be accessing them via their accessor methods, and there will be no confusion.
+<BR>
+<BR>One of the alternate conventions for the naming of accessor methods is to prepend the variable name with the prefixes get and set. Besides making you type more&#151;for a little <I>less</I> clarity&#151;this style forces you (by the capitalization conventions of Java) to write methods names such as setAnnoyingFirstCapitalLetter(). All this is, of course, a matter of taste&#151;just be consistent in using whatever convention you adopt.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Whenever you want <A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A><A ID = "I44" NAME = "I44"  ></A>to append to your own instance variable, try writing this:
+<BR></P>
+<PRE>aUsefulString(aUsefulString() + &quot; some appended text&quot;);</PRE>
+<P>Just like someone outside the class, you're using accessor methods to change aUsefulString. Why do this?
+<BR></P>
+<P>You protected the variable in the first place so that changes to your representation would not affect the use of your class by others, but it still will affect the use of your class by you! You should be protected from knowing too much about your <I>own</I> representation, except in those few places that actually need to know about it. Then, if you must change something about aUsefulString, it will not affect every use of that variable in your class (as it would without accessor methods); rather, it affects only the implementations of its accessor methods.
+<BR></P>
+<P>One of the powerful side effects of maintaining this level of indirection in accessing your own instance variables is that if, at some later date, some special code needs to be performed each time aUsefulString is accessed, you can put that code in one place, and all the other methods in your class (and in everyone else's) will correctly call that special code. Here's an example:
+<BR></P>
+<PRE>private protected void  aUsefulString(String s) {   // the &quot;set&quot; method
+    aUsefulString = s;
+    performSomeImportantBookkeepingOn(s);
+}</PRE>
+<P>It may seem a little difficult to get used to saying this:
+<BR></P>
+<PRE>x(12 + 5 * x());</PRE>
+<P>rather than this:
+<BR></P>
+<PRE>x = 12 + 5 * x;</PRE>
+<P>but the minor inconvenience will reward you with a rosy future of reusability and easy maintenance.
+<BR></P>
+<H3><A ID = "I45" NAME = "I45"  >
+<foNT SIZE=4><B>Class Variables and Methods</B>
+<BR></FONT></A></H3>
+<P>What if you want to <A ID = "I46" NAME = "I46"  ></A><A ID = "I47" NAME = "I47"  ></A><A ID = "I48" NAME = "I48"  ></A><A ID = "I49" NAME = "I49"  ></A>create a shared variable that all your instances can see and use? If you use an instance variable, each instance has its own copy of the variable, defeating its whole purpose. If you place it in the class itself, however, there is only one copy, and all the instances of the class share it. This is called a class variable:
+<BR></P>
+<PRE>public class  Circle {
+    public static float  pi = 3.14159265F;
+    public float  area(float r) {
+        return  pi * r * r;
+    }
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="imp.gif" tppabs="http://newdata.box.sk/bx/java/imp.gif" WIDTH = 68 HEIGHT = 35><B>Tip:</B> Because of its historical ties, Java uses the word static to declare <A ID = "I50" NAME = "I50"  ></A>class variables and methods. Whenever you see the word static, remember to substitute mentally the word &quot;class.&quot;
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Instances can refer to their own class variables as though they were instance variables, as in the last example. Because it's public, methods in other classes can also refer to pi:
+<BR></P>
+<PRE>float  circumference = 2 * Circle.pi * r;</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Instances of Circle can also use this form of access. In most cases, for clarity, this is the preferred form, even for instances. It clarifies that a class variable is being used, and helps the reader to know instantly&#151;where it's used&#151;that the variable is global to all instances. This may seem pedantic, but if you try it yourself, you'll see that it can make things clearer.
+<BR>
+<BR>By the way, if you might change your mind later about how a class variable is accessed, created, and so forth, you should create instance (or even class) accessor methods to hide any uses of it from these changes.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Class methods are <A ID = "I51" NAME = "I51"  ></A><A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A>defined analogously. They can be accessed in the same two ways by instances of their class, but only via the full class name by instances of other classes. Here's a class that defines class methods to help it count its own instances:
+<BR></P>
+<PRE>public class  InstanceCounter {
+    private           static int   instanceCount = 0;   // a class variable
+    private protected static int   instanceCount() {    // a class method
+        return instanceCount;
+    }
+    private           static void  incrementCount() {
+        ++instanceCount;
+    }
+    InstanceCounter() {
+        InstanceCounter.incrementCount();
+    }
+}</PRE>
+<P>In this example, an explicit use of the class name calls the method incrementCount()<A ID = "I54" NAME = "I54"  ></A><A ID = "I55" NAME = "I55"  ></A>. Though this may seem verbose, in a larger program it immediately tells the reader which object (the class, rather than the instance) is expected to handle the method. This is especially useful if the reader needs to find where that method is declared in a large class that places all its class methods at the top (the recommended practice, by the way).
+<BR></P>
+<P>Note the initialization of instanceCount to 0. Just as an instance variable is initialized when its instance is created, a class variable is initialized when its class is created. This class initialization happens essentially before anything else can happen to that class, or its instances, so the class in the example will work as planned.
+<BR></P>
+<P>Finally, the conventions you learned for accessing an instance variable are applied in this example to access a class variable. The accessor methods are therefore class methods. (There is no &quot;set&quot; method here, just an increment method, because no one is allowed to set instanceCount directly.) Note that only subclasses are allowed to ask what the instanceCount is, because that is a (relatively) intimate detail. Here's a test of InstanceCounter in action:
+<BR></P>
+<PRE>public class  InstanceCounterTester extends InstanceCounter {
+    public static void  main(String arg[]) {  // argv. a little UNIX nostagia
+        for (int  i = 0;  i &lt; 10;  ++i)
+            new InstanceCounter();
+        System.out.println(&quot;made &quot; + InstanceCounter.instanceCount());
+    }
+}</PRE>
+<P>Not shockingly, this example prints the following:
+<BR></P>
+<PRE>made 10</PRE>
+<H3><A ID = "I56" NAME = "I56"  >
+<foNT SIZE=4><B>The </B><B>final </B><B>Modifier</B>
+<BR></FONT></A></H3>
+<P>Although it's not the <A ID = "I57" NAME = "I57"  ></A><A ID = "I58" NAME = "I58"  ></A>final modifier discussed, the final modifier is very versatile:
+<BR></P>
+<UL>
+<LI>When the final modifier is applied to a class, it means that the class cannot be subclassed.
+<BR>
+<BR></LI>
+<LI>When it is applied to a variable, it means that the variable is constant.
+<BR>
+<BR></LI>
+<LI>When it is applied to a method, it means that the method cannot be overridden by subclasses.
+<BR>
+<BR></LI></UL>
+<H4><A ID = "I59" NAME = "I59"  >
+<foNT SIZE=3><B>final</B><B> Classes</B>
+<BR></FONT></A></H4>
+<P>Here's a final class <A ID = "I60" NAME = "I60"  ></A><A ID = "I61" NAME = "I61"  ></A><A ID = "I62" NAME = "I62"  ></A>declaration:
+<BR></P>
+<PRE>public final class  AFinalClass {
+    . . .
+}</PRE>
+<P>You declare a class final for only two reasons. The first is security. You expect to use its instances as unforgeable capabilities, and you don't want anyone else to be able to subclass and create new and different instances of them. The second is efficiency. You want to count on instances of only that one class (and no subclasses) being around in the system so that you can optimize for them.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The Java class library uses final classes extensively. You can flip through the class hierarchy diagrams in Appendix B to see them (final classes are lightly shaded). Examples of the first reason to use final are the classes:  java.lang.System and, from the package java.net, InetAddress and Socket. A good example of the second reason is java.lang.String. Strings are so common in Java, and so central to it, that the run-time handles them specially (for security reasons as well).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>It will be a rare event for you to create a final class yourself, although you'll have plenty of opportunity to be upset at certain system classes being final (thus making extending them annoyingly difficult). Oh well, such is the price of security and efficiency. Let's hope that efficiency will be less of an issue soon, and some of these classes will become public once again.
+<BR></P>
+<H4><A ID = "I63" NAME = "I63"  >
+<foNT SIZE=3><B>final </B><B>Variables</B>
+<BR></FONT></A></H4>
+<P>To declare constants <A ID = "I64" NAME = "I64"  ></A><A ID = "I65" NAME = "I65"  ></A><A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A>in Java, use final variables:
+<BR></P>
+<PRE>public class  AnotherFinalClass {
+    public static final int     aConstantInt    = 123;
+    public        final String  aConstantString = &quot;Hello world!&quot;;
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The unusual spacing in the last line of the example makes it clearer that the top variable is a class variable and the bottom isn't, but that both are public and final.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>final class and instance variables can be used in expressions just like normal class and instance variables, but they cannot be modified. As a result, final variables must be given their (constant) value at the time of declaration. These variables function like a better, typed version of the #define constants of C. Classes can provide useful constants to other classes via final class variables such as aConstantInt in the last example. Other classes reference them just as before: AnotherFinalClass.aConstantInt.
+<BR></P>
+<P>Local <A ID = "I68" NAME = "I68"  ></A><A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A>variables (those inside blocks of code surrounded by braces, for example, in while or for loops) can't be declared final. (This would be just a convenience, really, because final instance variables work almost as well in this case.) In fact, local variables can have no modifiers in front of them at all:
+<BR></P>
+<PRE>{
+    int  aLocalVariable;    // I'm so sad without my modifiers...
+    . . .
+}</PRE>
+<H4><A ID = "I71" NAME = "I71"  >
+<foNT SIZE=3><B>final </B><B>Methods</B>
+<BR></FONT></A></H4>
+<P>Here's an example <A ID = "I72" NAME = "I72"  ></A><A ID = "I73" NAME = "I73"  ></A>of using final methods:
+<BR></P>
+<PRE>public class  MyPenultimateFinalClass {
+    public static final void  aUniqueAndReallyUsefulMethod() {
+        . . .
+    }
+    public        final void  noOneGetsToDoThisButMe() {
+        . . .
+    }
+}</PRE>
+<P>final methods cannot be overridden <A ID = "I74" NAME = "I74"  ></A>by subclasses. It is a rare thing that a method truly wants to declare itself the final word on its own implementation, so why does this modifier apply to methods?
+<BR></P>
+<P>The answer is efficiency. If you declare a method final, the compiler can then &quot;in-line&quot; it right in the middle of methods that call it, because it &quot;knows&quot; that no one else can ever subclass and override the method to change its meaning. Although you might not use final right away when writing a class, as you tune the system later, you may discover that a few methods have to be final to make your class fast enough. Almost all your methods will be fine, however, just as they are.
+<BR></P>
+<P>The Java class library declares a lot of commonly used methods final so that you'll benefit from the speed-up. In the case of classes that are already final, this makes perfect sense and is a wise choice. The few final methods declared in non-final classes will annoy you&#151;your subclasses can no longer override them. When efficiency becomes less of an issue for the Java environment, many of these final methods can be &quot;unfrozen&quot; again, restoring this lost flexibility to the system.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> private methods are <A ID = "I75" NAME = "I75"  ></A><A ID = "I76" NAME = "I76"  ></A>effectively final, as are all methods declared in a final class. Marking these latter methods final (as the Java library sometimes does) is legal, but redundant; the compiler already treats them as final.
+<BR>
+<BR>It's possible to use final methods for some of the same security reasons you use final classes, but it's a much rarer event.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>If you use accessor methods a lot (as recommended) and are worried about efficiency, here's a rewrite of ACorrectClass that's much faster:
+<BR></P>
+<PRE>public class  ACorrectFinalClass {
+    private                 String  aUsefulString;
+    public    final         String  aUsefulString() {    // now faster to use
+        return aUsefulString;
+    }
+    private protected final void    aUsefulString(String s) {  // also faster
+        aUsefulString = s;
+    }
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Future Java compilers will almost certainly be smart enough to &quot;in-line&quot; simple methods automatically, so you probably won't need to use final in such cases for much longer.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H3><A ID = "I77" NAME = "I77"  >
+<foNT SIZE=4><B>abstract </B><B>Methods and Classes</B>
+<BR></FONT></A></H3>
+<P>Whenever you arrange <A ID = "I78" NAME = "I78"  ></A><A ID = "I79" NAME = "I79"  ></A><A ID = "I80" NAME = "I80"  ></A><A ID = "I81" NAME = "I81"  ></A>classes into an inheritance hierarchy, the presumption is that &quot;higher&quot; classes are more abstract and general, whereas &quot;lower&quot; subclasses are more concrete and specific. Often, as you design a set of classes, you factor out common design and implementation into a shared superclass. If the primary reason that a superclass exists is to act as this common, shared repository, and if only its subclasses expect to be used, that superclass is called an abstract class.
+<BR></P>
+<P>abstract classes can <A ID = "I82" NAME = "I82"  ></A><A ID = "I83" NAME = "I83"  ></A>create no instances, but they can contain anything a normal class can contain and, in addition, are allowed to prefix any of their methods with the modifier abstract. Non-abstract classes are not allowed to use this modifier; using it on even one of your methods requires that your whole class be declared abstract. Here's an example:
+<BR></P>
+<PRE>public abstract class  MyFirstAbstractClass {
+    int  anInstanceVariable;
+    public abstract int  aMethodMyNonAbstractSubclassesMustImplement();
+    public void  doSomething() {
+        . . .    // a normal method
+    }
+}
+public class  AConcreteSubClass extends MyFirstAbstractClass {
+    public int  aMethodMyNonAbstractSubclassesMustImplement() {
+        . . .    // we *must* implement this method
+    }
+}</PRE>
+<P>and some attempted uses of these classes:
+<BR></P>
+<PRE>Object  a = new MyFirstAbstractClass();    // illegal, is abstract
+Object  c = new AConcreteSubClass();       // OK, a concrete subclass</PRE>
+<P>Notice that abstract methods need no <A ID = "I84" NAME = "I84"  ></A><A ID = "I85" NAME = "I85"  ></A><A ID = "I86" NAME = "I86"  ></A>implementation; it is required that non-abstract subclasses provide<A ID = "I87" NAME = "I87"  ></A><A ID = "I88" NAME = "I88"  ></A> an implementation. The abstract class simply provides the template for the methods, which are implemented by others later. In fact, in the Java class library, there are several abstract classes that have no documented subclasses in the system, but simply provide a base from which you can subclass in your own programs. If you look at the diagrams in Appendix B, abstract classes are shaded darker than final classes, and are quite common in the library.
+<BR></P>
+<P>Using an abstract class to embody a pure design&#151;that is, nothing but abstract methods&#151;is better accomplished in Java by using an interface (discussed tomorrow). Whenever a design calls for an abstraction that includes instance state and/or a partial implementation, however, an abstract class is your only choice. In previous object-oriented languages, abstract classes were simply a convention. They proved so valuable that Java supports them not only in the form described here, but in the purer, richer form of interfaces, which will be described tomorrow.
+<BR></P>
+<H3><A ID = "I89" NAME = "I89"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Today, you learned how variables and methods can control their visibility and access by other classes via the four P's of protection: public, package, protected, and private. You also learned that, although instance variables are most often declared private, declaring accessor methods allows you to control the reading and writing of them separately. Protection levels allow you, for example, to separate cleanly your public abstractions from their concrete representations.
+<BR></P>
+<P>You also learned how to create class variables and methods, which are associated with the class itself, and how to declare final variables, methods, and classes to represent constants and fast or secure methods and classes.
+<BR></P>
+<P>Finally, you discovered how to declare and use abstract classes, which cannot be instantiated, and abstract methods, which have no implementation and must be overridden in subclasses. Together, they provide a template for subclasses to fill in and act as a variant of the powerful interfaces of Java that you'll study tomorrow.
+<BR></P>
+<H3><A ID = "I90" NAME = "I90"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: Why are there so many different levels of protection in Java?</B>
+<BR></P>
+<P><B>A: </B>Each level of protection, or visibility, provides a different view of your class to the outside world. One view is tailored for everyone, one for classes in your own package, another for your class and its subclasses only, one combining these last two and the final one for just within your class. Each is a logically well-defined and useful separation that Java supports directly in the language (as opposed to, for example, accessor methods, which are a convention you must follow).
+<BR></P>
+<P><B>Q: Won't using accessor methods everywhere slow down my Java code?</B>
+<BR></P>
+<P><B>A: </B>Not always. Soon, Java compilers will be smart enough to make them fast automatically, but if you're concerned about speed, you can always declare accessor methods to be final, and they'll be just as fast as direct instance variable accesses.
+<BR></P>
+<P><B>Q: Are class (</B><B>static</B><B>) methods inherited just like instance methods?</B>
+<BR></P>
+<P><B>A:</B> No. static (class) methods are now final by default. How, then, can you ever declare a non-final class method? The answer is that you can't! Inheritance of class methods is not allowed, breaking the symmetry with instance methods. Because this goes against a part of Java's philosophy (of making everything as simple as possible) perhaps it will be reversed in a later release.
+<BR></P>
+<P><B>Q: Based on what I've learned, it seems like </B><B>private abstract</B><B> methods and </B><B>final abstract</B><B> </B><B>methods or classes don't make sense. Are they legal?</B>
+<BR></P>
+<P><B>A: </B>Nope, they're compile-time errors, as you have guessed. To be useful, abstract methods must be overridden, and abstract classes must be subclassed, but neither of those two operations would be legal if they were also private or final.
+<BR></P>
+<P><B>Q: What about </B><B>static transient</B><B>, </B><B>final transient</B><B>, or </B><B>final volatile</B><B>?</B>
+<BR></P>
+<P><B>A: </B>Those are also compile-time errors. Because a &quot;transient&quot; part of an object's state is assumed to be changing within each instance, it can not be static or final. Similarly, a &quot;volatile&quot; variable cannot be final (constant).This restriction matters only in the future, though, when transient and volatile are actually used by Java.
+<BR></P>
+<P><A HREF = "tyjwg3.html" tppabs="http://newdata.box.sk/bx/java/tyjwg3.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj16x.html" tppabs="http://newdata.box.sk/bx/java/tyj16x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

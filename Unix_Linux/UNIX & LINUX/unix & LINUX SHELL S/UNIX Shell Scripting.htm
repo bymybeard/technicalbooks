@@ -1,0 +1,625 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3c.org/TR/html4/strict.dtd">
+<html><head>
+
+<title>UNIX Shell Scripting</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<style type="text/css">
+<!--
+body { color: black; background-color: white; }
+code { font-weight: bold; font-family: Courier, sans-serif; font-size: 10pt; }
+-->
+</style>
+
+</head><body>
+<h1>UNIX Shell Scripting</h1>
+
+<a name="introduction"><!-- ========================================= --></a>
+<h2>Introduction</h2>
+<dir>
+   <p>This tutorial will introduce you to several features of different 
+   shell scripting languages available for the UNIX operating system.</p>
+</dir>
+
+
+<a name="objectives"><!-- ========================================= --></a>
+<h2>Objectives</h2>
+<dir>
+
+   <ul>
+   <li>Learn what a <i>shell script</i> is and is not.</li>
+   <li>Learn about some common scripting languages that are available.</li>
+   <li>Learn the syntax for several operations frequently used in 
+scripts.</li>
+   <li>Learn where to go for more information.</li>
+   </ul>
+</dir>
+
+<a name="Topics"><!-- ========================================= --></a>
+<h2>Topics</h2>
+<dir>
+
+   <ol>
+   <li><a href="#topic1">What is a script?</a> (5 minutes)</li>
+   <li><a href="#topic2">What is the difference between a scripting 
+language and
+   a high-level programming language like C, C++ or Java?</a> (5 
+minutes)</li>
+   <li><a href="#topic3">Shell Commands.</a> (15 minutes)</li>
+   <li><a href="#topic4">Scripting BASICS</a> (15 minutes)</li>
+   <li><a href="#topic5">What Shells and Scripting Languages are 
+Available?</a> (5 minutes)</li>
+   <li><a href="#vocabulary">Vocabulary</a> (5 minutes)</li>
+   <li><a href="#more_info">More Information</a> (5 minutes)</li>
+   </ol>
+</dir>
+      
+<a name="overview"><!-- ========================================= --></a>
+<h2>Overview</h2>
+<dir>
+
+  <p>This tutorial is designed as an introduction to UNIX shell 
+scripting 
+  languages.  Many users that are new to UNIX don't realize the 
+  powerful program development and testing capabilities that writing
+  simple shell scripts provide.
+
+  </p><p>The ability to write simple and flexible scripts can greatly 
+  increase your productivity while working in UNIX.  Most scripts 
+  are written to automate routine tasks that require several commands
+  to be executed in order.  By placing these commands in a script,
+  the task can be completed simply by running the script.</p>
+
+</dir>
+
+<a name="topic1"><!-- ========================================= --></a>
+<h2>What is a script?</h2>
+<dir>
+
+  <p>A shell script is a text file that contains a list of  
+  commands that are placed in the order that the user would like the
+  shell to execute each command.  Most shell scripting languages also
+  allow the definition and use of variables and provide some type of  
+  program control structures, such as selection and repetition 
+statements.
+
+  </p><p>By placing the commands in a script, the user simply has to 
+  run the script each time they wish the list of commands to be 
+executed.
+
+  </p><p>Running a script also makes the list of commands execute 
+faster, 
+  since it allows the shell to execute each step of the task as soon 
+  as it completes the previous task.  
+  Otherwise, the shell would have to wait for the user to type the next 
+  command, and the user would have to wait for each command to complete 
+  before starting to type.  
+
+  </p><p>Another advantage to writing a script for common tasks is that 
+there is 
+  less chance for a typing error that requires restarting the entire
+  command sequence.  Once, the commands are typed correctly into the 
+  script, they can be run as often as needed without error.</p>
+
+   <h3>Practice Exercise</h3>
+   <p>Write a script that say's "Hello World" and then shows the date.
+
+   </p><ol>
+   <li>Login to your UNIX account and open an xterm window.</li>
+   <li>Use your favorite text editor to create a file with the
+   following contents.<br>
+   <dir><code>echo "Hello World"<br>
+        date
+   </code>
+   </dir><br>
+
+   </li><li>Save the file with the name <code>hello</code>.</li>
+   <li>Type <code>hello</code> to run your script.</li>
+
+   <li>You will likely receive the following message:<br><br>
+   <dir><code>hello: Permission denied.</code></dir><br><br>
+
+   </li><li>Use the <code>chmod</code> command as follows to set the 
+permissions
+   so that your script can be executed.<br><br>
+
+   <dir><code>chmod 711 hello</code></dir><br>
+
+   </li><li>Type <code>hello</code> to run your script.</li>
+
+   <li>You will likely something resembling the following:<br><br>
+   <dir><code>Hello World<br>
+   Sun Mar 17 15:23:40 CST 2002</code></dir><br><br>
+
+   
+   </li></ol>
+</dir>
+
+<a name="topic2"><!-- ========================================= --></a>
+<h2>What is the difference between a scripting language and a <i>regular</i>
+programming language like C, C++ and Java?</h2>
+<dir>
+
+   <p>A scripting language is used to communicate directly with the 
+   shell environment in UNIX.  A <a href="#shell">shell</a> is a program
+ 
+   that runs on most UNIX systems
+   to provide a convenient interface to the operating system and file 
+system.
+
+   </p><p>High-level languages are designed to provide flexibility and 
+functionality
+   to application programmers.  They require some type of compilation or
+ translation
+   before they can be run.
+
+  </p><h4>Why use a scripting language instead of C, C++, Java, etc?</h4>
+
+  <p>Because is it difficult and time consuming to write full-fledged
+  programs in high-level languages that can communicate effectively with
+  your file system and shell environment in UNIX.
+
+  </p><p>Scripting languages are specifically designed to do just that. 
+ 
+  They are composed of variables, control constructs and shell commands.
+  They are interpreted by the shell and then executed by the shell.  
+  Shell scripts do not need to be compiled.  Instead, the shell 
+interprets 
+  each command as it is reached according to the control structures 
+used.
+
+   </p><h3>Practice Exercise</h3>
+
+   <p>Write a Java program that says "Hello World" and then shows the 
+date.
+
+   </p><ol>
+   <li>Login to your UNIX account and open an xterm window.</li>
+   <li>Use your favorite text editor to create a file with the
+   following contents.<br>
+   <code>
+</code><pre>import java.util.Date;
+class Hello {
+    public static void main ( String [] args ) {
+        System.out.println("Hello World\n" + new Date());
+    }
+}
+</pre>
+
+   </li><li>Save the file with the name <code>hello.java</code>.</li>
+   <li>Type <code>javac hello.java</code> to compile your program.</li>
+   <li>Type <code>java hello</code> to run your program.</li>
+
+   <li>You will likely something resembling the following:<br><br>
+   <dir><code>Hello World<br>
+   Sun Mar 17 15:23:40 CST 2002</code></dir><br><br>
+   
+   </li></ol>
+
+   <p>Now compare the work involved in writing this Java program with 
+the 
+   work to write the shell script in the above exercise.  
+   Most of us will agree that the minor inconvenience of 
+   having to set the file permissions was much easier than typing the 
+   longer Java program and having to compile it.  Even <b>C</b> programs
+   need to be compiled before they can be executed.  But, 
+   shell scripts can be run just by typing the name of the script.  
+   The file permissions only need to be set once.
+
+</p></dir>
+   
+<a name="shell"></a>
+<a name="topic3"><!-- ========================================= --></a>
+<h2>Shell Commands</h2>
+<dir>
+
+   <p>Before you can write powerful shell scripts, you will likely 
+   need to become a more powerful shell user.  Most of us learn new
+   shell commands only after witnessing a more savvy user execute them.
+   But, on-line help is only a web site away.  
+The CSL web pages document lots of information to get novices started on
+ becoming more knowledgeable UNIX users.  
+All CS account users should be familar with the information in the 
+<a href="http://www.cs.wisc.edu/csl/cs1000">
+CS1000 An Introductory Manual to the Unix Operating System and the 
+Computer Sciences Department's Instructional Computing Environment UNIX 
+User's Guide. ©1998</a>
+
+   </p><p>The following was taken directly from the CSL's "Shell" web 
+page of that document.
+</p><dir>
+
+<pre>	In Unix the <b>shell</b> is a program which prompts the user and directs
+	the operating system to do what the user wants.  When you login to
+	your account, you see the prompt, ``<tt>sol21(1)%</tt> ''.  This means
+	that the shell is waiting for you to type a command.  The shell is
+	actually just a regular program like any other, yet it is a user
+	interface which allows you to execute other programs.
+
+	Your user account is configured with <i>tcsh</i>, an enhanced
+	version of <i>csh</i>, the C-shell. Most literature describes
+	<i>csh</i> and should be compatible with <i>tcsh</i>. Among the
+	additional features of <i>tcsh</i> are filename completion (with the
+	<b>TAB</b> key) and previous command repetition (with the UP and DOWN arrow
+	keys). If you would like to use one of the many alternate shells, 
+	you can use the <i>chsh</i> command to change the shell your account uses.
+
+	The shell is a very powerful tool that can be customized.  Using just
+	<i>tcsh</i>, new commands can be created, old ones altered, input and output files
+	dynamically redefined, and even entire programs written without ever using
+	a compiler.  Chapter&nbsp;<a href="http://www.cs.wisc.edu/csl/cs1000/node56.html#chap:advanced">5</a> contains a number of useful hints to get more out 
+	of the shell.  Consult the man pages for <i>csh</i> and <i>tcsh</i> (see chapter&nbsp;<a href="http://www.cs.wisc.edu/csl/cs1000/node53.html#chap:help">4</a>,
+	Getting Help) for more information on the many features of the c-shell 
+	and tc-shell.
+</pre>
+</dir>
+
+<p>There are dozens of other web pages of interest in the <a 
+href="http://www.cs.wisc.edu/csl/cs1000">CS1000</a> document. 
+But, here's some practice to get you started with some more advanced TC 
+Shell commands.
+
+</p><p>From the <code>man csh</code> page:<br>
+</p><pre>   Control Flow
+       The shell contains a number of commands  to  regulate  the
+       flow  of  control  in  scripts and within limits, from the
+       terminal. These commands  operate  by  forcing  the  shell
+       either  to  reread input (to loop), or to skip input under
+       certain conditions (to branch).
+
+       Each occurrence of a foreach, switch, while, if...then and
+       else built-in command must appear as the first word on its
+       own input line.
+
+       If the shell's input is not seekable and a loop  is  being
+       read,  that  input  is  buffered. The shell performs seeks
+       within the internal buffer  to  accomplish  the  rereading
+       implied  by  the  loop.  (To  the extent that this allows,
+       backward  goto  commands  will  succeed   on   nonseekable
+       inputs.)</pre>
+
+ <h3>Practice Exercises</h3>
+
+   <h4>Shell Commands</h4>
+   <p>You can use variables and program control structures in your shell
+ commands.
+   This may not seem useful while you're working from the command 
+prompt,
+   but it is this ability that will allow you to make powerful and 
+flexible scripts.
+   These are only some of the commands that you can place inside of a 
+shell script
+   to be executed at your command.
+   
+   </p><h5>Creating and using a <i>shell variable</i> from the command 
+prompt.</h5>
+<dir>
+
+<p>The following code sample shows the user entries in <b>bold</b> and 
+the results
+of each command.  See description of each command following the code 
+example.
+
+</p><pre>  1.    nova33(79)% <code>alias ls 'ls -lbFp'
+  2.    nova33(80)% <code>ls</code>
+        total 2
+        -rw-r-----   1 deppeler      143 Mar 17 15:36 Hello.java
+        -rwx--x--x   1 deppeler       25 Mar 17 15:12 hello*
+  3.    nova33(81)% <code>set d=myscripts</code>
+  4.    nova33(82)% <code>mkdir $d</code>
+  5.    nova33(83)% <code>ls</code>
+        total 4
+        -rw-r-----   1 deppeler      143 Mar 17 15:36 Hello.java
+        -rwx--x--x   1 deppeler       25 Mar 17 15:12 hello*
+        drwxr-x---   2 deppeler     2048 Mar 17 16:47 myscripts/
+  6.    nova33(84)% <code>mv *ello* $d</code>
+  7.    nova33(85)% <code>ls</code>
+        total 2
+        drwxr-x---   2 deppeler     2048 Mar 17 16:48 myscripts/
+  8.    nova33(86)% <code>ls $d</code>
+        total 2
+        -rw-r-----   1 deppeler      143 Mar 17 15:36 Hello.java
+        -rwx--x--x   1 deppeler       25 Mar 17 15:12 hello*
+  9.    nova33(87)% <code>mv $d/* .</code>
+ 10.    nova33(88)% <code>ls</code>
+        total 4
+        -rw-r-----   1 deppeler      143 Mar 17 15:36 Hello.java
+        -rwx--x--x   1 deppeler       25 Mar 17 15:12 hello*
+        drwxr-x---   2 deppeler     2048 Mar 17 16:48 myscripts/
+ 11.    nova33(89)% <code>rmdir $d</code>
+ 12.    nova33(90)% <code>ls</code>
+        total 2
+        -rw-r-----   1 deppeler      143 Mar 17 15:36 Hello.java
+        -rwx--x--x   1 deppeler       25 Mar 17 15:12 hello*
+ 13.    nova33(91)% <code>unset d
+ 14.    nova33(93)% <code>alias ls 'ls'
+</code></code></code></pre>
+
+	<b>Explanation</b><br>
+      <ol>
+      <li><code>alias ls '-lbFp'</code> modifies the action of the 
+      <b>ls</b> command.</li>
+      </ol><dir><code>l</code> to show expanded listing<br>
+           <code>b</code> to show control characters as '?'<br>
+           <code>F</code> to show a trailing "/" after directories<br>
+           <code>p</code> to show a "*" after executables.
+	</dir>
+      <li><code>ls</code> lists the contents of the current directory.</li>
+      <li><code>set d=myscripts</code> sets a variable named <b>d</b>.</li>
+      <li><code>mkdir $d</code> uses the variable to create a directory.
+      </li><li><code>ls</code> verifies that the directory was created.</li>
+      <li><code>mv ?ello* $d</code> moves all files that match (hello 
+&amp; Hello.java) to the new directory.</li>
+      <li><code>ls</code> confirms the files no longer exist in current 
+directory.</li>
+      <li><code>ls $d</code> confirms the files do exist in the new 
+location.</li>
+      <li><code>mv $d/* .</code> moves all files from the new directory 
+back to the current directory.</li>
+      <li><code>ls</code> confirms the files have been moved.</li>
+      <li><code>rmdir $d</code> removes the newly completed directory.</li>
+      <li><code>ls</code> confirms the directory has been removed.</li>
+      <li><code>unset d</code> removes the variable definition for d.</li>
+      <li><code>alias ls</code> restores the action of the list command.</li>
+ 
+      
+      </dir>
+      <br><br>
+</dir>
+
+<a name="topic4"><!-- ========================================= --></a>
+<h2>Scripting BASICS</h2>
+<dir>
+
+  <p>Basically, anything that can be done from the command prompt can 
+  be saved in a script, including control statements, like <code>if</code>
+ 
+  statements and <i>loops</i>.
+  However, the syntax is important and can vary in simple, but 
+significant ways.
+
+   </p><h4>The <b>if</b> statement.</h4>
+<pre>          if ( cond ) then
+              echo "reached the true part"
+          else
+              echo "reached the else part"
+          endif</pre>
+   
+   <h4>The <b>foreach</b> statement.</h4>
+
+<pre>          foreach name ( `\ls -d $dest/*` )
+              echo "$name"
+          end</pre>
+
+   <h4>The <b>while</b> statement.</h4>
+<pre>          while ( cond )
+              echo "$name"
+          end</pre>
+
+ <h3>Practice Exercise</h3>
+
+   <ol>
+   <li>Login to your UNIX account and open an xterm window.</li>
+   <li>Use your favorite editor to create a text file named <code>myFirstScript</code>,
+   with the following contents.</li>
+
+<b></b><pre><b>#! /bin/csh
+
+# set the base directory for all commands
+set base = /u/d/e/deppeler/public/html/tutorials/scripting
+set project = ""
+
+if  ( $2 != "" &amp;&amp; $1 != "" ) then
+
+    # set the uname to the first word after the command name
+    set uname = $1
+
+    # set the project directory to the second word after the command name
+    set project = $2
+
+    # Tell the user hello
+    echo "Hello $uname, user of $base/$project"
+
+    # Get a listing of the base directory and process all commands for
+    alias ls 'ls'
+    echo "\ls -d $base/$project/* "
+
+    foreach name ( `\ls -d $base/$project/*` )
+        echo "$name"
+    end
+
+    alias ls 'ls -lbFb'
+
+else
+
+    echo "Usage: aScript uname dname"
+    echo "       where uname is the user's name"
+    echo "       and dname is the name of a directory in $base/$project
+    echo
+
+endif</b></pre><b></b>
+
+   <li>Don't forget to set the permissions on your new script.<br><br>
+
+       <dir><code>chmod 711 myFirstScript</code></dir><br>
+
+   </li><li>Run the script by typing <code>myFirstScript</code> at the 
+command prompt.</li>
+   </ol>
+</dir>
+
+<a name="topic5"><!-- ========================================= --></a>
+<h2>What scripting languages are available?</h2>
+<dir>
+   <p>This depends on what shells are available.  Currently, there are 
+several
+   options for UNIX users in the CS Department.
+
+   </p><ul><li>Type <code>sh</code> to use the original, the Bourne 
+Shell.  
+       Type <code>exit</code> or [Ctrl-D] to exit and return to tcsh.</li>
+       <li>Type <code>ksh</code> to use the Korn Shell.  
+       Type <code>exit</code> or [Ctrl-D] to exit and return to tcsh.</li>
+       <li>Type <code>bash</code> to use the Bourne Again Shell. 
+       Type <code>exit</code> or [Ctrl-D] to exit and return to tcsh.</li>
+   </ul>
+
+ <h3>Practice Exercise</h3>
+
+   <h4>Changing shells</h4>
+
+   <ol>
+   <li>Login to your UNIX account and open an xterm window.</li>
+   <li>Type <code>set</code> and press [Enter].</li>
+   <li>Look for a line that says <code>shell /bin/tcsh</code>.  The 
+shell variable
+   tells you which shell your account uses by default. 
+   You can try different shells temporarily just by typing the name of 
+shell
+   and pressing enter.
+   </li><li>Type <code>bash</code> and press [Enter] to try the Bourne 
+Again Shell.<br>
+   You will see the following prompt waiting for you to type a command.<br><br>
+   <code>bash-2.03$ </code></li><br><br>
+   <li>Try some of your favorite shell commands.  Most will work.</li>
+   <li>Type <code>exit</code> to exit BASH and return to the <code>tcsh</code>.</li>
+   </ol>
+
+<h2>Are there other scripting languages besides shell scripts?</h2>
+
+   <p>Yes, there are many scripting 
+   languages available.  One of the most popular is <b>P</b>ractical <b>E</b>xtraction
+ and <b>R</b>eport <b>L</b>anguage <b>(perl)</b>.  The 
+   <b>Perl</b> scripting language has even more power and flexibility 
+than
+   the shell scripts introduced in this document.
+
+   </p><p>If you're interested in learning Perl, there are a number of 
+resources
+   available.  Here are some:</p>
+   <ul>
+       <li>The Official Perl Web Site <a href="http://www.perl.com/">http://www.perl.com</a></li>
+       <li>O'Reilly reference books, "Learning Perl" by ??? and 
+"Programming Perl" by ??? are two excellent texts.</li>
+       <li>The "Perl Cookbook", by ???.  Publisher: </li>
+   </ul>
+
+ <h3>Example Perl Script</h3>
+
+   <p>This is an example of a perl script that I used to alphabetically
+   sort the names of students in my CS302 grade file.  It will not work
+   as the directorys have changed and you don't have file permissions
+   to those given.  But, it does show you some common commands and 
+   there syntax in perl.</p>
+
+<b></b><pre><b>#!/s/std/bin/perl
+#
+# This script will sort the grades file in your CS302 grading
+# by each student's login name.
+#
+# This is desirable so that the order of students in both the
+# quick grader program ("gr q ...") and the table format ("gr t")
+# will match
+#
+# written by: Deb Deppeler (deppeler) on 2/9/2000
+#
+# Note: anyone who knows perl knows that this could have been done
+# with no named variables, the right regular expression and some cool syntax.
+# Since I didn't know what that was, I did the following:
+#
+use File::Copy;
+use strict;
+
+# update the directory's according to the current roster
+system("gr u");
+
+my $sInstructor       = $ENV{USER};
+my $sGradingDir       = "/p/course/cs302/private/grading/$sInstructor";
+my $sGradeFile        = "grades";
+my $sNewGradeFile     = "temp";
+my $sGradeFullName    = $sGradingDir . "/" . $sGradeFile;
+my $sNewGradeFullName = $sGradingDir . "/" . $sNewGradeFile;
+
+my %hGrades;
+
+open (GRADEFILE   ,   $sGradeFullName    ) || die "unable to open $sGradeFullName: $!";
+open (NEWGRADEFILE, "&gt;$sNewGradeFullName") || die "unable to open $sNewGradeFullName: $!";
+while (<gradefile>) {
+    my @aFields = split(":");
+    $hGrades{@aFields[2]} = $_;
+}
+
+my @aSortedLogins = sort keys(%hGrades);
+
+foreach (@aSortedLogins) {
+    print NEWGRADEFILE "$hGrades{$_}";
+}
+
+unlink($sGradeFullName) || die "couldn't delete $sGradeFullName: $!";
+move($sNewGradeFullName, $sGradeFullName) || die "couldn't move $sNewGradeFullName to $sGradeFullName: $!";
+
+print "$sGradeFullName now contains the list of students sorted by login name\n";
+#print "$sNewGradeFullName now contains the list of students sorted by login name\n";
+</gradefile></b></pre><b></b>
+</dir>
+
+<a name="summary"><!-- ========================================= --></a>
+<h2>Summary</h2>
+<dir>
+
+  <p>In this lesson you have learned about shell command and basic 
+scripting 
+languages in UNIX.</p>
+
+</dir>
+
+<a name="vocabulary"><!-- ========================================= --></a>
+<h2>Vocabulary</h2>
+<dir>
+
+<dl>Shell</dl>
+<dd>A program that runs as an interface between the user and the 
+operating system.
+</dd>
+
+<dl>Script</dl>
+<dd>A text file that contains shell commands that can be executed 
+without compilation.
+</dd>
+
+<dl>High-level Programming Language</dl>
+<dd>A programming language that must have its source code compiled into 
+executable or
+some interpreted form before it can be executed by a machine.
+</dd>
+
+<dl>Compiling</dl>
+<dd>The process of translating a high-level language into an executable 
+form.
+</dd>
+
+</dir>
+
+<a name="more_info"><!-- ========================================= --></a>
+<h2>Where to Get More Information</h2>
+<dir>
+
+   <ul>
+   <li><a href="http://www.cs.wisc.edu/csl/cs1000">CS 1000</a>
+   </li><li>Type <code>man csh</code> in an xterm window..
+   </li><li>Part II, "Chapter 6: Shell Concepts", in "Think UNIX" by Jon
+ Lasser.</li>
+   <li>One of your classmates that always seems to complete the programs
+ 
+   earlier than you.  Chances are they have scripts that 
+   automate many of their routine tasks.</li>
+   </ul>
+</dir>
+
+<hr>
+
+©2001 Deb Deppeler <br>
+Please send comments and corrections to <a 
+href="mailto:deppeler@cs.wisc.edu">deppeler@cs.wisc.edu</a>
+
+</body></html>

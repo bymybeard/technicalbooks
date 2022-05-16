@@ -1,0 +1,522 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj05x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj06x.html" tppabs="http://newdata.box.sk/bx/java/tyj06x.html">
+<LINK REL="Previous" HREF="tyj04x.html" tppabs="http://newdata.box.sk/bx/java/tyj04x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj04x.html" tppabs="http://newdata.box.sk/bx/java/tyj04x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj06x.html" tppabs="http://newdata.box.sk/bx/java/tyj06x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 5</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Arrays, Conditionals, and Loops</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >Arrays</A></LI>
+<UL>
+<LI>
+<A HREF = "#I8"  >Declaring Array Variables</A></LI>
+<LI>
+<A HREF = "#I13"  >Creating Array Objects</A></LI>
+<LI>
+<A HREF = "#I24"  >Accessing Array Elements</A></LI>
+<LI>
+<A HREF = "#I34"  >Changing Array Elements</A></LI>
+<LI>
+<A HREF = "#I38"  >Multidimensional Arrays</A></LI></UL>
+<LI>
+<A HREF = "#I41"  >Block Statements</A></LI>
+<LI>
+<A HREF = "#I47"  >if Conditionals</A></LI>
+<UL>
+<LI>
+<A HREF = "#I53"  >The Conditional Operator</A></LI></UL>
+<LI>
+<A HREF = "#I58"  >switch Conditionals</A></LI>
+<LI>
+<A HREF = "#I68"  >for Loops</A></LI>
+<LI>
+<A HREF = "#I83"  >while and do Loops</A></LI>
+<UL>
+<LI>
+<A HREF = "#I84"  >while Loops</A></LI>
+<LI>
+<A HREF = "#I89"  >do...while Loops</A></LI></UL>
+<LI>
+<A HREF = "#I92"  >Breaking Out of Loops</A></LI>
+<UL>
+<LI>
+<A HREF = "#I99"  >Labeled Loops</A></LI></UL>
+<LI>
+<A HREF = "#I102"  >Summary</A></LI>
+<LI>
+<A HREF = "#I103"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 5</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Arrays, Conditionals, and Loops</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>Although you could write Java programs using what you've learned so far, those programs would be pretty dull. Much of the good stuff in Java or in any programming language results when you have arrays to store values in and control-flow constructs (loops and conditionals) to execute different bits of a program based on tests. Today, you'll find out about the following:
+<BR></P>
+<UL>
+<LI>Arrays, one of the most useful objects in Java, which enable you to collect objects or prmitive types into an easy-to-manage list
+<BR>
+<BR></LI>
+<LI>Block statements, for grouping together related statements
+<BR>
+<BR></LI>
+<LI>if and switch, for conditional tests
+<BR>
+<BR></LI>
+<LI>for and while loops, for iteration or repeating a statement or statements multiple times
+<BR>
+<BR></LI></UL>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>Arrays</B>
+<BR></FONT></A></H3>
+<P>Arrays in Java are different <A ID = "I5" NAME = "I5"  ></A>than they are in other languages. Arrays in Java are actual objects that can be passed around and treated just like other objects.
+<BR></P>
+<P><I>Arrays</I> are a way to store a list of items. Each slot of the array holds an individual element, and you can place elements into or change the contents or those slots as you need to.
+<BR></P>
+<P>Arrays can contain any type of element value (primitive types or objects), but you can't store different types in a single array. You can have an array of integers, or an array of strings, or an array of arrays, but you can't have an array that contains, for example, both strings and integers.
+<BR></P>
+<P>To create <A ID = "I6" NAME = "I6"  ></A><A ID = "I7" NAME = "I7"  ></A>an array in Java, you use three steps:
+<BR></P>
+<OL>
+<LI>Declare a variable to hold the array.
+<BR>
+<BR></LI>
+<LI>Create a new array object and assign it to the array variable.
+<BR>
+<BR></LI>
+<LI>Store things in that array.
+<BR>
+<BR></LI></OL>
+<H4><A ID = "I8" NAME = "I8"  >
+<foNT SIZE=3><B>Declaring Array Variables</B>
+<BR></FONT></A></H4>
+<P>The first step to creating an <A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A><A ID = "I11" NAME = "I11"  ></A>array is creating a variable that will hold the array, just as you would any other variable. Array variables indicate the type of object the array will hold (just as they do for any variable) and the name of the array, followed by empty brackets ([]). The following are all typical array variable declarations:
+<BR></P>
+<PRE>String difficultWords[];
+Point hits[];
+int temps[];</PRE>
+<P>An alternate method <A ID = "I12" NAME = "I12"  ></A>of defining an array variable is to put the brackets after the type instead of after the variable. They are equivalent, but this latter form is often much more readable. So, for example, these three declarations could be written like this:
+<BR></P>
+<PRE>String[] difficultWords;
+Point[] hits;
+int[] temps;</PRE>
+<H4><A ID = "I13" NAME = "I13"  >
+<foNT SIZE=3><B>Creating Array Objects</B>
+<BR></FONT></A></H4>
+<P>The second step is <A ID = "I14" NAME = "I14"  ></A><A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A>to create an array object and assign it to that variable. There are two ways to do this:
+<BR></P>
+<UL>
+<LI>Using new
+<BR>
+<BR></LI>
+<LI>Directly initializing the contents of that array
+<BR>
+<BR></LI></UL>
+<P>The first way is <A ID = "I17" NAME = "I17"  ></A><A ID = "I18" NAME = "I18"  ></A><A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A>to use the new operator to create a new instance of an array:
+<BR></P>
+<PRE>String[] names = new String[10];</PRE>
+<P>That line creates a new <A ID = "I21" NAME = "I21"  ></A><A ID = "I22" NAME = "I22"  ></A>array of Strings with ten <I>slots</I>, containing elements. When you create a new array object using new, you must indicate how many slots that array will hold.
+<BR></P>
+<P>Array objects can contain primitive types such as integers or booleans, just as they can contain objects:
+<BR></P>
+<PRE>int[] temps = new int[99];</PRE>
+<P>When you create <A ID = "I23" NAME = "I23"  ></A>an array object using new, all its slots are initialized for you (0 for numeric arrays, false for boolean, '\0' for character arrays, and null for objects). You can also create and initialize an array at the same time. Instead of using new to create the new array object, enclose the elements of the array inside braces, separated by commas:
+<BR></P>
+<PRE>String[] chiles = { &quot;jalapeno&quot;, &quot;anaheim&quot;, &quot;serrano&quot;,
+    &quot;habanero&quot;, &quot;thai&quot; };</PRE>
+<P>Each of the elements inside the braces must be of the same type and must be the same type as the variable that holds that array. An array the size of the number of elements you've included will be automatically created for you. This example creates an array of String objects named chiles that contains five elements.
+<BR></P>
+<H4><A ID = "I24" NAME = "I24"  >
+<foNT SIZE=3><B>Accessing Array Elements</B>
+<BR></FONT></A></H4>
+<P>Once you have <A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A>an array with initial values, you can test and change the values in each slot of that array. To get at a value stored within an array, use<A ID = "I27" NAME = "I27"  ></A><A ID = "I28" NAME = "I28"  ></A> the array <I>subscript</I> expression:
+<BR></P>
+<PRE>myArray[subscript];</PRE>
+<P>The <I>myArray</I> part of this expression is a variable holding an array object, although it can also be an expression that results in an array). The <I>subscript</I> expression specifies the slot within the array to access. Array subscripts start with 0, as they do in C and C++. So, an array with ten elements has ten array slots accessed using subscript 0 to 9.
+<BR></P>
+<P>Note that all <A ID = "I29" NAME = "I29"  ></A><A ID = "I30" NAME = "I30"  ></A>array subscripts are checked to make sure that they are inside the boundaries of the array (greater than or equal to 0 but less than the array's length) either when your Java program is compiled or when it is run. It is impossible in Java to access or assign a value to an array slot outside of the boundaries of the array. Note the following two statements, for example:
+<BR></P>
+<PRE>String[] arr = new String[10];
+arr[10] = &quot;eggplant&quot;;</PRE>
+<P>A program with <A ID = "I31" NAME = "I31"  ></A>that last statement in it produces a compiler error at that line when you try to compile it. The array stored in arr has only ten slots numbered from 0, the element at subscript 10 doesn't exist, and the Java compiler will check for that.
+<BR></P>
+<P>If the array subscript is calculated at run-time (for example, as part of a loop) and ends up outside the boundaries of the array, the Java interpreter also produces an error (actually, to be technically correct, it throws an exception). You'll learn more about exceptions later on next week and on Day 18.
+<BR></P>
+<P>How can you keep from overrunning the end <A ID = "I32" NAME = "I32"  ></A><A ID = "I33" NAME = "I33"  ></A>of an array accidentally in your own programs? You can test for the length of the array in your programs using the length instance variable&#151;it's available for all array objects, regardless of type:
+<BR></P>
+<PRE>int len = arr.length // returns 10</PRE>
+<H4><A ID = "I34" NAME = "I34"  >
+<foNT SIZE=3><B>Changing Array Elements</B>
+<BR></FONT></A></H4>
+<P>To assign an element value <A ID = "I35" NAME = "I35"  ></A>to a particular array slot, merely put an assignment statement after the array access expression:
+<BR></P>
+<PRE>myarray[1] = 15;
+sentence[0] = &quot;The&quot;;
+sentence[10] = sentence[0];</PRE>
+<P>An important thing to <A ID = "I36" NAME = "I36"  ></A><A ID = "I37" NAME = "I37"  ></A>note is that an array of objects in Java is an array of references to those objects (similar in some ways to an array of pointers in C or C++). When you assign a value to a slot in an array, you're creating a reference to that object, just as you do for a plain variable. When you move values around inside arrays (as in that last line), you just reassign the reference; you don't copy the value from one slot to another. Arrays of primitive types such as ints or floats do copy the values from one slot to another.
+<BR></P>
+<P>Arrays of references to objects, as opposed to the objects themselves, are particularly useful because it means you can have multiple references to the same objects both inside and outside arrays&#151;for example, you can assign an object contained in an array to a variable and refer to that same object by using either the variable or the array position.
+<BR></P>
+<H4><A ID = "I38" NAME = "I38"  >
+<foNT SIZE=3><B>Multidimensional Arrays</B>
+<BR></FONT></A></H4>
+<P>Java does not <A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A>support multidimensional arrays. However, you can declare and create an array of arrays (and those arrays can contain arrays, and so on, for however many dimensions you need), and access them as you would C-style multidimensional arrays:
+<BR></P>
+<PRE>int coords[][] = new int[12][12];
+coords[0][0] = 1;
+coords[0][1] = 2;</PRE>
+<H3><A ID = "I41" NAME = "I41"  >
+<foNT SIZE=4><B>Block Statements</B>
+<BR></FONT></A></H3>
+<P>A block statement is <A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A>a group of <A ID = "I44" NAME = "I44"  ></A><A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A>other statements surrounded by braces ({}). You can use a block anywhere a single statement would go, and the new block creates a new local scope for the statements inside it. This means that you can declare and use local variables inside a block, and those variables will cease to exist after the block is finished executing. For example, here's a block inside a method definition that declares a new variable y. You cannot use y outside the block in which it's declared:
+<BR></P>
+<PRE>void testblock() {
+    int x = 10;
+    { // start of block
+      int y = 50;
+      System.out.println(&quot;inside the block:&quot;);
+      System.out.println(&quot;x:&quot; + x);
+      System.out.println(&quot;y:&quot; + y);
+    } // end of block
+}</PRE>
+<P>Blocks are not usually used in this way&#151;alone in a method definition. You've mostly seen blocks up to this point surrounding class and method definitions, but another very common use of block statements is in the control flow constructs you'll learn about in the remainder of today's lesson.
+<BR></P>
+<H3><A ID = "I47" NAME = "I47"  >
+<foNT SIZE=4><B>if</B><B> Conditionals</B>
+<BR></FONT></A></H3>
+<P>The if conditional, which <A ID = "I48" NAME = "I48"  ></A><A ID = "I49" NAME = "I49"  ></A>enables you to execute different bits of code based on a simple test in Java, is nearly identical to if statements in C. if conditionals contain the keyword if, followed by a boolean test, followed by a statement (often a block statement) to execute if the test is true:
+<BR></P>
+<PRE>if (x &lt; y)
+    System.out.println(&quot;x is smaller than y&quot;);</PRE>
+<P>An optional else keyword provides <A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A>the statement to execute if the test is false:
+<BR></P>
+<PRE>if (x &lt; y)
+    System.out.println(&quot;x is smaller than y&quot;);
+else System.out.println(&quot;y is bigger&quot;);</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> The difference <A ID = "I52" NAME = "I52"  ></A>between if conditionals in Java and C or C++ is that the test must return a boolean value (true or false). Unlike in C, the test cannot return an integer.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<PRE>if (engineState == true ) 
+    System.out.println(&quot;Engine is already on.&quot;);
+else {
+    System.out.println(&quot;Now starting Engine.&quot;);
+    if (gasLevel &gt;= 1)
+        engineState = true;
+    else System.out.println(&quot;Low on gas! Can't start engine.&quot;);
+}</PRE>
+<P>This example uses the test (engineState == true). For boolean tests of this type, a common shortcut is merely to include the first part of the expression, rather than explicitly testing its value against true or false:
+<BR></P>
+<PRE>if (engineState)
+    System.out.println(&quot;Engine is on.&quot;);
+else System.out.println(&quot;Engine is off.&quot;);</PRE>
+<H4><A ID = "I53" NAME = "I53"  >
+<foNT SIZE=3><B>The Conditional Operator</B>
+<BR></FONT></A></H4>
+<P>An alternative to <A ID = "I54" NAME = "I54"  ></A><A ID = "I55" NAME = "I55"  ></A>using the if and else keywords in a conditional statement is to use the conditional operator, sometimes <A ID = "I56" NAME = "I56"  ></A><A ID = "I57" NAME = "I57"  ></A>called the ternary operator. 
+<BR></P>
+<P>The <I>conditional operator</I> is a <I>ternary operator</I> because it has three terms.
+<BR></P>
+<P>The conditional operator is an expression, meaning that it returns a value (unlike the more general if, which only can result in a statement or block being executed). The conditional operator is most useful for very short or simple conditionals, and looks like this:
+<BR></P>
+<PRE>test ? trueresult : falseresult</PRE>
+<P>The <I>test</I> is an expression that returns true or false, just like the test in the if statement. If the test is true, the conditional operator returns the value of <I>trueresult</I>; if it's false, it returns the value of <I>falseresult</I>. For example, the following conditional tests the values of x and y, returns the smaller of the two, and assigns that value to the variable smaller:
+<BR></P>
+<PRE>int smaller = x &lt; y ? x : y;</PRE>
+<P>The conditional operator has a very low precedence; that is, it's usually evaluated only after all its subexpressions are evaluated. The only operators lower in precedence are the assignment operators. See the precedence chart in Day 3's lesson for a refresher on precedence of all the operators.
+<BR></P>
+<H3><A ID = "I58" NAME = "I58"  >
+<foNT SIZE=4><B>switch</B><B><I> </I></B><B>Conditionals</B>
+<BR></FONT></A></H3>
+<P>A common programming practice <A ID = "I59" NAME = "I59"  ></A><A ID = "I60" NAME = "I60"  ></A>in any language is to test a variable against some value, and if it doesn't match that value, to test it again against a different value, and if it doesn't match that one to make yet another test, and so on. Using only if statements, this can become unwieldy, depending on how it's formatted and how many different options you have to test. For example, you might end up with a set of if statements something like this or longer:
+<BR></P>
+<PRE>if (oper == '+')
+  addargs(arg1, arg2);
+else if (oper == '-')
+   subargs(arg1, arg2);
+else if (oper == '*')
+   multargs(arg1, arg2);
+else if (oper == '/')
+   divargs(arg1, arg2);</PRE>
+<P>This <A ID = "I61" NAME = "I61"  ></A><A ID = "I62" NAME = "I62"  ></A>form of if statement is called a nested if, <A ID = "I63" NAME = "I63"  ></A>because each else statement in turn contains yet another if, and so on, until all possible tests have been made.
+<BR></P>
+<P>A common shorthand mechanism for nested ifs that you can use in some cases allows you to group tests and actions together in a single statement. This is the switch or case statement; in Java it's switch and behaves as it does in C:
+<BR></P>
+<PRE>switch (test) {
+    case valueOne:     
+            resultOne;
+      break;
+    case valueTwo:     
+            resultTwo;
+      break;
+    case valueThree:   
+            resultThree;
+      break;
+    ...
+    default: defaultresult;
+}</PRE>
+<P>In the switch statement, the <A ID = "I64" NAME = "I64"  ></A><A ID = "I65" NAME = "I65"  ></A>test (a primitive type of byte, char, short, or int) is compared with each of the case values in turn. If a match is found, the statement, or statements after the test is executed. If no match is found, the default statement is executed. The default is optional, so if there isn't a match in any of the cases and default doesn't exist, the switch statement completes without doing anything.
+<BR></P>
+<P>Note that the significant limitation of the switch in Java is that the tests and values can be only simple primitive types (and then only primitive types that are castable to int). You cannot use larger primitive types (long, float), strings, or other objects within a switch, nor can you test for any relationship other than equality. This limits the usefulness of switch to all but the simplest cases; nested ifs can work for any kind of test on any type.
+<BR></P>
+<P>Here's a simple example of a switch statement similar to the nested if shown earlier:
+<BR></P>
+<PRE>switch (oper) {
+    case '+':
+        addargs(arg1, arg2);
+        break;
+    case '*':
+        subargs(arg1, arg2);
+        break;
+    case '-':
+        multargs(arg1, arg2);
+        break;
+    case '/':
+        divargs(arg1, arg2);
+        break;
+}</PRE>
+<P>Note the break statement <A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A>included in every line. Without the explicit break, once a match is made, the statements for that match and also all the statements further down in the switch are executed until a break or the end of the switch is found (and then execution continues after the end of the switch). In some cases, this may be exactly what you want to do, but in most cases, you'll want to make sure to include the break so that only the statements you want to be executed are executed.
+<BR></P>
+<P>One handy use of falling through occurs when you want multiple values to execute the same statements. In this instance, you can use multiple case lines with no result, and the switch will execute the first statements it finds. For example, in the following switch statement, the string &quot;x is an even number.&quot; is printed if x has values of 2, 4, 6, or 8. All other values of x print the string &quot;x is an odd number.&quot;
+<BR></P>
+<PRE>switch (x) {
+    case 2:
+    case 4:
+    case 6:
+    case 8: 
+       System.out.println(&quot;x is an even number.&quot;);
+       break;
+    default: System.out.println(&quot;x is an odd number.&quot;);
+}</PRE>
+<H3><A ID = "I68" NAME = "I68"  >
+<foNT SIZE=4><B>for</B><B> Loops</B>
+<BR></FONT></A></H3>
+<P>The for loop, as in C, repeats <A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A>a statement or block of statements some number of times until a condition is matched. for loops are frequently used for simple iteration in which you repeat a block of statements a certain number of times and then stop, but you can use for loops for just about any kind of loop.
+<BR></P>
+<P>The for loop in Java looks roughly like this:
+<BR></P>
+<PRE>for (initialization; test; increment) {
+    statements;
+}</PRE>
+<P>The start of the for loop has three parts:
+<BR></P>
+<UL>
+<LI>initialization is an expression <A ID = "I71" NAME = "I71"  ></A><A ID = "I72" NAME = "I72"  ></A><A ID = "I73" NAME = "I73"  ></A>that initializes the start of the loop. If you have a loop index, this expression might declare and initialize it, for example, int i = 0. Variables that you declare in this part of the for loop are local to the loop itself; they cease existing after the loop is finished executing.
+<BR>
+<BR></LI>
+<LI>test is the test <A ID = "I74" NAME = "I74"  ></A><A ID = "I75" NAME = "I75"  ></A>that occurs after each pass of the loop. The test must be a boolean expression or function that returns a boolean value, for example, i &lt; 10. If the test is true, the loop executes. Once the test is false, the loop stops executing.
+<BR>
+<BR></LI>
+<LI>increment is any <A ID = "I76" NAME = "I76"  ></A>expression or function call. Commonly, the increment is used to change the value of the loop index to bring the state of the loop closer to returning false and completing.
+<BR>
+<BR></LI></UL>
+<P>The statement part of the for loop is the statements that are executed each time the loop iterates. Just as with if, you can include either a single statement here or a block; the previous example used a block because that is more common. Here's an example of a for loop that initializes all the values of a String array to null strings:
+<BR></P>
+<PRE>String strArray[] = new String[10];
+int i; // loop index
+for (i = 0; i &lt; strArray.length; i++)
+    strArray[i] = &quot;&quot;;</PRE>
+<P>Any of the <A ID = "I77" NAME = "I77"  ></A><A ID = "I78" NAME = "I78"  ></A><A ID = "I79" NAME = "I79"  ></A><A ID = "I80" NAME = "I80"  ></A>parts of the for loop can be empty statements, that is, you can simply include a semicolon with no expression or statement, and that part of the for loop will be ignored. Note that if you do use a null statement in your for loop, you may have to initialize or increment any loop variables or loop indices yourself elsewhere in the program.
+<BR></P>
+<P>You can also have an empty statement for the body of your for loop, if everything you want to do is in the first line of that loop. For example, here's one that finds the first prime number higher than 4000:
+<BR></P>
+<PRE>for (i = 4001; notPrime(i); i += 2)
+    ;</PRE>
+<P>Note that a common <A ID = "I81" NAME = "I81"  ></A><A ID = "I82" NAME = "I82"  ></A>mistake in C that also occurs in Java is to accidentally put a semicolon after the first line of the for loop:
+<BR></P>
+<PRE>for (i = 0; i &lt; 10; i++);
+    System.out.println(&quot;Loop!&quot;);</PRE>
+<P>Because the first semicolon ends the loop with an empty statement, the loop doesn't actually do anything. The println function will be printed only once, because it's actually outside the for loop entirely. Be careful not to make this mistake in your own Java programs.
+<BR></P>
+<H3><A ID = "I83" NAME = "I83"  >
+<foNT SIZE=4><B>while </B><B>and </B><B>do</B><B> Loops</B>
+<BR></FONT></A></H3>
+<P>Finally, there are while and do loops. while and do loops, like for loops, enable a block of Java code to be executed repeatedly until a specific condition is met. Whether you use a for loop, a while, or a do is mostly a matter of your programming style.
+<BR></P>
+<P>while and do loop, are exactly the same as in C and C++ except their test condition must be a boolean.
+<BR></P>
+<H4><A ID = "I84" NAME = "I84"  >
+<foNT SIZE=3><B>while Loops</B>
+<BR></FONT></A></H4>
+<P>The while loop is <A ID = "I85" NAME = "I85"  ></A><A ID = "I86" NAME = "I86"  ></A>used to repeat a statement or <A ID = "I87" NAME = "I87"  ></A><A ID = "I88" NAME = "I88"  ></A>block of statements as long as a particular condition is true. while loops look like this:
+<BR></P>
+<PRE>while (condition) {
+    bodyOfLoop;
+}</PRE>
+<P>The <I>condition</I> is a boolean expression. If it returns true, the while loop executes the statements in bodyOfLoop and then tests the condition again, repeating until the condition is false. I've shown the while loop here with a block statement, because it's most commonly used, although you can use a single statement in place of the block.
+<BR></P>
+<P>Here's an example of a while loop that copies the elements of an array of integers (in array1) to an array of floats (in array2), casting each element to a float as it goes. The one catch is that if any of the elements in the first array is 0, the loop will immediately exit at that point. To cover both the cases wherein all the elements have been copied and an element is 0, you can use a compound test with the &amp;&amp; operator:
+<BR></P>
+<PRE>int count = 0;
+while ( count &lt; array1.length &amp;&amp; array1[count] !=0) {
+    array2[count] = (float) array1[count++];
+}</PRE>
+<P>Note that if the condition is initially false the first time it is tested (for example, if the first element in that first array is 0), the body of the while loop will never be executed. If you need to execute the loop at least once, you can do one of two things:
+<BR></P>
+<UL>
+<LI>Duplicate the body of the loop outside the while loop.
+<BR>
+<BR></LI>
+<LI>Use a do loop (described below).
+<BR>
+<BR></LI></UL>
+<P>The do loop is considered the better solution of the two.
+<BR></P>
+<H4><A ID = "I89" NAME = "I89"  >
+<foNT SIZE=3><B>do...while Loops</B>
+<BR></FONT></A></H4>
+<P>The do loop is just <A ID = "I90" NAME = "I90"  ></A><A ID = "I91" NAME = "I91"  ></A>like a while loop, except that do executes a given statement or block until the condition is false. The main difference is that while loops test the condition before looping, making it possible that the body of the loop will never execute if the condition is false the first time it's tested. do loops run the body of the loop at least once before testing the condition. do loops look like this:
+<BR></P>
+<PRE>do {
+    bodyOfLoop;
+} while (<I>condition</I>);</PRE>
+<P>Here, the bodyOfLoop part is the statements that are executed with each iteration. It's shown here with a block statement because it's most commonly used that way, but you can substitute the braces for a single statement as you can with the other control-flow constructs. The condition is a boolean test. If it returns true, the loop is run again. If it returns false, the loop exits. Keep in mind that with do loops, the body of the loop executes at least once.
+<BR></P>
+<P>Here's a simple example of a do loop that prints a message each time the loop iterates:
+<BR></P>
+<PRE>int x = 1;
+do {
+    System.out.println(&quot;Looping, round &quot; + x);
+    x++;
+} while (x &lt;= 10);</PRE>
+<P>Here's the output of these statements:
+<BR></P>
+<PRE>Looping, round 1
+Looping, round 2
+Looping, round 3
+Looping, round 4
+Looping, round 5
+Looping, round 6
+Looping, round 7
+Looping, round 8
+Looping, round 9
+Looping, round 10</PRE>
+<H3><A ID = "I92" NAME = "I92"  >
+<foNT SIZE=4><B>Breaking Out of Loops</B>
+<BR></FONT></A></H3>
+<P>In all <A ID = "I93" NAME = "I93"  ></A><A ID = "I94" NAME = "I94"  ></A>the loops (for, while, and do), the loop ends when the condition you're testing for is met. What happens if something odd occurs within the body of the loop and you want to exit the loop early? For that, you can use the break and continue keywords.
+<BR></P>
+<P>You've already seen break as <A ID = "I95" NAME = "I95"  ></A><A ID = "I96" NAME = "I96"  ></A>part of the switch statement; it stops execution of the switch, and the program continues. The break keyword, when used with a loop, does the same thing&#151;it immediately halts execution of the current loop. If you've nested loops within loops, execution picks up in the next outer loop; otherwise, the program merely continues executing the next statement after the loop.
+<BR></P>
+<P>For example, take that while loop that copied elements from an integer array into an array of floats until the end of the array or until a 0 is reached. You can test for that latter case inside the body of the while and then use a break to exit the loop:
+<BR></P>
+<PRE>int count = 0;
+while (count &lt; array1.length) {
+    if (array1[count] == 0) {
+        break;
+    }
+    array2[count] = (float) array1[count++];
+}</PRE>
+<P>continue is <A ID = "I97" NAME = "I97"  ></A><A ID = "I98" NAME = "I98"  ></A>similar to break except that instead of halting execution of the loop entirely, the loop starts over at the next iteration. For do and while loops, this means the execution of the block starts over again; for for loops, the increment expression is evaluated and then the block is executed. continue is useful when you want to special-case elements within a loop. With the previous example of copying one array to another, you can test for whether the current element is 0 and restart the loop if you find it so that the resulting array will never contain zero. Note that because you're skipping elements in the first array, you now have to keep track of two different array counters:
+<BR></P>
+<PRE>int count1 = 0;
+int count2 = 0;
+while (count &lt; array1.length) {
+    if (array1[count] == 0) 
+       continue;
+    array2[count2++] = (float)array1[count++];
+}</PRE>
+<H4><A ID = "I99" NAME = "I99"  >
+<foNT SIZE=3><B>Labeled Loops</B>
+<BR></FONT></A></H4>
+<P>Both break and continue can <A ID = "I100" NAME = "I100"  ></A><A ID = "I101" NAME = "I101"  ></A>have an optional label that tells Java where to break to. Without a label, break jumps outside the nearest loop (to an enclosing loop or to the next statement outside the loop), and continue restarts the enclosing loop. Using labeled breaks and continues enables you to break outside nested loops or to continue a loop outside the current loop.
+<BR></P>
+<P>To use a labeled loop, add the label before the initial part of the loop, with a colon between them. Then, when you use break or continue, add the name of the label after the keyword itself:
+<BR></P>
+<PRE>out:
+    for (int i = 0; i &lt;10; i++) {
+        while (x &lt; 50) {
+            if (i * x == 400)
+                break out;
+            ...
+        }
+        ...
+    }</PRE>
+<P>In this snippet of code, the label out labels the outer loop. Then, inside both the for and the while loop, when a particular condition is met, a break causes the execution to break out of both loops.
+<BR></P>
+<P>Here's another example: the following program contains a nested for loop. Inside the innermost loop, if the summed values of the two counters is greater than four, both loops exit at once:
+<BR></P>
+<PRE>foo:
+    for (int i = 1; i &lt;= 5; i++)
+        for (int j = 1; j &lt;= 3; j++) {
+            System.out.println(&quot;i is &quot; + i + &quot;, j is &quot; + j);
+            if ((i + j) &gt; 4)
+                break foo;
+        }
+System.out.println(&quot;end of loops&quot;);</PRE>
+<P>Here's the output from this program:
+<BR></P>
+<PRE>i is 1, j is 1
+i is 1, j is 2
+i is 1, j is 3
+i is 2, j is 1
+i is 2, j is 2
+i is 2, j is 3
+end of loops</PRE>
+<P>As you can see, the loop iterated until the sum of i and j was greater than 4, and then both loops exited back to the outer block and the final message was printed.
+<BR></P>
+<H3><A ID = "I102" NAME = "I102"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Today, you learned about three main topics that you'll most likely use quite often in your own Java programs: arrays, conditionals, and loops.
+<BR></P>
+<P>You learned how to declare an array variable, create and assign an array object to that variable, and access and change elements within that array.
+<BR></P>
+<P>Conditionals include the if and switch statements, with which you can branch to different parts of your program based on a boolean test.
+<BR></P>
+<P>Finally, you learned about the for, while, and do loops, each of which enable you to execute a portion of your program repeatedly until a given condition is met.
+<BR></P>
+<P>Now that you've learned the small stuff, all that's left is to go over the bigger issues of declaring classes and creating methods within which instances of those classes can communicate with each other by calling methods. Get to bed early tonight, because tomorrow is going to be a wild ride.
+<BR></P>
+<H3><A ID = "I103" NAME = "I103"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: If arrays are objects, and you use </B><B>new</B><B> to create them, and they have </B><B>an instance variable </B><B>length</B><B>, where is the </B><B>Array</B><B> class? I didn't see it in the </B><B>Java class libraries.</B>
+<BR></P>
+<P><B>A: </B>Arrays are implemented <A ID = "I104" NAME = "I104"  ></A><A ID = "I105" NAME = "I105"  ></A>kind of weirdly in Java. The Array class is constructed automatically when your Java program runs; Array provides the basic framework for arrays, including the length variable. Additionally, each primitive type and object has an implicit subclass of Array that represents an array of that class or object. When you create a new array object, it may not have an actual class, but it behaves as if it does.
+<BR></P>
+<P><B>Q: Does Java have </B><B>gotos</B><B>?</B>
+<BR></P>
+<P><B>A: </B>The Java language <A ID = "I106" NAME = "I106"  ></A><A ID = "I107" NAME = "I107"  ></A>defines the keyword goto, but it is not currently used for anything. In other words, no, Java does not have gotos.
+<BR></P>
+<P><B>Q: I declared a variable </B><A ID = "I108" NAME = "I108"  ></A><A ID = "I109" NAME = "I109"  ></A><A ID = "I110" NAME = "I110"  ></A><B>inside a block statement for an </B>if.<B> When the </B>if <B>was done, the definition of that variable vanished. Where did it go?</B>
+<BR></P>
+<P><B>A: </B>In technical terms, block statements inside braces form a new lexical scope. What this means is that if you declare a variable inside a block, it's only visible and usable inside that block. Once the block finishes executing, all the variables you declared go away.
+<BR>
+<BR>It's a good idea to declare most of your variables in the outermost block in which they'll be needed&#151;usually at the top of a block statement. The exception might be very simple variables, such as index counters in for loops, where declaring them in the first line of the for loop is an easy shortcut.
+<BR>
+<BR>You'll learn more about variables and scope tomorrow.
+<BR></P>
+<P><B>Q: Why can't you use </B><B>switch</B><B> with strings?</B>
+<BR></P>
+<P><B>A: </B>Strings are objects, and switch in Java works only for the primitive types byte, char, short, and int. To compare strings, you have to use nested ifs, which enable more general expression tests, including string comparison.
+<BR></P>
+<P><B>Q: It seems to me that a lot of </B><B>for</B><B> loops could be written as </B><B>while</B><B> loops, </B><B>and vice versa.</B>
+<BR></P>
+<P><B>A: </B>True. The for loop is actually a special case of while that enables you to iterate a loop a specific number of times. You could just as easily do this with a while and then increment a counter inside the loop. Either works equally well. This is mostly just a question of programming style and personal choice.
+<BR></P>
+<P><A HREF = "tyj04x.html" tppabs="http://newdata.box.sk/bx/java/tyj04x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj06x.html" tppabs="http://newdata.box.sk/bx/java/tyj06x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

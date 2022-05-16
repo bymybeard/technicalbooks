@@ -1,0 +1,807 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj09x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj10x.html" tppabs="http://newdata.box.sk/bx/java/tyj10x.html">
+<LINK REL="Previous" HREF="tyj08x.html" tppabs="http://newdata.box.sk/bx/java/tyj08x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj08x.html" tppabs="http://newdata.box.sk/bx/java/tyj08x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj10x.html" tppabs="http://newdata.box.sk/bx/java/tyj10x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 9</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Graphics, Fonts, and Color</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >The Graphics Class</A></LI>
+<UL>
+<LI>
+<A HREF = "#I9"  >The Graphics Coordinate System</A></LI></UL>
+<LI>
+<A HREF = "#I12"  >Drawing and Filling</A></LI>
+<UL>
+<LI>
+<A HREF = "#I15"  >Lines</A></LI>
+<LI>
+<A HREF = "#I19"  >Rectangles</A></LI>
+<LI>
+<A HREF = "#I49"  >Polygons</A></LI>
+<LI>
+<A HREF = "#I62"  >Ovals</A></LI>
+<LI>
+<A HREF = "#I74"  >Arc</A></LI>
+<LI>
+<A HREF = "#I84"  >A Simple Graphics Example</A></LI>
+<LI>
+<A HREF = "#I89"  >Copying and Clearing</A></LI></UL>
+<LI>
+<A HREF = "#I101"  >Text and Fonts</A></LI>
+<UL>
+<LI>
+<A HREF = "#I106"  >Creating Font Objects</A></LI>
+<LI>
+<A HREF = "#I115"  >Drawing Characters and Strings</A></LI>
+<LI>
+<A HREF = "#I125"  >Finding Out Information About a Font</A></LI></UL>
+<LI>
+<A HREF = "#I134"  >Color</A></LI>
+<UL>
+<LI>
+<A HREF = "#I136"  >Using Color Objects</A></LI>
+<LI>
+<A HREF = "#I148"  >Testing and Setting the Current Colors</A></LI>
+<LI>
+<A HREF = "#I160"  >A Single Color Example</A></LI></UL>
+<LI>
+<A HREF = "#I165"  >Summary</A></LI>
+<LI>
+<A HREF = "#I166"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 9</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Graphics, Fonts, and Color</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>Now you have a basic understanding of how applets work. For the remainder of this week you'll cover the sorts of things you can do with applets with the built-in Java class libraries, and how you can combine them to produce interesting effects. You'll start today with how to draw to the screen&#151;that is, how to produce lines and shapes with the built-in graphics primitive, how to print text using fonts, and how to use and modify color in your applets. Today you'll learn, specifically:
+<BR></P>
+<UL>
+<LI>How the graphics system works in Java: the Graphics class, the coordinate system used to draw to the screen, and how applets paint and repaint
+<BR>
+<BR></LI>
+<LI>Using the Java graphics primitives, including drawing and filling lines, rectangles, ovals, and arcs
+<BR>
+<BR></LI>
+<LI>Creating and using fonts, including how to draw characters and strings and how to find out the metrics of a given font for better layout
+<BR>
+<BR></LI>
+<LI>All about color in Java, including the Color class and how to set the foreground (drawing) and background color for your applet
+<BR>
+<BR></LI></UL>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Today's lesson discusses many of the basic operations available to you with the Java class library regarding graphics, fonts, and color. However, today's lesson, as well as all of this book, is also intended to be more of an introduction and an overview than an exhaustive description of all the features available to you. Be sure to check out the Java API documentation for more information on the classes described today.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>The Graphics Class</B>
+<BR></FONT></A></H3>
+<P>With Java's graphics capabilities, you can draw lines, shapes, characters, and images to the screen inside your applet. Most of the graphics operations in Java are methods defined <A ID = "I5" NAME = "I5"  ></A><A ID = "I6" NAME = "I6"  ></A>in the Graphics class. You don't have to create an instance of Graphics in order to draw something in your applet; in your applet's paint() method (which you learned about yesterday), you are given a <A ID = "I7" NAME = "I7"  ></A><A ID = "I8" NAME = "I8"  ></A>Graphics object. By drawing on that object, you draw onto your applet and the results appear on screen.
+<BR></P>
+<P>The Graphics class is part of the java.awt package, so if your applet does any painting (as it usually will), make sure you import that class at the beginning of your Java file:
+<BR></P>
+<PRE>import java.awt.Graphics;
+public class MyClass extends java.applet.Applet {
+...
+}</PRE>
+<H4><A ID = "I9" NAME = "I9"  >
+<foNT SIZE=3><B>The Graphics Coordinate System</B>
+<BR></FONT></A></H4>
+<P>To draw an object <A ID = "I10" NAME = "I10"  ></A><A ID = "I11" NAME = "I11"  ></A>on the screen, you call one of the drawing methods available in the Graphics class. All the drawing methods have arguments representing endpoints, corners, or starting locations of the object as values in the applet's coordinate system&#151;for example, a line starts at the point 10,10 and ends at the point 20,20.
+<BR></P>
+<P>Java's coordinate system has the origin (0,0) in the top left corner. Positive x values are to the right, and positive y values are down. All pixel values are integers; there are no partial or fractional pixels. Figure 9.1 shows how you might draw a simple square by using this coordinate system.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj01.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj01.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj01.gif"  >Figure 9.1. The Java graphics coordinate system.</B></A>
+<BR></P>
+<P>Java's coordinate system is different from many painting and layout programs that have their x and y in the bottom left. If you're not used to working with this upside-down graphics system, it may take some practice to get familiar with it.
+<BR></P>
+<H3><A ID = "I12" NAME = "I12"  >
+<foNT SIZE=4><B>Drawing and Filling</B>
+<BR></FONT></A></H3>
+<P>The Graphics class provides a set of simple built-in graphics primitives for drawing, including lines, rectangles, polygons, ovals, and arcs.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Bitmap images, <A ID = "I13" NAME = "I13"  ></A><A ID = "I14" NAME = "I14"  ></A>such as GIF files, can also be drawn by using the Graphics class. You'll learn about this tomorrow.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I15" NAME = "I15"  >
+<foNT SIZE=3><B>Lines</B>
+<BR></FONT></A></H4>
+<P>To draw straight <A ID = "I16" NAME = "I16"  ></A><A ID = "I17" NAME = "I17"  ></A><A ID = "I18" NAME = "I18"  ></A>lines, use the drawLine() method. drawLine() takes four arguments: the x and y coordinates of the starting point and the x and y coordinates of the ending point.
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    g.drawLine(25,25,75,75);
+}</PRE>
+<P>Figure 9.2 shows the result of this snippet of code.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj02.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj02.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj02.gif"  >Figure 9.2. Drawing lines.</B></A>
+<BR></P>
+<H4><A ID = "I19" NAME = "I19"  >
+<foNT SIZE=3><B>Rectangles</B>
+<BR></FONT></A></H4>
+<P>The Java graphics <A ID = "I20" NAME = "I20"  ></A><A ID = "I21" NAME = "I21"  ></A>primitives provide not just one, but three kinds of rectangles:
+<BR></P>
+<UL>
+<LI>Plain rectangles
+<BR>
+<BR></LI>
+<LI>Rounded rectangles, which are rectangles with rounded corners
+<BR>
+<BR></LI>
+<LI>Three-dimensional rectangles, which are drawn with a shaded border
+<BR>
+<BR></LI></UL>
+<P>For each of these rectangles, you have two methods to choose from: one that draws the rectangle in outline form, and one that draws the rectangle filled with color.
+<BR></P>
+<P>To draw a plain <A ID = "I22" NAME = "I22"  ></A><A ID = "I23" NAME = "I23"  ></A><A ID = "I24" NAME = "I24"  ></A>rectangle, use either <A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A><A ID = "I27" NAME = "I27"  ></A><A ID = "I28" NAME = "I28"  ></A>the drawRect() or fillRect() methods. Both take four arguments: the x and y coordinates of the top left corner of the rectangle, and the width and height of the rectangle to draw. For example, the following paint() method <A ID = "I29" NAME = "I29"  ></A><A ID = "I30" NAME = "I30"  ></A>draws two squares: the left one is an outline and the right one is filled (Figure 9.3 shows the result):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj03.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj03.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj03.gif"  >Figure 9.3. Rectangles.</B></A>
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    g.drawRect(20,20,60,60);
+    g.fillRect(120,20,60,60);
+}</PRE>
+<P>Rounded rectangles <A ID = "I31" NAME = "I31"  ></A><A ID = "I32" NAME = "I32"  ></A><A ID = "I33" NAME = "I33"  ></A>are, as you might expect, rectangles with rounded edges. <A ID = "I34" NAME = "I34"  ></A><A ID = "I35" NAME = "I35"  ></A><A ID = "I36" NAME = "I36"  ></A><A ID = "I37" NAME = "I37"  ></A>The drawRoundRect() and fillRoundRect() methods to draw rounded rectangles are similar to regular rectangles except that rounded rectangles have two extra arguments for the <A ID = "I38" NAME = "I38"  ></A><A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A>width and height of the angle of the corners. Those two arguments determine how far along the edges of the rectangle the arc for the corner will start; the first for the angle along the horizontal plane, the second for the vertical. Larger values for the angle width and height make the overall rectangle more rounded; values equal to the width and height of the rectangle itself produce a circle. Figure 9.4 shows some examples of rounded corners.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj04.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj04.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj04.gif"  >Figure 9.4. Rounded corners.</B></A>
+<BR></P>
+<P>Here's a paint() method that draws two rounded rectangles: one as an outline with a rounded corner 10 pixels square; the other, filled, with a rounded corner 20 pixels square (Figure 9.5 shows the resulting squares):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj05.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj05.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj05.gif"  >Figure 9.5. Rounded rectangles.</B></A>
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    g.drawRoundRect(20,20,60,60,10,10);
+    g.fillRoundRect(120,20,60,60,20,20);
+}</PRE>
+<P>Finally, there are <A ID = "I41" NAME = "I41"  ></A><A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A>three-dimensional rectangles. These rectangles aren't really 3D; instead, they have a shadow effect that makes them appear either raised or indented from the surface of the applet. Three-dimensional rectangles have four <A ID = "I44" NAME = "I44"  ></A>arguments for the x and y of the start position and the width and height of the rectangle. The fifth argument is a boolean indicating whether the 3D effect is to raise the rectangle (true) or indent it (false). As with the other rectangles, there are also different methods for drawing and filling: draw3DRect()<A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A> and fill3DRect()<A ID = "I47" NAME = "I47"  ></A><A ID = "I48" NAME = "I48"  ></A>. Here's code to produce two of them&#151;the left one indented, the right one raised (Figure 9.6 shows the result):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj06.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj06.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj06.gif"  >Figure 9.6. Three-dimensional</B></A>
+<BR><B>rectangles.</B>
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    g.draw3DRect(20,20,60,60,true);
+    g.draw3DRect(120,20,60,60,false);
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> In the current version of the Java developer's kit, it is very difficult to see the 3D effect on 3D rectangles, due to a very small line width. (In fact, I enhanced Figure 9.6 to better show the effect.) If you are having troubles with 3D rectangles, this may be why. Drawing 3D rectangles in any color other than black makes them easier to see.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I49" NAME = "I49"  >
+<foNT SIZE=3><B>Polygons</B>
+<BR></FONT></A></H4>
+<P>Polygons are shapes with an <A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A>unlimited number of sides. To draw a polygon, you need a set of x and y coordinates, and the drawing method then starts at one, draws a line to the second, then a line to the third, and so on.
+<BR></P>
+<P>As with rectangles, you can draw an outline or a filled polygon (the drawPolygon()<A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A> and fillPolygon() methods<A ID = "I54" NAME = "I54"  ></A><A ID = "I55" NAME = "I55"  ></A>, respectively). You also have a choice of how you want to indicate the list of coordinates&#151;either as arrays of x and y coordinates or as an instance of the Polygon class.
+<BR></P>
+<P>Using the first method, <A ID = "I56" NAME = "I56"  ></A>the drawPolygon() and fillPolygon() methods take three arguments:
+<BR></P>
+<UL>
+<LI>An array of integers <A ID = "I57" NAME = "I57"  ></A>representing x coordinates
+<BR>
+<BR></LI>
+<LI>An array of integers representing y coordinates
+<BR>
+<BR></LI>
+<LI>An integer for the total number of points
+<BR>
+<BR></LI></UL>
+<P>The x and y arrays should, of course, have the same number of elements.
+<BR></P>
+<P>Here's an example of drawing a polygon's outline by using this method (Figure 9.7 shows the result):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj07.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj07.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj07.gif"  >Figure 9.7. A polygon.</B></A>
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    int exes[] = { 39,94,97,142,53,58,26 };
+    int whys[] = { 33,74,36,70,108,80,106 };
+    int pts = exes.length;
+    g.drawPolygon(exes,whys,pts);
+}</PRE>
+<P>Note that Java does not automatically close the polygon; if you want to complete the shape, you have to include the starting point of the polygon at the end of the array. Drawing a filled polygon, however, joins the starting and ending points.
+<BR></P>
+<P>The second <A ID = "I58" NAME = "I58"  ></A><A ID = "I59" NAME = "I59"  ></A>way of calling drawPolygon() and fillPolygon() is to use a Polygon object. The Polygon class is useful if you intend to add points to the polygon or if you're building the polygon on the fly. <A ID = "I60" NAME = "I60"  ></A><A ID = "I61" NAME = "I61"  ></A>The Polygon class enables you to treat the polygon as an object rather than having to deal with individual arrays.
+<BR></P>
+<P>To create a polygon object you can either create an empty polygon:
+<BR></P>
+<PRE>Polygon poly = new Polygon();</PRE>
+<P>or create a polygon from a set of points using integer arrays, as in the previous example:
+<BR></P>
+<PRE>int exes[] = { 39,94,97,142,53,58,26 };
+int whys[] = { 33,74,36,70,108,80,106 };
+int pts = exes.length;
+Polygon poly = new Polygon(exes,whys,pts);</PRE>
+<P>Once you have a polygon object, you can append points to the polygon as you need to:
+<BR></P>
+<PRE>poly.addPoint(20,35);</PRE>
+<P>Then, to draw the polygon, just use the polygon object as an argument to drawPolygon() or fillPolygon(). Here's that previous example, rewritten this time with a Polygon object. You'll also fill this polygon rather than just drawing its outline (Figure 9.8 shows the output):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj08.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj08.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj08.gif"  >Figure 9.8. Another polygon.</B></A>
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    int exes[] = { 39,94,97,142,53,58,26 };
+    int whys[] = { 33,74,36,70,108,80,106 };
+    int pts = exes.length;
+    Polygon poly = new Polygon(exes,whys,pts);
+    g.fillPolygon(poly);
+}</PRE>
+<H4><A ID = "I62" NAME = "I62"  >
+<foNT SIZE=3><B>Ovals</B>
+<BR></FONT></A></H4>
+<P>Use ovals to draw <A ID = "I63" NAME = "I63"  ></A><A ID = "I64" NAME = "I64"  ></A><A ID = "I65" NAME = "I65"  ></A><A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A><A ID = "I68" NAME = "I68"  ></A>ellipses or circles. Ovals are just like rectangles with overly rounded corners. You draw them using four arguments: the x and y of the top <A ID = "I69" NAME = "I69"  ></A>corner, and the width and height of the oval itself. Note that, because you're drawing an oval, the starting point is some distance to the left and up from the actual outline of the oval itself. Again, if you think of it as a rectangle, it's easier to place.
+<BR></P>
+<P>As with the other drawing operations, the drawOval() method<A ID = "I70" NAME = "I70"  ></A><A ID = "I71" NAME = "I71"  ></A> draws an outline of an oval, and the fillOval() method<A ID = "I72" NAME = "I72"  ></A><A ID = "I73" NAME = "I73"  ></A> draws a filled oval.
+<BR></P>
+<P>Here's an example of two ovals, a circle and an ellipse (Figure 9.9 shows how these two ovals appear on screen):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj09.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj09.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj09.gif"  >Figure 9.9.</B></A>
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    g.drawOval(20,20,60,60);
+    g.fillOval(120,20,100,60);
+}</PRE>
+<H4><A ID = "I74" NAME = "I74"  >
+<foNT SIZE=3><B>Arc</B>
+<BR></FONT></A></H4>
+<P>Of the <A ID = "I75" NAME = "I75"  ></A><A ID = "I76" NAME = "I76"  ></A>drawing operations, arcs are the most complex to construct, which is why I saved them for last. An arc is a part of a oval; in fact, the easiest way to think of an arc is as a section of a complete oval. Figure 9.10 shows some arcs.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj10.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj10.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj10.gif"  >Figure 9.10.</A></B>
+<BR></P>
+<P>The drawArc() method<A ID = "I77" NAME = "I77"  ></A><A ID = "I78" NAME = "I78"  ></A> takes six <A ID = "I79" NAME = "I79"  ></A>arguments: the starting corner, the width and height, the angle at which to start the arc, and the degrees to draw it before stopping. Once again, there is a drawArc method to draw the arc's outline and the fillArc()<A ID = "I80" NAME = "I80"  ></A><A ID = "I81" NAME = "I81"  ></A> to fill the arc. Filled arcs are drawn as if they were sections of a pie; instead of joining the two endpoints, both endpoints are joined to the center of the circle.
+<BR></P>
+<P>The important thing to understand about arcs is that you're actually formulating the arc as an oval and then drawing only some of that. The starting corner and width and height are not the starting point and width and height of the actual arc as drawn on the screen; they're the width and height of the full ellipse of which the arc is a part. Those first points determine the size and shape of the arc; the last two arguments (for the degrees) determine the starting and ending points.
+<BR></P>
+<P>Let's start with a simple arc, a C shape on a circle as shown in Figure 9.11.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj11.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj11.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj11.gif"  >Figure 9.11. A C arc.</B></A>
+<BR></P>
+<P>To construct <A ID = "I82" NAME = "I82"  ></A>the method to draw this arc, the first thing you do is think of it as a complete circle. Then you find the x and y coordinates and the width and height of that circle. Those four values are the first four arguments to the drawArc() or fillArc() methods. Figure 9.12 shows how to get those values from the arc.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj12.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj12.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj12.gif"  >Figure 9.12. Constructing a circular arc.</B></A>
+<BR></P>
+<P>To get the last two arguments, <A ID = "I83" NAME = "I83"  ></A>think in degrees around the circle. Zero degrees is at 3 o'clock, 90 degrees is at 12 o'clock, 180 at 9 o'clock, and 270 at 6 o'clock. The start of the arc is the degree value of the start of the arc. In this example, the starting point is the top of the C at 90 degrees; 90 is the fifth argument.
+<BR></P>
+<P>The sixth and last argument is another degree value indicating how far around the circle to sweep and the direction to go in (it's <I>not</I> the ending degree angle, as you might think). In this case, because you're going halfway around the circle, you're sweeping 180 degrees&#151;and 180 is therefore the last argument in the arc. The important part is that you're sweeping 180 degrees counterclockwise, which is in the positive direction in Java. If you are drawing a backwards C, you sweep 180 degrees in the negative direction, and the last argument is &#151;180. See Figure 9.13 for the final illustration of how this works.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj13.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj13.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj13.gif"  >Figure 9.13. Arcs on circles.</B></A>
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> It doesn't matter which side of the arc you start with; because the shape of the arc has already been determined by the complete oval it's a section of, starting at either endpoint will work.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Here's the code for this example; you'll draw an outline of the C and a filled C to its right, as shown in Figure 9.14:
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj14.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj14.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj14.gif"  >Figure 9.14. Two circular arcs.</B></A>
+<BR></P>
+<PRE>public void paint(Graphics g) {
+   g.drawArc(20,20,60,60,90,180);
+   g.fillArc(120,20,60,60,90,180);
+}</PRE>
+<P>Circles are an easy way to visualize arcs on circles; arcs on ellipses are slightly more difficult. Let's go through this same process to draw the arc shown in Figure 9.15.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj15.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj15.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj15.gif"  >Figure 9.15. An elliptical arc.</B></A>
+<BR></P>
+<P>Like the arc on the circle, this arc is a piece of a complete oval, in this case, an elliptical oval. By completing the oval that this arc is a part of, you can get the starting points and the width and height arguments for the drawArc() or fillArc() method (Figure 9.16).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj16.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj16.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj16.gif"  >Figure 9.16.Arcs on ellipses.</B></A>
+<BR></P>
+<P>Then, all you need is to figure out the starting angle and the angle to sweep. This arc doesn't start on a nice boundary such as 90 or 180 degrees, so you'll need some trial and error. This arc starts somewhere around 25 degrees, and then sweeps clockwise about 130 degrees (Figure 9.17).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj17.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj17.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj17.gif"  >Figure 9.17. Starting and ending points.</B></A>
+<BR></P>
+<P>With all portions of the arc in place, you can write the code. Here's the Java code for this arc, both drawn and filled (note in the filled case how filled arcs are drawn as if they were pie sections):
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    g.drawArc(10,20,150,50,25,-130);
+    g.fillArc(10,80,150,50,25,-130);
+}</PRE>
+<P>Figure 9.18 shows the two elliptical arcs.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj18.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj18.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj18.gif"  >Figure 9.18. Two elliptical arcs.</B></A>
+<BR></P>
+<P>To summarize, here are the steps to take to construct arcs in Java:
+<BR></P>
+<UL>
+<LI>Think of the arc as a slice of a complete oval.
+<BR>
+<BR></LI>
+<LI>Construct the full oval with the starting point and the width and height (it often helps to draw the full oval on the screen to get an idea of the right positioning).
+<BR>
+<BR></LI>
+<LI>Determine the starting angle for the beginning of the arc.
+<BR>
+<BR></LI>
+<LI>Determine how far to sweep the arc and in which direction (counterclockwise indicates positive values, clockwise indicates negative).
+<BR>
+<BR></LI></UL>
+<H4><A ID = "I84" NAME = "I84"  >
+<foNT SIZE=3><B>A Simple Graphics Example</B>
+<BR></FONT></A></H4>
+<P>Here's an example of an applet that uses many of the built-in graphics primitives to <A ID = "I85" NAME = "I85"  ></A>draw a rudimentary shape. In this case, it's a lamp with a spotted shade (or a sort of cubist mushroom, depending on your point of view). Listing 9.1 has the complete code for the lamp; Figure 9.19 shows the resulting applet.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj19.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj19.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj19.gif"  >Figure 9.19. The Lamp applet.</B></A>
+<BR></P>
+<UL>
+<LH><B>Listing 9.1. The </B><B>Lamp</B><B> class.</B><A ID = "I86" NAME = "I86"  ></A><A ID = "I87" NAME = "I87"  ></A><A ID = "I88" NAME = "I88"  ></A></LH></UL>
+<PRE>  1: import java.awt.*;
+ 2: 
+  3: public class Lamp extends java.applet.Applet {
+ 4: 
+  5:    public void paint(Graphics g) {
+  6:        // the lamp platform
+  7:        g.fillRect(0,250,290,290);
+ 8:
+  9:        // the base of the lamp
+10:        g.drawLine(125,250,125,160);
+11:        g.drawLine(175,250,175,160);
+12: 
+13:        // the lamp shade, top and bottom edges
+14:         g.drawArc(85,157,130,50,-65,312);
+15:         g.drawArc(85,87,130,50,62,58);
+16: 
+17:         // lamp shade, sides
+18:         g.drawLine(85,177,119,89);
+19:         g.drawLine(215,177,181,89);
+20: 
+21:         // dots on the shade
+22:         g.fillArc(78,120,40,40,63,-174);
+23:         g.fillOval(120,96,40,40);
+24:         g.fillArc(173,100,40,40,110,180);
+25:    }
+26: }</PRE>
+<H4><A ID = "I89" NAME = "I89"  >
+<foNT SIZE=3><B>Copying and Clearing</B>
+<BR></FONT></A></H4>
+<P>Once you've drawn a few things on the screen, you may want to move them around or clear the entire applet. The Graphics <A ID = "I90" NAME = "I90"  ></A><A ID = "I91" NAME = "I91"  ></A><A ID = "I92" NAME = "I92"  ></A><A ID = "I93" NAME = "I93"  ></A>class provides methods for doing both these things.
+<BR></P>
+<P>The copyArea() method<A ID = "I94" NAME = "I94"  ></A><A ID = "I95" NAME = "I95"  ></A><A ID = "I96" NAME = "I96"  ></A> copies a rectangular area of the screen to another area of the screen. copyArea() takes six arguments: the x and y of the top corner of the rectangle to copy, the width and the height of that rectangle, and the distance in the x and y directions to which to copy it. For example, this line copies a square area 100 pixels on a side 100 pixels directly to its right:
+<BR></P>
+<PRE>g.copyArea(0,0,100,100,100,0);</PRE>
+<P>To clear a rectangular area, use the clearRect() method<A ID = "I97" NAME = "I97"  ></A><A ID = "I98" NAME = "I98"  ></A>. clearRect(), which takes the same four arguments as the drawRect() and fillRect() methods, fills the given rectangle with the current background color of the applet (you'll learn how to set the current background color later on today).
+<BR></P>
+<P>To clear the entire applet, you can use the size() method<A ID = "I99" NAME = "I99"  ></A><A ID = "I100" NAME = "I100"  ></A>, which returns a Dimension object representing the width and height of the applet. You can then get to the actual values for width and height by using the width and height instance variables:
+<BR></P>
+<PRE>g.clearRect(0,0,size().width,size()height);</PRE>
+<H3><A ID = "I101" NAME = "I101"  >
+<foNT SIZE=4><B>Text and Fonts</B>
+<BR></FONT></A></H3>
+<P>The Graphics class also <A ID = "I102" NAME = "I102"  ></A><A ID = "I103" NAME = "I103"  ></A>enables you to print text on the screen, in conjunction with the Font class<A ID = "I104" NAME = "I104"  ></A><A ID = "I105" NAME = "I105"  ></A> (and, sometimes, the FontMetrics class). The Font class represents a given font&#151;its name, style, and point size&#151;and FontMetrics gives you information about that font (for example, the actual height or width of a given character) so that you can precisely lay out text in your applet.
+<BR></P>
+<P>Note that the text here is drawn to the screen once and intended to stay there. You'll learn about entering text from the keyboard later on this week.
+<BR></P>
+<H4><A ID = "I106" NAME = "I106"  >
+<foNT SIZE=3><B>Creating Font Objects</B>
+<BR></FONT></A></H4>
+<P>To draw text <A ID = "I107" NAME = "I107"  ></A><A ID = "I108" NAME = "I108"  ></A><A ID = "I109" NAME = "I109"  ></A>to the screen, first you need to create an instance of the Font class. Font objects represent an individual font&#151;that is, its name, style (bold, italic), and point size. Font names are strings representing the family of the font, for example, &quot;TimesRoman&quot;, &quot;Courier&quot;, or &quot;Helvetica&quot;. Font styles are constants defined by <A ID = "I110" NAME = "I110"  ></A><A ID = "I111" NAME = "I111"  ></A>the Font class; you can get to them using class variables&#151;for example, Font.PLAIN, Font.BOLD, or Font.ITALIC. Finally, the point size is the size of the font, as defined by the font itself; the point size may or may not be the height of the characters.
+<BR></P>
+<P>To create an individual font object, use these three arguments to the Font class's new constructor:
+<BR></P>
+<PRE>Font f = new Font(&quot;TimesRoman&quot;, Font.BOLD, 24);</PRE>
+<P>This example creates a font object for the TimesRoman BOLD font, in 24 points. Note that like most Java classes, you have to import this class before you can use it.
+<BR></P>
+<P>Font styles are actually integer constants that can be added to create combined styles; for example, Font.BOLD + Font.ITALIC produces a font that is both bold and italic.
+<BR></P>
+<P>The fonts you have available <A ID = "I112" NAME = "I112"  ></A>to you in your applets depend on which fonts are installed on the system where the applet is running. If you pick a font for your applet and that font isn't available on the current system, Java will substitute a default font (usually Courier). For best results, it's a good idea to stick with standard fonts such as &quot;TimesRoman&quot;, &quot;Helvetica&quot;, and &quot;Courier&quot;.
+<BR></P>
+<P>You can also use the getFontList() method<A ID = "I113" NAME = "I113"  ></A><A ID = "I114" NAME = "I114"  ></A> , defined in the java.awt.Tookit class to get a listing of the current fonts available on the system, and make choices about which fonts to use on the fly. See the API documentation for that method if you're interested in trying this.
+<BR></P>
+<H4><A ID = "I115" NAME = "I115"  >
+<foNT SIZE=3><B>Drawing Characters and Strings</B>
+<BR></FONT></A></H4>
+<P>With a font object in <A ID = "I116" NAME = "I116"  ></A><A ID = "I117" NAME = "I117"  ></A><A ID = "I118" NAME = "I118"  ></A><A ID = "I119" NAME = "I119"  ></A>hand, you can draw text on the screen using the methods drawChars()<A ID = "I120" NAME = "I120"  ></A><A ID = "I121" NAME = "I121"  ></A> and drawString()<A ID = "I122" NAME = "I122"  ></A><A ID = "I123" NAME = "I123"  ></A>. First, though, you need to set the current font to your font object using the setFont() method.
+<BR></P>
+<P>The current font is part of the graphics state that is kept track of by the Graphics object on which you're drawing. Each time you draw a character or a string to the screen, that text is drawn using the current font. To change the font of the text, first change the current font. Here's a paint() method that creates a new font, sets the current font to that font, and draws the string &quot;This is a big font.&quot;, at the point 10,100.
+<BR></P>
+<PRE>public void paint(Graphics g) {
+    Font f = new Font(&quot;TimesRoman&quot;, Font.PLAIN, 72);
+    g.setFont(f);
+    g.drawString(&quot;This is a big font.&quot;, 10, 100);
+}</PRE>
+<P>This should all look familiar to you; this is how the Hello World and Hello Again applets throughout this book were produced.
+<BR></P>
+<P>The latter two arguments to drawString() determine the point where the string will start. The x value is the start of the leftmost edge of the text; y is the baseline for the entire string.
+<BR></P>
+<P>Similar to drawString() is the drawChars() method that, instead of taking a string as an argument, takes an array of characters. drawChars() has five arguments: the array of characters, an integer representing the first character in the array to draw, another integer for the last character in the array to draw (all characters between the first and last are drawn), and the x and y for the starting point. Most of the time, drawString() is more useful than drawChars().
+<BR></P>
+<P>Listing 9.2 shows an applet that draws several lines of text in different fonts; Figure 9.20 shows the result.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj20.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj20.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj20.gif"  >Figure 9.20. The output of the ManyFonts applet.</B></A>
+<BR></P>
+<UL>
+<LH><B>Listing 9.2. Many different fonts.</B><A ID = "I124" NAME = "I124"  ></A></LH></UL>
+<PRE> 1: import java.awt.Font;
+ 2: import java.awt.Graphics;
+ 3:
+ 4: public class ManyFonts extends java.applet.Applet {
+ 5:
+ 6:    public void paint(Graphics g) {
+ 7:        Font f = new Font(&quot;TimesRoman&quot;, Font.PLAIN, 18);
+ 8:        Font fb = new Font(&quot;TimesRoman&quot;, Font.BOLD, 18);
+ 9:        Font fi = new Font(&quot;TimesRoman&quot;, Font.ITALIC, 18);
+10:        Font fbi = new Font(&quot;TimesRoman&quot;, Font.BOLD + Font.ITALIC, 18);
+11:
+12:        g.setFont(f);
+13:        g.drawString(&quot;This is a plain font&quot;, 10, 25);
+14:        g.setFont(fb);
+15:        g.drawString(&quot;This is a bold font&quot;, 10, 50);
+16:        g.setFont(fi);
+17:        g.drawString(&quot;This is an italic font&quot;, 10, 75);
+18:        g.setFont(fbi);
+19:        g.drawString(&quot;This is a bold italic font&quot;, 10, 100);
+20:    }
+21:
+22: }</PRE>
+<H4><A ID = "I125" NAME = "I125"  >
+<foNT SIZE=3><B>Finding Out Information About a Font</B>
+<BR></FONT></A></H4>
+<P>Sometimes, you may want to <A ID = "I126" NAME = "I126"  ></A><A ID = "I127" NAME = "I127"  ></A>make decisions in your Java program based on the qualities of the current font&#151;for example, its point size, or the total height of its characters. You can find out some basic information about fonts and font objects by using simple methods on Graphics and on the Font objects. Table 9.1 shows some of these methods:
+<BR></P>
+<UL>
+<LH><B>Table 9.1. Font methods.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Method Name</I>
+<BR></PRE>
+<TD>
+<PRE><I>In Object</I>
+<BR></PRE>
+<TD>
+<PRE><I>Action</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>getFont()</P>
+<TD>
+<P>Graphics </P>
+<TD>
+<P>Returns the current font object as previously set by setFont()</P>
+<TR>
+<TD>
+<P>getName()</P>
+<TD>
+<P>Font</P>
+<TD>
+<P>Returns the name of the font as a string</P>
+<TR>
+<TD>
+<P>getSize()</P>
+<TD>
+<P>Font</P>
+<TD>
+<P>Returns the current font size (an integer)</P>
+<TR>
+<TD>
+<P>getStyle()</P>
+<TD>
+<P>Font</P>
+<TD>
+<P>Returns the current style of the font (styles are integer constants: 0 is plain, 1 is bold, 2 is italic, 3 is bold italic)</P>
+<TR>
+<TD>
+<P>isPlain()</P>
+<TD>
+<P>Font</P>
+<TD>
+<P>Returns true or false if the font's style is plain</P>
+<TR>
+<TD>
+<P>isBold()</P>
+<TD>
+<P>Font</P>
+<TD>
+<P>Returns true or false if the font's style is bold</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>isItalic()</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Font</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Returns true or false if the font's style is italic</CENTER></P></TABLE>
+<P>For more detailed information about the qualities of the current font (for example, the length or height of given characters), you need to work with font metrics. The FontMetrics class<A ID = "I128" NAME = "I128"  ></A><A ID = "I129" NAME = "I129"  ></A> describes information specific to a given font: the leading between lines, the height and width of each character, and so on. To work with these sorts of values, you create a FontMetrics object based on the current font by using the applet method getFontMetrics():
+<BR></P>
+<PRE>Font f = new Font(&quot;TimesRoman&quot;, Font.BOLD, 36);
+FontMetrics fmetrics = getFontMetrics(f);
+g.setfont(f);</PRE>
+<P>Table 9.2 shows some of the things you can find out using font metrics. All these methods should be called on a FontMetrics object.
+<BR></P>
+<UL>
+<LH><B>Table 9.2. Font metrics methods.</B><A ID = "I130" NAME = "I130"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Method Name</I>
+<BR></PRE>
+<TD>
+<PRE><I>Action</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>stringWidth(string)</P>
+<TD>
+<P>Given a string, returns the full width of that string, in pixels</P>
+<TR>
+<TD>
+<P>charWidth(char)</P>
+<TD>
+<P>Given a character, returns the width of that character</P>
+<TR>
+<TD>
+<P>getAscent()</P>
+<TD>
+<P>Returns the ascent of the font, that is, the distance between the font's baseline and the top of the characters</P>
+<TR>
+<TD>
+<P>getDescent()</P>
+<TD>
+<P>Returns the descent of the font&#151;that is, the distance between the font's baseline and the bottoms of the characters (for characters such as p and q that drop below the baseline)</P>
+<TR>
+<TD>
+<P>getLeading()</P>
+<TD>
+<P>Returns the leading for the font, that is, the spacing between the descent of one line and the ascent of another line</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>getHeight()</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Returns the total height of the font, which is the sum of the ascent, descent, and leading value</CENTER></P></TABLE>
+<P>As an example of the sorts of information you can use with font metrics, Listing 9.3 shows the Java code for an applet that automatically centers a <A ID = "I131" NAME = "I131"  ></A><A ID = "I132" NAME = "I132"  ></A>string horizontally and vertically inside an applet. The centering position is different depending on the font and font size; by using font metrics to find out the actual size of a string, you can draw the string in the appropriate place.
+<BR></P>
+<P>Note the applet.size() method here, which returns the width and height of the overall applet area as a Dimension object. You can then get to the individual width and height by using the width and height instance variables.
+<BR></P>
+<P>Figure 9.21 shows the result (less interesting than if you actually compile and experiment with various applet and font sizes).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj21.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj21.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj21.gif"  >Figure 9.21. The centered text.</B></A>
+<BR></P>
+<UL>
+<LH><B>Listing 9.3. Centering a string.</B><A ID = "I133" NAME = "I133"  ></A></LH></UL>
+<PRE> 1: import java.awt.Font;
+ 2: import java.awt.Graphics;
+ 3: import java.awt.FontMetrics;
+ 4:
+ 5: public class Centered extends java.applet.Applet {
+ 6:
+ 7:    public void paint(Graphics g) {
+ 8:        Font f = new Font(&quot;TimesRoman&quot;, Font.PLAIN, 36);
+ 9:        FontMetrics fm = getFontMetrics(f);
+10:        g.setFont(f);
+11:
+12:        String s = &quot;This is how the world ends.&quot;;
+13:        int xstart = (size().width - fm.stringWidth(s)) / 2;
+14:        int ystart = (size().height + fm.getHeight()) / 2;
+15:
+16:        g.drawString(s, xstart, ystart);
+17:    }
+18:}</PRE>
+<H3><A ID = "I134" NAME = "I134"  >
+<foNT SIZE=4><B>Color</B>
+<BR></FONT></A></H3>
+<P>Drawing black on a <A ID = "I135" NAME = "I135"  ></A>gray background is all very nice, but being able to use different colors is much nicer. Java provides methods and behaviors for dealing with color in general through the Color class, and also provides methods for setting the current foreground and background colors so that you can draw with the colors you created.
+<BR></P>
+<P>Java's abstract color model uses 24-bit color, wherein a color is represented as a combination of red, green, and blue values. Each component of the color can have a number between 0 and 255. 0,0,0 is black, 255,255,255 is white, and Java can represent millions of colors between as well.
+<BR></P>
+<P>Java's abstract color model maps onto the color model of the platform Java is running on, which usually has only 256 colors or fewer from which to choose. If a requested color in a color object is not available for display, the resulting color may be mapped to another or dithered, depending on how the browser viewing the color implemented it, and depending on the platform on which you're running. In other words, although Java gives the capability of managing millions of colors, very few may actually be available to you in real life.
+<BR></P>
+<H4><A ID = "I136" NAME = "I136"  >
+<foNT SIZE=3><B>Using Color Objects</B>
+<BR></FONT></A></H4>
+<P>To draw an object in a <A ID = "I137" NAME = "I137"  ></A><A ID = "I138" NAME = "I138"  ></A>particular color, you must create an instance of the Color class to represent that color. The Color <A ID = "I139" NAME = "I139"  ></A><A ID = "I140" NAME = "I140"  ></A>class defines a set of standard color objects, stored in class variables, that enable you quickly to get a color object for some of the more popular colors. For example, Color.red gives you a Color object representing red (RGB values of 255, 0, and 0), Color.white gives you a white color (RGB values of 255, 255, and 255), and so on. Table 9.3 shows the standard colors defined by variables in the Color class.
+<BR></P>
+<UL>
+<LH><B>Table 9.3. Standard colors.</B><A ID = "I141" NAME = "I141"  ></A><A ID = "I142" NAME = "I142"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Color Name</I>
+<BR></PRE>
+<TD>
+<PRE><I>RGB Value</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>Color.white</P>
+<TD>
+<P>255,255,255</P>
+<TR>
+<TD>
+<P>Color.black</P>
+<TD>
+<P>0,0,0</P>
+<TR>
+<TD>
+<P>Color.lightGray</P>
+<TD>
+<P>192,192,192</P>
+<TR>
+<TD>
+<P>Color.gray</P>
+<TD>
+<P>128,128,128</P>
+<TR>
+<TD>
+<P>Color.darkGray</P>
+<TD>
+<P>64,64,64</P>
+<TR>
+<TD>
+<P>Color.red</P>
+<TD>
+<P>255,0,0</P>
+<TR>
+<TD>
+<P>Color.green</P>
+<TD>
+<P>0,255,0</P>
+<TR>
+<TD>
+<P>Color.blue</P>
+<TD>
+<P>0,0,255</P>
+<TR>
+<TD>
+<P>Color.yellow</P>
+<TD>
+<P>255,255,0</P>
+<TR>
+<TD>
+<P>Color.magenta</P>
+<TD>
+<P>255,0,255</P>
+<TR>
+<TD>
+<P>Color.cyan</P>
+<TD>
+<P>0,255,255</P>
+<TR>
+<TD>
+<P>Color.pink</P>
+<TD>
+<P>255,175,175</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Color.orange</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>255,200,0</CENTER></P></TABLE>
+<P>If the color you want to draw in is not one of the standard color objects, fear not. You can create a <A ID = "I143" NAME = "I143"  ></A><A ID = "I144" NAME = "I144"  ></A><A ID = "I145" NAME = "I145"  ></A><A ID = "I146" NAME = "I146"  ></A><A ID = "I147" NAME = "I147"  ></A>color object for any combination of red, green, and blue, as long as you have the values of the color you want. Just create a new color object:
+<BR></P>
+<PRE>Color c = new Color(140,140,140);</PRE>
+<P>This line of Java code creates a color object representing a dark grey. You can use any combination of red, green, and blue values to construct a color object.
+<BR></P>
+<P>Alternatively, you can also create a color object using three floats from 0.0 to 1.0:
+<BR></P>
+<PRE>Color c = new Color(0.55,0.55,0.55)</PRE>
+<H4><A ID = "I148" NAME = "I148"  >
+<foNT SIZE=3><B>Testing and Setting the Current Colors</B>
+<BR></FONT></A></H4>
+<P>To draw an object or <A ID = "I149" NAME = "I149"  ></A><A ID = "I150" NAME = "I150"  ></A><A ID = "I151" NAME = "I151"  ></A>text using a color object, you have to set the current color to be that color object, just as you have to set the current font to the font in which you want to draw. Use the setColor() method (a method for Graphics objects) to do this:
+<BR></P>
+<PRE>g.setColor(Color.green);</PRE>
+<P>After setting the current color, all drawing operations will occur in that color.
+<BR></P>
+<P>In addition to setting the current color for the graphics context, you can also set the background and foreground colors for the applet itself by using the setBackground() and setForeground() methods. Both of these methods are defined in the java.awt.Component class, which Applet&#151;and therefore your classes&#151;automatically inherits.
+<BR></P>
+<P>The setBackground() method<A ID = "I152" NAME = "I152"  ></A><A ID = "I153" NAME = "I153"  ></A><A ID = "I154" NAME = "I154"  ></A><A ID = "I155" NAME = "I155"  ></A> sets the background color of the applet, which is usually a grey. It takes a single argument, a color object:
+<BR></P>
+<PRE>setBackground(Color.white);</PRE>
+<P>The setForeground() method<A ID = "I156" NAME = "I156"  ></A><A ID = "I157" NAME = "I157"  ></A> also takes a single color as an argument, and affects <A ID = "I158" NAME = "I158"  ></A><A ID = "I159" NAME = "I159"  ></A>everything that has been drawn on the applet, regardless of the color in which it has been drawn. You can use setForeground() to change the color of everything in the applet at once, rather than having to redraw everything:
+<BR></P>
+<PRE>setForeground(Color.black);</PRE>
+<P>In addition to the setColor(), setForeground(), and setBackground() methods, there are corresponding &quot;get&quot; methods that enable you to retrieve the current graphics color, background, or foreground. Those methods are getColor() (defined in Graphics objects), getForeground() (defined in Applet), and getBackground() (also in Applet). You can use these methods to choose colors based on existing colors in the applet:
+<BR></P>
+<PRE>setForeground(g.getColor());</PRE>
+<H4><A ID = "I160" NAME = "I160"  >
+<foNT SIZE=3><B>A Single Color Example</B>
+<BR></FONT></A></H4>
+<P>Listing 9.4 <A ID = "I161" NAME = "I161"  ></A><A ID = "I162" NAME = "I162"  ></A>shows the code for an applet that fills the applet's drawing area with square boxes, each of which has a randomly chosen color in it. It's written so that it can handle any size of applet and automatically fill the area with the right number of boxes.
+<BR></P>
+<UL>
+<LH><B>Listing 9.4. Random color boxes.</B><A ID = "I163" NAME = "I163"  ></A></LH></UL>
+<PRE> 1:  import java.awt.Graphics;
+ 2:  import java.awt.Color;
+ 3:
+ 4:  public class ColorBoxes extends java.applet.Applet {
+ 5:
+ 6:      public void paint(Graphics g) {
+ 7:          int rval, gval, bval;
+ 8:
+ 9:          for (int j = 30; j &lt; (size().height -25); j += 30)
+10:             for (int i = 5; i &lt; (size().width -25); i += 30) {
+11:                 rval = (int)Math.floor(Math.random() * 256);
+12:                 gval = (int)Math.floor(Math.random() * 256);
+13:                 bval = (int)Math.floor(Math.random() * 256);
+14:
+15:                 g.setColor(new Color(rval,gval,bval));
+16:                 g.fillRect(i, j, 25, 25);
+17:                 g.setColor(Color.black);
+18:                 g.drawRect(i-1, j-1, 25, 25);
+19:             }
+20:     }
+21: }</PRE>
+<P>The two for loops are the <A ID = "I164" NAME = "I164"  ></A>heart of this example; the first one draws the rows, and the second draws the individual boxes within the row. When a box is drawn, the random color is calculated first, and then the box is drawn. A black outline is drawn around each box, because some of them tend to blend into the background of the applet.
+<BR></P>
+<P>Because this paint method generates new colors each time the applet is painted, you can regenerate the colors by moving the window around or by covering the applet's window with another one. Figure 9.22 shows the final applet (although given that this picture is black and white, you can't get the full effect of the multicolored squares).
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/09tyj22.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/09tyj22.gif'" tppabs="http://newdata.box.sk/bx/java/09tyj22.gif"  >Figure 9.22. The random colors applet.</B></A>
+<BR></P>
+<H3><A ID = "I165" NAME = "I165"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>You present something on the screen by painting inside your applet: shapes, graphics, text, or images. Today, you learned the basics of how to paint, including using the graphics primitives to draw rudimentary shapes, using fonts and font metrics to draw text, and using Color objects to change the color of what you're drawing on the screen. It's this foundation in painting that enables you to do animation inside an applet (which basically involves just painting repeatedly to the screen) and to work with images. These are topics you'll learn about tomorrow.
+<BR></P>
+<H3><A ID = "I166" NAME = "I166"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P>
+<BR><B>Q: In all the examples you show, and in all the tests I've made, the graphics </B><B>primitives, such as drawLine() and drawRect(), produce lines that are one </B><B>pixel wide. How can I draw thicker lines?</B>
+<BR></P>
+<P><B>A: </B>In the current state of the Java Graphics class, you can't; no methods exist for changing the default line width. If you really need a thicker line, you have to draw multiple lines one pixel apart to produce that effect.
+<BR></P>
+<P><B>Q: I wrote an applet to use Helvetica. It worked fine on my system, but when </B><B>I run it on my friend's system, everything is in Courier. Why?</B>
+<BR></P>
+<P><B>A: </B>Your friend most likely doesn't have the Helvetica font installed on his or her system. When Java can't find a font, it substitutes a default font instead&#151;in your case, Courier. The best way to deal with this is to query the font list using the getFontList() method in the java.awt.Tookit class.
+<BR></P>
+<P><B>Q: I tried out that applet that draws boxes with random colors, but each time </B><B>it draws, a lot of the boxes are the same color. If the colors are truly </B><B>random, why is it doing this?</B>
+<BR></P>
+<P><B>A: </B>Two reasons. The first is that the random number generator I used in that code (from the Math class) isn't a very good random number generator; in fact, the documentation for that method says as much. For a better random number generator, use the Random class from the java.util package.
+<BR>
+<BR>The second, more likely, reason is that there just aren't enough colors available in your browser or on your system to draw all the colors that the applet is generating. If your system can't produce the wide range of colors available using the Color class, or if the browser has allocated too many colors for other things, you may end up with duplicate colors in the boxes, depending on how the browser and the system has been written to handle that. Usually your ap</P>
+<P><A HREF = "tyj08x.html" tppabs="http://newdata.box.sk/bx/java/tyj08x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj10x.html" tppabs="http://newdata.box.sk/bx/java/tyj10x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

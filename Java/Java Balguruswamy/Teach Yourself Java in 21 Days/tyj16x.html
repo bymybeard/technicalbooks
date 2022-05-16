@@ -1,0 +1,495 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj16x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj17x.html" tppabs="http://newdata.box.sk/bx/java/tyj17x.html">
+<LINK REL="Previous" HREF="tyj15x.html" tppabs="http://newdata.box.sk/bx/java/tyj15x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj15x.html" tppabs="http://newdata.box.sk/bx/java/tyj15x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj17x.html" tppabs="http://newdata.box.sk/bx/java/tyj17x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 16</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Packages and Interfaces</A></LI>
+<UL>
+<LI>
+<A HREF = "#I8"  >Packages</A></LI>
+<UL>
+<LI>
+<A HREF = "#I10"  >Programming in the Large</A></LI>
+<LI>
+<A HREF = "#I34"  >Programming in the Small</A></LI>
+<LI>
+<A HREF = "#I49"  >Hiding Classes</A></LI></UL>
+<LI>
+<A HREF = "#I55"  >Interfaces</A></LI>
+<UL>
+<LI>
+<A HREF = "#I57"  >Programming in the Large</A></LI>
+<UL>
+<LI>
+<A HREF = "#I66"  >Design Versus Implementation Revisited</A></LI></UL>
+<LI>
+<A HREF = "#I77"  >Programming in the Small</A></LI></UL>
+<LI>
+<A HREF = "#I87"  >Summary</A></LI>
+<LI>
+<A HREF = "#I88"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 16</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Packages and Interfaces</B>
+<BR></FONT></A></H2>
+<P><B>by Charles L. Perkins</B>
+<BR></P>
+<P>When you examine a new language feature, you should ask yourself two questions:
+<BR></P>
+<OL>
+<LI>How can I use it to better organize the methods and classes of my Java program?
+<BR>
+<BR></LI>
+<LI>How can I use it while writing the Java code in my methods?
+<BR>
+<BR></LI></OL>
+<P>The first is often called <A ID = "I4" NAME = "I4"  ></A><A ID = "I5" NAME = "I5"  ></A>programming in the large, and the second, programming in the small. Bill Joy, a founder of Sun Microsystems, likes to say that Java feels like C when programming in the small and like Smalltalk when programming in the large. What he means by that is that Java is familiar and powerful like any C-like language while you're coding, but has the extensibility and expressive power of a pure object-oriented language like Smalltalk while you're designing.
+<BR></P>
+<P>The separation of &quot;designing&quot; from &quot;coding&quot; <A ID = "I6" NAME = "I6"  ></A><A ID = "I7" NAME = "I7"  ></A>was one of the most fundamental advances in programming in the past few decades, and object-oriented languages such as Java implement a strong form of this separation. The first part of this separation has already been described on previous days: when you develop a Java program, first you design the classes and decide on the relationships between these classes, and then you implement the Java code needed for each of the methods in your design. If you are careful enough with both these processes, you can change your mind about aspects of the design without affecting anything but small, local pieces of your Java code, and you can change the implementation of any method without affecting the rest of the design.
+<BR></P>
+<P>As you begin to explore more advanced Java programming, however, you'll find that this simple model becomes too limiting. Today, you'll explore these limitations, for programming in the large and in the small, to motivate the need for packages and interfaces. Let's start with packages.
+<BR></P>
+<H3><A ID = "I8" NAME = "I8"  >
+<foNT SIZE=4><B>Packages</B>
+<BR></FONT></A></H3>
+<P>Packages are Java's way <A ID = "I9" NAME = "I9"  ></A>of doing large-scale design and organization. They are used both to categorize and group classes. Let's explore why you might need to use packages.
+<BR></P>
+<H4><A ID = "I10" NAME = "I10"  >
+<foNT SIZE=3><B>Programming in the Large</B>
+<BR></FONT></A></H4>
+<P>When you begin to develop Java programs <A ID = "I11" NAME = "I11"  ></A><A ID = "I12" NAME = "I12"  ></A><A ID = "I13" NAME = "I13"  ></A><A ID = "I14" NAME = "I14"  ></A>that use a large number of classes, you will quickly discover some limitations in the model presented thus far for designing and building them.
+<BR></P>
+<P>For one thing, as the number of classes you build grows, the likelihood of your wanting to <A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A><A ID = "I17" NAME = "I17"  ></A>reuse the short, simple name of some class increases. If you use classes that you've built in the past, or that someone else has built for you (such as the classes in the Java library), you may not remember&#151;or even know&#151;that these class names are in conflict. Being able to &quot;hide&quot; a class inside a package becomes useful.
+<BR></P>
+<P>Here's a simple example of the <A ID = "I18" NAME = "I18"  ></A><A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A>creation of a package in a Java source file:
+<BR></P>
+<PRE>package  myFirstPackage;
+public class  MyPublicClass extends ItsSuperclass {
+    . . .
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>If a package statement <A ID = "I21" NAME = "I21"  ></A><A ID = "I22" NAME = "I22"  ></A>appears in a Java source file, it must be the first thing in that file (except for comments and white space, of course).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>You first declare the <A ID = "I23" NAME = "I23"  ></A><A ID = "I24" NAME = "I24"  ></A><A ID = "I25" NAME = "I25"  ></A>name of the package by using a package statement. Then you define a class, just as you would normally. That class, and any other classes also declared inside this same package name, are grouped together. (These other classes are usually located in other, separate source files.)
+<BR></P>
+<P>Packages can be <A ID = "I26" NAME = "I26"  ></A><A ID = "I27" NAME = "I27"  ></A>further organized into a hierarchy somewhat analogous to the inheritance hierarchy, where each &quot;level&quot; usually represents a smaller, more specific grouping of classes. The Java class library itself is organized along these lines (see the diagrams in Appendix B). The top level is called java; the next level includes names such as io, net, util, and awt.  The last of these has an even lower level, which includes the package image. The ColorModel class, located in the package image, can be uniquely referred to anywhere in your Java code as java.awt.image.ColorModel.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>By convention, the first level of the hierarchy specifies the (globally unique) name of the company that developed the Java package(s). For example, Sun Microsystem's classes, which are not part of the standard Java environment, all begin with the prefix sun. The standard package, java, is an exception to this rule because it is so fundamental and because it might someday be implemented by multiple companies.
+<BR>
+<BR>Sun has specified a more formal procedure for package naming to be followed in the future. The top-level package name space now reserves, for the use of this procedure, all the uppercase abbreviations used for top-level domains on the Internet (EDU, COM, GOV, FR, US, and so on). These reserved names form the first part of all new package names, which are prefixed by a reversed version of your domain name. By this procedure, the sun packages would be called COM.sun. If you're further down in your company's or university's domain tree, you can keep reversing to your heart's content: EDU.harvard.cs.projects.ai.learning.myPackage. Because domain names are already guaranteed to be unique globally, this nicely solves that thorny problem, 
+<BR>
+<BR>and as a bonus, the applets and packages from the potentially millions of Java programmers out there will automatically be stored into a growing hierarchy below your classes directory, giving you a way to find and categorize them all in a comprehensible manner.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Because each Java class is usually located in a separate source file, the grouping of classes provided by a hierarchy of packages is analogous to the grouping of files into a hierarchy of directories on your file system. The Java compiler reinforces this analogy by requiring you to create a directory hierarchy under your classes directory that exactly matches the hierarchy of the packages you have created, and to place a class into the directory with the same name (and level) as the package in which it's defined.
+<BR></P>
+<P>For example, the directory <A ID = "I28" NAME = "I28"  ></A><A ID = "I29" NAME = "I29"  ></A>hierarchy for the Java class library exactly mirrors its package hierarchy. On UNIX, for example, the class referenced as java.awt.image.ColorModel is stored in a file named ColorModel.class in the directory named .../classes/java/awt/image (the ... is the path where Java was installed on your computer). In particular, if you have created a package within myFirstPackage called mySecondPackage, by declaring a class:
+<BR></P>
+<PRE>package  myFirstPackage.mySecondPackage;
+public class  AnotherPublicClass extends AnotherSuperclass {
+    . . .
+}</PRE>
+<P>the Java source file (called AnotherPublicClass.java) must be located in a directory below the current directory called classes/myFirstPackage/mySecondPackage for the compiler (javac) to find it. When the compiler generates the file AnotherPublicClass.class, it places it into this same directory so that the java interpreter can find it. Both the compiler and the interpreter expect (and enforce) the hierarchy.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>For today's first example, the source file would have been named APublicClass.java and located in the directory called classes/myFirstPackage. What happens when, as in earlier examples in the book, classes are defined without a package statement? The compiler places such classes in a default, <A ID = "I30" NAME = "I30"  ></A><A ID = "I31" NAME = "I31"  ></A>unnamed package, and their .java and .class files can be located in the current directory (or in the directory called classes below it). To be more precise, any occurrence of the phrase &quot;the current directory&quot; in this section should be replaced by &quot;any of the directories listed in the class path.&quot; The compiler and interpreter both search this list of paths to find any classes you reference. On some systems, the Java class library's .class files are now located in an archive file named classes.zip in the lib directory, to conserve space.
+<BR>
+<BR>You can specify a <A ID = "I32" NAME = "I32"  ></A><A ID = "I33" NAME = "I33"  ></A>class path on the command line when running javac or java, or more permanently, by changing a special environment variable called CLASSPATH. (For more details, read the documentation in your Java release.)
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I34" NAME = "I34"  >
+<foNT SIZE=3><B>Programming in the Small</B>
+<BR></FONT></A></H4>
+<P>When you refer to <A ID = "I35" NAME = "I35"  ></A><A ID = "I36" NAME = "I36"  ></A>a class by name in your Java code, you are using a package. Most of the time you aren't aware of it because many of the most commonly used classes in the system are in a package that the Java compiler automatically imports for you, called java.lang. So whenever you saw this, for example:
+<BR></P>
+<PRE>String  aString;</PRE>
+<P>something more interesting than you might have thought was occurring. What if you want to refer to the class you created at the start of this section, the one in the package myFirstPackage? If you try this:
+<BR></P>
+<PRE>MyPublicClass  someName;</PRE>
+<P>the compiler complains&#151;the class MyPublicClass is not defined in the package java.lang. To solve this problem, Java allows any class name to be prefixed by the <A ID = "I37" NAME = "I37"  ></A><A ID = "I38" NAME = "I38"  ></A><A ID = "I39" NAME = "I39"  ></A>name of the package in which it was defined to form a unique reference to the class:
+<BR></P>
+<PRE>myFirstPackage.MyPublicClass  someName;</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>By convention, package <A ID = "I40" NAME = "I40"  ></A><A ID = "I41" NAME = "I41"  ></A>names tend to begin with a lowercase letter to distinguish them from class names. Thus, for example, in the full name of the built-in String class, java.lang.String, it's easier to separate the package name from the class name visually. This convention helps reduce name conflicts.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Suppose you want to use a lot of classes from a package, a package with a long name, or both. You don't want to have to refer to your classes as that.really.long.package.name.ClassName. Java allows you to &quot;import&quot; the names of <A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A><A ID = "I44" NAME = "I44"  ></A>those classes into your program. They then act just as java.lang classes do, and you can refer to them without a prefix. For example, to use that really long class name more easily, you can write the following:
+<BR></P>
+<PRE>import that.really.long.package.name.ClassName;
+ClassName  anObject;
+// and you can use ClassName directly as many times as you like</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>All import statements <A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A>must appear after any package statement but before any class definitions. Thus, they are &quot;stuck&quot; at the top of your source file.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>What if you want to use several classes from that same package? Here's an attempt from a (soon-to-be-tired) programmer:
+<BR></P>
+<PRE>that.really.long.package.name.ClassOne    first;
+that.really.long.package.name.ClassTwo    second;
+that.really.long.package.name.ClassThree  andSoOn;</PRE>
+<P>Here's one from a more savvy programmer, who knows how to import a whole package of public classes:
+<BR></P>
+<PRE>import that.really.long.package.name.*;
+ClassOne    first;
+ClassTwo    second;
+ClassThree  andSoOn;</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="warning.gif" tppabs="http://newdata.box.sk/bx/java/warning.gif" WIDTH = 37 HEIGHT = 35><B>Warning: </B>The <A ID = "I47" NAME = "I47"  ></A><A ID = "I48" NAME = "I48"  ></A>asterisk (*) in this example is not exactly like the one you might use at a command prompt to specify the contents of a directory. For example, if you ask to list the contents of the directory classes/java/awt/*, that list includes all the .class files and subdirectories such as image and peer. Writing import java.awt.* does <I>not</I> import subpackages such as image and peer. To import all the classes in a complex package hierarchy, you must explicitly import each level of the hierarchy by hand.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>If you plan to use a class or a package only a few times in your source file, it's probably not worth importing it. The rule of thumb is to ask yourself: &quot;Does the loss in clarity I'd introduce by referring to just the class name outweigh the convenience of not having to type the extra characters?&quot; If it does, don't use import. Remember that the package name lets the reader know where to find more information about the class <I>right </I><I>at the place you're using it</I>, rather than at the top of the file, where the import statements are located.
+<BR></P>
+<P>What if you have the following in class A's source file?
+<BR></P>
+<PRE>package  packageA;
+public class  ClassName {
+    . . .
+}
+public class  ClassA {
+    . . .
+}</PRE>
+<P>and in class B's source file you have this:
+<BR></P>
+<PRE>package  packageB;
+public class  ClassName {
+    . . .
+}
+public class  ClassB {
+    . . .
+}</PRE>
+<P>Then you the write the following, somewhere else:
+<BR></P>
+<PRE>import packageA.*;
+import packageB.*;
+ClassName  anObject;        // which ClassName did you mean?</PRE>
+<P>There are two possible interpretations for the class you intended, one in packageA and one in packageB. Because this is ambiguous, what should the poor compiler do? It generates an error, of course, and you have to be more explicit about which one you intended. Here's an example:
+<BR></P>
+<PRE>import packageA.*;
+import packageB.*;
+packageA.ClassName  anObject;       // now OK
+packageB.ClassName  anotherObject;  // also OK
+ClassA  anAObject;        // was never a problem
+ClassB  aBObject;         // ditto</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>You may be wondering about the numerous declarations that appear as examples in today's lesson. Declarations are good examples because they're the simplest possible way of referencing a class name. Any use of a class name (in your extends clause, for example, or in new ClassName()) obeys the same rules.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I49" NAME = "I49"  >
+<foNT SIZE=3><B>Hiding Classes</B>
+<BR></FONT></A></H4>
+<P>The astute reader may <A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A>have noticed that the discussion of importing with an asterisk (*) stated that it imported a whole package of public classes. Why would you want to have classes of any other kind? Take a look at this:
+<BR></P>
+<PRE>package  collections;
+public class  LinkedList {
+    private Node  root;
+    public  void  add(Object o) {
+        root = new Node(o, root);
+    }
+    . . .
+}
+class  Node {                   // not public
+    private Object  contents;
+    private Node    next;
+    Node(Object o, Node n) {
+        contents = o;
+        next     = n;
+    }
+    . . .
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>If this were all in one file, you might be violating one of the compiler's conventions: only one class should be located in each Java source file. Actually, the compiler cares only about every public class being in a separate file (although it still is good style to use separate files for each class).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The goal of the LinkedList <A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A>class is to provide a set of useful public methods (such as add()) to any other classes that might want to use them. These other classes could care less about any support classes LinkedList needs to get its job done, and would prefer to not &quot;see&quot; them when using LinkedList. In addition, LinkedList may feel that the Node class is local to its implementation and should not be seen by any other classes.
+<BR></P>
+<P>For methods and variables, this would be addressed by the four Ps of protection discussed <A ID = "I54" NAME = "I54"  ></A>yesterday: private, protected, package, and public, listed in order of increasing visibility. You've already explored many public classes, and because both private and protected really make sense only when you're inside a class definition, you cannot put them outside of one as part of defining a new class. LinkedList might really like to say &quot;only classes in my source file can see this class,&quot; but because, by convention, each class is located in a separate source file, this would be a little-needed, overly narrow approach.
+<BR></P>
+<P>Instead, LinkedList declares no protection modifier, which is equivalent to saying package. Now the class can be seen and used only by other classes in the same package in which it was defined. In this case, it's the collections package. You might use LinkedList as follows:
+<BR></P>
+<PRE>import collections.*;        // only imports public classes
+LinkedList  aLinkedList;
+/* Node  n; */          // would generate a compile-time error
+aLinkedList.add(new Integer(1138));
+aLinkedList.add(&quot;THX-&quot;);
+. . .</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>You could also can import or declare a LinkedList using collections.LinkedList. Because LinkedList refers to Node, that class is automatically loaded and used, and the compiler verifies that LinkedList (as part of package collections) has the right to create and use the Node class. You still would not have that right, though, just as in the example.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>One of the great powers of hidden classes is that even if you use them to introduce a great deal of complexity into the implementation of some public class, all the complexity is hidden when that class is imported or used. Thus, creating a good package consists of defining a small, clean set of public classes and methods for other classes to use, and then implementing them by using any number of hidden (package) support classes. You'll see another use for hidden classes later today.
+<BR></P>
+<H3><A ID = "I55" NAME = "I55"  >
+<foNT SIZE=4><B>Interfaces</B>
+<BR></FONT></A></H3>
+<P>Interfaces, like the abstract <A ID = "I56" NAME = "I56"  ></A>classes and methods you saw yesterday, provide templates of behavior that other classes are expected to implement, but they are much more powerful. Let's see why you might need such power.
+<BR></P>
+<H4><A ID = "I57" NAME = "I57"  >
+<foNT SIZE=3><B>Programming in the Large</B>
+<BR></FONT></A></H4>
+<P>When you first begin to <A ID = "I58" NAME = "I58"  ></A><A ID = "I59" NAME = "I59"  ></A>design object-oriented programs, the class hierarchy seems almost miraculous. Within that single tree you can express a hierarchy of numeric types (number, complex, float, rational, integer), many simple-to-moderately-complex relationships between objects and processes in the world, and any number of points along the axis from abstract/general to concrete/specific. After some deeper thought, or more complex design experience, this wonderful tree begins to feel restrictive&#151;at times, like a straitjacket. The very power and discipline you've achieved by carefully placing only one copy of each idea somewhere in the tree can come back to haunt you whenever you need to cross-fertilize disparate parts of that tree.
+<BR></P>
+<P>Some languages address these problems by introducing more flexible run-time power, such as the code block and the perform: method of Smalltalk; others choose to provide more complex inheritance hierarchies, such as multiple-inheritance. With the latter complexity comes a host of confusing and error-prone ambiguities and misunderstandings, and with the former, a harder time implementing safety and security, and a harder language to explain and teach. Java has chosen to take neither of these paths but, in the spirit of Objective-C's protocols, has adopted a separate hierarchy altogether to gain the expressive power needed to loosen the straitjacket.
+<BR></P>
+<P>This new hierarchy is<A ID = "I60" NAME = "I60"  ></A><A ID = "I61" NAME = "I61"  ></A> a hierarchy of interfaces. Interfaces are not limited to a single superinterface, so they allow a form of multiple-inheritance. But they pass on only method descriptions to their children, not method implementations nor instance variables, which helps to eliminate many of the complexities of full multiple-inheritance.
+<BR></P>
+<P>Interfaces, like classes, are <A ID = "I62" NAME = "I62"  ></A><A ID = "I63" NAME = "I63"  ></A>declared in source files, one interface to a file. Like classes, they also are compiled into .class files. In fact, almost everywhere that this book has a class name in any of its examples or discussions, you can substitute an interface name. Java programmers often say &quot;class&quot; when they actually mean &quot;class or interface.&quot; Interfaces complement and extend the power of classes, and the two can be treated almost exactly the same. One of the few differences between them is that an interface cannot be instantiated: new can create only an instance of a class. Here's the declaration of an interface:
+<BR></P>
+<PRE>package  myFirstPackage;
+public interface  MyFirstInterface extends Interface1, Interface2, ... {
+    . . .
+    // all methods in here will be public and abstract
+    // all variables will be public, static, and final
+}</PRE>
+<P>This example is a rewritten version of the first example in today's lesson. It now adds a new public interface to the package myFirstPackage, instead of a new public class. Note that multiple parents can be listed in an interface's extends clause.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>If no extends clause is <A ID = "I64" NAME = "I64"  ></A><A ID = "I65" NAME = "I65"  ></A>given, interfaces do not default to inheriting from Object, because Object is a class. In fact, interfaces have no &quot;topmost&quot; interface from which they are all guaranteed to descend.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Any variables or methods defined in a public interface are implicitly prefixed by the modifiers listed in the last example's comments. Exactly those modifiers can (optionally) appear, but no others:
+<BR></P>
+<PRE>public interface  MySecondInterface {
+    public static final int  theAnswer = 42;  // both lines OK
+    public abstract     int  lifeTheUniverseAndEverything();
+    long  bigBangCounter = 0;  // OK, becomes public, static, final
+    long  ageOfTheUniverse();   // OK, becomes public and abstract
+    private protected int  aConstant;   // not OK
+            private   int  getAnInt();  // not OK
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>If an interface is declared non-public (that is, package), no public modifiers are implicitly prefixed. If you say public inside such an interface, you're making a real statement of public-ness, not simply a redundant statement. It's not often, though, that an interface is shared only by the classes inside a package, and not by the classes using that package as well.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I66" NAME = "I66"  >
+<foNT SIZE=3><B>Design Versus Implementation Revisited</B>
+<BR></FONT></A></H5>
+<P>One of the most powerful <A ID = "I67" NAME = "I67"  ></A><A ID = "I68" NAME = "I68"  ></A><A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A>things interfaces add to Java is the capability of separating <I>design</I> inheritance from <I>implementation</I> inheritance. In the single-class inheritance tree, these two are inextricably bound. Sometimes, you want to be able to describe an interface to a class of objects abstractly, without having to implement a particular implementation of it yourself. You could create an abstract class, such as those described yesterday. In order for a new class to use this type of &quot;interface,&quot; however, it has to become a subclass of the abstract class and accept its position in the tree. If this new class also needs to be a subclass of some other class in the tree, for implementation reasons, what could it do? What if it wants to use two such &quot;interfaces&quot; at once? Watch this:
+<BR></P>
+<PRE>class  FirstImplementor extends SomeClass implements MySecondInterface {
+    . . .
+}
+class  SecondImplementor implements MyFirstInterface, MySecondInterface {
+    . . .
+}</PRE>
+<P>The first class above is &quot;stuck&quot; in the single inheritance tree just below the class SomeClass but is free to implement an interface as well. The second class is stuck just below Object but has implemented two interfaces (it could have implemented any number of them). Implementing an interface means promising to implement all the methods specified in it.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>An abstract class <A ID = "I71" NAME = "I71"  ></A><A ID = "I72" NAME = "I72"  ></A>is allowed to ignore this strict promise, and can implement any subset of the methods (or even none of them), but all its non-abstract subclasses must still obey it.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Because interfaces are in a separate hierarchy, they can be &quot;mixed-in&quot; to the classes in the single inheritance tree, allowing the designer to sprinkle an interface anywhere it is needed throughout the tree. The single-inheritance class tree can thus be viewed as containing only the implementation hierarchy; the design hierarchy (full of abstract methods, mostly) is contained in the multiple-inheritance interface tree. This is a powerful way of thinking about the organization of your program, and though it takes a little getting used to, it's also a highly recommended one.
+<BR></P>
+<P>Let's examine one simple example of this separation&#151;creating the new class Orange. Suppose you already have a good implementation of the class Fruit, and an interface, Fruitlike, that represents what Fruits are expected to be able to do. You want an orange to be a fruit, but you also want it to be a spherical object that can be tossed, rotated, and so on. Here's how to express it all:
+<BR></P>
+<PRE>interface  Fruitlike extends Foodlike {
+    void  decay();
+    void  squish();
+    . . .
+}
+class  Fruit extends Food implements Fruitlike {
+    private Color  myColor;
+    private int    daysTilIRot;
+    . . .
+}
+interface  Spherelike {
+    void  toss();
+    void  rotate();
+    . . .
+}
+class  Orange extends Fruit implements Spherelike {
+    . . .  // toss()ing may squish() me (unique to me)
+}</PRE>
+<P>You'll use this example again later today. For now, notice that class Orange doesn't have to say implements Fruitlike because, by extending Fruit, it already has!
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The reverse <A ID = "I73" NAME = "I73"  ></A><A ID = "I74" NAME = "I74"  ></A>is not true, however. Implementing an interface implies nothing about the implementation hierarchy of a class. By the way, if you had used a more traditional way of designing classes (though not necessarily better), the class Fruit itself would <I>be</I> the interface description, as well as being the implementation.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>One of the nice things about this structure is that you can change your mind about what class Orange extends (if a really great Sphere class is suddenly implemented, for example), yet class Orange will still understand the same two interfaces:
+<BR></P>
+<PRE>class  Sphere implements Spherelike {   // extends Object
+    private float  radius;
+    . . .
+}
+class  Orange extends Sphere implements Fruitlike {
+    . . .     // users of Orange never need know about the change!
+}</PRE>
+<P>The canonical use of the &quot;mix-in&quot; capability of interfaces is to allow several classes, scattered across the single-inheritance tree, to implement the same set of methods (or even just one). Although these classes share a common superclass (at worst, Object), it is likely that below this common parent are many subclasses that are not interested in this set of methods. Adding the methods to the parent class, or even creating a new abstract class to hold them and inserting it into the hierarchy above the parent, is not an ideal solution.
+<BR></P>
+<P>Instead, use an interface to <A ID = "I75" NAME = "I75"  ></A><A ID = "I76" NAME = "I76"  ></A>specify the method(s). It can be implemented by every class that shares the need and by none of the other classes that would have been forced to &quot;understand&quot; them in the single-inheritance tree. (Design is applied only where needed.) Users of the interface can now specify variables and arguments to be of a new interface type that can refer to any of the classes that implement the interface (as you'll see below)&#151;a powerful abstraction. Some examples of &quot;mix-in&quot; facilities are object persistence (via read() and write() methods), producing or consuming something (the Java library does this for images), and providing generally useful constants. The last of these might look like this:
+<BR></P>
+<PRE>public interface  PresumablyUsefulConstants {
+    public static final int     oneOfThem   = 1234;
+    public static final float   another     = 1.234F;
+    public static final String  yetAnother  = &quot;1234&quot;;
+    . . .
+}
+public class  AnyClass implements PresumablyUsefulConstants {
+    public static void  main(String argv[]) {
+        double  calculation = oneOfThem * another;
+        System.out.println(&quot;hello &quot; + yetAnother + calculation);
+        . . .
+    }
+}</PRE>
+<P>This outputs the thoroughly meaningless hello 12341522.756, but in the process demonstrates that the class AnyClass can refer directly to all the variables defined in the interface PresumablyUsefulConstants. Normally, you refer to such variables and constants via the class, as for the constant Integer.MIN_VALUE, which is provided by the Integer class. If a set of constants is widely used, or their class name is long, the shortcut of being able to refer to them directly (as oneOfThem rather than as PresumablyUsefulConstants.oneOfThem) makes it worth placing them into an interface and implementing it widely.
+<BR></P>
+<H4><A ID = "I77" NAME = "I77"  >
+<foNT SIZE=3><B>Programming in the Small</B>
+<BR></FONT></A></H4>
+<P>How do you actually use <A ID = "I78" NAME = "I78"  ></A><A ID = "I79" NAME = "I79"  ></A>these interfaces? Remember that almost everywhere that you can use a class, you can use an interface instead. Let's try to make use of the interface MySecondInterface defined previously:
+<BR></P>
+<PRE>MySecondInterface  anObject = getTheRightObjectSomehow();
+long  age = anObject.ageOfTheUniverse();</PRE>
+<P>Once you declare anObject to be of type MySecondInterface, you can use anObject as the receiver of any message that the interface defines (or inherits). What does the previous declaration really mean?
+<BR></P>
+<P>When a variable is declared to be of an interface type, it simply means that any object the variable refers to is expected to have implemented that interface&#151;that is, it is expected to understand all the methods that interface specifies. It assumes that a promise made between the designer of the interface and its eventual implementors has been kept. Although this is a rather abstract notion, it allows, for example, the previous code to be written long before any classes that qualify are actually implemented (or even created!). In traditional object-oriented programming, you are forced to create a class with &quot;stub&quot; implementations to get the same effect.
+<BR></P>
+<P>Here's a more complicated example:
+<BR></P>
+<PRE>Orange      anOrange    = getAnOrange();
+Fruit       aFruit      = (Fruit) getAnOrange();
+Fruitlike   aFruitlike  = (Fruitlike) getAnOrange();
+Spherelike  aSpherelike = (Spherelike) getAnOrange();
+aFruit.decay();          // fruits decay
+aFruitlike.squish();     //  and squish
+aFruitlike.toss();       // not OK
+aSpherelike.toss();      // OK
+anOrange.decay();        // oranges can do it all
+anOrange.squish();
+anOrange.toss();
+anOrange.rotate();</PRE>
+<P>Declarations and casts <A ID = "I80" NAME = "I80"  ></A><A ID = "I81" NAME = "I81"  ></A>are used in this example to restrict an orange to act more like a mere fruit or sphere, simply to demonstrate the flexibility of the structure built previously. If the second structure built (the one with the new Sphere class) were being used instead, most of this code would still work. (In the line bearing Fruit, all instances of Fruit need to be replaced by Sphere. The later use of aFruit.decay() could be replaced by, for example, aSphere.rotate(). Everything else is the same.)
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The direct use of (implementation) class names is for demonstration <A ID = "I82" NAME = "I82"  ></A><A ID = "I83" NAME = "I83"  ></A>purposes only. Normally, you would use only interface names in those declarations and casts so that none of the code in the example would have to change to support the new structure.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Interfaces are implemented and used throughout the Java class library, whenever a behavior is expected to be implemented by a number of disparate classes. In Appendix B you'll find, for example, the interfaces java.lang.Runnable, java.util.Enumeration, java.util.Observable, java.awt.image.ImageConsumer, and java.awt.image.ImageProducer. Let's use one of these interfaces, Enumeration, to revisit the LinkedList example&#151;and to tie together today's lesson&#151;by demonstrating a good use of packages and interfaces together:
+<BR></P>
+<PRE>package  collections;
+public class  LinkedList {
+    private Node  root;
+    . . .
+    public Enumeration  enumerate() {
+        return new LinkedListEnumerator(root);
+    }
+}
+class  Node {
+    private Object  contents;
+    private Node    next;
+    . . .
+    public  Object  contents() {
+        return contents;
+    }
+    public  Node    next() {
+        return next;
+    }
+}
+class  LinkedListEnumerator implements Enumeration {
+    private Node  currentNode;
+    LinkedListEnumerator(Node  root) {
+        currentNode = root;
+    }
+    public boolean  hasMoreElements() {
+        return currentNode != null;
+    }
+    public Object   nextElement() {
+        Object  anObject = currentNode.contents();
+        currentNode = currentNode.next();
+        return  anObject;
+    }
+}</PRE>
+<P>Here is a typical use of the enumerator:
+<BR></P>
+<PRE>collections.LinkedList  aLinkedList = createLinkedList();
+java.util.Enumeration   e = aLinkedList.enumerate();
+while (e.hasMoreElements()) {
+    Object  anObject = e.nextElement();
+    // do something useful with anObject
+}</PRE>
+<P>Notice that although you <A ID = "I84" NAME = "I84"  ></A>are using the Enumeration e as though you know what it is, you actually do not. In fact, it is an instance of a hidden class (LinkedListEnumerator) that you cannot see or use directly. By a combination of packages and interfaces, the LinkedList class has managed to provide a transparent public interface to some of its most important behavior (via the already defined interface java.util.Enumeration) while still encapsulating (hiding) its two implementation (support) classes.
+<BR></P>
+<P>Handing out an object l<A ID = "I85" NAME = "I85"  ></A><A ID = "I86" NAME = "I86"  ></A>ike this is sometime called vending. Often, the &quot;vendor&quot; gives out an object that a receiver can't create itself, but that it knows how to use. By giving it back to the vendor, the receiver can prove it has a certain capability, authenticate itself, or do any number of useful tasks&#151;all without knowing much about the vended object. This is a powerful metaphor that can be applied in a broad range of situations.
+<BR></P>
+<H3><A ID = "I87" NAME = "I87"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Today, you learned how packages can be used to collect and categorize classes into meaningful groups. Packages are arranged in a hierarchy, which not only better organizes your programs, but allows you and the millions of Java programmers out on the Net to name and share their projects uniquely with one another.
+<BR></P>
+<P>You also learned how to use packages, both your own and the many preexisting ones in the Java class library.
+<BR></P>
+<P>You then discovered how to declare and use interfaces, a powerful mechanism for extending the traditional single-inheritance of Java's classes and for separating design inheritance from implementation inheritance in your programs. Interfaces are often used to call common (shared) methods when the exact class involved is not known. You'll see further uses of interfaces tomorrow and the day after.
+<BR></P>
+<P>Finally, packages and interfaces can be combined to provide useful abstractions, such as LinkedList, that appear simple yet are actually hiding almost all their (complex) implementation from their users. This is a powerful technique.
+<BR></P>
+<H3><A ID = "I88" NAME = "I88"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: What will happen to package/directory hierarchies when some sort of </B><B>archiving </B><A ID = "I89" NAME = "I89"  ></A><B>is added to Java?</B>
+<BR></P>
+<P>A: Being able to download over the Net a whole archive of packages, classes, and resources is something that Java systems may soon be able to do. When this happens, the simple mapping between directory hierarchy and package hierarchy will break down, and you will not be able to tell as easily where each class is stored (that is, in which archive). Presumably these new, advanced Java systems will provide tools that make this task (and compiling and linking your program in general) much easier.
+<BR></P>
+<P><B>Q: Can you say </B><B>import some.package.B*</B><B> to import all the classes in that package </B><B>that begin with </B><B>B</B><B>?</B>
+<BR></P>
+<P>A: No, the import asterisk (*) does not act like a command-line asterisk.
+<BR></P>
+<P><B>Q: Then what exactly does </B><B>import</B><B>-ing with an </B><B>*</B><B> mean?</B>
+<BR></P>
+<P><B>A: </B>Combining everything said previously, this precise definition emerges: it imports all the public classes that are <I>directly</I> inside the package named, and not inside one of its subpackages. (You can only import exactly this set of classes, or exactly one explicitly named class, from a given package.) By the way, Java only &quot;loads&quot; the information for a class when you actually refer to that class in your code, so the * form of import is no less efficient than naming each class individually.
+<BR></P>
+<P><B>Q: Is there any way that a hidden (</B><B>package</B><B>) class can somehow be forced out </B><B>of hiding?</B>
+<BR></P>
+<P><B>A: </B>A bizarre case in which a hidden class can be forced into visibility occurs if it has a public superclass and someone casts an instance of it to the superclass. Any public variables or methods of that superclass can now be accessed or called via your hidden class instance, even if those variables or methods were not thought of by you as public in the hidden class. Usually, these public methods (variables) are ones you don't mind having your instances perform (give access to), or you wouldn't have declared them to have that public superclass. This isn't always the case. Many of the system's built-in classes are public&#151;you may have no choice. Luckily, this is a rare event.
+<BR></P>
+<P><B>Q: Why is full multiple-inheritance so complex that Java abandoned it?</B>
+<BR></P>
+<P>A: It's not so much that it is too complex, but that it makes the language overly complicated&#151;and as you'll learn on the final day, this can cause larger systems to be less trustworthy and thus less secure. For example, if you were to inherit from two different parents, each having an instance variable with the same name, you would be forced to allow the conflict and explain how the exact same references to that variable name in each of your superclasses, and in you (all three), are now different. Instead of being able to call &quot;super&quot; methods to get more abstract behavior accomplished, you would always need to worry about which of the (possibly many) identical methods you actually wished to call in which parent. Java's run-time method dispatching would have to be more complex as well. Finally, because so many people would be providing classes for reuse on the Net, the normally manageable conflicts that would arise in your own program would be confounded by millions of users mixing and matching these fully multi-inherited classes at will. In the future, if all these issues are resolved, more powerful inheritance may be added to Java, but its current capabilities are already sufficient for 99 percent of your programs.
+<BR></P>
+<P><B>Q: </B><B>abstract</B><B> classes don't have to implement all the methods in an interface </B><B>themselves, but do all their subclasses have to?</B>
+<BR></P>
+<P><B>A: </B>Actually, no. Because of inheritance, the precise rule is that an implementation must be provided by some class for each method, but it doesn't have to be your class. This is analogous to when you are the subclass of a class that implements an interface for you. Whatever the abstract class doesn't implement, the first non-abstract class below it must implement. Then, any further subclasses need do nothing further.
+<BR></P>
+<P><B>Q: You didn't mention callbacks. Aren't they an important use of </B><B>interfaces?</B>
+<BR></P>
+<P><B>A: </B>Yes, but I didn't mention them because a good example would be too bulky in the text. These callbacks are often used in user interfaces (such as window systems) to specify what set of methods are going to be sent whenever the user does a certain set of things (such as clicking the mouse somewhere, typing, and so forth). Because the user interface classes should not &quot;know&quot; anything about the classes using them, an interface's ability to specify a set of methods separate from the class tree is crucial in this case. Callbacks using interfaces are not as general as using, for example, the perform: method of Smalltalk, however, because a given object can only request that a user interface object &quot;call it back&quot; using a single method name. Suppose that object wanted two user interfaces objects of the same class to call it back, using different names to tell them apart? It cannot do this in Java, and it is forced to use special state and tests to tell them apart. (I warned you that it was complicated!). So, although interfaces are quite valuable in this case, they are not the ideal callback facility.
+<BR></P>
+<P><A HREF = "tyj15x.html" tppabs="http://newdata.box.sk/bx/java/tyj15x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj17x.html" tppabs="http://newdata.box.sk/bx/java/tyj17x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

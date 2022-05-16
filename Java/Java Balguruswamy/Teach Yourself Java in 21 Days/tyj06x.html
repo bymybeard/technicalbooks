@@ -1,0 +1,562 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj06x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj07x.html" tppabs="http://newdata.box.sk/bx/java/tyj07x.html">
+<LINK REL="Previous" HREF="tyj05x.html" tppabs="http://newdata.box.sk/bx/java/tyj05x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj05x.html" tppabs="http://newdata.box.sk/bx/java/tyj05x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj07x.html" tppabs="http://newdata.box.sk/bx/java/tyj07x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 6</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Creating Classes and Applications in Java</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >Defining Classes</A></LI>
+<LI>
+<A HREF = "#I12"  >Creating Instance and Class Variables</A></LI>
+<UL>
+<LI>
+<A HREF = "#I13"  >Defining Instance Variables</A></LI>
+<LI>
+<A HREF = "#I18"  >Constants</A></LI>
+<LI>
+<A HREF = "#I27"  >Class Variables</A></LI></UL>
+<LI>
+<A HREF = "#I31"  >Creating Methods</A></LI>
+<UL>
+<LI>
+<A HREF = "#I34"  >Defining Methods</A></LI>
+<LI>
+<A HREF = "#I49"  >The this Keyword</A></LI>
+<LI>
+<A HREF = "#I54"  >Variable Scope and Method Definitions</A></LI>
+<LI>
+<A HREF = "#I59"  >Passing Arguments to Methods</A></LI>
+<LI>
+<A HREF = "#I75"  >Class Methods</A></LI></UL>
+<LI>
+<A HREF = "#I87"  >Creating Java Applications</A></LI>
+<LI>
+<A HREF = "#I94"  >Java Applications and Command-Line Arguments</A></LI>
+<UL>
+<LI>
+<A HREF = "#I97"  >Passing Arguments to Java Programs</A></LI>
+<LI>
+<A HREF = "#I102"  >Handling Arguments in Your Java Program</A></LI></UL>
+<LI>
+<A HREF = "#I108"  >Summary</A></LI>
+<LI>
+<A HREF = "#I109"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 6</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Creating Classes and Applications in Java</B>
+<BR></FONT></A></H2>
+<P><B>By Laura Lemay</B>
+<BR></P>
+<P>In just about every lesson up to this point you've been creating Java applications&#151;writing classes, creating instance variables and methods, and running those applications to perform simple tasks. Also up to this point, you've focused either on the very broad (general object-oriented theory) or the very minute (arithmetic and other expressions). Today, you pull it all together and learn how and why to create classes by using the following basics:
+<BR></P>
+<UL>
+<LI>The parts of a class definition
+<BR>
+<BR></LI>
+<LI>Declaring and using instance variables
+<BR>
+<BR></LI>
+<LI>Defining and using methods
+<BR>
+<BR></LI>
+<LI>Creating Java applications, including the main() method and how to pass arguments to a Java program from a command line
+<BR>
+<BR></LI></UL>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>Defining Classes</B>
+<BR></FONT></A></H3>
+<P>Defining classes is pretty <A ID = "I5" NAME = "I5"  ></A><A ID = "I6" NAME = "I6"  ></A>easy; you've seen how to do it a bunch of times in previous lessons. To define a class, use <A ID = "I7" NAME = "I7"  ></A><A ID = "I8" NAME = "I8"  ></A>the class keyword and the name of the class:
+<BR></P>
+<PRE>class MyClassName {
+...
+}</PRE>
+<P>If this class is a <A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A>subclass of another class, use extends to indicate the superclass of this class:
+<BR></P>
+<PRE>class myClassName extends mySuperClassName {
+...
+}</PRE>
+<P>If this class implements a <A ID = "I11" NAME = "I11"  ></A>specific interface, use implements to refer to that interface:
+<BR></P>
+<PRE>class MyRunnableClassName implements Runnable {
+...
+}</PRE>
+<P>Both extends and implements are optional. You'll learn about using and defining interfaces in Week 3.
+<BR></P>
+<H3><A ID = "I12" NAME = "I12"  >
+<foNT SIZE=4><B>Creating Instance and Class Variables</B>
+<BR></FONT></A></H3>
+<P>A class definition with nothing in it is pretty dull; usually, when you create a class, you have something you want to add to make that class different from its superclasses. Inside each class definition are declarations and definitions for variables or methods or both&#09;7&#196;for the class <I>and</I> for each instance. In this section, you'll learn all about instance and class variables; the next section talks about methods.
+<BR></P>
+<H4><A ID = "I13" NAME = "I13"  >
+<foNT SIZE=3><B>Defining Instance Variables</B>
+<BR></FONT></A></H4>
+<P>On Day 3, you learned <A ID = "I14" NAME = "I14"  ></A><A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A>how to declare and initialize local variables&#151;that is, variables inside method definitions. Instance variables, fortunately, are declared and defined in almost exactly the same way as local variables; the main difference is their location in the class definition. Variables are considered instance variables if they are declared outside a method definition. Customarily, however, most instance variables are defined just after the first line of the class definition. For example, Listing 6.1 shows a simple class definition for the class Bicycle, which inherits from the class PersonPoweredVehicle. This class definition contains four instance variables:
+<BR></P>
+<UL>
+<LI>bikeType: the kind of bicycle this bicycle is&#151;for example, Mountain or Street
+<BR>
+<BR></LI>
+<LI>chainGear, the number of gears in the front
+<BR>
+<BR></LI>
+<LI>rearCogs, the number of minor gears on the rear axle
+<BR>
+<BR></LI>
+<LI>currentGearFront and currentGearRear: the gears the bike is currently in, both front and rear
+<BR>
+<BR></LI>
+<LH><B>Listing 6.1. The </B><B>bicycle</B><B> class.</B><A ID = "I17" NAME = "I17"  ></A></LH></UL>
+<PRE>1: class Bicycle extends PersonPoweredVehicle {
+2:     String bikeType;
+3:     int chainGear;
+4:     int rearCogs;
+5:     int currentGearFront;
+6:     int currentGearRear;
+7: }</PRE>
+<H4><A ID = "I18" NAME = "I18"  >
+<foNT SIZE=3><B>Constants</B>
+<BR></FONT></A></H4>
+<P>Constants are useful <A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A>for defining shared values for all the mothods of an object&#151; for giving meaningful names to object-wide values that will never change. In Java, you can create constants only for instance or class variables, not for local variables.
+<BR></P>
+<P>A <I>constant variable</I> or <I>constant </I>is a variable whose value never changes (which may seem strange given the meaning of the word &quot;variable&quot;).
+<BR></P>
+<P>To declare <A ID = "I21" NAME = "I21"  ></A><A ID = "I22" NAME = "I22"  ></A><A ID = "I23" NAME = "I23"  ></A>a constant, use the final keyword before the variable declaration and include an initial value for that variable:
+<BR></P>
+<PRE>final float pi = 3.141592;
+final boolean debug = false;
+final int maxsize = 40000;</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> The only way to define constants in Java is by using the final keyword. Neither the C and C++ constructs for #define nor const are available in Java, though const is reserved to help catch its accidental use.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Constants can be useful for <A ID = "I24" NAME = "I24"  ></A>naming various states of an object and then testing for those states. For example, suppose you have a test label that can be aligned left, right, or center. You can define those values as constant integers:
+<BR></P>
+<PRE>final int LEFT = 0;
+final int RIGHT = 1;
+final int CENTER = 2;</PRE>
+<P>The variable alignment is <A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A>then also declared as an int:
+<BR></P>
+<PRE>int alignment;</PRE>
+<P>Then, later on in the body of a method definition, you can either set the alignment:
+<BR></P>
+<PRE>this.alignment = CENTER;</PRE>
+<P>or test for a given alignment:
+<BR></P>
+<PRE>switch (this.alignment) {
+    case LEFT: // deal with left alignment
+               ...
+               break;
+    case RIGHT: // deal with right alignment
+                ...
+                break;
+    case CENTER: // deal with center alignment
+                 ...
+                 break;
+}</PRE>
+<H4><A ID = "I27" NAME = "I27"  >
+<foNT SIZE=3><B>Class Variables</B>
+<BR></FONT></A></H4>
+<P>As you learned in previous <A ID = "I28" NAME = "I28"  ></A><A ID = "I29" NAME = "I29"  ></A>lessons, class variables are global to a class and to all that class's instances. You can think of class variables as being even more global than instance variables. Class variables are good for communicating between different objects with the same class, or for keeping track of global states among a set of objects.
+<BR></P>
+<P>To declare a class <A ID = "I30" NAME = "I30"  ></A>variable, use the static keyword in the class declaration:
+<BR></P>
+<PRE>static int sum;
+static final int maxObjects = 10;</PRE>
+<H3><A ID = "I31" NAME = "I31"  >
+<foNT SIZE=4><B>Creating Methods</B>
+<BR></FONT></A></H3>
+<P>Methods, as you learned on <A ID = "I32" NAME = "I32"  ></A><A ID = "I33" NAME = "I33"  ></A>Day 2, define an object's behavior&#151;what happens when that object is created and the various operations that object can perform during its lifetime. In this section, you'll get a basic introduction to method definition and how methods work; tomorrow, you'll go into more detail about advanced things you can do with methods.
+<BR></P>
+<H4><A ID = "I34" NAME = "I34"  >
+<foNT SIZE=3><B>Defining Methods</B>
+<BR></FONT></A></H4>
+<P>Method definitions <A ID = "I35" NAME = "I35"  ></A><A ID = "I36" NAME = "I36"  ></A>have four basic parts:
+<BR></P>
+<UL>
+<LI>The name of the method
+<BR>
+<BR></LI>
+<LI>The type of object or primitive type the method returns
+<BR>
+<BR></LI>
+<LI>A list of parameters
+<BR>
+<BR></LI>
+<LI>The body of the method
+<BR>
+<BR></LI></UL>
+<P>The method's <I>signature</I> is <A ID = "I37" NAME = "I37"  ></A><A ID = "I38" NAME = "I38"  ></A>a combination of the name of the method, the type of object or base type this method returns, and a list of parameters. 
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>To keep things simple today, I've left off two optional parts of <A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A>the method definition: a modifier such as public or private, <A ID = "I41" NAME = "I41"  ></A><A ID = "I42" NAME = "I42"  ></A>and the throws keyword, which indicates the exceptions a method can throw. You'll learn about these parts of a method definition in Week 3.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>In other languages, the name of the method (or function, subroutine, or procedure) is enough to distinguish it from other methods in the program. In Java, you can have different methods that have the same name but a different return type or argument list. This is called method overloading, and <A ID = "I43" NAME = "I43"  ></A>you'll learn more about it tomorrow.
+<BR></P>
+<P>Here's what a basic method definition looks like:
+<BR></P>
+<PRE>returntype methodname(type1 arg1, type2 arg2, type3 arg3..) {
+    ...
+}</PRE>
+<P>The <I>returntype</I> is the primitive type or class of the of the value this method returns. It can be one of the primitive types, a class name, or void if the method does not return a value at all.
+<BR></P>
+<P>Note that if this method returns an array object, the array brackets can go either after the return type or after the parameter list; because the former way is considerably easier to read, it is used in the examples today (and throughout this book):
+<BR></P>
+<PRE>int[] makeRange(int lower, int upper) {...}</PRE>
+<P>The method's parameter <A ID = "I44" NAME = "I44"  ></A><A ID = "I45" NAME = "I45"  ></A>list is a set of variable declarations, separated by commas, inside parentheses. These parameters become local variables in the body of the method, whose values are the objects or values of primitives passed in when the method is called.
+<BR></P>
+<P>Inside the body of the method you can have statements, expressions, method calls to other objects, conditionals, loops, and so on&#151;everything you've learned about in the previous lessons.
+<BR></P>
+<P>If your method has a real return type (that is, it has not been declared to return void), somewhere inside the body of the method you need to return a value. Use the return keyword to do this. Listing 6.2 shows an example of a class that defines a makeRange() method. makeRange() takes two integers&#151;a lower bound and an upper bound&#151;and creates an array that contains all the integers between those two boundaries (inclusive).
+<BR></P>
+<UL>
+<LH><B>Listing 6.2. The </B><B>RangeClass</B><B> class.</B><A ID = "I46" NAME = "I46"  ></A></LH></UL>
+<PRE> 1: class RangeClass {
+ 2:     int[] makeRange(int lower, int upper) {
+ 3:         int arr[] = new int[ (upper - lower) + 1 ];
+4: 
+ 5:         for (int i = 0; i &lt; arr.length; i++) {
+ 6:             arr[i] = lower++;
+ 7:         }
+ 8:         return arr;
+ 9:     }
+10:         
+11:     public static void main(String arg[]) {
+12:         int theArray[];
+13:         RangeClass theRange = new RangeClass();
+14: 
+15:         theArray = theRange.makeRange(1, 10);
+16:         System.out.print(&quot;The array: [ &quot;);
+17:         for (int i = 0; i &lt; theArray.length; i++) {
+18:             System.out.print(theArray[i] + &quot; &quot;);
+19:         }
+20:         System.out.println(&quot;]&quot;);
+21:     }
+22: 
+23: }</PRE>
+<P>Here's the output of this program:
+<BR></P>
+<PRE>The array: [ 1 2 3 4 5 6 7 8 9 10 ]</PRE>
+<P>The main() method in this class <A ID = "I47" NAME = "I47"  ></A><A ID = "I48" NAME = "I48"  ></A>tests the makeRange() method by creating a range where the lower and upper boundaries of the range are 1 and 10, respectively (see line 6), and then uses a for loop to print the values of the new array.
+<BR></P>
+<H4><A ID = "I49" NAME = "I49"  >
+<foNT SIZE=3><B>The </B><B>this</B><B> Keyword</B>
+<BR></FONT></A></H4>
+<P>In the body <A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A>of a method definition, you may want to refer to the current object&#151;the object the method was called on&#151; to refer to that object's instance variables or to pass the current object as an argument to another method. To refer to the current object in these cases, you can use the this keyword. this refers to <A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A>the current object, and you can use it anywhere that object might appear&#151;in dot notation to refer to the object's instance variables, as an argument to a method, as the return value for the current method, and so on. Here's an example:
+<BR></P>
+<PRE>t = this.x          // the x instance variable for this object
+this.myMethod(this) // call the mymethod method, defined in
+                    // this class, and pass it the current
+                    // object
+return this;        // return the current object</PRE>
+<P>In many cases, however, you may be able to omit the this keyword. You can refer to both instance variables and method calls defined in the current class simply by name; the this is implicit in those references. So, the first two examples could be written like this:
+<BR></P>
+<PRE>t = x          // the x instance variable for this object
+myMethod(this) // call the myMethod method, defined in this
+               // class</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Omitting the this keyword for instance variables depends on whether there are no variables of the same name declared in the local scope. See the next section for details.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Keep in mind that because this is a reference to the current instance of a class, therefore you should only use it inside the body of an instance method definition. Class methods, that is, methods declared with the static keyword, cannot use this.
+<BR></P>
+<H4><A ID = "I54" NAME = "I54"  >
+<foNT SIZE=3><B>Variable Scope and Method Definitions</B>
+<BR></FONT></A></H4>
+<P>When you refer to a variable within<A ID = "I55" NAME = "I55"  ></A><A ID = "I56" NAME = "I56"  ></A><A ID = "I57" NAME = "I57"  ></A><A ID = "I58" NAME = "I58"  ></A> your method definitions, Java checks for a definition of that variable first in the current scope (which may be a block), then in the outer scopes up to the current method definition. If that variable is not a local variable, Java then checks for a definition of that variable as an instance or class variable in the current class, and then, finally, in each superclass in turn.
+<BR></P>
+<P>Because of the way Java checks for the scope of a given variable, it is possible for you to create a variable in a lower scope such that a definition of that same variable &quot;hides&quot; the original value of that variable. This can introduce subtle and confusing bugs into your code.
+<BR></P>
+<P>For example, note this small Java program:
+<BR></P>
+<PRE>class ScopeTest {
+    int test = 10;
+    void printTest () {
+        int test = 20;
+        System.out.println(&quot;test = &quot; + test);
+    }
+}</PRE>
+<P>In this class, you have two variables with the same name and definition: the first, an instance variable, has the name test and is initialized to the value 10. The second is a local variable with the same name, but with the value 20. Because the local variable hides the instance variable, the println() method will print that test is 20.
+<BR></P>
+<P>You can get around this particular problem by using this.test to refer to the instance variable, and just test to refer to the local variable.
+<BR></P>
+<P>A more insidious example of this occurs when you redefine a variable in a subclass that already occurs in a superclass. This can create very subtle bugs in your code&#151;for example, you may call methods that are intended to change the value of an instance variable, but that change the wrong one. Another bug might occur when you cast an object from one class to another&#151;the value of your instance variable may mysteriously change (because it was getting that value from the superclass instead of from your class). The best way to avoid this behavior is to make sure that, when you define variables in a subclass, you're aware of the variables in each of that class's superclasses and you don't duplicate what is already there.
+<BR></P>
+<H4><A ID = "I59" NAME = "I59"  >
+<foNT SIZE=3><B>Passing Arguments to Methods</B>
+<BR></FONT></A></H4>
+<P>When you call <A ID = "I60" NAME = "I60"  ></A><A ID = "I61" NAME = "I61"  ></A><A ID = "I62" NAME = "I62"  ></A>a method with object parameters, the variables you pass into the body of the method are passed by reference, which means that whatever you do to those objects inside the method affects the original objects as well. This includes arrays and all the objects that arrays contain; when you pass an array into a method and modify its contents, the original array is affected. (Note that primitive types are passed by value.)
+<BR></P>
+<P>Here's an example to demonstrate how this works. First, you have a simple class definition, which includes a single method called OneToZero() (see Listing 6.3).
+<BR></P>
+<UL>
+<LH><B>Listing 6.3. The </B><B>PassByReference</B><B> class.</B><A ID = "I63" NAME = "I63"  ></A></LH></UL>
+<PRE> 1: class PassByReference {
+ 2:     int onetoZero(int arg[]) {
+ 3:         int count = 0;
+ 4: 
+ 5:         for (int i = 0; i &lt; arg.length; i++) {
+ 6:             if (arg[i] == 1) {
+ 7:                 count++;
+ 8:                 arg[i] = 0;
+ 9:             }
+10:         }
+11:         return count;
+12:     }
+13: }</PRE>
+<P>The onetoZero() method does <A ID = "I64" NAME = "I64"  ></A><A ID = "I65" NAME = "I65"  ></A>two things:
+<BR></P>
+<UL>
+<LI>It counts the number of ones in the array and returns that value.
+<BR>
+<BR></LI>
+<LI>If it finds a one, it substitutes a zero in its place in the array.
+<BR>
+<BR></LI></UL>
+<P>Listing 6.4 shows the main() method for the PassByReference class, which tests the onetoZero() method:
+<BR></P>
+<UL>
+<LH><B>Listing 6.4. The </B><B>main</B><B>()</B><B> method in </B><B>PassByReference</B><B>.</B><A ID = "I66" NAME = "I66"  ></A></LH></UL>
+<PRE> 1: public static void main (String arg[]) {
+ 2:     int arr[] = { 1, 3, 4, 5, 1, 1, 7 };
+ 3:     PassByReference test = new PassByReference();
+ 4:     int numOnes;
+ 5:     
+ 6:     System.out.print(&quot;Values of the array: [ &quot;);
+ 7:     for (int i = 0; i &lt; arr.length; i++) {
+ 8:         System.out.print(arr[i] + &quot; &quot;);
+ 9:     }
+10:     System.out.println(&quot;]&quot;);
+11:     
+12:     numOnes = test.onetoZero(arr);
+13:     System.out.println(&quot;Number of Ones = &quot; + numOnes);
+14:     System.out.print(&quot;New values of the array: [ &quot;);
+15:     for (int i = 0; i &lt; arr.length; i++) {
+16:         System.out.print(arr[i] + &quot; &quot;);
+17:     }
+18:    System.out.println(&quot;]&quot;);
+19: }</PRE>
+<P>Here is the output of this program:
+<BR></P>
+<PRE>Values of the array: [ 1 3 4 5 1 1 7 ]
+Number of Ones = 3
+New values of the array: [ 0 3 4 5 0 0 7 ]</PRE>
+<P>Let's go over the main() method line by line so that you can see what is going on.
+<BR></P>
+<P>Lines 2 through 4 set <A ID = "I67" NAME = "I67"  ></A><A ID = "I68" NAME = "I68"  ></A>up the initial variables for this example. The first one is an array of integers; the second one is an instance of the class PassByReference, which is stored in the variable test. The third is a simple integer to hold the number of ones in the array.
+<BR></P>
+<P>Lines 6 through 11 print ou<A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A><A ID = "I71" NAME = "I71"  ></A>t the initial values of the array; you can see the output of these lines in the first line of the output.
+<BR></P>
+<P>Line 12 is where the real work takes place; this is where you call the onetoZero() method, defined in the object test, and pass it the array stored in arr. This method returns the number of ones in the array, which you'll then assign to the variable numOnes.
+<BR></P>
+<P>Got it so far? Line 13 prints out the number of ones, that is, the value you got back from the onetoZero() method. It returns three, as you would expect.
+<BR></P>
+<P>The last bunch of <A ID = "I72" NAME = "I72"  ></A><A ID = "I73" NAME = "I73"  ></A><A ID = "I74" NAME = "I74"  ></A>lines print out the array values. Because a reference to the array object is passed to the method, changing the array inside that method changes that original copy of the array. Printing out the values in lines 14 through 18 proves this&#151;that last line of output shows that all the 1s in the array have been changed to 0s.
+<BR></P>
+<H4><A ID = "I75" NAME = "I75"  >
+<foNT SIZE=3><B>Class Methods</B>
+<BR></FONT></A></H4>
+<P>Just as you have <A ID = "I76" NAME = "I76"  ></A><A ID = "I77" NAME = "I77"  ></A>class and instance variables, you also <A ID = "I78" NAME = "I78"  ></A><A ID = "I79" NAME = "I79"  ></A>have class and instance methods, and the difference between the two types of methods are analogous. Class methods are available to any instance of the class itself and can be made available to other classes. Therefore, some class methods can be used anywhere regardless of whether an instance of the class exists or not.
+<BR></P>
+<P>For example, the Java <A ID = "I80" NAME = "I80"  ></A><A ID = "I81" NAME = "I81"  ></A>class libraries include a class called Math. The Math class defines a whole set of math operations that can be used in any program or the various number types:
+<BR></P>
+<PRE>float root = Math.sqrt(453.0);
+System.out.print(&quot;The larger of x and y is &quot; + Math.max(x, y));</PRE>
+<P>To define class <A ID = "I82" NAME = "I82"  ></A><A ID = "I83" NAME = "I83"  ></A><A ID = "I84" NAME = "I84"  ></A>methods, use the static keyword in front of the method definition, just as you would create a class variable. For example, that max class method might have a signature like this:
+<BR></P>
+<PRE>static int max(int arg1, int arg2) { ... }</PRE>
+<P>Java supplies &quot;wrapper&quot; classes <A ID = "I85" NAME = "I85"  ></A><A ID = "I86" NAME = "I86"  ></A>for each of the base types&#151;for example, classes for Integer, Float, and Boolean. Using class methods defined in those classes, you can convert to and from objects and primitive types. For example, the parseInt() class method in the Integer class takes a string and a radix (base) and returns the value of that string as an integer:
+<BR></P>
+<PRE>int count = Integer.parseInt(&quot;42&quot;, 10) // returns 42</PRE>
+<P>Most methods that operate on a particular object, or that affect that object, should be defined as instance methods. Methods that provide some general utility but do not directly affect an instance of that class are better declared as class methods.
+<BR></P>
+<H3><A ID = "I87" NAME = "I87"  >
+<foNT SIZE=4><B>Creating Java Applications</B>
+<BR></FONT></A></H3>
+<P>Now that you know <A ID = "I88" NAME = "I88"  ></A><A ID = "I89" NAME = "I89"  ></A>how to create classes, objects, and class and instance variables and methods, all that's left is to put it together into something that can actually run&#151;in other words, to create a Java application.
+<BR></P>
+<P>Applications, to refresh your memory, are Java programs that run on their own. Applications <A ID = "I90" NAME = "I90"  ></A><A ID = "I91" NAME = "I91"  ></A>are different from applets, which require HotJava or a Java-capable browser to view them. Much of what you've been creating up to this point have been Java applications; next week you'll dive into how to create applets. (Applets require a bit more background in order to get them to interact with the browser and draw and update with the graphics system. You'll learn all of this next week.)
+<BR></P>
+<P>A Java application consists of one of more classes and can be as large or as small as you want it to be. HotJava is an example of a Java application. The only thing you need to make a Java application run is one class that serves as the &quot;jumping-off&quot; point for the rest of your Java program. If your program is small enough, it may need only the one class.
+<BR></P>
+<P>The jumping-off class for your program needs one thing: a main() method. When you run your compiled Java class (using the Java interpreter), the main() method is the first thing that gets called. None of this should be much of a surprise to you at this point; you've been creating Java applications with main() methods all along.
+<BR></P>
+<P>The signature for <A ID = "I92" NAME = "I92"  ></A><A ID = "I93" NAME = "I93"  ></A>the main() method always looks like this:
+<BR></P>
+<PRE>public static void main(String args[]) {...}</PRE>
+<P>Here's a run-down of the parts of the main() method:
+<BR></P>
+<UL>
+<LI>public means that this method is available to other classes and objects. The main() method must be declared public. You'll learn more about public and private methods in Week 3.
+<BR>
+<BR></LI>
+<LI>static means that this is a class method.
+<BR>
+<BR></LI>
+<LI>void means the main() method doesn't return anything.
+<BR>
+<BR></LI>
+<LI>main() takes one parameter: an array of strings. This argument is used for command-line arguments, which you'll learn about in the next section.
+<BR>
+<BR></LI></UL>
+<P>The body of the main() method contains any code you need to get your application started: initializing variables or creating instances of any classes you may have declared.
+<BR></P>
+<P>When Java executes the main() method, keep in mind that main() is a class method&#151;the class that holds it is not automatically instantiated when your program runs. If you want to treat that class as an object, you have to instantiate it in the main() method yourself (all the examples up to this point have done this).
+<BR></P>
+<H3><A ID = "I94" NAME = "I94"  >
+<foNT SIZE=4><B>Java Applications and Command-Line Arguments</B>
+<BR></FONT></A></H3>
+<P>Because Java applications are <A ID = "I95" NAME = "I95"  ></A><A ID = "I96" NAME = "I96"  ></A>stand-alone programs, it's useful to be able to pass arguments or options to that program to determine how the program is going to run, or to enable a generic program to operate on many different kinds of input. Command-line arguments can be used for many different purposes&#151;for example, to turn on debugging input, to indicate a filename to read or write from, or for any other information that you might want your Java program to know.
+<BR></P>
+<H4><A ID = "I97" NAME = "I97"  >
+<foNT SIZE=3><B>Passing Arguments to Java Programs</B>
+<BR></FONT></A></H4>
+<P>To pass arguments <A ID = "I98" NAME = "I98"  ></A><A ID = "I99" NAME = "I99"  ></A>to a Java program, you merely append them to the command line when you run your Java program:
+<BR></P>
+<PRE>java Myprogram argumentOne 2 three</PRE>
+<P>On this command line, you have three arguments: argumentOne, the number 2, and three. Note that a space separates arguments, so this command line produces three arguments:
+<BR></P>
+<PRE>java myprogram Java is cool</PRE>
+<P>To group arguments, surround <A ID = "I100" NAME = "I100"  ></A><A ID = "I101" NAME = "I101"  ></A>them with double-quotes. This command line produces one argument:
+<BR></P>
+<PRE>java myprogram &quot;Java is cool&quot;</PRE>
+<P>The double-quotes are stripped off before the argument gets to your Java program.
+<BR></P>
+<H4><A ID = "I102" NAME = "I102"  >
+<foNT SIZE=3><B>Handling Arguments in Your Java Program</B>
+<BR></FONT></A></H4>
+<P>How does Java handle <A ID = "I103" NAME = "I103"  ></A>arguments? It stores them in an array of strings, which is passed to the main() method in your Java program. Remember the signature for main():
+<BR></P>
+<PRE>public static void main (String args[]) {...}</PRE>
+<P>Here, args is the name of the array of strings that contains the list of arguments. You can actually call it anything you want.
+<BR></P>
+<P>Inside your main() method, you can then handle the arguments your program was given by iterating over the array of arguments and handling those arguments any way you want. For example, Listing 6.5 is a really simple class that prints out the arguments it gets, one per line.
+<BR></P>
+<UL>
+<LH><B>Listing 6.5. The </B><B>EchoArgs</B><B> class.</B><A ID = "I104" NAME = "I104"  ></A></LH></UL>
+<PRE>1: class EchoArgs {
+2:     public static void main(String args[]) {
+3:         for (int i = 0; i &lt; args.length; i++) {
+4:             System.out.println(&quot;Argument &quot; + i + &quot;: &quot; + args[i]);
+5:         }
+6:     }
+7: }</PRE>
+<P>The following is some sample input and output from this program:
+<BR></P>
+<PRE>java EchoArgs 1 2 3 jump
+Argument 0: 1
+Argument 1: 2
+Argument 2: 3
+Argument 3: jump
+java EchoArgs &quot;foo bar&quot; zap twaddle 5
+Argument 0: foo bar
+Argument 1: zap
+Argument 2: twaddle
+Argument 3: 5</PRE>
+<P>Note how the arguments are grouped in the listing; putting quotes around foo bar causes that argument to be treated as one unit inside the argument array.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> The array of arguments in Java is not analogous to argv in C and Unix. In particular, arg[0], the first element in the array of arguments, is the first command-line argument after the name of the class&#151;<I>not</I> the name of the program as it would be in C. Be careful of this as you write your Java programs.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>An important thing to note about the arguments you pass into a Java program is that those <A ID = "I105" NAME = "I105"  ></A><A ID = "I106" NAME = "I106"  ></A>arguments will be stored in an array of strings. This means that any arguments you pass to your Java program are strings stored in the argument array. To treat them as non-strings, you'll have to convert them to whatever type you want them to be.
+<BR></P>
+<P>For example, suppose you have a very simple Java program called SumAverage that takes any number of numeric arguments and returns the sum and the average of those arguments. Listing 6.6 shows a first pass at this program.
+<BR></P>
+<UL>
+<LH><B>Listing 6.6. First try at the </B><B>SumAverage</B><B> </B><B>class.</B><A ID = "I107" NAME = "I107"  ></A></LH></UL>
+<PRE> 1: class SumAverage {
+ 2:     public static void main (String args[]) {
+ 3:         int sum = 0;
+ 4: 
+ 5:         for (int i = 0; i &lt; args.length; i++) {
+ 6:             sum += args[i];
+ 7:         }
+ 8: 
+ 9:         System.out.println(&quot;Sum is: &quot; + sum);
+10:         System.out.println(&quot;Average is: &quot; +
+11:             (float)sum / args.length);
+12:     }
+13: }</PRE>
+<P>At first glance, this program seems rather straightforward&#151;a for loop iterates over the array of arguments, summing them, and then the sum and the average are printed out as the last step.
+<BR></P>
+<P>What happens when you try and compile this? You get the following error:
+<BR></P>
+<PRE>SumAverage.java:9: Incompatible type for +=. Can't convert java.lang.String to int.
+    sum += args[i];</PRE>
+<P>You get this error because the argument array is an array of strings. Even though you passed integers into the program from the command line, those integers were converted to strings before they were stored in the array. To be able to sum those integers, you have to convert them back from strings to integers. There's a class method for the Integer class, called parseInt, that does just this. If you change line 7 to use that method, everything works just fine:
+<BR></P>
+<PRE>sum += Integer.parseInt(args[i]);</PRE>
+<P>Now, compiling the program produces no errors and running it with various arguments returns the expected results. For example, java SumAverage 1 2 3 returns the following output:
+<BR></P>
+<PRE>Sum is: 6
+Average is: 2</PRE>
+<H3><A ID = "I108" NAME = "I108"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Today, you put together everything you've come across in the preceding days of this week about how to create Java classes and use them in Java applications. This included the following:
+<BR></P>
+<UL>
+<LI>Instance and class variables, which hold the attributes of the class and its instances. You learned how to declare them, how they are different from regular local variables, and how to declare constants.
+<BR>
+<BR></LI>
+<LI>Instance and class methods, which define a class's behavior. You learned how to define methods, including the parts of a method's signature, how to return values from a method, how arguments are passed in and out of methods, and how to use the this keyword to refer to the current object
+<BR>
+<BR></LI>
+<LI>Java applications&#151;all about the main() method and how it works, as well as how to pass arguments into a Java application from a command line.
+<BR>
+<BR></LI></UL>
+<H3><A ID = "I109" NAME = "I109"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: I tried creating a constant variable inside a method, and I got a </B><B>compiler error when I tried it. What was I doing wrong?</B>
+<BR></P>
+<P><B>A: </B>You can create only constant (final) class or instance variables; local variables cannot be constant.
+<BR></P>
+<P><B>Q: </B><B>static</B><B> and </B><B>final</B><B> are not exactly the most descriptive words for creating </B><B>class variables, class methods, and constants. Why not use </B><B>class</B><B> and </B><B>const</B><B>?</B>
+<BR></P>
+<P><B>A: </B>static comes from Java's C++ heritage; C++ uses the static keyword to retain memory for class variables and methods (and, in fact, they aren't called class methods and variables in C++: static member functions and variables are more common terms).
+<BR>
+<BR>final, however, is new. final is used in a more general way for classes and methods to indicate that those things cannot be subclassed or overridden. Using the final keyword for variables is consistent with that behavior. final variables are not quite the same as constant variables in C++, which is why the const keyword is not used.
+<BR></P>
+<P><B>Q: In my class, I have an instance variable called </B><B>name</B><B>. I also have a </B><B>local variable called </B><B>name</B><B> in a method, which, because of variable scope, </B><B>gets hidden by the local variable. Is there any way to get hold of the </B><B>instance variable's value?</B>
+<BR></P>
+<P><B>A: </B>The easiest way is not to name your local variables the same names as your instance variables. If you feel you must, you can use this.name to refer to the instance variable and name to refer to the local variable.
+<BR></P>
+<P><B>Q: I want to pass command-line arguments to an applet. How do I do this?</B>
+<BR></P>
+<P><B>A: </B>You're writing applets already? Been skipping ahead, have you? The answer is that you use HTML attributes to pass arguments to an applet, not the command line (you don't have a command line for applets). You'll learn how to do this next week.
+<BR></P>
+<P><B>Q: I wrote a program to take four arguments, but if I give it too few </B><B>arguments, it crashes with a run-time error.</B>
+<BR></P>
+<P><B>A: </B>Testing for the number and type of arguments your program expects is up to you in your Java program; Java won't do it for you. If your program requires four arguments, test that you have indeed been given four arguments, and return an error message if you haven't.
+<BR></P>
+<P><A HREF = "tyj05x.html" tppabs="http://newdata.box.sk/bx/java/tyj05x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj07x.html" tppabs="http://newdata.box.sk/bx/java/tyj07x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

@@ -1,0 +1,1592 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj13x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj14x.html" tppabs="http://newdata.box.sk/bx/java/tyj14x.html">
+<LINK REL="Previous" HREF="tyj12x.html" tppabs="http://newdata.box.sk/bx/java/tyj12x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj12x.html" tppabs="http://newdata.box.sk/bx/java/tyj12x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj14x.html" tppabs="http://newdata.box.sk/bx/java/tyj14x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 13</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >The Java Abstract Windowing Toolkit</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >An AWT Overview</A></LI>
+<LI>
+<A HREF = "#I29"  >The Basic User Interface Components</A></LI>
+<UL>
+<LI>
+<A HREF = "#I38"  >Labels</A></LI>
+<LI>
+<A HREF = "#I59"  >Buttons</A></LI>
+<LI>
+<A HREF = "#I66"  >Checkboxes</A></LI>
+<LI>
+<A HREF = "#I81"  >Radio Buttons</A></LI>
+<LI>
+<A HREF = "#I84"  >Choice Menus</A></LI>
+<LI>
+<A HREF = "#I94"  >Text Fields</A></LI></UL>
+<LI>
+<A HREF = "#I108"  >Panels and Layout</A></LI>
+<UL>
+<LI>
+<A HREF = "#I113"  >Layout Managers</A></LI>
+<UL>
+<LI>
+<A HREF = "#I121"  >The FlowLayout Class</A></LI>
+<LI>
+<A HREF = "#I129"  >Grid and Grid Bag Layouts</A></LI>
+<LI>
+<A HREF = "#I136"  >Border Layouts</A></LI>
+<LI>
+<A HREF = "#I139"  >Card Layouts</A></LI></UL>
+<LI>
+<A HREF = "#I142"  >Insets</A></LI></UL>
+<LI>
+<A HREF = "#I148"  >Handling UI Actions and Events</A></LI>
+<LI>
+<A HREF = "#I167"  >Nesting Panels and Components</A></LI>
+<UL>
+<LI>
+<A HREF = "#I168"  >Nested Panels</A></LI>
+<LI>
+<A HREF = "#I172"  >Events and Nested Panels</A></LI></UL>
+<LI>
+<A HREF = "#I177"  >More UI Components</A></LI>
+<UL>
+<LI>
+<A HREF = "#I178"  >Text Areas</A></LI>
+<LI>
+<A HREF = "#I190"  >Scrolling Lists</A></LI>
+<LI>
+<A HREF = "#I199"  >Scrollbars and Sliders</A></LI>
+<LI>
+<A HREF = "#I216"  >Canvases</A></LI></UL>
+<LI>
+<A HREF = "#I223"  >More UI Events</A></LI>
+<LI>
+<A HREF = "#I227"  >A Complete Example RGB to HSB Converter</A></LI>
+<UL>
+<LI>
+<A HREF = "#I236"  >Create the Applet Layout</A></LI>
+<LI>
+<A HREF = "#I239"  >Create the Panel Layout</A></LI>
+<LI>
+<A HREF = "#I245"  >Define the Subpanels</A></LI>
+<LI>
+<A HREF = "#I257"  >Handle the Actions</A></LI>
+<LI>
+<A HREF = "#I260"  >Update the Result</A></LI>
+<LI>
+<A HREF = "#I272"  >The Complete Source Code</A></LI></UL>
+<LI>
+<A HREF = "#I274"  >Summary</A></LI>
+<LI>
+<A HREF = "#I275"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 13</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>The Java Abstract Windowing Toolkit</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>For the past five days you've concentrated on creating applets that do very simple things: display text, play an animation or a sound, or enable very basic interactions with the user. Once you get past that point, however, you may want to start creating more complex applets that behave like real applications, embedded in a Web page&#151;applets that start to look like real GUI applications with buttons, menus, text fields and other elements of a real application.
+<BR></P>
+<P>It's this sort of real work in Java applets and applications that Java's Abstract Windowing Toolkit, or AWT, was designed for. You've actually been using the AWT all along, as you might have guessed from the classes you've been importing. The Applet class and most of the classes you've been using this week are all integral parts of the AWT. In fact, the HotJava browser is also written in Java and uses the AWT as well.
+<BR></P>
+<P>The AWT provides the following:
+<BR></P>
+<UL>
+<LI>A full set of UI widgets and other components, including windows, menus, buttons, checkboxes, text fields, scrollbars, and scrolling lists
+<BR>
+<BR></LI>
+<LI>Support for UI &quot;containers,&quot; which can contain other embedded containers or UI widgets
+<BR>
+<BR></LI>
+<LI>An event system for managing system and user events between and among parts of the AWT
+<BR>
+<BR></LI>
+<LI>Mechanisms for laying out components in a way that enables platform-independent UI design
+<BR>
+<BR></LI></UL>
+<P>Today, you'll learn about how to use all these things in your Java applets. Tomorrow, you'll learn about creating windows, menus, and dialogs, which enable you to pop up separate windows from the browser window. In addition, you can use the AWT in stand-alone applications, so everything you've learned so far this week can still be used. If you find the framework of the Web browser too limiting, you can take your AWT background and start writing full-fledged Java applications.
+<BR></P>
+<P>Today, however, you'll continue focusing on applets.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> This is by far the most complex lesson so far. There's a lot to cover and a lot of code to go through today, so if it starts becoming overwhelming, you might want to take two days (or more) for this one.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>An AWT Overview</B>
+<BR></FONT></A></H3>
+<P>The basic idea behind <A ID = "I5" NAME = "I5"  ></A><A ID = "I6" NAME = "I6"  ></A>the AWT is that a Java window is a set of nested components, starting from the outermost window all the way down to the smallest UI component. Components <A ID = "I7" NAME = "I7"  ></A>can include things you can actually see on the screen, such as windows, menubars, buttons, and text fields, and they can also include containers, which in turn can contain other components. Figure 13.1 shows how a sample page in a Java browser might include several different components, all of which are managed through the AWT.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj01.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj01.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj01.gif"  >Figure 13.1. AWT components.</B></A>
+<BR></P>
+<P>This nesting of components <A ID = "I8" NAME = "I8"  ></A><A ID = "I9" NAME = "I9"  ></A>within containers within other components creates a hierarchy of components, from the smallest checkbox inside an applet to the overall window on the screen. The hierarchy of components determines the arrangement of items on the screen and inside other items, the order in which they are painted, and how events are passed from one component to another.
+<BR></P>
+<P>These are the major components you can work with in the AWT:
+<BR></P>
+<UL>
+<LI><I>Containers.</I> Containers <A ID = "I10" NAME = "I10"  ></A>are generic AWT components that can contain other components, including other containers. The most common form of <A ID = "I11" NAME = "I11"  ></A>container is the panel, which represents a container that can be displayed on screen. Applets are a form of panel (in fact, the Applet class is a subclass of the Panel class).
+<BR>
+<BR></LI>
+<LI><I>Canvases.</I> A <A ID = "I12" NAME = "I12"  ></A><A ID = "I13" NAME = "I13"  ></A>canvas is a simple drawing surface. Although you can draw on panels (as you've been doing all along), canvases are good for painting images or other graphics operations.
+<BR>
+<BR></LI>
+<LI><I>UI components.</I> These <A ID = "I14" NAME = "I14"  ></A>can include buttons, lists, simple popup menus, checkboxes, test fields, and other typical elements of a user interface.
+<BR>
+<BR></LI>
+<LI><I>Window construction components.</I> These include <A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A><A ID = "I17" NAME = "I17"  ></A><A ID = "I18" NAME = "I18"  ></A><A ID = "I19" NAME = "I19"  ></A>windows, frames, menubars, and dialogs. These are listed separately from the other UI components because you'll use these less often&#151;particularly in applets. In applets, the browser provides the main window and menubar, so you don't have to use these. Your applet may create a new window, however, or you may want to write your own Java application that uses these components.
+<BR>
+<BR></LI></UL>
+<P>The classes inside the java.awt package are written and organized to mirror the abstract structure of containers, components, and individual UI components. Figure 13.2 shows some of the class hierarchy that makes up the <A ID = "I20" NAME = "I20"  ></A><A ID = "I21" NAME = "I21"  ></A>main classes in the AWT. The root of most of the AWT components is <A ID = "I22" NAME = "I22"  ></A><A ID = "I23" NAME = "I23"  ></A>the class Component, which provides basic display and event handling features. The classes Container, Canvas, TextComponent, and many of the other UI components inherit from Component. Inheriting from the<A ID = "I24" NAME = "I24"  ></A><A ID = "I25" NAME = "I25"  ></A> Container class are objects that can contain other AWT components&#151;the Panel and Window classes, in particular. Note that the java.applet.Applet <A ID = "I26" NAME = "I26"  ></A><A ID = "I27" NAME = "I27"  ></A><A ID = "I28" NAME = "I28"  ></A>class, even though it lives in its own package, inherits from Panel, so your applets are an integral part of the hierarchy of components in the AWT system.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj02.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj02.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj02.gif"  >Figure 13.2. A partial AWT class hierarchy.</B></A>
+<BR></P>
+<P>A graphical user interface-based application that you write by using the AWT can be as complex as you like, with dozens of nested containers and components inside each other. AWT was designed so that each component can play its part in the overall AWT system without needing to duplicate or keep track of the behavior of other parts in the system.
+<BR></P>
+<H3><A ID = "I29" NAME = "I29"  >
+<foNT SIZE=4><B>The Basic User Interface Components</B>
+<BR></FONT></A></H3>
+<P>The simplest form <A ID = "I30" NAME = "I30"  ></A><A ID = "I31" NAME = "I31"  ></A>of AWT component is the basic UI component. You can create and add these to your applet without needing to know anything about creating containers or panels&#151;your applet, even before you start painting and drawing and handling events, is already an AWT container. Because an applet is a container, you can put other AWT components&#151;such as UI components or other containers&#151;into it.
+<BR></P>
+<P>In this section, you'll learn about the basic UI components: labels, buttons, checkboxes, choice menus, and text fields. In each case, the procedure for creating the component is the same&#151;you first create the component, and then add it to the panel that holds it, at which point it is displayed on the screen. To add a component to a panel (such as your applet, for example), use the add() method:
+<BR></P>
+<PRE>public void init() {
+    Button b = new Button(&quot;OK&quot;);
+    add(b);
+}</PRE>
+<P>Note that where the <A ID = "I32" NAME = "I32"  ></A><A ID = "I33" NAME = "I33"  ></A><A ID = "I34" NAME = "I34"  ></A><A ID = "I35" NAME = "I35"  ></A>component appears in the panel depends on the layout that panel is defined to have. The default layout for panels such as applets is FlowLayout, with a <A ID = "I36" NAME = "I36"  ></A><A ID = "I37" NAME = "I37"  ></A>centered alignment, which means that components are added from left to right in rows, and then row by row as they fit, with each row centered. This explains why some of the examples in this section look a little funny. You'll learn more about panels and layouts in the next section.
+<BR></P>
+<P>Note also that each of these components has an action associated with it&#151;that is, something that component does when it's activated. Actions generally trigger events or other activities in your applet (often called callbacks in other window toolkits). In this section, you'll focus on creating the components themselves; you'll learn about adding actions to them later in today's lesson.
+<BR></P>
+<P>On to the components!
+<BR></P>
+<H4><A ID = "I38" NAME = "I38"  >
+<foNT SIZE=3><B>Labels</B>
+<BR></FONT></A></H4>
+<P>The simplest <A ID = "I39" NAME = "I39"  ></A>form of UI component is the label.
+<BR></P>
+<P><I>Labels</I> are, effectively, text <A ID = "I40" NAME = "I40"  ></A><A ID = "I41" NAME = "I41"  ></A>strings that you can use to label other UI components. 
+<BR></P>
+<P>The advantages that a label has over an ordinary text string is that it follows the layout <A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A>of the given panel, and you don't have to worry about repainting it every time the panel is redrawn. Labels also can be easily aligned within a panel, enabling you to attach labels to other UI components without knowing exact pixel positions.
+<BR></P>
+<P>To create a label, use <A ID = "I44" NAME = "I44"  ></A><A ID = "I45" NAME = "I45"  ></A>one of the following constructors:
+<BR></P>
+<UL>
+<LI>Label() creates an <A ID = "I46" NAME = "I46"  ></A><A ID = "I47" NAME = "I47"  ></A>empty label, <A ID = "I48" NAME = "I48"  ></A><A ID = "I49" NAME = "I49"  ></A>with its text aligned left.
+<BR>
+<BR></LI>
+<LI>Label(<I>String</I>) creates a label <A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A><A ID = "I52" NAME = "I52"  ></A>with the given text string, also aligned left.
+<BR>
+<BR></LI>
+<LI>Label(<I>String</I>, <I>int</I>) creates a label with the given text string and the given alignment. The available alignments are stored in class variables in Label, making them easier to remember: Label.RIGHT, Label.LEFT, and Label.CENTER.
+<BR>
+<BR></LI></UL>
+<P>The label's font is determined <A ID = "I53" NAME = "I53"  ></A><A ID = "I54" NAME = "I54"  ></A>by the overall font for the component (as set by the setFont() method)<A ID = "I55" NAME = "I55"  ></A><A ID = "I56" NAME = "I56"  ></A>.
+<BR></P>
+<P>Here's some simple code to create a few labels. Figure 13.3 shows how this looks on screen:
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj03.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj03.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj03.gif"  >Figure 13.3.</B></A>
+<BR></P>
+<PRE>add(new Label(&quot;aligned left &quot;));
+add(new Label(&quot;aligned center&quot;, Label.CENTER));
+add(new Label(&quot; aligned right&quot;, Label.RIGHT));</PRE>
+<P>Once you have a label object, you can use methods defined in the Label class to get and set the values of the text as shown in Table 13.1.
+<BR></P>
+<UL>
+<LH><B>Table 13.1. Label methods.</B><A ID = "I57" NAME = "I57"  ></A><A ID = "I58" NAME = "I58"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Method</I>
+<BR></PRE>
+<TD>
+<PRE><I>Action</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>getText()</P>
+<TD>
+<P>Returns a string containing this label's text</P>
+<TR>
+<TD>
+<P>setText(String)</P>
+<TD>
+<P>Changes the text of this label</P>
+<TR>
+<TD>
+<P>getAlignment()</P>
+<TD>
+<P>Returns an integer representing the alignment of this label: 0 is Label.LEFT, 1 is Label.CENTER, 2 is Label.RIGHT</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>setAlignment(int)</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Changes the alignment of this label to the given integer&#151;use the class variables above.</CENTER></P></TABLE>
+<H4><A ID = "I59" NAME = "I59"  >
+<foNT SIZE=3><B>Buttons</B>
+<BR></FONT></A></H4>
+<P>The second user interface component to explore is the button.
+<BR></P>
+<P><I>Buttons</I> are simple UI components that trigger some action in your interface when they are pressed. For example, a calculator applet might have buttons for each number and operator, or a dialog box might have buttons for &quot;OK&quot; and &quot;Cancel.&quot;
+<BR></P>
+<P>To create a <A ID = "I60" NAME = "I60"  ></A><A ID = "I61" NAME = "I61"  ></A>button, use one of the following constructors:
+<BR></P>
+<UL>
+<LI>Button() creates an empty <A ID = "I62" NAME = "I62"  ></A><A ID = "I63" NAME = "I63"  ></A><A ID = "I64" NAME = "I64"  ></A><A ID = "I65" NAME = "I65"  ></A>button with no label.
+<BR>
+<BR></LI>
+<LI>Button(String) creates a button with the given string object as a label.
+<BR>
+<BR></LI></UL>
+<P>Once you have a button object, you can get the value of the button's label by using the getLabel() method and set the label using the setLabel(String) methods.
+<BR></P>
+<P>Figure 13.4 shows some simple buttons, created using the following code:
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj04.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj04.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj04.gif"  >Figure 13.4. Buttons.</B></A>
+<BR></P>
+<PRE>add(new Button(&quot;Rewind&quot;));
+add(new Button(&quot;Play&quot;));
+add(new Button(&quot;Fast Forward&quot;));
+add(new Button(&quot;Stop&quot;));</PRE>
+<H4><A ID = "I66" NAME = "I66"  >
+<foNT SIZE=3><B>Checkboxes</B>
+<BR></FONT></A></H4>
+<P>Checkboxes can be selected or deselected to provide options.
+<BR></P>
+<P><I>Checkboxes</I> are user interface <A ID = "I67" NAME = "I67"  ></A>components that have two states: on and off (or checked and unchecked, selected and unselected, true and false, and so on). Unlike buttons, checkboxes usually don't trigger direct actions in a UI but, instead, are used to indicate optional features of some other action.
+<BR></P>
+<P>Checkboxes can be used in two ways:
+<BR></P>
+<UL>
+<LI>Nonexclusive, meaning <A ID = "I68" NAME = "I68"  ></A><A ID = "I69" NAME = "I69"  ></A>that given a series of checkboxes, any of them can be selected.
+<BR>
+<BR></LI>
+<LI>Exclusive, meaning that within <A ID = "I70" NAME = "I70"  ></A><A ID = "I71" NAME = "I71"  ></A>one series, only one checkbox can be selected at a time.
+<BR>
+<BR></LI></UL>
+<P>The latter kind of checkboxes <A ID = "I72" NAME = "I72"  ></A><A ID = "I73" NAME = "I73"  ></A><A ID = "I74" NAME = "I74"  ></A>are called radio buttons or checkbox groups, and are described in the next section.
+<BR></P>
+<P>Nonexclusive checkboxes can be created by using the Checkbox class. You can create a checkbox by using one of the following constructors:
+<BR></P>
+<UL>
+<LI>Checkbox() creates an <A ID = "I75" NAME = "I75"  ></A><A ID = "I76" NAME = "I76"  ></A>empty checkbox, unselected.
+<BR>
+<BR></LI>
+<LI>Checkbox(<I>String</I>) creates a checkbox <A ID = "I77" NAME = "I77"  ></A><A ID = "I78" NAME = "I78"  ></A>with the given string as a label.
+<BR>
+<BR></LI>
+<LI>Checkbox(<I>String</I>, <I>null</I>, <I>boolean</I>) creates a checkbox that is either selected or unselected based on whether the boolean argument is true or false, respectively. (The null is used as a placeholder for a group argument. Only radio buttons have groups, as you'll learn in the next section).
+<BR>
+<BR></LI></UL>
+<P>Table 13.2 lists the checkbox methods; Figure 13.5 shows a few simple checkboxes (only Underwear is selected), generated using the following code:
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj05.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj05.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj05.gif"  >Figure 13.5. Checkboxes.</B></A>
+<BR></P>
+<PRE>add(new Checkbox(&quot;Shoes&quot;));
+add(new Checkbox(&quot;Socks&quot;));
+add(new Checkbox(&quot;Pants&quot;));
+add(new Checkbox(&quot;Underwear&quot;, null, true));
+add(new Checkbox(&quot;Shirt&quot;));</PRE>
+<UL>
+<LH><B>Table 13.2. Checkbox methods.</B><A ID = "I79" NAME = "I79"  ></A><A ID = "I80" NAME = "I80"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Method</I>
+<BR></PRE>
+<TD>
+<PRE><I>Action</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>getLabel()</P>
+<TD>
+<P>Returns a string containing this checkbox's label</P>
+<TR>
+<TD>
+<P>setLabel(String)</P>
+<TD>
+<P>Changes the text of the checkbox's label</P>
+<TR>
+<TD>
+<P>getState()</P>
+<TD>
+<P>Returns true or false, based on whether the checkbox is selected or not</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>setState(boolean)</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Changes the checkbox's state to selected (true) or unselected (false)</CENTER></P></TABLE>
+<H4><A ID = "I81" NAME = "I81"  >
+<foNT SIZE=3><B>Radio Buttons</B>
+<BR></FONT></A></H4>
+<P>Radio buttons are a variation on the checkbox.
+<BR></P>
+<P><I>Radio buttons</I> have the same appearance as checkboxes, but only one in a series can be selected at a time.
+<BR></P>
+<P>To create a series <A ID = "I82" NAME = "I82"  ></A><A ID = "I83" NAME = "I83"  ></A>of radio buttons, first create an instance of CheckboxGroup:
+<BR></P>
+<PRE>CheckboxGroup cbg = new CheckboxGroup();</PRE>
+<P>Then create and add the individual checkboxes, using the group as the second argument, and whether or not that checkbox is selected (only one in the series can be selected):
+<BR></P>
+<PRE>add(new Checkbox(&quot;Yes&quot;, cbg, true);
+add(new Checkbox(&quot;no&quot;, cbg, false);</PRE>
+<P>Here's a simple example (the results of which are shown in Figure 13.6):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj06.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj06.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj06.gif"  >Figure 13.6. Radio buttons.</B></A>
+<BR></P>
+<PRE>CheckboxGroup cbg = new CheckboxGroup();
+add(new Checkbox(&quot;Red&quot;, cbg, false));
+add(new Checkbox(&quot;Blue&quot;, cbg, false));
+add(new Checkbox(&quot;Yellow&quot;, cbg, false));
+add(new Checkbox(&quot;Green&quot;, cbg, false));
+add(new Checkbox(&quot;Orange&quot;, cbg, true));
+add(new Checkbox(&quot;Purple&quot;, cbg, false));</PRE>
+<P>All the checkbox methods defined in the previous section can be used with the checkboxes in the group. In addition, you can use the getCheckboxGroup() and setCheckboxGroup() methods to access and change the group of any given checkbox.
+<BR></P>
+<P>Finally, the getCurrent() and setCurrent(Checkbox) methods, defined in the checkbox group, can be used to get or set the currently selected checkbox.
+<BR></P>
+<H4><A ID = "I84" NAME = "I84"  >
+<foNT SIZE=3><B>Choice Menus</B>
+<BR></FONT></A></H4>
+<P>The choice menu <A ID = "I85" NAME = "I85"  ></A><A ID = "I86" NAME = "I86"  ></A>is a more complex UI component than labels, buttons, or checkboxes.
+<BR></P>
+<P><I>Choice menus</I> are popup (or pulldown) menus that <A ID = "I87" NAME = "I87"  ></A>enable you to select an item from that menu. The menu then displays that choice on the screen.
+<BR></P>
+<P>To create a choice menu, <A ID = "I88" NAME = "I88"  ></A><A ID = "I89" NAME = "I89"  ></A>create an instance of <A ID = "I90" NAME = "I90"  ></A><A ID = "I91" NAME = "I91"  ></A>the Choice class, and then use the addItem() method to add individual items to it in the order in which they should appear:
+<BR></P>
+<PRE>Choice c = new Choice();
+c.addItem(&quot;Apples&quot;);
+c.addItem(&quot;Oranges&quot;);
+c.addItem(&quot;Strawberries&quot;);
+c.addItem(&quot;Blueberries&quot;);
+c.addItem(&quot;Bananas&quot;);</PRE>
+<P>Finally, add the entire choice menu to the panel in the usual way:
+<BR></P>
+<PRE>add(c);</PRE>
+<P>Figure 13.7 shows a simple choice menu generated from code in the previous example:
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj07.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj07.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj07.gif"  >Figure 13.7. Choice menus.</B></A>
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="imp.gif" tppabs="http://newdata.box.sk/bx/java/imp.gif" WIDTH = 68 HEIGHT = 35><B>Tip:</B> Choice menus allow only one selection per menu. If you want to select multiple items, use a scrolling list instead.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Once your choice menu is created, regardless of whether it's added to a panel, you can continue to add items to that menu by using the addItem() method. Table 13.3 shows some other methods that may be useful in working with choice menus.
+<BR></P>
+<UL>
+<LH><B>Table 13.3. Choice menu methods.</B><A ID = "I92" NAME = "I92"  ></A><A ID = "I93" NAME = "I93"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Method</I>
+<BR></PRE>
+<TD>
+<PRE><I>Action</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>getItem(int)</P>
+<TD>
+<P>Returns the string item at the given position (items inside a choice begin at 0, same as arrays)</P>
+<TR>
+<TD>
+<P>countItems() </P>
+<TD>
+<P>Returns the number of items in the menu</P>
+<TR>
+<TD>
+<P>getSelectedIndex() </P>
+<TD>
+<P>Returns the index position of the item that's selected</P>
+<TR>
+<TD>
+<P>getSelectedItem() </P>
+<TD>
+<P>Returns the currently selected item as a string</P>
+<TR>
+<TD>
+<P>select(int) </P>
+<TD>
+<P>Selects the item at the given position</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>select(String) </CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Selects the item with the given string</CENTER></P></TABLE>
+<H4><A ID = "I94" NAME = "I94"  >
+<foNT SIZE=3><B>Text Fields</B>
+<BR></FONT></A></H4>
+<P>Unlike the UI <A ID = "I95" NAME = "I95"  ></A>components up to this point, which enable you to select only among several options to perform an action, text fields allow you to enter any values.
+<BR></P>
+<P><I>Text fields</I> enable your reader to enter text.
+<BR></P>
+<P>To create a text field, use one of <A ID = "I96" NAME = "I96"  ></A><A ID = "I97" NAME = "I97"  ></A>the following constructors:
+<BR></P>
+<UL>
+<LI>TextField() creates an <A ID = "I98" NAME = "I98"  ></A><A ID = "I99" NAME = "I99"  ></A>empty TextField 0 characters wide.
+<BR>
+<BR></LI>
+<LI>TextField(int) creates an empty <A ID = "I100" NAME = "I100"  ></A><A ID = "I101" NAME = "I101"  ></A><A ID = "I102" NAME = "I102"  ></A>text field with the given width in characters.
+<BR>
+<BR></LI>
+<LI>TextField(String) creates a text field 0 characters wide, initialized with the given string.
+<BR>
+<BR></LI>
+<LI>TextField(String, int) creates a text field with the given width in characters and containing the given string. If the string is longer than the width, you can select and drag portions of the text within the field and the box will scroll left or right.
+<BR>
+<BR></LI></UL>
+<P>For example, the following line creates a text field 30 characters wide with the string &quot;Enter Your Name&quot; as its initial contents.
+<BR></P>
+<PRE>TextField tf = new TextField(&quot;Enter Your Name&quot;, 30);
+add(tf);</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="imp.gif" tppabs="http://newdata.box.sk/bx/java/imp.gif" WIDTH = 68 HEIGHT = 35><B>Tip:</B> Text fields include only the editable field itself. You usually need to include a label with a text field to indicate what belongs in that text field.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Text fields<A ID = "I103" NAME = "I103"  ></A> are different from text areas; text fields are limited in size and are best used for one-line items, whereas text areas have scrollbars and are better for larger text windows. Both can be edited and enable selections with the mouse. You'll learn about text areas later today.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>You can also create a <A ID = "I104" NAME = "I104"  ></A><A ID = "I105" NAME = "I105"  ></A>text field that obscures the characters typed into it&#151;for example, for password fields. To do this, first create the text field itself, and then use the setEchoCharacter() method to set the character that is echoed on the screen. Here is an example:
+<BR></P>
+<PRE>TextField tf = new TextField(30);
+tf.setEchoCharacter('*');</PRE>
+<P>Figure 13.8 shows three text boxes (and labels) that were created by using the following code:
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj08.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj08.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj08.gif"  >Figure 13.8. Text fields.</B></A>
+<BR></P>
+<PRE>add(new Label(&quot;Enter your Name&quot;));
+add(new TextField(&quot;your name here&quot;, 45));
+add(new Label(&quot;Enter your phone number&quot;));
+add(new TextField(12));
+add(new Label(&quot;Enter your password&quot;));
+TextField t = new TextField(20);
+t.setEchoCharacter('*');
+add(t);</PRE>
+<P>Text fields inherit from the class TextComponent and have a whole suite of methods, both inherited from that class and defined in its own class, that may be useful to you in your Java programs. Table 13.4 shows a selection of those methods.
+<BR></P>
+<UL>
+<LH><B>Table 13.4. Text field methods.</B><A ID = "I106" NAME = "I106"  ></A><A ID = "I107" NAME = "I107"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Method</I>
+<BR></PRE>
+<TD>
+<PRE><I>Action</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>getText() </P>
+<TD>
+<P>Returns the text this text field contains (as a string)</P>
+<TR>
+<TD>
+<P>setText(String) </P>
+<TD>
+<P>Puts the given text string into the field</P>
+<TR>
+<TD>
+<P>getColumns() </P>
+<TD>
+<P>Returns the width of this text field</P>
+<TR>
+<TD>
+<P>select(int, int) </P>
+<TD>
+<P>Selects the text between the two integer positions (positions start from 0)</P>
+<TR>
+<TD>
+<P>selectAll() </P>
+<TD>
+<P>Selects all the text in the field</P>
+<TR>
+<TD>
+<P>isEditable()</P>
+<TD>
+<P>Returns true or false based on whether the text is editable or not</P>
+<TR>
+<TD>
+<P>setEditable(boolean)</P>
+<TD>
+<P>true (the default) enables text to be edited; false freezes the text</P>
+<TR>
+<TD>
+<P>getEchoChar() </P>
+<TD>
+<P>Returns the character used for masking input</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>echoCharIsSet() </CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Returns true or false whether the field has a masking character or not</CENTER></P></TABLE>
+<H3><A ID = "I108" NAME = "I108"  >
+<foNT SIZE=4><B>Panels and Layout</B>
+<BR></FONT></A></H3>
+<P>You know at this point that an AWT panel can <A ID = "I109" NAME = "I109"  ></A><A ID = "I110" NAME = "I110"  ></A><A ID = "I111" NAME = "I111"  ></A>contain UI components or other panels. The question now is how those components are actually arranged and displayed on the screen.
+<BR></P>
+<P>In other windowing systems, UI components are often arranged using hard-coded pixel <A ID = "I112" NAME = "I112"  ></A>measurements&#151;put text field tf at 10,30, for example&#151;the same way you used the graphics operations to paint squares and ovals on the screen. In the AWT, the window may be displayed on many different windowing systems on many different screens and with many different kinds of fonts with different font metrics. Therefore, you need a more flexible method of arranging components on the screen so that a layout that looks nice on one platform isn't a jumbled unusable mess on another.
+<BR></P>
+<P>For just this purpose, Java has layout managers, insets, and hints that each component can provide for helping lay out the screen.
+<BR></P>
+<P>Note that the nice thing about AWT components and user interface items is that you don't have to paint them&#151;the AWT system manages all that for you. If you have graphical components or images, or you want to create animations inside panels, you still have to do that by hand, but for most of the basic components, all you have to do is put them on the screen and Java will handle the rest.
+<BR></P>
+<H4><A ID = "I113" NAME = "I113"  >
+<foNT SIZE=3><B>Layout Managers</B>
+<BR></FONT></A></H4>
+<P>The actual appearance of <A ID = "I114" NAME = "I114"  ></A><A ID = "I115" NAME = "I115"  ></A>the AWT components on the screen is determined by two things: the order in which they are added to the panel that holds them, and the layout manager that panel is currently using to lay out the screen. The layout manager determines how portions of the screen will be sectioned and how components within that panel will be placed.
+<BR></P>
+<P>Note that each panel <A ID = "I116" NAME = "I116"  ></A><A ID = "I117" NAME = "I117"  ></A>on the screen can have its own layout manager. By nesting panels within panels, and using the appropriate layout manager for each one, you can often arrange your UI to group and arrange components in a way that is both functionally useful and also looks good on a variety of platforms and windowing systems. You'll learn about nesting panels in a later section.
+<BR></P>
+<P>The AWT provides five basic layout managers: FlowLayout, GridLayout, GridBagLayout, BorderLayout, and CardLayout. To create a layout manager for a given panel, use the setLayout() method<A ID = "I118" NAME = "I118"  ></A><A ID = "I119" NAME = "I119"  ></A> for that panel:
+<BR></P>
+<PRE>public void init() {
+    setLayout(new FlowLayout());
+}</PRE>
+<P>Setting the default layout <A ID = "I120" NAME = "I120"  ></A>manager, like creating the user interface components, is best done during the applet's initialization, which is why it's included here.
+<BR></P>
+<P>Once the layout manager is set, you can start adding components to the panel. The order in which components are added is often significant, depending on which layout manager is currently active. Read on for information about the specific layout managers and how they present components within the panel to which they apply.
+<BR></P>
+<P>The following sections describe the five basic Java AWT layout managers.
+<BR></P>
+<H5><A ID = "I121" NAME = "I121"  >
+<foNT SIZE=3><B>The FlowLayout Class</B>
+<BR></FONT></A></H5>
+<P>The FlowLayout class <A ID = "I122" NAME = "I122"  ></A><A ID = "I123" NAME = "I123"  ></A><A ID = "I124" NAME = "I124"  ></A>is the most basic of layouts. Using the flow layout, components are added to the panel one at a time, row by row. If a component doesn't fit onto a row, it's wrapped onto the next row. The flow layout also has an alignment, which <A ID = "I125" NAME = "I125"  ></A><A ID = "I126" NAME = "I126"  ></A>determines the alignment of each row. By default, each row is aligned centered. Figure 13.9 shows a flow layout at its best&#151;a simple row of buttons, centered on a line.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj09.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj09.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj09.gif"  >Figure 13.9. Flow layout.</B></A>
+<BR></P>
+<P>To create a basic flow layout with a centered alignment, use the following line of code in your panel's initialization (because this is the default pane layout, you don't need to include this line if that is your intent):
+<BR></P>
+<PRE>setLayout(new FlowLayout());</PRE>
+<P>To create a flow layout with an alignment other than centered, add the FlowLayout.RIGHT or FlowLayout.LEFT class variable as an argument:
+<BR></P>
+<PRE>setLayout(new FlowLayout(FlowLayout.LEFT));</PRE>
+<P>You can also set horizontal <A ID = "I127" NAME = "I127"  ></A><A ID = "I128" NAME = "I128"  ></A>and vertical gap values by using flow layouts. The gap is the number of pixels between components in a panel; by default, the horizontal and vertical gap values are three pixels, which can be very close indeed. Horizontal gap spreads out components to the left and to the right, vertical gap to the top and bottom of each component. Add integer arguments to the flow layout constructor to increase the gap (a layout gap of 10 points in both the horizontal and vertical directions is shown in Figure 13.10):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj10.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj10.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj10.gif"  >Figure 13.10. Flow layout with a gap of 10 points.</B></A>
+<BR></P>
+<PRE>setLayout(new FlowLayout(FlowLayout.LEFT), 10, 10);</PRE>
+<H5><A ID = "I129" NAME = "I129"  >
+<foNT SIZE=3><B>Grid and Grid Bag Layouts</B>
+<BR></FONT></A></H5>
+<P>Grid layouts use a <A ID = "I130" NAME = "I130"  ></A><A ID = "I131" NAME = "I131"  ></A>layout that offers more control over the placement of components inside a panel. Using a grid layout, you portion off the area of the panel into rows and columns. Each component you then add to the panel is <A ID = "I132" NAME = "I132"  ></A>placed in a &quot;cell&quot; of the grid, starting from the top row and progressing through each row from left to right (here's where the order of calls to the add() method are very relevant to how the screen is laid out). By using grid layouts and nested grids, you can often approximate the use of hard-coded pixel values to place your UI components precisely where you want them. Figure 13.11 shows a grid layout with three columns and three rows.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj11.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj11.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj11.gif"  >Figure 13.11. Grid layout.</B></A>
+<BR></P>
+<P>To create a grid layout, <A ID = "I133" NAME = "I133"  ></A><A ID = "I134" NAME = "I134"  ></A>indicate the number of rows and columns you want the grid to have when you create a new instance of the GridLayout class:
+<BR></P>
+<PRE>setLayout(new GridLayout(3, 3));</PRE>
+<P>Grid layouts can also have a horizontal and vertical gap between components; to create gaps, add those pixel values:
+<BR></P>
+<PRE>setLayout(new GridLayout(3, 3, 10, 15));</PRE>
+<P>Figure 13.12 shows a grid layout with a 10-pixel horizontal gap and a 15-pixel vertical gap.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj12.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj12.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj12.gif"  >Figure 13.12. Grid layouts with horizontal and vertical gap.</B></A>
+<BR></P>
+<P>Grid bag layouts, <A ID = "I135" NAME = "I135"  ></A>as implemented by the GridBagLayout class, are variations on grid layouts. Grid bag layouts also enable you to lay out your user interface elements in a rectangular grid, but with grid bag layouts you have much more control over the presentation of each element in the grid. Grid bag layouts use a helper class, GridBagConstraints, to indicate how each cell in the grid is to be formatted.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The GridBagLayout and GridBagConstraints classes were added to the Java Developer's Kit just before this book went to press. For a much better description of grid bag layouts, see the API documentation for those classes that comes with the JDK.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I136" NAME = "I136"  >
+<foNT SIZE=3><B>Border Layouts</B>
+<BR></FONT></A></H5>
+<P>Border layouts behave<A ID = "I137" NAME = "I137"  ></A><A ID = "I138" NAME = "I138"  ></A> differently from flow and grid layouts. When you add a component to a panel that uses a border layout, you indicate its placement as a geographic direction: north, south, east, west, and center (see Figure 13.13). The components around all the edges are laid out with as much size as they need; the component in the center, if any, gets any space left over.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj13.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj13.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj13.gif"  >Figure 13.13. Border layout.</B></A>
+<BR></P>
+<P>To use a border layout, you create it as you do the other layouts:
+<BR></P>
+<PRE>setLayout(new BorderLayout());</PRE>
+<P>Then you add the individual components by using a special add() method: the first argument to add() is a string indicating the position of the component within the layout:
+<BR></P>
+<PRE>add(&quot;North&quot;, new TextField(&quot;Title&quot;, 50));
+add(&quot;South&quot;, new TextField(&quot;Status&quot;, 50));</PRE>
+<P>You can also use this form of add() for the other layout managers; the string argument will just be ignored if it's not needed.
+<BR></P>
+<P>Border layouts can also have horizontal and vertical gaps. Note that the north and south components extend all the way to the edge of the panel, so the gap will result in less space for the east, right, and center components. To add gaps to a border layout, include those pixel values as before:
+<BR></P>
+<PRE>setLayout(new BorderLayout(10, 10));</PRE>
+<H5><A ID = "I139" NAME = "I139"  >
+<foNT SIZE=3><B>Card Layouts</B>
+<BR></FONT></A></H5>
+<P>Card layouts are different <A ID = "I140" NAME = "I140"  ></A><A ID = "I141" NAME = "I141"  ></A>from the other layouts. Unlike with the other three layouts, when you add components to a card layout, they are not all displayed on the screen at once. Card layouts are used to produce slide shows of components, one at a time. If you've ever used the HyperCard program on the Macintosh, you've worked with the same basic idea.
+<BR></P>
+<P>Generally when you create a card layout, the components you add to it will be other container components&#151;usually panels. You can then use different layouts for those individual &quot;cards&quot; so that each screen has its own look. 
+<BR></P>
+<P>When you add each &quot;card&quot; to the panel, you can give it a name. Then you can use methods defined on the CardLayout class to move back and forth between different cards in the layout.
+<BR></P>
+<P>For example, here's how to create a card layout containing three cards:
+<BR></P>
+<PRE>setLayout(new CardLayout());
+Panel one = new Panel()
+add(&quot;first&quot;, one);
+Panel two = new Panel()
+add(&quot;second&quot;, two);
+Panel three = new Panel()
+add(&quot;third&quot;, three);
+show(this, &quot;second&quot;);</PRE>
+<H4><A ID = "I142" NAME = "I142"  >
+<foNT SIZE=3><B>Insets</B>
+<BR></FONT></A></H4>
+<P>Whereas horizontal <A ID = "I143" NAME = "I143"  ></A><A ID = "I144" NAME = "I144"  ></A><A ID = "I145" NAME = "I145"  ></A>gap and vertical gap are used to determine the amount of space between components in a panel, insets are used to determine the amount of space around the panel itself. The insets class provides values for the top, bottom, left, and right insets, which are then used when the panel itself is drawn. Figure 13.14 shows an inset in a GridLayout.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj14.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj14.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj14.gif"  >Figure 13.14. Insets.</B></A>
+<BR></P>
+<P>To include an inset, override the insets() method<A ID = "I146" NAME = "I146"  ></A><A ID = "I147" NAME = "I147"  ></A> in your class (your Applet class or other class that serves as a panel):
+<BR></P>
+<PRE>public Insets insets() {
+   return new Insets(10, 10, 10, 10);
+}</PRE>
+<P>The arguments to the Insets constructor provide pixel insets for the top, bottom, left, and right edges of the panel. This particular example provides an inset of 10 pixels on all four sides of the panel.
+<BR></P>
+<H3><A ID = "I148" NAME = "I148"  >
+<foNT SIZE=4><B>Handling UI Actions and Events</B>
+<BR></FONT></A></H3>
+<P>If you stopped reading <A ID = "I149" NAME = "I149"  ></A><A ID = "I150" NAME = "I150"  ></A>today's lesson right now, you could go out and create an applet that had lots of little UI components, nicely laid out on the screen with the proper layout manager, gap, and insets. If you did stop right here, however, your applet would be really dull, because none of your UI components would actually do anything when they were pressed or typed into or selected.
+<BR></P>
+<P>For your UI components to do something when they are activated, you need to hook up the UI's action with an operation.
+<BR></P>
+<P>Testing for an action by a UI component is a form of event management&#151;the things you learned yesterday about events will come in handy here. In particular, UI components produce the special kind of event called an action. To intercept an action by any UI component, you define an action() method in your applet or class:
+<BR></P>
+<PRE>public boolean action(Event evt, Object arg) {
+    ...
+}</PRE>
+<P>The action() method<A ID = "I151" NAME = "I151"  ></A><A ID = "I152" NAME = "I152"  ></A> should look familiar to the basic mouse and keyboard event methods. Like those methods, it gets passed the event object that represents this event. It also gets an extra object, which can be of any type. What's that second argument for?
+<BR></P>
+<P>The second argument to the action method depends on the UI component that's generating the event. The basic definition is that it's any arbitrary argument&#151;when a component generates an event, it can pass along any extra information that might later be needed. Because that extra information may be useful for you, it's passed on through the action() method.
+<BR></P>
+<P>All the basic UI components (except for labels, which have no action) have different actions and arguments:
+<BR></P>
+<UL>
+<LI>Buttons create actions <A ID = "I153" NAME = "I153"  ></A><A ID = "I154" NAME = "I154"  ></A><A ID = "I155" NAME = "I155"  ></A>when they are selected, and a button's argument is the label of the button.
+<BR>
+<BR></LI>
+<LI>Checkboxes, both exclusive <A ID = "I156" NAME = "I156"  ></A><A ID = "I157" NAME = "I157"  ></A><A ID = "I158" NAME = "I158"  ></A>and nonexclusive, generate actions when a box is checked. The argument is always true.
+<BR>
+<BR></LI>
+<LI>Choice menus generate an action when <A ID = "I159" NAME = "I159"  ></A><A ID = "I160" NAME = "I160"  ></A><A ID = "I161" NAME = "I161"  ></A>a menu item is selected, and the argument is that item.
+<BR>
+<BR></LI>
+<LI>Text fields create actions when <A ID = "I162" NAME = "I162"  ></A><A ID = "I163" NAME = "I163"  ></A><A ID = "I164" NAME = "I164"  ></A>the user presses Return inside that text field. Note that if the user tabs to a different text field or uses the mouse to change the input focus, an action is <I>not</I> generated. Only a Return triggers the action.
+<BR>
+<BR></LI></UL>
+<P>Note that with actions, unlike with ordinary events, you can have many different kinds of objects generating the event, as opposed to a single event such as a mouseDown. To deal with those different UI components and the actions they generate, you have to test for the type of object that sent/created the event in the first place inside the body of your action() method. That object is stored in the event's target instance variable, and you can use the instanceof operator to find out what kind of UI component sent it:
+<BR></P>
+<PRE>public boolean action(Event evt, Object arg) {
+    if (evt.target instanceof TextField)
+        handleText(evt.target);
+    else if (evt.target instanceof Choice)
+        handleChoice(arg);
+...
+}</PRE>
+<P>Although you can handle UI actions in the body of the action() method, it's much more common simply to <A ID = "I165" NAME = "I165"  ></A><A ID = "I166" NAME = "I166"  ></A>define a handler method and call that method from action() instead. Here, there are two handler methods: one to handle the action on the text field (handleText()) and one to handle the action on the choice menu (handleChoice()). Depending on the action you want to handle, you may also want to pass on the argument from the action, the UI component that sent it, or any other information that the event might contain.
+<BR></P>
+<P>Here's a simple applet that has five buttons labeled with colors. The action() method tests for a button action and then passes off the word to a method called changeColor(), which changes the background color of the applet based on which button was pressed (see Figure 13.15 to see the applet in action):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj15.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj15.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj15.gif"  >Figure 13.15. The ButtonAction applet.</B></A>
+<BR></P>
+<PRE>import java.awt.*;
+public class ButtonActionsTest extends java.applet.Applet {
+    public void init() {
+        setBackground(Color.white);
+        add(new Button(&quot;Red&quot;));
+        add(new Button(&quot;Blue&quot;));
+        add(new Button(&quot;Green&quot;));
+        add(new Button(&quot;White&quot;));
+        add(new Button(&quot;Black&quot;));
+    }
+    public boolean action(Event evt, Object arg) {
+        if (evt.target instanceof Button)
+            changeColor((String)arg);
+        return true;
+    }
+    void changeColor(String bname) {
+        if (bname.equals(&quot;Red&quot;)) setBackground(Color.red);
+        else if (bname.equals(&quot;Blue&quot;)) setBackground(Color.blue);
+        else if (bname.equals(&quot;Green&quot;)) setBackground(Color.green);
+        else if (bname.equals(&quot;White&quot;)) setBackground(Color.white);
+        else setBackground(Color.black);
+    }
+}</PRE>
+<H3><A ID = "I167" NAME = "I167"  >
+<foNT SIZE=4><B>Nesting Panels and Components</B>
+<BR></FONT></A></H3>
+<P>Adding UI components to individual applets is fun, but applets begin to turn into lots of fun when you begin working with nested panels. By nesting different panels inside your applet, and panels inside those panels, you can create different layouts for different parts of the overall applet area, isolate background and foreground colors and fonts to individual parts of an applet, and manage the design of your UI components much more cleanly and simply. The more complex the layout of your applet, the more likely you're going to want to use nested panels.
+<BR></P>
+<H4><A ID = "I168" NAME = "I168"  >
+<foNT SIZE=3><B>Nested Panels</B>
+<BR></FONT></A></H4>
+<P>Panels, as you've <A ID = "I169" NAME = "I169"  ></A><A ID = "I170" NAME = "I170"  ></A>already learned, are components that can be actually displayed on screen; Panel's superclass Container provides the generic behavior for holding other components inside it. The Applet class, which your applets all inherit from, is a subclass of Panel. To nest other panels inside <A ID = "I171" NAME = "I171"  ></A>an applet, you merely create a new panel and add it to the applet, just as you would add any other UI component:
+<BR></P>
+<PRE>setLayout(new GridLayout(1, 2, 10, 10));
+Panel panel1 = new Panel();
+Panel panel2 = new Panel();
+add(panel1);
+add(panel2);</PRE>
+<P>You can then set up an independent layout for those subpanels and add AWT components to them (including still more subpanels) by calling the add() method in the appropriate panel:
+<BR></P>
+<PRE>panel1.setLayout(new FlowLayout());
+panel1.add(new Button(&quot;Up&quot;));
+panel1.add(new Button(&quot;Down&quot;));</PRE>
+<P>Although you can do all this in a single class, it's common in applets that make heavy use of the panels to factor out the layout and behavior of the subpanels into separate classes, and to communicate between the panels by using method calls. You'll look at an extensive example of this later on in today's lesson.
+<BR></P>
+<H4><A ID = "I172" NAME = "I172"  >
+<foNT SIZE=3><B>Events and Nested Panels</B>
+<BR></FONT></A></H4>
+<P>When you create <A ID = "I173" NAME = "I173"  ></A><A ID = "I174" NAME = "I174"  ></A><A ID = "I175" NAME = "I175"  ></A>applets with nested panels, those panels form a hierarchy from the outermost panel (the applet, usually), to the innermost UI component. This hierarchy is important to how each component in an applet interacts with the other components in the applet or with the browser that contains that applet; in particular, the component hierarchy determines the order in which components are painted to the screen.
+<BR></P>
+<P>More importantly, the hierarchy also affects event handling, particularly for user input events such as mouse and keyboard events.
+<BR></P>
+<P>Events are received by the innermost component in the component hierarchy and passed up the chain to the root. Suppose, for example, that you have an applet with a subpanel that can handle mouse events (using the mouseDown() and mouseUp() methods) and that panel contains a button. Clicking on the button means that the button receives the event before the panel does; if the button isn't interested in that mouseDown(), the event gets passed to the panel, which can then process it or pass it further up the hierarchy.
+<BR></P>
+<P>Remember the discussion about the basic event methods yesterday? You learned that the basic event methods all return boolean values. Those boolean values become important when you're talking about handling events or passing them on.
+<BR></P>
+<P>An event handling <A ID = "I176" NAME = "I176"  ></A>method, whether it is the set of basic event methods or the more generic handleEvent(), can do one of three things, given any random event:
+<BR></P>
+<UL>
+<LI>Not be interested in the event (this is usually true only for handleEvent(), which receives all the events generated by the system). If this is the case, the event is passed on up the hierarchy until a component processes it (or it is ignored altogether). In this case, the event handling method should return false.
+<BR>
+<BR></LI>
+<LI>Intercept the event, process it, and return true. In this case, the event stops with that event method. Recall that this is the case with the basic mouseDown() and keyDown() methods that you learned about yesterday.
+<BR>
+<BR></LI>
+<LI>Intercept the method, process it, and pass it on to the next event handler. This is a more unusual case, but you may create a user interface by using nested components that will want to do this. In this case, the event method should return false to pass the event on to the next handler in the chain.
+<BR>
+<BR></LI></UL>
+<H3><A ID = "I177" NAME = "I177"  >
+<foNT SIZE=4><B>More UI Components</B>
+<BR></FONT></A></H3>
+<P>Once you master the basic UI components and how to add them to panels and manage their events, you can add more UI components. In this section, you'll learn about text areas, scrolling lists, scrollbars, and canvases.
+<BR></P>
+<P>Note that the UI components in this section do not produce actions, so you can't use the action() method to handle their behavior. Instead, you have to use a generic handleEvent() method to test for specific events that these UI components generate. You'll learn more about this in the next section.
+<BR></P>
+<H4><A ID = "I178" NAME = "I178"  >
+<foNT SIZE=3><B>Text Areas</B>
+<BR></FONT></A></H4>
+<P>Text areas are <A ID = "I179" NAME = "I179"  ></A>like text fields, except they have more functionality for handling large amounts of text. Because text fields are limited in size and don't scroll, they are better for one-line responses and text entry; text areas can be any given width and height and have scrollbars by default, so you can deal with larger amounts of text more easily.
+<BR></P>
+<P>To create a text area, use one of <A ID = "I180" NAME = "I180"  ></A><A ID = "I181" NAME = "I181"  ></A>the following constructors:
+<BR></P>
+<UL>
+<LI>TextArea() creates an <A ID = "I182" NAME = "I182"  ></A><A ID = "I183" NAME = "I183"  ></A>empty text area 0 rows long and 0 characters wide. Given that<A ID = "I184" NAME = "I184"  ></A><A ID = "I185" NAME = "I185"  ></A> a text area with no dimensions can't be displayed, you should make sure you change the dimensions of this new text area before adding it to a panel (or just use the next constructor instead).
+<BR>
+<BR></LI>
+<LI>TextArea(int, int) creates an empty text area with the given number of rows and columns (characters).
+<BR>
+<BR></LI>
+<LI>TextArea(String) creates a text area displaying the given string, 0 rows by 0 columns.
+<BR>
+<BR></LI>
+<LI>TextArea(String, int, int) creates a text area displaying the given string and with the given dimensions.
+<BR>
+<BR></LI></UL>
+<P>Figure 13.16 shows a simple text area generated from the following code:
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj16.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj16.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj16.gif"  >Figure 13.16. A text area.</B></A>
+<BR></P>
+<PRE>String str = &quot;Once upon a midnight dreary, while I pondered, weak and weary,\n&quot; +
+    &quot;Over many a quaint and curious volume of forgotten lore,\n&quot; +
+    &quot;While I nodded, nearly napping, suddenly there came a tapping,\n&quot; +
+    &quot;As of some one gently rapping, rapping at my chamber door.\n&quot; +
+    &quot;\&quot;'Tis some visitor,\&quot; I muttered, \&quot;tapping at my chamber door-\n
+    + ... ;
+add(new TextArea(str,10,60));</PRE>
+<P>Both text areas and text <A ID = "I186" NAME = "I186"  ></A><A ID = "I187" NAME = "I187"  ></A>fields inherit from the TextComponent class, so a lot of the behavior for text fields (particularly getting and setting text and selections) is usable on text areas as well (refer to Table 13.4). Text areas also have a number of their own methods that you may find useful. Table 13.5 shows a sampling of those methods.
+<BR></P>
+<UL>
+<LH><B>Table 13.5. Text area methods.</B><A ID = "I188" NAME = "I188"  ></A><A ID = "I189" NAME = "I189"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Method</I>
+<BR></PRE>
+<TD>
+<PRE><I>Action</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>getColumns() </P>
+<TD>
+<P>Returns the width of the text area, in characters or columns</P>
+<TR>
+<TD>
+<P>getRows() </P>
+<TD>
+<P>Returns the number of rows in the text area (not the number of rows of text that the text area contains)</P>
+<TR>
+<TD>
+<P>insertText(String, int) </P>
+<TD>
+<P>Inserts the string at the given position in the text (text positions start at 0)</P>
+<TR>
+<TD>
+<P>replaceText(String, int, int) </P>
+<TD>
+<P>Replace the text between the given integer positions with the new string</P>
+<TR>
+<TD>
+<P>setLineIncrement(int inc)</P>
+<TD>
+<P>Change the increment for how far to scroll when the endpoints of the scroll bar are selected. The default is 1.</P>
+<TR>
+<TD>
+<P>getLineIncrement()</P>
+<TD>
+<P>Returns the increment for how far to scroll when the endpoints of the scroll bar are selected.</P>
+<TR>
+<TD>
+<P>setPageIncrement(int inc)</P>
+<TD>
+<P>Change the increment for how far to scroll when the inside range of the scroll bar is selected. The default </P>
+<TR>
+<TD>
+<P>is 10.</P>
+<TD>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>getPageIncrement()</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Returns the increment for how far to scroll when the inside range of the scroll bar is selected.</CENTER></P></TABLE>
+<H4><A ID = "I190" NAME = "I190"  >
+<foNT SIZE=3><B>Scrolling Lists</B>
+<BR></FONT></A></H4>
+<P>Remember the choice menu, which <A ID = "I191" NAME = "I191"  ></A><A ID = "I192" NAME = "I192"  ></A>enables you to choose one of several different options? A scrolling list is functionally similar to a choice menu in that it lets you pick several options from a list. Scrolling lists differ in two significant ways:
+<BR></P>
+<UL>
+<LI>Scrolling lists are not popup menus. They're lists of items in which you can choose one or more items from a list. If the number of items is larger than the list box, a scrollbar is automatically provided so that you can see the other items.
+<BR>
+<BR></LI>
+<LI>A scrolling list can be defined to accept only one item at a time (exclusive), or multiple items (nonexclusive).
+<BR>
+<BR></LI></UL>
+<P>To create a scrolling list, <A ID = "I193" NAME = "I193"  ></A><A ID = "I194" NAME = "I194"  ></A>create an instance of the List class and then add individual items to that list. The List class has two constructors:
+<BR></P>
+<UL>
+<LI>List() creates an empty <A ID = "I195" NAME = "I195"  ></A><A ID = "I196" NAME = "I196"  ></A>scrolling list that enables only one selection at a time.
+<BR>
+<BR></LI>
+<LI>List(int, boolean) creates a scrolling list with the given number of visible lines on the screen (you're unlimited as to the number of actual items you can add to the list). The boolean argument indicates whether this list enables multiple selections (true) or not (false).
+<BR>
+<BR></LI></UL>
+<P>After creating a List object, add items to it using the addItem() method and then add the list itself to the panel that contains it. Here's an example, the result of which is shown in Figure 13.17:
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj17.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj17.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj17.gif"  >Figure 13.17. A scrolling list.</B></A>
+<BR></P>
+<PRE>List lst = new List(5, true);
+lst.addItem(&quot;Hamlet&quot;);
+lst.addItem(&quot;Claudius&quot;);
+lst.addItem(&quot;Gertrude&quot;);
+lst.addItem(&quot;Polonius&quot;);
+lst.addItem(&quot;Horatio&quot;);
+lst.addItem(&quot;Laertes&quot;);
+lst.addItem(&quot;Ophelia&quot;);
+add(lst);</PRE>
+<P>Table 13.6 shows some of the methods available to scrolling lists. See the API documentation for a complete set.
+<BR></P>
+<UL>
+<LH><B>Table 13.6. Scrolling list methods.</B><A ID = "I197" NAME = "I197"  ></A><A ID = "I198" NAME = "I198"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Method</I>
+<BR></PRE>
+<TD>
+<PRE><I>Action</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>getItem(int)</P>
+<TD>
+<P>Returns the string item at the given position</P>
+<TR>
+<TD>
+<P>countItems() </P>
+<TD>
+<P>Returns the number of items in the menu</P>
+<TR>
+<TD>
+<P>getSelectedIndex() </P>
+<TD>
+<P>Returns the index position of the item that's selected (used for lists that enable only single selections)</P>
+<TR>
+<TD>
+<P>getSelectedIndexes()</P>
+<TD>
+<P>Returns an array of index positions (used for lists that enable multiple selections)</P>
+<TR>
+<TD>
+<P>getSelectedItem() </P>
+<TD>
+<P>Returns the currently selected item as a string</P>
+<TR>
+<TD>
+<P>getSelectedItems()</P>
+<TD>
+<P>Returns an array of strings containing all the selected items</P>
+<TR>
+<TD>
+<P>select(int) </P>
+<TD>
+<P>Selects the item at the given position</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>select(String) </CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Selects the item with that string</CENTER></P></TABLE>
+<H4><A ID = "I199" NAME = "I199"  >
+<foNT SIZE=3><B>Scrollbars and Sliders</B>
+<BR></FONT></A></H4>
+<P>Text areas and scrolling <A ID = "I200" NAME = "I200"  ></A><A ID = "I201" NAME = "I201"  ></A>lists come with their own scrollbars, which are built into those UI components and enable you to manage both the body of the area or the list and its scrollbar as a single unit. You can also create individual scrollbars, or sliders, to manipulate a range of values.
+<BR></P>
+<P>Scrollbars are used to select a value between a maximum and a minimum value. To change the <A ID = "I202" NAME = "I202"  ></A><A ID = "I203" NAME = "I203"  ></A>current value of that scrollbar, you can use three different parts of the scrollbar (see Figure 13.18):
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj18.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj18.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj18.gif"  >Figure 13.18. Scrollbar parts.</B></A>
+<BR></P>
+<UL>
+<LI>Arrows on either end, which <A ID = "I204" NAME = "I204"  ></A><A ID = "I205" NAME = "I205"  ></A>increment or decrement the values by some small unit (1 by default).
+<BR>
+<BR></LI>
+<LI>A range in the middle, which increments or decrements the value by a larger amount (10 by default).
+<BR>
+<BR></LI>
+<LI>A box in the middle, often <A ID = "I206" NAME = "I206"  ></A><A ID = "I207" NAME = "I207"  ></A><A ID = "I208" NAME = "I208"  ></A><A ID = "I209" NAME = "I209"  ></A>called an <I>elevator</I> or <I>thumb</I>, whose position shows where in the range of values the current value is located. Moving this box with the mouse causes an absolute change in the value, based on the position of the box within the scrollbar.
+<BR>
+<BR></LI></UL>
+<P>Choosing any of these visual elements causes a change in the scrollbar's value; you don't have to update anything or handle any events. All you have to do is give the scrollbar a maximum and minimum, and Java will handle the rest.
+<BR></P>
+<P>To create a scrollbar, you <A ID = "I210" NAME = "I210"  ></A><A ID = "I211" NAME = "I211"  ></A>can use one of three constructors:
+<BR></P>
+<UL>
+<LI>Scrollbar() creates a <A ID = "I212" NAME = "I212"  ></A><A ID = "I213" NAME = "I213"  ></A>scrollbar with 0, 0 as its initial maximum and initial minimum values, in a vertical orientation.
+<BR>
+<BR></LI>
+<LI>Scrollbar(int) creates a scrollbar with 0, 0 as its initial maximum and initial minimum values. The argument represents an orientation, for which you can use the class variables Scrollbar.HORIZONTAL and Scrollbar.VERTICAL.
+<BR>
+<BR></LI>
+<LI>Scrollbar(int, int, int, int, int) creates a scrollbar with the following arguments (each one is an integer, and must be presented in this order):
+<BR>
+<BR>The first argument is the orientation of the scrollbar: Scrollbar.HORIZONTAL and Scrollbar.VERTICAL. 
+<BR>
+<BR>The second argument is the initial value of the scrollbar, which should be a value between the scrollbar's maximum and minimum values.
+<BR>
+<BR>The third argument is the the overall width (or height, depending on the orientation) of the scrollbar's box. In user interface design, a larger box implies that a larger amount of the total range is currently showing (applies best to things such as windows and text areas).
+<BR>
+<BR>The fourth and fifth arguments are the minimum and maximum values for the scrollbar.
+<BR>
+<BR></LI></UL>
+<P>Here's a simple example of a scrollbar that increments a single value (see Figure 13.19). The label to the left of the scrollbar is updated each time the scrollbar's value changes:
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj19.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj19.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj19.gif"  >Figure 13.19. A scrollbar.</B></A>
+<BR></P>
+<PRE>import java.awt.*;
+public class SliderTest extends java.applet.Applet {
+    Label l;
+    public void init() {
+        l = new Label(&quot;0&quot;);
+        add(l);
+        add(new Scrollbar(Scrollbar.HORIZONTAL, 1, 0, 1, 100));
+    }
+    public boolean handleEvent(Event evt) {
+        if (evt.target instanceof Scrollbar) {
+            int v = ((Scrollbar)evt.target).getValue();
+            l.setText(String.valueOf(v));
+        }
+        return true;
+    }
+}</PRE>
+<P>The Scrollbar class provides several methods for managing the values within scrollbars (see Table 13.7).
+<BR></P>
+<UL>
+<LH><B>Table 13.7. Scrollbar methods.</B><A ID = "I214" NAME = "I214"  ></A><A ID = "I215" NAME = "I215"  ></A>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Method</I>
+<BR></PRE>
+<TD>
+<PRE><I>Action</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>getMaximum() </P>
+<TD>
+<P>Returns the maximum value</P>
+<TR>
+<TD>
+<P>getMinimum() </P>
+<TD>
+<P>Returns the minimum value</P>
+<TR>
+<TD>
+<P>getOrientation() </P>
+<TD>
+<P>Returns the orientation of this scrollbar:</P>
+<TR>
+<TD>
+<TD>
+<P>0 is Scrollbar.HORIZONTAL, 1 is Scrollbar.VERTICAL</P>
+<TR>
+<TD>
+<P>getValue() </P>
+<TD>
+<P>Returns the scrollbar's current value</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>setValue(int)</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Sets the current value of the scrollbar</CENTER></P></TABLE>
+<H4><A ID = "I216" NAME = "I216"  >
+<foNT SIZE=3><B>Canvases</B>
+<BR></FONT></A></H4>
+<P>Although you can draw on <A ID = "I217" NAME = "I217"  ></A><A ID = "I218" NAME = "I218"  ></A>most AWT components, such as panels, canvases do little <I>except</I> let you draw on them. They can't contain other components, but they can accept events, and you can create animations and display images on them. Canvases, in other words, could have been used for much of the stuff you learned about earlier this week.
+<BR></P>
+<P>A <I>canvas </I>is a component that you can draw on.
+<BR></P>
+<P>To create <A ID = "I219" NAME = "I219"  ></A><A ID = "I220" NAME = "I220"  ></A>a canvas, use the Canvas class <A ID = "I221" NAME = "I221"  ></A><A ID = "I222" NAME = "I222"  ></A>and add it to a panel as you would any other component:
+<BR></P>
+<PRE>Canvas can = new Canvas();
+add(can);</PRE>
+<H3><A ID = "I223" NAME = "I223"  >
+<foNT SIZE=4><B>More UI Events</B>
+<BR></FONT></A></H3>
+<P>Yesterday, you learned <A ID = "I224" NAME = "I224"  ></A>about some basic event types that are generated from user input to the mouse or the keyboard. These event types are stored in the Event object as the event ID, and can be tested for in the body of a handleEvent() method by using class variables defined in Event. For many basic events, such as mouseDown() and keyDown(), you can define methods for those events to handle the event directly. You learned a similar mechanism today for UI actions where creating an action() method handled a specific action generated by a UI component.
+<BR></P>
+<P>The most general way of managing events, however, continues to be the handleEvent() method. For events relating to scrollbars and scrolling lists, the only way to intercept these events is to override handleEvent().
+<BR></P>
+<P>To intercept a specific <A ID = "I225" NAME = "I225"  ></A><A ID = "I226" NAME = "I226"  ></A>event, test for that event's ID. The available IDs are defined as class variables in the Event class, so you can test them by name. You learned about some of the basic events yesterday; Table 13.8 shows additonal events that may be useful to you for the components you've learned about today (or that you might find useful in general).
+<BR></P>
+<UL>
+<LH><B>Table 13.8. Additional events.</B>
+<BR></LH></UL>
+<TABLE BORDER>
+<TR>
+<TD>
+<PRE><I>Event ID</I>
+<BR></PRE>
+<TD>
+<PRE><I>What It Represents</I>
+<BR></PRE>
+<TR>
+<TD>
+<P>ACTION_EVENT </P>
+<TD>
+<P>Generated when a UI component action occurs</P>
+<TR>
+<TD>
+<P>KEY_ACTION </P>
+<TD>
+<P>Generated when text field action occurs</P>
+<TR>
+<TD>
+<P>LIST_DESELECT </P>
+<TD>
+<P>Generated when an item in a scrolling list is deselected</P>
+<TR>
+<TD>
+<P>LIST_SELECT </P>
+<TD>
+<P>Generated when an item in a scrolling list is selected</P>
+<TR>
+<TD>
+<P>SCROLL_ABSOLUTE</P>
+<TD>
+<P>Generated when a scrollbar's box has been moved</P>
+<TR>
+<TD>
+<P>SCROLL_LINE_DOWN</P>
+<TD>
+<P>Generated when a scrollbar's bottom or left endpoint (button) is selected</P>
+<TR>
+<TD>
+<P>SCROLL_LINE_UP </P>
+<TD>
+<P>Generated when a scrollbar's top or right endpoint (button) is selected</P>
+<TR>
+<TD>
+<P>SCROLL_PAGE_DOWN</P>
+<TD>
+<P>Generated when the scrollbar's field below (or to the left of) the box is selected</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>SCROLL_PAGE_UP </CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Generated when the scrollbar's field above (or to the right of) the box is selected</CENTER></P></TABLE>
+<H3><A ID = "I227" NAME = "I227"  >
+<foNT SIZE=4><B>A Complete Example RGB to HSB Converter</B>
+<BR></FONT></A></H3>
+<P>Let's take a break here <A ID = "I228" NAME = "I228"  ></A><A ID = "I229" NAME = "I229"  ></A><A ID = "I230" NAME = "I230"  ></A><A ID = "I231" NAME = "I231"  ></A>from theory and smaller examples to create a larger, more complex example that puts together much of what you've learned so far. The following applet example demonstrates layouts, nesting panels, creating user interface components, and catching and handling actions, as well as using multiple classes to put together a single applet. In short, it's the most complex applet you'll create so far.
+<BR></P>
+<P>Figure 13.20 shows the applet you'll be creating in this example. The ColorTest applet enables you to pick colors based on RGB (red, green, and blue) and HSB (hue, saturation, and brightness) values.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj20.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj20.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj20.gif"  >Figure 13.20. The ColorTest applet.</B></A>
+<BR></P>
+<P>The ColorTest applet has <A ID = "I232" NAME = "I232"  ></A><A ID = "I233" NAME = "I233"  ></A>three main parts: a colored box on the left side and two groups of text fields on the right. The first group indicates RGB values, the right, HSB. By changing any of the values in any of the text boxes, the colored box is updated to the new color, as are the values in the other group of text boxes.
+<BR></P>
+<P>This applet uses two classes:
+<BR></P>
+<UL>
+<LI>ColorTest, which inherits from Applet. This is the controlling class for the applet itself.
+<BR>
+<BR></LI>
+<LI>ColorControls, which <A ID = "I234" NAME = "I234"  ></A><A ID = "I235" NAME = "I235"  ></A>inherits from Panel. You'll create this class to represent a group of three text fields and to handle actions from those text fields. Two instances of this class, one for the RGB values and one for the HSB ones, will be created and added to the applet.
+<BR>
+<BR></LI></UL>
+<P>Let's work through this step by step, because it's very complicated and can get confusing. All the code for this applet will be shown at the end of this section.
+<BR></P>
+<H4><A ID = "I236" NAME = "I236"  >
+<foNT SIZE=3><B>Create the Applet Layout</B>
+<BR></FONT></A></H4>
+<P>The best way to start <A ID = "I237" NAME = "I237"  ></A><A ID = "I238" NAME = "I238"  ></A>creating an applet that uses AWT components is to worry about the layout first and then worry about the functionality. When dealing with the layout, you also should start with the outermost panel first and work inward.
+<BR></P>
+<P>Making a sketch of your UI design can help you figure out how to organize the panels inside your applet or window to best take advantage of layout and space. Figure 13.21 shows the ColorTest applet with a grid drawn over it so that you can get an idea of how the panels and embedded panels work.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/13tyj21.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/13tyj21.gif'" tppabs="http://newdata.box.sk/bx/java/13tyj21.gif"  >Figure 13.21. The ColorTest applet panels and components.</B></A>
+<BR></P>
+<H4><A ID = "I239" NAME = "I239"  >
+<foNT SIZE=3><B>Create the Panel Layout</B>
+<BR></FONT></A></H4>
+<P>Let's start with the <A ID = "I240" NAME = "I240"  ></A><A ID = "I241" NAME = "I241"  ></A><A ID = "I242" NAME = "I242"  ></A>outermost panel&#151;the applet itself. This panel has three parts: the color box on the left, the RGB text fields in the middle, and the HSB fields on the right.
+<BR></P>
+<P>Because this is the applet, your ColorTest class will be the applet class and inherit from Applet. You'll also import the AWT classes here (note that because you use so many of them in this program, it's easiest to just import the entire package):
+<BR></P>
+<PRE>import java.awt.*;
+public class ColorTest extends java.applet.Applet {
+    ...
+}</PRE>
+<P>Let's start with the init() method, where all the basic initialization and layout takes place. There are four major steps:
+<BR></P>
+<OL>
+<LI>Set the layout for the big parts of the panel. Although a flow layout would work, a grid layout with one row and three columns is a much better idea.
+<BR>
+<BR></LI>
+<LI>Create the three components of this applet: a canvas for the color box and two subpanels for the text fields.
+<BR>
+<BR></LI>
+<LI>Add those components to the applet.
+<BR>
+<BR></LI>
+<LI>Finally, initialize the default color and update all the panels to reflect that default color.
+<BR>
+<BR></LI></OL>
+<P>Before you do any of that, let's set up instance variables to hold the three major components of this applet. You need to keep hold of these objects so you can update things when a value changes.
+<BR></P>
+<P>The color box is easy&#151;it's just a canvas. Call it swatch.
+<BR></P>
+<PRE>Canvas swatch;</PRE>
+<P>Now onto the subpanels. There are <A ID = "I243" NAME = "I243"  ></A><A ID = "I244" NAME = "I244"  ></A>two of them, and although they have different labels and values, they're essentially the same panel. You could just create code for each one here, but you'd end up duplicating a lot of the same code. This is a perfect opportunity, therefore, to create another class to represent the subpanels with the text fields on them. Call them ColorControls (you'll get around to creating the class later) and define two variables, rgbControls and hsbControls, to hold them:
+<BR></P>
+<PRE>ColorControls rgbControls, hsbControls;</PRE>
+<P>Back to the init() method. Step one is the layout. Let's use a grid layout and a gap of ten points to separate each of the components:
+<BR></P>
+<PRE>setLayout(new GridLayout(1, 3, 10, 10));</PRE>
+<P>Step two is creating the components, the canvas first. You have an instance variable to hold that one:
+<BR></P>
+<PRE>swatch = new Canvas();</PRE>
+<P>You need to create two instances of your as-of-yet nonexistent ColorControls panels here as well, but you don't know exactly what you need to create them yet, so let's put in some basic constructors and fill in the details later:
+<BR></P>
+<PRE>rgbControls = new ColorControls()
+hsbControls = new ColorControls();</PRE>
+<P>Step three is adding them to the panel.
+<BR></P>
+<PRE>add(swatch);
+add(rgbControls);
+add(hsbControls);</PRE>
+<P>While you're working on layout, add an inset just for fun&#151;ten points along all the edges:
+<BR></P>
+<PRE>public Insets insets() {
+    return new Insets(10, 10, 10, 10);
+}</PRE>
+<P>Got it so far? Now you have a skeleton init() method and an insets() method in your ColorTest class. Let's move on now to creating the subpanel layout&#151;to creating that ColorControls class.
+<BR></P>
+<H4><A ID = "I245" NAME = "I245"  >
+<foNT SIZE=3><B>Define the Subpanels</B>
+<BR></FONT></A></H4>
+<P>The ColorControls <A ID = "I246" NAME = "I246"  ></A><A ID = "I247" NAME = "I247"  ></A><A ID = "I248" NAME = "I248"  ></A>class will have behavior for laying out and handling the subpanels that represent the RGB and HSB values for the color. ColorControls doesn't need to be a subclass of Applet because it isn't actually an applet, it's just a panel. Define it to inherit from Panel:
+<BR></P>
+<PRE>class ColorControls extends Panel {
+    ...
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> You can put the ColorControls class in the same file as the ColorTest class. You haven't been doing this so far because the applets and applications you've been creating had only one class. If you remember way back to Day 1, however, you learned that you can have multiple class definitions in a single file as long as only one of those definitions is declared public. In this case, the ColorTest class is public (it's an applet, so it has to be), but the ColorControls class doesn't need to be, so everything works out fine. Normally, you'd put ColorControls in a separate file, anyway.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>You need a couple of instance variables in this class. The first thing you need is a hook back up to the applet class that contains this panel. Why? The applet class is the class that oversees how the subcomponents work, so it's going to be the class that updates everything. Eventually, you're going to have to call a method in that class to indicate that something in this panel has changed. Without an actual reference to that outer class, there's no way to do this. So, instance variable number one is a reference to the class ColorTest:
+<BR></P>
+<PRE>ColorTest outerparent;</PRE>
+<P>If you figure that the applet class is the one that's going to be updating everything, that class is going to need a way to get hold of the pieces inside this class. In particular, it's going to be interested in the individual text fields, so you're going to need instance variables to hold those. This creates three of them:
+<BR></P>
+<PRE>TextField f1, f2, f3;</PRE>
+<P>Now for the constructor for this class. Again, this isn't an applet, so you don't use init(); all you need is a constructor method.
+<BR></P>
+<P>What do you need inside that constructor? You need to set the layout for the subpanel, create the text fields, and add them to the panel. The goal here is to make the ColorControls class generic enough so that you can use it for both the RGB fields and the HSB fields.
+<BR></P>
+<P>The two different panels differ in two respects: the labels for the text fields, and the initial values for the text fields. That's six values to get before you can create the object. You can pass those six values in through the constructors in ColorTest. You also need one more. Because you need that hook back to the applet class, you should also pass in a reference to that object as part of the constructor.
+<BR></P>
+<P>You now have seven arguments to the basic constructor for the ColorControls class. Here's the signature for that constructor:
+<BR></P>
+<PRE>ColorControls(ColorTest target,
+        String l1, String l2, String l3,
+        int v1, int v2, int v3) {
+}</PRE>
+<P>Given those arguments, you can assign the right values to your instance variables:
+<BR></P>
+<PRE>outerparent = target;
+f1 = new TextField(String.valueOf(v1),10);
+f2 = new TextField(String.valueOf(v2),10);
+f3 = new TextField(String.valueOf(v3),10);</PRE>
+<P>Note that because the first argument to the TextField constructor is a string, and the values that you passed in were integers, you have to use the valueOf() class method (defined in String) to convert the integer to a string before creating each text field.
+<BR></P>
+<P>Next, you create the layout for this panel. You also use a grid layout for these subpanels, as you did for the applet panel, but this time the grid will have three rows (one for each of the text field and label pairs) and two columns (one for the labels and one for the fields).
+<BR></P>
+<P>Given the 3-by-2 grid, you can now add the text fields and labels to that panel. Note that by separating the labels and the text fields into separate cells in the grid, you can align the labels, creating a nice aligned layout.
+<BR></P>
+<PRE>add(new Label(l1, Label.RIGHT));
+add(f1);
+add(new Label(l2, Label.RIGHT));
+add(f2);
+add(new Label(l3, Label.RIGHT));
+add(f3);</PRE>
+<P>Finally (because I like insets), you'll <A ID = "I249" NAME = "I249"  ></A>inset the contents of the subpanel a bit&#151;only on the top and bottom edges&#151;by including an insets() method:
+<BR></P>
+<PRE>public Insets insets() {
+        return new Insets(10, 10, 0, 0);
+ }</PRE>
+<P>You're almost there. You have 98 percent of the layout in place and ready to go, but you're missing two things: creating the ColorControls objects in ColorTest, and initializing everything so that all the components have the right values.
+<BR></P>
+<P>For both, you need to go back to the ColorTest class and the init() method you defined there. Let's start with the initialization part, because that's easy. The default color is black. Set up a local variable to hold that color object:
+<BR></P>
+<PRE>Color theColor = new Color(0, 0, 0);</PRE>
+<P>To set the initial color of the color box, all you need to do is set its background:
+<BR></P>
+<PRE>swatch.setBackground(theColor);</PRE>
+<P>Now, let's finally tackle initializing <A ID = "I250" NAME = "I250"  ></A><A ID = "I251" NAME = "I251"  ></A><A ID = "I252" NAME = "I252"  ></A>those subpanels. The constructor for ColorControls has seven arguments: the ColorTest object, three labels (strings), and three initial values for the text fields (integers). Let's do the RGB controls first, because you can easily extract the initial red, green, and blue values out of the Color object:
+<BR></P>
+<PRE>rgbControls = new ColorControls(this, &quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;,
+        theColor.getRed(), theColor.getGreen(),
+        theColor.getBlue());</PRE>
+<P>Things get complicated on the HSB side of the panel. The Color class provides you with a method to get the HSB values out of a Color object, but there are two problems:
+<BR></P>
+<UL>
+<LI>The RGBtoHSB() method<A ID = "I253" NAME = "I253"  ></A><A ID = "I254" NAME = "I254"  ></A> is a single class method that insists on returning an array of the three values.
+<BR>
+<BR></LI>
+<LI>The HSB values are measured in floating-point values. I prefer to think of HSB as integers, wherein the hue is a degree value around a color wheel (0 through 360), and saturation and brightness are percentages from 0 to 100. Having HSB as integer values also enables you to have a generic subpanel, as was the intent.
+<BR>
+<BR></LI></UL>
+<P>Initializing the HSB subpanel is going to be a little difficult.
+<BR></P>
+<P>First, let's extract<A ID = "I255" NAME = "I255"  ></A><A ID = "I256" NAME = "I256"  ></A> those HSB values. Given that the method takes three RGB arguments&#151;an array of three floats&#151;and returns an array of three floats, you have to go through this process to get those values:
+<BR></P>
+<PRE>float[] HSB = Color.RGBtoHSB(theColor.getRed(), 
+<BR>    theColor.getGreen(), theColor.getBlue(),(new float[3]));</PRE>
+<P>Now you have an array of floats, where hsb[0] is the hue, hsb[1] is the saturation, and hsb[2] is the brightness. You can now (finally!) initialize the HSB side of the applet, making sure that when you pass those HSB values into the subpanel, you multiply them by the right values (360 for the hues, 100 for the saturation and the brightness) and convert them to integers:
+<BR></P>
+<PRE>hsbcontrols = new ColorControls(this,
+        &quot;Hue&quot;, &quot;Saturation&quot;, &quot;Brightness&quot;,
+        (int)(hsb[0] * 360), (int)(hsb[1] * 100),
+        (int)(hsb[2] * 100));</PRE>
+<P>Ready to give up? Fear not&#151;you've done the hard part. From here, it's (mostly) easy. Once you have your layout working, you can compile your Java program and see how it looks. None of your UI components actually does anything, but perfecting the layout is half the battle.
+<BR></P>
+<H4><A ID = "I257" NAME = "I257"  >
+<foNT SIZE=3><B>Handle the Actions</B>
+<BR></FONT></A></H4>
+<P>After creating the <A ID = "I258" NAME = "I258"  ></A><A ID = "I259" NAME = "I259"  ></A>layout, you set up actions with the UI components so that when the user interacts with the applet, the applet can respond.
+<BR></P>
+<P>The action of this applet occurs when the user changes a value in any of the text fields. By causing an action in a text field, the color changes, the color box updates to the new color, and the values of the fields in the opposite subpanel change to reflect the new color.
+<BR></P>
+<P>The ColorTest class is responsible for actually doing the updating, because it keeps track of all the subpanels. You should be tracking and intercepting events in the subpanel in which they occur, however. Because the action of the applet is an actual text action, you can use an action() method to intercept it:
+<BR></P>
+<PRE>public boolean action(Event evt, Object arg) {
+        if (evt.target instanceof TextField) {
+            outerparent.update(this);
+            return true;
+        }
+        else return false;
+    }</PRE>
+<P>In the action() method, you test to make sure the action was indeed generated by a text field (because there are only text fields available, that's the only action you'll get, but it's a good idea to test for it anyhow). If so, call the update() method, defined in ColorTest, to update the applet to reflect all the new values. Because the outer applet is responsible for doing all the updating, this is precisely why you need that hook back to the applet&#151;so you can call the right method at the right time.
+<BR></P>
+<H4><A ID = "I260" NAME = "I260"  >
+<foNT SIZE=3><B>Update the Result</B>
+<BR></FONT></A></H4>
+<P>The only part left now is to <A ID = "I261" NAME = "I261"  ></A><A ID = "I262" NAME = "I262"  ></A><A ID = "I263" NAME = "I263"  ></A><A ID = "I264" NAME = "I264"  ></A>update all the values and the color swatch if one of the values changes. For this, you define the update() method in the ColorTest class. This update() method<A ID = "I265" NAME = "I265"  ></A><A ID = "I266" NAME = "I266"  ></A> takes a single argument&#151;the ColorControls instance that contains the changed value (you get that argument from the action() method in the subpanel).
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Won't this update() method interfere with the system's update() method? Nope. Remember, methods can have the same names, but different signatures and definitions. Because this update() has a single argument of type ColorControls, it doesn't interfere with the other version of update(). Normally, all methods called update() should mean basically the same thing; it's not ture here, but it's only an example.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The update() method is responsible for updating <A ID = "I267" NAME = "I267"  ></A><A ID = "I268" NAME = "I268"  ></A>all the panels in the applet. To know which panel to update, you need to know which panel changed. You can find out by testing to see whether the argument you got passed is the same as the subpanels you have stored in the RGBcontrols and HSBcontrols instance variables:
+<BR></P>
+<PRE>void update(ColorControls in) {
+    if (in == rgbControls) { // the change was in rgb
+        ...
+    }
+    else { // change was in hsb
+}</PRE>
+<P>This test is the heart of the update() method. Let's start with that first case&#151;a number has been changed in the RGB text fields. So now, based on those new RGB values, you have to generate a new color object and update the values on the HSB panel. To reduce some typing, you create a few local variables to hold some basic values. In particular, the values of the text fields are strings, and you get into them by accessing the text field instance variables for the ColorControls panel (f1, f2, f3) and then using the getText() method to extract the actual values. Extract those values and store them in string variables so that you don't have to keep typing:
+<BR></P>
+<PRE>String v1 = in.f1.getText();
+String v2 = in.f2.getText();
+String v3 = in.f3.getText();</PRE>
+<P>Given those string values for RGB, you now <A ID = "I269" NAME = "I269"  ></A><A ID = "I270" NAME = "I270"  ></A><A ID = "I271" NAME = "I271"  ></A>create a color object by converting those strings to integers:
+<BR></P>
+<PRE>Color c;
+c = new Color(Integer.parseInt(v1),Integer.parseInt(v2), Integer.parseInt(v3));</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> This part of the example isn't very robust; it assumes that the user has indeed entered real numbers into the text fields. A better version of this would test to make sure that no parsing errors had occurred (I was trying to keep this example small).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>When you have a color object, you can update the color swatch:
+<BR></P>
+<PRE>swatch.setBackground(c);</PRE>
+<P>The next step is to update the HSB panel to the new HSB values. Doing this in the init() method is no fun at all, and it's even less fun here. To do this, you call RGBtoHSB to get the floating-point values, convert them to integers with the right values, convert them to strings, and then put them back into the text fields for the HSB subpanel. Got all that? Here's the code:
+<BR></P>
+<PRE>float[] HSB = Color.RGBtoHSB(c.getRed(),c.getGreen(),
+            c.getBlue(), (new float[3]));
+hsb[0] *= 360;
+hsb[1] *= 100;
+hsb[2] *= 100;
+hsbControls.f1.setText(String.valueOf((int)hsb[0]));
+hsbControls.f2.setText(String.valueOf((int)hsb[1]));
+hsbControls.f3.setText(String.valueOf((int)hsb[2]));</PRE>
+<P>The second part of the update() method is called when a value on the HSB side of the panel is changed. This is the &quot;else&quot; in the if-else that determines what to update, given a change.
+<BR></P>
+<P>Believe it or not, it's easier to update RGB values given HSB than it is to do it the other way around. First, convert the string values from the HSB text fields to integers by using these lines:
+<BR></P>
+<PRE>int f1 = Integer.parseInt(v1);
+int f2 = Integer.parseInt(v2);
+int f3 = Integer.parseInt(v3);</PRE>
+<P>There's a class method in the Color class that creates a new color object when given three HSB values. The catch is that those values are floats, and they're not the values you currently have. To call getHSBColor() (that's the name of the method), convert the integers to floats and divide by the right amounts:
+<BR></P>
+<PRE>c = Color.getHSBColor((float)f1 / 360, (float)f2 / 100, (float)f3/100);</PRE>
+<P>Now that you have a color object, the rest is easy. Set the color swatch:
+<BR></P>
+<PRE>swatch.setBackground(c);</PRE>
+<P>Then update the RGB text fields with the new RGB values from the color object:
+<BR></P>
+<PRE>rgbControls.f1.setText(String.valueOf(c.getRed()));
+rgbControls.f2.setText(String.valueOf(c.getGreen()));
+rgbControls.f3.setText(String.valueOf(c.getBlue()));</PRE>
+<H4><A ID = "I272" NAME = "I272"  >
+<foNT SIZE=3><B>The Complete Source Code</B>
+<BR></FONT></A></H4>
+<P>Listing 13.1 shows the complete source code; often it's easier to figure out what's going on in this applet when it's all in one place and you can follow the method calls and how values are passed back and forth. Start with the init() method in applet, and go from there.
+<BR></P>
+<UL>
+<LH><B>Listing 13.1. The ColorTest applet.</B><A ID = "I273" NAME = "I273"  ></A></LH></UL>
+<PRE>  1: import java.awt.*;
+  2:
+  3: public class ColorTest extends java.applet.Applet {
+  4:     ColorControls rgbControls, hsbControls;
+  5:     Canvas swatch;
+  6:
+  7:     public void init() {
+  8:         Color theColor = new Color(0, 0, 0);
+  9:         float[] hsb = Color.RGBtoHSB(theColor.getRed(),
+ 10:             theColor.getGreen(), theColor.getBlue(),
+ 11:             (new float[3]));
+ 12:
+ 13:         setLayout(new GridLayout(1, 3, 10, 10));
+ 14:
+ 15:         // The color swatch
+ 16:         swatch = new Canvas();
+ 17:         swatch.setBackground(theColor);
+ 18:
+ 19:         // the control panels
+ 20:         rgbControls = new ColorControls(this,
+ 21:             &quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;,
+ 22:             theColor.getRed(), theColor.getGreen(),
+ 23:             theColor.getBlue());
+ 24:
+ 25:         hsbControls = new ColorControls(this,
+ 26:             &quot;Hue&quot;, &quot;Saturation&quot;, &quot;Brightness&quot;,
+ 27:             (int)(hsb[0] * 360), (int)(hsb[1] * 100),
+ 28:             (int)(hsb[2] * 100));
+ 29:
+ 30:         add(swatch);
+ 31:         add(rgbControls);
+ 32:         add(hsbControls);
+ 33:
+ 34:     }
+ 35:
+ 36:     public Insets insets() {
+ 37:         return new Insets(10, 10, 10, 10);
+ 38:     }
+ 39:
+ 40:     void update(ColorControls in) {
+ 41:         Color c;
+ 42:         String v1 = in.f1.getText();
+ 43:         String v2 = in.f2.getText();
+ 44:         String v3 = in.f3.getText();
+ 45:
+ 46:         if (in == rgbControls) {    // change to RGB
+ 47:             c = new Color(Integer.parseInt(v1),
+ 48:                     Integer.parseInt(v2),
+ 49:                     Integer.parseInt(v3));
+ 50:             swatch.setBackground(c);
+ 51:             float[] HSB = Color.RGBtoHSB(c.getRed(),c.getGreen(),
+ 52:                     c.getBlue(), (new float[3]));
+ 53:             hsb[0] *= 360;
+ 54:             hsb[1] *= 100;
+ 55:             hsb[2] *= 100;
+ 56:             hsbControls.f1.setText(String.valueOf((int)HSB[0]));
+ 57:             hsbControls.f2.setText(String.valueOf((int)HSB[1]));
+ 58:             hsbControls.f3.setText(String.valueOf((int)HSB[2]));
+ 59:         }
+ 60:         else {    // change to HSB
+ 61:             int f1 = Integer.parseInt(v1);
+ 62:             int f2 = Integer.parseInt(v2);
+ 63:             int f3 = Integer.parseInt(v3);
+ 64:             c = Color.getHSBColor((float)f1 / 360,
+ 65:                     (float)f2 / 100, (float)f3/100);
+ 66:             swatch.setBackground(c);
+ 67:             RGBcontrols.f1.setText(String.valueOf(c.getRed()));
+ 68:             RGBcontrols.f2.setText(String.valueOf(
+ 69:                 c.getGreen()));
+ 70:             RGBcontrols.f3.setText(String.valueOf(c.getBlue()));
+ 71:         }
+ 72:     }
+ 73: }
+ 74:
+ 75:
+ 76: class ColorControls extends Panel {
+ 77:     TextField f1, f2, f3;
+ 78:     ColorTest outerparent;
+ 79:
+ 80:     ColorControls(ColorTest target,
+ 81:             String l1, String l2, String l3,
+ 82:             int v1, int v2, int v3) {
+ 83: 
+ 84:         this.outerparent = target;
+ 85:         setLayout(new GridLayout(3,4,10,10));
+ 86:
+ 87:         f1 = new TextField(String.valueOf(v1),10);
+ 88:         f2 = new TextField(String.valueOf(v2),10);
+ 89:         f3 = new TextField(String.valueOf(v3),10);
+ 90:
+ 91:         add(new Label(l1, Label.RIGHT));
+ 92:         add(f1);
+ 93:         add(new Label(l2, Label.RIGHT));
+ 94:         add(f2);
+ 95:         add(new Label(l3, Label.RIGHT));
+ 96:         add(f3);
+ 97:     }
+ 98:
+ 99:     public Insets insets() {
+100:         return new Insets(10,10,0,0);
+101:     }
+102: 
+103:     public boolean action(Event evt, Object arg) {
+104:         if (evt.target instanceof TextField) {
+105:             outerparent.update(this);
+106:             retrue true;
+107:         }
+108:         else return false;
+109:     }
+110: }</PRE>
+<H3><A ID = "I274" NAME = "I274"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>The Java AWT, or Abstract Windowing Toolkit, is a package of Java classes and interfaces for creating full-fledged access to a window-based graphical user interface system, with mechanisms for graphics display, event management, text and graphics primitives, user interface components, and cross-platform layout. The AWT is used by the HotJava browser itself for all its functionality. Applets are also an integral part of the AWT toolkit.
+<BR></P>
+<P>Today has been a big day; the lesson has brought together everything you've learned up to this point about simple applet management and added a lot more about creating applets, panels, and user interface components and managing the interactions between all of them. With the information you got today and the few bits that you'll learn tomorrow, you can create cross-platform Java applications that do just about anything you want.
+<BR></P>
+<H3><A ID = "I275" NAME = "I275"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: You've mentioned a lot about the </B><B>Component</B><B> and </B><B>Container</B><B> classes, but it </B><B>looks like the only </B><B>Container</B><B> objects that ever get created are </B><B>Panels</B><B>. What do </B><B>the </B><B>Component</B><B> and </B><B>Container</B><B> classes give me?</B>
+<BR></P>
+<P><B>A: </B>Those classes factor out the behavior for components (generic AWT components) and containers (components that can contain other components). Although you don't necessarily create direct instances of these classes, you can create subclasses of them if you want to add behavior to the AWT that the default classes do not provide. As with most of the Java classes, any time you need a superclass's behavior, don't hesitate to extend that class by using your own subclass.
+<BR></P>
+<P><B>Q: Can I put a UI component at a specific </B><B>x</B><B> and </B><B>y</B><B> position on the screen?</B>
+<BR></P>
+<P><B>A: </B>By using the existing layout managers supplied with the AWT toolkit, no. This is actually a good thing because you don't know what kind of display environment your applet will be run under, what kind of fonts are installed, or what kind of fonts are being currently used. By using the layout managers provided with the AWT, you can be reasonably sure that every portion of your window will be viewable and readable and usable (fonts may cause you trouble). You can't guarantee anything like that with hard-coded layouts.
+<BR></P>
+<P><B>Q: I was exploring the AWT package, and I saw this subpackage called </B><B>peer</B><B>. </B><B>There's also references to the peer classes sprinkled throughout the API </B><B>documentation. What do peers do?</B>
+<BR></P>
+<P><B>A: </B>Peers are responsible for the platform-specific parts of the AWT. For example, when you create a Java AWT window, you have an instance of the Window class that provides generic Window behavior, and then you have an instance of a class implementing WindowPeer that creates the very specific window for that platform&#151;a motif window under X Window, a Macintosh-style window under the Macintosh, or a Windows 95 window under Windows 95. These &quot;peers&quot; classes also handle communication between the window system and the Java window itself. By separating the generic component behavior (the AWT classes) from the actual system implementation and appearance (the peer classes), you can focus on providing behavior in your Java application and let the Java implementation deal with the platform-specific details.
+<BR></P>
+<P><B>Q: There's a whole lot of functionality in the AWT that you haven't </B><B>talked about here. Why?</B>
+<BR></P>
+<P><B>A: </B>Given that even a basic introduction took this long, I figured that if I put in even more detail than I already have that this book would turn into <I>Teach Yourself Java in 21 Days Plus a Few Extra for the AWT </I><I>Stuff</I>.
+<BR>
+<BR>As it is, I've left windows, menus, and dialogs until tomorrow, so you'll have to wait for those. But you can find out about a lot of the other features of AWT merely by exploring the API documentation. Start with the Applet class and examine the sorts of methods you can call. Then look at Panel, from which applet inherits&#151;you have all that class's functionality as well. The superclass of Panel is Container, which provides still more interesting detail. Component comes next. Explore the API and see what you can do with it. You might find something interesting.
+<BR></P>
+<P><A HREF = "tyj12x.html" tppabs="http://newdata.box.sk/bx/java/tyj12x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj14x.html" tppabs="http://newdata.box.sk/bx/java/tyj14x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

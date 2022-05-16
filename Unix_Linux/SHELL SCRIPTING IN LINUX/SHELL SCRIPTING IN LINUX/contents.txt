@@ -1,0 +1,35 @@
+VIDEO TUTORIAL
+==============
+VTC - UNIX SHELL SCRIPTING ADVANCED
+
+EMACS
+=====
+Emacs Reference Card
+GNU Emacs manual
+GNU Emacs Pocket Reference
+Learning GNU Emacs
+Living in Emacs
+Sams Teach Yourself Emacs In 24 Hours
+
+VIM
+===
+Hacking Vim
+Learning the Vi Editor
+
+SHELL SCRIPTING
+===============
+Advanced Bash-Scripting Guide
+A Practical Guide To Linux Commands, Editors, And Shell Programming
+Bash Cookbook
+Bash Quick Reference
+Classic Shell Scripting
+Learning The Bash Shell
+Linux Complete Command Reference
+Linux Shell Scripting Tutorial
+Linux Shell Scripting with Bash
+Mastering UNIX Shell Scripting
+Sams Teach Yourself Shell Programmin in 24 Hours
+SHELL SCRIPTING IN LINUX/Unix Shell Programming
+
+
+Another fine release brought to you by madman9999.

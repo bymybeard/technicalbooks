@@ -1,0 +1,500 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj20x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj21x.html" tppabs="http://newdata.box.sk/bx/java/tyj21x.html">
+<LINK REL="Previous" HREF="tyj19x.html" tppabs="http://newdata.box.sk/bx/java/tyj19x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj19x.html" tppabs="http://newdata.box.sk/bx/java/tyj19x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj21x.html" tppabs="http://newdata.box.sk/bx/java/tyj21x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<UL>
+<LI>
+<A HREF = "#I1"  >Day20</A></LI>
+<LI>
+<A HREF = "#I3"  >Native Methods and Libraries</A></LI>
+<UL>
+<LI>
+<A HREF = "#I7"  >Disadvantages of native Methods</A></LI>
+<LI>
+<A HREF = "#I13"  >The Illusion of Required Efficiency</A></LI>
+<UL>
+<LI>
+<A HREF = "#I16"  >Built-In Optimizations</A></LI>
+<LI>
+<A HREF = "#I22"  >Simple Optimization Tricks</A></LI></UL>
+<LI>
+<A HREF = "#I27"  >Writing native Methods</A></LI>
+<UL>
+<LI>
+<A HREF = "#I44"  >The Example Class</A></LI>
+<LI>
+<A HREF = "#I54"  >Generating Header and Stub Files</A></LI>
+<UL>
+<LI>
+<A HREF = "#I61"  >Using javah</A></LI>
+<LI>
+<A HREF = "#I67"  >Using javah -stubs</A></LI></UL>
+<LI>
+<A HREF = "#I79"  >Creating SimpleFileNative.c</A></LI>
+<UL>
+<LI>
+<A HREF = "#I84"  >Some Useful Functions</A></LI>
+<LI>
+<A HREF = "#I93"  >Compiling the Stubs File</A></LI></UL></UL>
+<LI>
+<A HREF = "#I97"  >A Native Library</A></LI>
+<UL>
+<LI>
+<A HREF = "#I100"  >Linking It All</A></LI>
+<LI>
+<A HREF = "#I101"  >Using Your Library</A></LI></UL>
+<LI>
+<A HREF = "#I102"  >Summary</A></LI>
+<LI>
+<A HREF = "#I103"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H2><A ID = "I1" NAME = "I1"  >
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day20</B>
+<BR></FONT></A></H2>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Native Methods and Libraries</B>
+<BR></FONT></A></H2>
+<P><B>by Charles L. Perkins</B>
+<BR></P>
+<P>Today, you'll learn all the reasons you might (or might not) want to write native methods in Java, about all of Java's built-in optimizations, and about the tricks you can use to make your programs faster. You'll also learn the procedure for creating, making headers and stubs for, and linking native methods into a dynamically loadable library.
+<BR></P>
+<P>Let's begin, however, with the reasons that you might want to implement native methods in the first place.
+<BR></P>
+<P>There are only two reasons that you might need to declare some of your methods native, that is, implemented by a language other than Java.
+<BR></P>
+<P>The first, and by far the<A ID = "I4" NAME = "I4"  ></A><A ID = "I5" NAME = "I5"  ></A><A ID = "I6" NAME = "I6"  ></A> best reason to do so, is because you need to utilize a special capability of your computer or operating system that the Java class library does not already provide for you. Such capabilities include interfacing to new peripheral devices or plug-in cards, accessing a different type of networking, or using a unique, but valuable feature of your particular operating system. Two more concrete examples are acquiring real-time audio input from a microphone or using 3D &quot;accelerator&quot; hardware in a 3D library. Neither of these is provided to you by the current Java environment, so you must implement them outside Java, in some other language (currently C or any language that can link with C).
+<BR></P>
+<P>The second, and often illusory reason to implement native methods, is speed&#151;illusory, because you rarely need the raw speeds gained by this approach. It's even more rare to not be able to gain that speed-up in other ways (as you'll see later today). Using native methods in this case takes advantage of the fact that, at present, the Java release does not perform as well as, for example, an optimized C program on many tasks. For those tasks, you can write the &quot;needs to be fast&quot; part (critical, inner loops, for example) in C, and still use a larger Java shell of classes to hide this &quot;trick&quot; from your users. In fact, the Java class library uses this approach for certain critical system classes to raise the overall level of efficiency in the system. As a user of the Java environment, you don't even know (or see) any side effects of this (except, perhaps, a few classes or methods that are final that might not be otherwise).
+<BR></P>
+<H3><A ID = "I7" NAME = "I7"  >
+<foNT SIZE=4><B>Disadvantages of </B><B>native</B><B> Methods</B>
+<BR></FONT></A></H3>
+<P>Once you decide you'd <A ID = "I8" NAME = "I8"  ></A><A ID = "I9" NAME = "I9"  ></A>like to, or must, use native methods in your program, this choice costs you dearly. Although you gain the advantages mentioned earlier, you lose the portability of your Java code.
+<BR></P>
+<P>Before, you had a program (or applet) that could travel to any Java environment in the world, now and forever. Any new architectures created&#151;or new operating systems written&#151;were irrelevant to your code. All it required was that the (tiny) Java Virtual Machine (or a browser that had one inside it) be available, and it could run anywhere, anytime&#151;now and in the future.
+<BR></P>
+<P>Now, however, you've created a library of native code that must be linked with your program to make it work properly. The first thing you lose is the ability to &quot;travel&quot; as an applet; you simply can't be one! No Java-capable browser currently in existence allows native code to be loaded with an applet, for security reasons (and these are good reasons). The Java team has struggled to place as much as possible into the java packages because they are the only environment you can <I>count</I> on as an applet. (The sun packages, shipped primarily for use with stand-alone Java programs, are not always available to applets.)
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Actually, any <A ID = "I10" NAME = "I10"  ></A><A ID = "I11" NAME = "I11"  ></A><A ID = "I12" NAME = "I12"  ></A>classes that anyone writes <I>without</I> native code should be able to be loaded with an applet, as long as they depend only on the java packages. Unfortunately, many of the sun packages contain classes that <I>must</I> use native code to provide crucial, missing functionality from the java packages. All these missing pieces, and some additional multimedia and sound capabilities, will be added to the java packages in the future. (This has been informally promised in discussions I've had with the Java team.)
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Losing the ability to travel anywhere across the Net, into any browser written now or in the future, is bad enough. What's worse, now that you can't be an applet, you have further limited yourself to only those machines that have had the Java Virtual Machine ported to their operating system. (Applets automatically benefit from the wide number of machines and operating systems that <I>any</I> Java-capable browser is ported to, but now you do not.)
+<BR></P>
+<P>Even worse, you have assumed something about that machine and operating system by the implementation of your native methods. This often means that you have to write different <I>source</I> code for some (or all) of the machines and operating systems on which you want to be able to run. You're already forced, by using native methods, to produce a separate binary library for every machine and operating system pair in the world (or at least, wherever you plan to run), and you must continue to do so forever. If changing the source is also necessary, you can see that this is not a pleasant situation for you and your Java program.
+<BR></P>
+<H3><A ID = "I13" NAME = "I13"  >
+<foNT SIZE=4><B>The Illusion of Required Efficiency</B>
+<BR></FONT></A></H3>
+<P>If, even after the previous <A ID = "I14" NAME = "I14"  ></A><A ID = "I15" NAME = "I15"  ></A>discussion, you <I>must</I> use native methods anyway, there's help for you later in today's lesson&#151;but what if you're still thinking you need to use them for efficiency reasons?
+<BR></P>
+<P>You are in a grand tradition of programmers throughout the (relatively few) ages of computing. It is exciting, and intellectually challenging, to program with constraints. If you believe efficiency is always required, it makes your job a little more interesting&#151;you get to consider all sorts of baroque ways to accomplish tasks, because it is the efficient way to do it. I myself was caught up in this euphoria of creativity when I first began programming, but it is creativity misapplied.
+<BR></P>
+<P>When you design your program, all that energy and creativity should be directed at the design of a tight, concise, minimal set of classes and methods that are maximally general, abstract, and reusable. (If you think that is easy, look around for a few years and see how bad most software is.) If you spend most of your programming time on thinking and rethinking these fundamental goals and how to achieve them, you are preparing for the future. A future where software is assembled as needed from small components swimming in a sea of network facilities, and anyone can write a component seen by millions (and reused in their programs) in minutes. If, instead, you spend your energy worrying about the speed your software will run <I>right now</I> on some computer, your work will be irrelevant after the 18 to 36 months it will take hardware to be fast enough to hide that minor inefficiency in your program.
+<BR></P>
+<P>Am I saying that you should ignore efficiency altogether? Of course not! Some of the great algorithms of computer science deal with solving hard or &quot;impossible&quot; problems in reasonable amounts of time&#151;and writing your programs carelessly can lead to remarkably slow results. Carelessness, however, can as easily lead to incorrect, fragile, or nonreusable results. If you correct all these latter problems first, the resulting software will be clean, will naturally reflect the structure of the problem you're trying to solve, and thus will be amenable to &quot;speeding up&quot; later.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>There are always cases where you <I>must</I> be fanatical about efficiency in many parts of a set of classes. The Java class library itself is such a case, as is anything that must run in real-time for some critical real-world application (such as flying a plane). Such applications are rare, however.
+<BR>
+<BR>When speaking of a new kind of programming that must soon emerge, Bill Joy likes to invoke the four S's of Java: small, simple, safe, and secure. The &quot;feel&quot; of the Java language itself encourages the pursuit of clarity and the reduction of complexity. The intense pursuit of efficiency, which increases complexity and reduces clarity, is antithetical to these goals.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Once you build a solid foundation, debug your classes, and your program (or applet) works as you'd like it to, <I>then </I>it's time to begin optimizing it. If it's just a user interface applet, you may need to do nothing at all. The user is very slow compared to modern computers (and getting relatively slower every 18 months). The odds are that your applet is already fast enough&#151;but suppose it isn't.
+<BR></P>
+<H4><A ID = "I16" NAME = "I16"  >
+<foNT SIZE=3><B>Built-In Optimizations</B>
+<BR></FONT></A></H4>
+<P>Your next job is to see whether your release supports turning on the &quot;just-in-time&quot; compiler, or using <A ID = "I17" NAME = "I17"  ></A><A ID = "I18" NAME = "I18"  ></A><A ID = "I19" NAME = "I19"  ></A><A ID = "I20" NAME = "I20"  ></A>the java2c tool.
+<BR></P>
+<P>The first of these is an experimental technology that, while a method's bytecodes are running in the Java Virtual Machine, translates each bytecode into the<A ID = "I21" NAME = "I21"  ></A> native binary code equivalent for the local computer, and then keeps this native code around as a cache for the next time that method is run. This trick is completely transparent to the Java code you write. You need know nothing about whether or not it's being done&#151;your code can still &quot;travel&quot; anywhere, anytime. On any system with &quot;just-in-time&quot; technology in place, however, it runs a lot faster. Experience with experimental versions of this technology shows that, after paying a small cost the first time a method is run, this technique can reach the speed of compiled C code.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>More details on this technique, and the java2c tool, will be presented tomorrow. As of the 1.0 release, neither of these tools are in the Java environment, but both are expected in a later release (perhaps 1.1).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The java2c translator takes a whole .class file full of the bytecodes for a class and translates them (all at once) into a portable C source code version. This version can then be compiled by a traditional C compiler on your computer to produce a native-method-like cached library of fast code. This large cache of native code will be used whenever the class's methods are called, but only on the local computer. Your original Java code can still travel as bytecodes and run on any other computer system. If the virtual machine automatically takes these steps whenever it makes sense for a given class, this can be as transparent as the &quot;just-in-time&quot; technology. Experience with an experimental version of this tool shows that fully optimized C performance is achievable. (This is the best anyone can hope to do!)
+<BR></P>
+<P>So you see, even without taking any further steps to optimize your program, you may discover that for your release of Java (or for releases elsewhere or coming in the near future), your code is already fast enough. If it is not, remember that the world craves speed. Java will only get faster, the tools will only get better. Your code is the only permanent thing in this new world&#151;it should be the best you can make it, with no compromises.
+<BR></P>
+<H4><A ID = "I22" NAME = "I22"  >
+<foNT SIZE=3><B>Simple Optimization Tricks</B>
+<BR></FONT></A></H4>
+<P>Suppose that these <A ID = "I23" NAME = "I23"  ></A>technologies aren't available or don't optimize your program far enough for your taste. You can profile your applet or program as it runs, to see in which methods it spends the most time. Once you know this crucial information, you can begin to make <I>targeted</I> changes to your classes.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="imp.gif" tppabs="http://newdata.box.sk/bx/java/imp.gif" WIDTH = 68 HEIGHT = 35><B>Tip: </B>Use java -prof ... to <A ID = "I24" NAME = "I24"  ></A>produce this profile information. In an early release (and, presumably, some later release) the javaprof tool can &quot;pretty-print&quot; this information in a more readable format. (javaprof is not in the 1.0 release&#151;but try the latest Java release's documentation for details.) 
+<BR>
+<BR>Before you begin making optimizations, you also may want to save a copy of your &quot;clean&quot; classes. As soon as computer speeds allow it (or a major rewrite necessitates it), you can revert to these classes, which embody the &quot;best&quot; implementation of your program.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>First, identify the crucial few methods that take most of the time (there are almost always just a few, and often just one, that take up the majority of your program's time). If they contain loops, examine the inner loops to see whether they: call methods that can be made final, call a group of methods that can be collapsed into a single method, or create objects that can be reused rather than created anew each loop.
+<BR></P>
+<P>If you notice that a long chain of, for example, four or more method calls is needed to reach a destination method's code, <I>and</I> this execution path is in one of the critical sections of the program, you can &quot;short-circuit&quot; directly to<A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAME = "I26"  ></A> that destination method in the topmost method. This may require adding a new instance variable to reference the object for that method call directly. This quite often violates layering or encapsulation constraints. This violation, and any added complexity, is the price you pay for efficiency.
+<BR></P>
+<P>If, after all these tricks (and the numerous others you should try that have been collected over the years into various programming books), your Java code is still <I>just too slow</I>, you will have to use native methods after all.
+<BR></P>
+<H3><A ID = "I27" NAME = "I27"  >
+<foNT SIZE=4><B>Writing </B><B>native</B><B> Methods</B>
+<BR></FONT></A></H3>
+<P>For whatever reasons, you've<A ID = "I28" NAME = "I28"  ></A><A ID = "I29" NAME = "I29"  ></A><A ID = "I30" NAME = "I30"  ></A> decided to add native methods to your program. You've already decided which methods need to be native, and in which classes, and you're rarin' to go.
+<BR></P>
+<P>First, on the Java side, all you need to <A ID = "I31" NAME = "I31"  ></A><A ID = "I32" NAME = "I32"  ></A>do is delete the method bodies (all the code between the brackets&#151;{ and }&#151;and <A ID = "I33" NAME = "I33"  ></A><A ID = "I34" NAME = "I34"  ></A>the brackets themselves) of each method you picked and replace them with a single <A ID = "I35" NAME = "I35"  ></A><A ID = "I36" NAME = "I36"  ></A>semicolon (;). Then add the modifier native to the method's existing modifiers. Finally, add a static (class) initializer to each <A ID = "I37" NAME = "I37"  ></A><A ID = "I38" NAME = "I38"  ></A>class that now contains native methods to load the native code library you're about to build. (You can pick any name you like for this library&#151;details follow.) You're done!
+<BR></P>
+<P>That's all you need to do in Java to specify a native method. Subclasses of any class <A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A><A ID = "I41" NAME = "I41"  ></A>containing your new native methods can still override them, and these new (Java) methods are called for instances of the new subclasses (just as you'd expect).
+<BR></P>
+<P>Unfortunately, what needs to be done in your native language environment is not so simple.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The following <A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A>discussion assumes that C and UNIX are your language and environment. This means that some of the steps may differ slightly on your actual system, but such differences will be outlined in the notes surrounding the native method documentation in your release (in the document called &quot;Implementing Native Methods&quot; in the alpha, but folded into the programmer's tutorial in 1.0). The following discussion is purposely parallel to this documentation.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I44" NAME = "I44"  >
+<foNT SIZE=3><B>The Example Class</B>
+<BR></FONT></A></H4>
+<P>Imagine a version of the Java environment that does not provide file I/O. Any Java program needing to use the file system would first have to write native methods to get access to the operating system primitives needed to do file I/O.
+<BR></P>
+<P>This example combines simplified versions of two actual Java library classes, java.io.File<A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A><A ID = "I47" NAME = "I47"  ></A> and java.io.RandomAccessFile<A ID = "I48" NAME = "I48"  ></A><A ID = "I49" NAME = "I49"  ></A><A ID = "I50" NAME = "I50"  ></A>, into a single new class, SimpleFile:
+<BR></P>
+<PRE>public class  SimpleFile {
+    public static final  char    separatorChar = '&gt;';
+    private protected    String  path;
+    private protected    int     fd;
+    public  SimpleFile(String s) {
+        path = s;
+    }
+    public String  getFileName() {
+        int  index = path.lastIndexOf(separatorChar);
+        return (index &lt; 0) ? path : path.substring(index + 1);
+    }
+    public String  getPath() {
+        return path;
+    }
+    public native boolean  open();
+    public native void     close();
+    public native int      read(byte[]  buffer, int  length);
+    public native int      write(byte[]  buffer, int  length);
+    static {
+        System.loadLibrary(&quot;simple&quot;);  // runs when class first loaded
+    }
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The unusual separatorChar<A ID = "I51" NAME = "I51"  ></A><A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A> ('&gt;') is used simply to demonstrate what an implementation might look like on some strange computer whose file system didn't use any of the more common path separator conventions. Early Xerox computers used '&gt;' as a separator, and several existing computer systems still use strange separators today, so this is not all that farfetched.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>SimpleFiles can be created and used in the usual way:
+<BR></P>
+<PRE>SimpleFile  f = new SimpleFile(&quot;&gt;some&gt;path&gt;and&gt;fileName&quot;);
+f.open();
+f.read(...);
+f.write(...);
+f.close();</PRE>
+<P>The first thing you notice about SimpleFile's implementation is how unremarkable the first two-thirds of its Java code is! It looks just like any other class, with a class and an instance variable, a constructor, and two normal method implementations. Then there are four native method declarations. You'll recognize these, from previous discussions, as being just a normal method declaration with the code block replaced by a semicolon and the modifier native added. These are the methods you have to implement in C code later.
+<BR></P>
+<P>Finally, there is a somewhat mysterious code fragment at the very end of the class. You might recognize the general construct here as a static initializer. Any code between the brackets&#151;{ and }&#151;is executed exactly once, when the class is first loaded into the system. You take advantage of that fact to run something you <I>want</I> to run only once&#151;the loading of the native code library you'll create later today. This ties together the loading of the class itself with the loading of its native code. If either fails for some reason, the other fails as well, guaranteeing that no &quot;half-set-up&quot; version of the class can ever be created.
+<BR></P>
+<H4><A ID = "I54" NAME = "I54"  >
+<foNT SIZE=3><B>Generating Header and Stub Files</B>
+<BR></FONT></A></H4>
+<P>In order to get <A ID = "I55" NAME = "I55"  ></A><A ID = "I56" NAME = "I56"  ></A><A ID = "I57" NAME = "I57"  ></A><A ID = "I58" NAME = "I58"  ></A><A ID = "I59" NAME = "I59"  ></A><A ID = "I60" NAME = "I60"  ></A>your hands on Java objects and data types, and to be able to manipulate them in your C code, you need to include some special .h files. Most of these will be located in your release directory under the subdirectory called include. (In particular, look at native.h in that directory, and all the headers it points to, if you're a glutton for detail punishment.)
+<BR></P>
+<P>Some of the special forms you need must be tailored to fit your class's methods precisely. That's where the javah tool comes in.
+<BR></P>
+<H5><A ID = "I61" NAME = "I61"  >
+<foNT SIZE=3><B>Using </B><B>javah</B>
+<BR></FONT></A></H5>
+<P>To generate the headers <A ID = "I62" NAME = "I62"  ></A>you need for your native methods, first compile SimpleFile with javac, just as you normally would. This produces a file named SimpleFile.class. This file must be fed to the javah tool, which then generates the header file you need (SimpleFile.h).
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="imp.gif" tppabs="http://newdata.box.sk/bx/java/imp.gif" WIDTH = 68 HEIGHT = 35><B>Tip: </B>If the class handed to javah is inside a package, it prepends the package name to the header file name (and to the structure names it generates inside that file), after replacing all the dots (.) with underscores ( _ ) in the package's full name. If SimpleFile had been contained in a hypothetical package called acme.widgets.files, javah would have generated a header file named acme_widgets_files_SimpleFile.h, and the various names within it would have been renamed in a similar manner.
+<BR>
+<BR>When running javah, you should pass it only the class name itself, and not the full filename, which has .class on the end.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H6>
+<foNT SIZE=3><B>The Header File</B>
+<BR></FONT></H6>
+<P>Here's the output of javah SimpleFile:
+<BR></P>
+<PRE>/* DO NOT EDIT THIS FILE - it is machine generated */ 
+#include &lt;native.h&gt;
+/* Header for class SimpleFile */
+#ifndef _Included_SimpleFile
+#define _Included_SimpleFile
+struct Hjava_lang_String;
+typedef struct ClassSimpleFile {
+#define SimpleFile_separatorChar 62L
+struct Hjava_lang_String *path;
+long fd;
+} ClassSimpleFile;
+HandleTo(SimpleFile);
+extern /*boolean*/ long SimpleFile_open(struct HSimpleFile *); 
+extern void SimpleFile_close(struct HSimpleFile *);
+extern long SimpleFile_read(struct HSimpleFile *,HArrayOfByte *,long); 
+extern long SimpleFile_write(struct HSimpleFile *,HArrayOfByte *,long); 
+<BR>#endif</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> HandleTo()<A ID = "I63" NAME = "I63"  ></A><A ID = "I64" NAME = "I64"  ></A> is a &quot;magic&quot; macro that uses the structures created at run-time by the stubs you'll generate later today.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The members of the struct generated above are in a one-to-one correspondence with the variables of your class.
+<BR></P>
+<P>In order to &quot;massage&quot; an instance of your class gently into the land of C, use the macro unhand()<A ID = "I65" NAME = "I65"  ></A><A ID = "I66" NAME = "I66"  ></A> (as in &quot;unhand that Object!&quot;). For example, the this pseudo-variable in Java appears as a struct HSimpleFile * in the land of C, and to use any variables inside this instance (you), you must unhand() yourself first. You'll see some examples of this in a later section today.
+<BR></P>
+<H5><A ID = "I67" NAME = "I67"  >
+<foNT SIZE=3><B>Using javah -stubs</B>
+<BR></FONT></A></H5>
+<P>To &quot;run interference&quot; between <A ID = "I68" NAME = "I68"  ></A>the Java world of Objects, arrays, and other high-level constructs and the lower-level world of C, you need stubs. 
+<BR></P>
+<P><I>Stubs </I>are pieces of &quot;glue&quot; code that automatically translate arguments and return values back and forth between the worlds of Java and C.
+<BR></P>
+<P>Stubs can be automatically <A ID = "I69" NAME = "I69"  ></A>generated by javah, just like the headers. There isn't much you need to know about the stubs file, just that it has to be compiled and linked with the C code you write to allow it to interface with Java properly. A stubs file (SimpleFile.c) is created by running javah on your class by using the option -stubs.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>One interesting side-effect of stub generation is the creation <A ID = "I70" NAME = "I70"  ></A><A ID = "I71" NAME = "I71"  ></A>of <I>method signatures</I>, informally called method <A ID = "I72" NAME = "I72"  ></A><A ID = "I73" NAME = "I73"  ></A>descriptions elsewhere. These signatures are quite useful&#151;they can be passed to special C functions that allow you to call back into the Java world from C. You can use stub generation to learn what these signatures look like for different method arguments and return values, and then use that knowledge to call arbitrary Java methods from within your C code. (Brief descriptions of these special C functions, along with further details, appear later today.)
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H6>
+<foNT SIZE=3><B>The Stubs File</B>
+<BR></FONT></H6>
+<P>Here's the result of running javah -stubs SimpleFile:
+<BR></P>
+<PRE>/* DO NOT EDIT THIS FILE - it is machine generated */ 
+#include &lt;StubPreamble.h&gt;
+/* Stubs for class SimpleFile */
+/* SYMBOL: &quot;SimpleFile/open()Z&quot;, Java_SimpleFile_open_stub */
+stack_item *Java_SimpleFile_open_stub(stack_item *_P_,struct execenv *_EE_) { 
+    extern long SimpleFile_open(void *);
+    _P_[0].i = SimpleFile_open(_P_[0].p); 
+    return _P_ + 1;
+}
+/* SYMBOL: &quot;SimpleFile/close()V&quot;, Java_SimpleFile_close_stub */
+stack_item *Java_SimpleFile_close_stub(stack_item *_P_,struct execenv *_EE_) { 
+    extern void SimpleFile_close(void *);
+    (void) SimpleFile_close(_P_[0].p);
+    return _P_;
+}
+/* SYMBOL: &quot;SimpleFile/read([BI)I&quot;, Java_SimpleFile_read_stub */
+stack_item *Java_SimpleFile_read_stub(stack_item *_P_,struct execenv *_EE_) { 
+    extern long SimpleFile_read(void *,void *,long);
+    _P_[0].i = SimpleFile_read(_P_[0].p,((_P_[1].p)),((_P_[2].i))); 
+    return _P_ + 1;
+}
+/* SYMBOL: &quot;SimpleFile/write([BI)I&quot;, Java_SimpleFile_write_stub */
+stack_item *Java_SimpleFile_write_stub(stack_item *_P_,struct execenv *_EE_) { 
+    extern long SimpleFile_write(void *,void *,long);
+    _P_[0].i = SimpleFile_write(_P_[0].p,((_P_[1].p)),((_P_[2].i))); 
+    return _P_ + 1;
+}</PRE>
+<P>Each comment line <A ID = "I74" NAME = "I74"  ></A>contains the method signature for one of the four native methods you're implementing. You can use one of these signatures to call into Java and run, for example, a subclass's overriding implementation of one of your native methods. More often, you'd learn and use a different signature to call some useful Java method from within C to get something done in the Java world.
+<BR></P>
+<P>You do this by calling a special C function in the Java run-time called execute_java_dynamic_method()<A ID = "I75" NAME = "I75"  ></A><A ID = "I76" NAME = "I76"  ></A>. Its arguments include the target object of the method call and the method's signature. The general form of a fully qualified method signature is any/package/name/ClassName/methodName(...)X. (You can see several in the stub's output's comments, where SimpleFile is the class name and there is no package name.) The X is a letter (or string) that represents the return type, and the ... contains a string that represents each of the argument's types in turn. (Here are the letters (and strings) used, and the types they represent, in the example: [T is array of type T, B is byte, I is int, V is void, and Z is boolean).
+<BR></P>
+<P>The method close()<A ID = "I77" NAME = "I77"  ></A><A ID = "I78" NAME = "I78"  ></A>, which takes no arguments and returns void, is represented by the string &quot;SimpleFile/close()V&quot; and its inverse, open(), that returns a boolean instead, is represented by &quot;SimpleFile/open()Z.&quot; Finally, read(), which takes an array of bytes and an int as its two arguments and returns an int, is &quot;SimpleFile/read([BI)I.&quot; (See the &quot;Method Signatures&quot; section in tomorrow's lesson for the full details.)
+<BR></P>
+<H4><A ID = "I79" NAME = "I79"  >
+<foNT SIZE=3><B>Creating SimpleFileNative.c</B>
+<BR></FONT></A></H4>
+<P>Now you can, at last, write the C code for your Java native methods.
+<BR></P>
+<P>The header file <A ID = "I80" NAME = "I80"  ></A><A ID = "I81" NAME = "I81"  ></A>generated by javah, SimpleFile.h, gives you the prototypes of the four C functions you need to implement to make your native code complete. You then write some C code that provides the native facilities that your Java class needs (in this case, some low-level file I/O routines). Finally, you assemble all the C code into a new file, include a bunch of required (or useful) .h files, and name it SimpleFileNative.c. Here's the result:
+<BR></P>
+<PRE>#include &quot;SimpleFile.h&quot;     /* for unhand(), among other things */
+#include &lt;sys/param.h&gt;      /* for MAXPATHLEN */ 
+#include &lt;fcntl.h&gt;          /* for O_RDWR and O_CREAT */
+#define LOCAL_PATH_SEPARATOR  '/'    /* UNIX */
+static void  fixSeparators(char *p) { 
+    for (;  *p != '\0';  ++p)
+        if (*p == SimpleFile_separatorChar) 
+            *p = LOCAL_PATH_SEPARATOR;
+}
+long  SimpleFile_open(struct HSimpleFile  *this) { 
+    int   fd;
+    char  buffer[MAXPATHLEN];
+    javaString2CString(unhand(this)-&gt;path, buffer, sizeof(buffer)); 
+    fixSeparators(buffer);
+    if ((fd = open(buffer, O_RDWR | O_CREAT, 0664)) &lt; 0)    /* UNIX open */ 
+        return(FALSE);   /* or, SignalError() could &quot;throw&quot; an exception */ 
+    unhand(this)-&gt;fd = fd;         /* save fd in the Java world */ 
+    return(TRUE);
+}
+void  SimpleFile_close(struct HSimpleFile  *this) { 
+    close(unhand(this)-&gt;fd);
+    unhand(this)-&gt;fd = -1;
+}
+long  SimpleFile_read(struct HSimpleFile  *this, HArrayOfByte  *buffer, 
+                                                                                                                                                _ long  count) {
+    char  *data     = unhand(buffer)-&gt;body;  /* get array data   */ 
+    int    len      = obj_length(buffer);    /* get array length */ 
+    int    numBytes = (len &lt; count ? len : count);
+    if ((numBytes = read(unhand(this)-&gt;fd, data, numBytes)) == 0) 
+        return(-1);
+    return(numBytes);       /* the number of bytes actually read */ 
+}
+long  SimpleFile_write(struct HSimpleFile  *this, HArrayOfByte  *buffer,
+                                                                                                                                                _ long  count) {
+    char  *data = unhand(buffer)-&gt;body; 
+    int    len  = obj_length(buffer);
+    return(write(unhand(this)-&gt;fd, data, (len &lt; count ? len : count))); 
+}</PRE>
+<P>Once you finish writing your .c file, compile it by using your local C compiler (usually called cc or gcc). On some systems, you may need to specify special compilation flags that mean &quot;make it relocatable and dynamically linkable.&quot;
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>If you don't have a <A ID = "I82" NAME = "I82"  ></A><A ID = "I83" NAME = "I83"  ></A>C compiler on your computer, you can always buy one. You also could get a copy of the GNU C compiler (gcc), one of the best C compilers in the world, which runs on almost every machine and operating system on the planet. The best way to get gcc is to buy the &quot;GNU release&quot; on CD-ROM, the profits of which go to support the Free Software Foundation. You can find both the GNU CD-ROM and the Linux CD-ROM (which includes GNU) in select places that sell software or technical books, or you can contact the F.S.F. directly. The GNU CD-ROM is a bit pricey, and, though the Linux CD-ROM is very inexpensive, if you can't afford either, or want the latest version and already own a CD-ROM, you can download the gzip file ftp://prep.ai.mit.edu/pub/gnu/gcc-2.7.2.tar.gz, which contains all 7M of the latest gcc release. (If you'd like to make a donation to, or buy gcc or its manual from, the F.S.F., you can e-mail them at gnu@prep.ai.mit.edu or call 617.542.5942.)
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I84" NAME = "I84"  >
+<foNT SIZE=3><B>Some Useful Functions</B>
+<BR></FONT></A></H5>
+<P>When writing the C <A ID = "I85" NAME = "I85"  ></A>code for native implementations, a whole set of useful (internal) macros and functions are available for accessing Java run-time structures. (Several of them were used in SimpleFileNative.c.)
+<BR></P>
+<P>Let's take a brief digression to understand some of them a little better.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="warning.gif" tppabs="http://newdata.box.sk/bx/java/warning.gif" WIDTH = 37 HEIGHT = 35><B>Warning: </B>Don't rely on the exact form given for any of the following macros and functions. Because they're all internal to the Java run-time, they're subject to change at any moment. Check to see what the latest versions of them look like in your Java release before using them.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The following brief descriptions are taken from an alpha release of Java, because descriptions of them for the 1.0 release were not available as of this writing. How Java data types map into C types, and vice versa, will be detailed in future documentation.  Refer to it for more details on that or on any of the sparsely documented items below. (Many are listed just to give you a taste of the capabilities of the available functions.)
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The following:
+<BR></P>
+<PRE>Object  *unhand(Handle *)
+int      obj_length(HArray *)</PRE>
+<P>returns a pointer to the data portion of an object and returns the length of an array. The actual pointer type returned is not always Object *, but varies, depending on the type of Handle (or HArray).
+<BR></P>
+<P>While the following:
+<BR></P>
+<PRE>ClassClass    *FindClass(struct execenv  *e, char  *name, bool_t  resolve)
+HArrayOfChar  *MakeString(char  *string, long  length)
+Handle        *ArrayAlloc(int  type, int  length)</PRE>
+<P>finds a class (given its name), makes an array of characters of length length, and allocates an array of the given length and type.
+<BR></P>
+<P>Use the function:
+<BR></P>
+<PRE>long  execute_java_dynamic_method(ExecEnv *e, HObject *obj, char *method_name,
+                                                                                                                                _char *signature, ...);</PRE>
+<P>to call a Java method<A ID = "I86" NAME = "I86"  ></A><A ID = "I87" NAME = "I87"  ></A><A ID = "I88" NAME = "I88"  ></A> from C. e is NULL to use the current environment. The target of the method call is obj. The method method_name has the given method signature. It can have any number of arguments and returns a 32-bit value (int, Handle *, or any 32-bit C type).
+<BR></P>
+<P>Use the following:
+<BR></P>
+<PRE>HObject  *execute_java_constructor(ExecEnv *e, char *classname, ClassClass *c,
+                                                                                                                                _char *signature, ...);
+long  execute_java_static_method(ExecEnv *e, ClassClass *c, char *method_name,
+                                                                                                                                _char *signature, ...);</PRE>
+<P>to call a Java constructor <A ID = "I89" NAME = "I89"  ></A><A ID = "I90" NAME = "I90"  ></A><A ID = "I91" NAME = "I91"  ></A>from C and call a class method from C. c is the target class; the rest are as in execut_java_dynamic_method.
+<BR></P>
+<P>Calling this:
+<BR></P>
+<PRE>SignalError(0, JAVAPKG &quot;ExceptionClassName&quot;, &quot;message&quot;);</PRE>
+<P>posts a Java exception that will be thrown when your native method returns. It is somewhat like the Java code:
+<BR></P>
+<PRE>throw new ExceptionClassName(&quot;message&quot;);</PRE>
+<P>Finally, here are some useful string functions:
+<BR></P>
+<PRE>void  javaStringPrint(Hjava_lang_String *s)
+int   javaStringLength(Hjava_lang_String *s)
+Hjava_lang_String  *makeJavaString(char  *string, int  length)
+char  *makeCString(Hjava_lang_String *s)
+char  *allocCString(Hjava_lang_String *s)
+unicode  *javaString2unicode(Hjava_lang_String *s, unicode  *buf, int  len)
+char     *javaString2CString(Hjava_lang_String *s, char     *buf, int  len)</PRE>
+<P>The first two methods print a Java String (like System.out.print()), and get its length, respectively. The third makes a Java String<A ID = "I92" NAME = "I92"  ></A> out of a C string. The fourth and fifth do the reverse, turning a Java String into a C string (allocated from temporary or heap storage, respectively). The final two methods copy Java Strings into preexisting Unicode or ASCII C buffers.
+<BR></P>
+<H5><A ID = "I93" NAME = "I93"  >
+<foNT SIZE=3><B>Compiling the Stubs File</B>
+<BR></FONT></A></H5>
+<P>The final step you <A ID = "I94" NAME = "I94"  ></A><A ID = "I95" NAME = "I95"  ></A><A ID = "I96" NAME = "I96"  ></A>need to take in the C world is to compile the stubs file SimpleFile.c by using the same compilation flags you used for SimpleFileNative.c.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>If you have several classes with native methods, you can include all their stubs in the same .c file, if you like. Of course you might want to name it something else, such as Stubs.c, in that case.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>You're now finished with all the C code that must be written (and compiled) to make your loadable native library.
+<BR></P>
+<H3><A ID = "I97" NAME = "I97"  >
+<foNT SIZE=4><B>A Native Library</B>
+<BR></FONT></A></H3>
+<P>Now you'll finally be able to <A ID = "I98" NAME = "I98"  ></A><A ID = "I99" NAME = "I99"  ></A>tie everything together and create the native library, simple, that was assumed to exist at the beginning of today's lesson.
+<BR></P>
+<H4><A ID = "I100" NAME = "I100"  >
+<foNT SIZE=3><B>Linking It All</B>
+<BR></FONT></A></H4>
+<P>It's time to link everything you've done into a single library file. This looks a little different on each system that Java runs on, but here's the basic idea, in UNIX syntax:
+<BR></P>
+<PRE>cc -G SimpleFile.o SimpleFileNative.o -o simple</PRE>
+<P>The -G flag tells the linker that you're creating a dynamically linkable library; the details differ from system to system.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>By naming the library simple, you're disobeying a UNIX convention that dynamic library names should have the prefix lib and the suffix .so (on your system, these prefixes and suffixes may differ). You can call your library libsimple.so to obey the convention, if you like, but just for the clarity of this example, the simpler name was used.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I101" NAME = "I101"  >
+<foNT SIZE=3><B>Using Your Library</B>
+<BR></FONT></A></H4>
+<P>Now, when the Java class SimpleFile is first loaded into your program, the System class attempts to load the library named simple, which (luckily) you just created. Look back at the Java code for SimpleFile to remind yourself.
+<BR></P>
+<P>How does it locate it? It calls the dynamic linker, which consults an environment variable named LD_LIBRARY_PATH that tells it which sequence of directories to search when loading new libraries of native code. Because the current directory is in Java's load path by default, you can leave &quot;simple&quot; in the current directory, and it will work just fine.
+<BR></P>
+<H3><A ID = "I102" NAME = "I102"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Today, you learned about the numerous disadvantages of using native methods, about the many ways that Java (and you) can make your programs run faster, and also about the often illusory need for efficiency.
+<BR></P>
+<P>Finally, you learned the procedure for creating native methods, from both the Java and the C sides, in detail&#151;by generating header files and stubs, and by compiling and linking a full example.
+<BR></P>
+<P>After working your way through today's difficult material, you've mastered one of the most complex parts of the Java language. You now know how the Java run-time environment itself was created, and how to extend that powerful environment yourself, at its lowest levels.
+<BR></P>
+<P>As a reward, tomorrow we'll look &quot;under the hood&quot; to see some of the hidden power of Java, and you can just sit back and enjoy the ride.
+<BR></P>
+<H3><A ID = "I103" NAME = "I103"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: What can I use to supplement the alpha release's &quot;Implementing Native </B><B>Methods&quot; document you recommended?</B>
+<BR></P>
+<P><B>A: </B>Look at Sun's Java tutorial (online or on the CD-ROM included with this book) for a more detailed version of both the example in this book and its explanation. Today's discussion should be enough to get you started on your first native methods, however.
+<BR></P>
+<P><B>Q: Does the Java class library need to call System.loadLibrary() to load </B><B>the built-in classes?</B>
+<BR></P>
+<P><B>A: </B>No, you won't see any loadLibrary() calls in the implementation of any classes in the Java class library. That's because the Java team had the luxury of being able to statically link most of their code into the Java environment, something that really makes sense only when you're in the unique position of providing an entire system, as they are. Your classes must <I>dynamically</I> link their libraries into an already-running copy of the Java system. This is, by the way, more flexible than static linking; it allows you to unlink old and relink new versions of your classes at any time, making updating them trivial.
+<BR></P>
+<P><B>Q: Can I statically link my own classes into Java like the Java team </B><B>did?</B>
+<BR></P>
+<P><B>A: </B>Yes. You can, if you like, ask Sun Microsystems for the sources to the Java run-time environment itself, and, as long as you obey the (relatively straightforward) legal restrictions on using that code, you can relink the entire Java system plus your classes. Your classes are then statically linked into the system, but you have to give everyone who wants to use your program this special version of the Java environment. Sometimes, if you have strong enough requirements, this is the only way to go, but most of the time, dynamic linking is not only good enough, but preferable.
+<BR></P>
+<P><B>Q: My applet needs some key functionality, missing from the Java </B><B>library. Given their many disadvantages, I'd like to avoid using </B><B>native</B><B> </B><B>methods. Do I have any alternatives?</B>
+<BR></P>
+<P><B>A: </B>Because it's still early in the history of Java, a valid alternative to native methods is to try to convince the Java team that your needed capability is of interest to a broad range of future Java programmers; then they may include it directly into the java packages. There are already plans to do this with certain &quot;missing&quot; pieces of functionality, so this may not be as hard a sell as you might think. Start by posting some messages to the comp.lang.java newsgroup, to be sure no one else at Sun or elsewhere is already doing it, and then see what happens. This is a young, vibrant community of enthusiasts; you are not alone. 
+<BR></P>
+<P><A HREF = "tyj19x.html" tppabs="http://newdata.box.sk/bx/java/tyj19x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj21x.html" tppabs="http://newdata.box.sk/bx/java/tyj21x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

@@ -1,0 +1,1535 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj21x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyjxax.html" tppabs="http://newdata.box.sk/bx/java/tyjxax.html">
+<LINK REL="Previous" HREF="tyj20x.html" tppabs="http://newdata.box.sk/bx/java/tyj20x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj20x.html" tppabs="http://newdata.box.sk/bx/java/tyj20x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyjxax.html" tppabs="http://newdata.box.sk/bx/java/tyjxax.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 21</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Under the Hood</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >The Big Picture</A></LI>
+<UL>
+<LI>
+<A HREF = "#I6"  >Why It's a Powerful Vision</A></LI></UL>
+<LI>
+<A HREF = "#I12"  >The Java Virtual Machine</A></LI>
+<UL>
+<LI>
+<A HREF = "#I18"  >An Overview</A></LI>
+<LI>
+<A HREF = "#I23"  >The Fundamental Parts</A></LI>
+<UL>
+<LI>
+<A HREF = "#I24"  >Java Bytecodes</A></LI>
+<LI>
+<A HREF = "#I35"  >Registers</A></LI>
+<LI>
+<A HREF = "#I41"  >The Stack</A></LI>
+<LI>
+<A HREF = "#I52"  >The Heap</A></LI>
+<LI>
+<A HREF = "#I58"  >The Method Area</A></LI></UL>
+<LI>
+<A HREF = "#I60"  >The Constant Pool</A></LI>
+<LI>
+<A HREF = "#I62"  >Limitations</A></LI></UL>
+<LI>
+<A HREF = "#I71"  >Bytecodes in More Detail</A></LI>
+<UL>
+<LI>
+<A HREF = "#I72"  >The Bytecode Interpreter</A></LI>
+<LI>
+<A HREF = "#I75"  >The Just-in-Time Compiler</A></LI>
+<LI>
+<A HREF = "#I78"  >The java2c Translator</A></LI>
+<LI>
+<A HREF = "#I81"  >The Bytecodes Themselves</A></LI>
+<UL>
+<LI>
+<A HREF = "#I84"  >Pushing Constants onto the Stack</A></LI>
+<LI>
+<A HREF = "#I88"  >Loading Local Variables onto the Stack</A></LI>
+<LI>
+<A HREF = "#I92"  >Storing Stack Values into Local Variables</A></LI>
+<LI>
+<A HREF = "#I96"  >Managing Arrays</A></LI>
+<LI>
+<A HREF = "#I105"  >Stack Operations</A></LI>
+<LI>
+<A HREF = "#I109"  >Arithmetic Operations</A></LI>
+<LI>
+<A HREF = "#I111"  >Logical Operations</A></LI>
+<LI>
+<A HREF = "#I113"  >Conversion Operations</A></LI>
+<LI>
+<A HREF = "#I115"  >Transfer of Control</A></LI>
+<LI>
+<A HREF = "#I118"  >Method Return</A></LI>
+<LI>
+<A HREF = "#I121"  >Table Jumping</A></LI>
+<LI>
+<A HREF = "#I124"  >Manipulating Object Fields</A></LI>
+<LI>
+<A HREF = "#I127"  >Method Invocation</A></LI>
+<LI>
+<A HREF = "#I136"  >Exception Handling</A></LI>
+<LI>
+<A HREF = "#I138"  >Miscellaneous Object Operations</A></LI>
+<LI>
+<A HREF = "#I140"  >Monitors</A></LI>
+<LI>
+<A HREF = "#I143"  >Debugging</A></LI></UL>
+<LI>
+<A HREF = "#I146"  >The _quick Bytecodes</A></LI></UL>
+<LI>
+<A HREF = "#I149"  >The .class File Format</A></LI>
+<LI>
+<A HREF = "#I154"  >Method Signatures</A></LI>
+<LI>
+<A HREF = "#I168"  >The Garbage Collector</A></LI>
+<UL>
+<LI>
+<A HREF = "#I172"  >The Problem</A></LI>
+<LI>
+<A HREF = "#I173"  >The Solution</A></LI>
+<LI>
+<A HREF = "#I183"  >Java's Parallel Garbage Collector</A></LI></UL>
+<LI>
+<A HREF = "#I188"  >The Security Story</A></LI>
+<UL>
+<LI>
+<A HREF = "#I190"  >Why You Should Worry</A></LI>
+<LI>
+<A HREF = "#I191"  >Why You Might Not Have To</A></LI>
+<LI>
+<A HREF = "#I192"  >Java's Security Model</A></LI>
+<UL>
+<LI>
+<A HREF = "#I199"  >The Language and the Compiler</A></LI>
+<LI>
+<A HREF = "#I204"  >Verifying the Bytecodes</A></LI>
+<LI>
+<A HREF = "#I212"  >The Class Loader</A></LI>
+<LI>
+<A HREF = "#I216"  >The Security Manager</A></LI></UL></UL>
+<LI>
+<A HREF = "#I229"  >Summary</A></LI>
+<LI>
+<A HREF = "#I230"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 21</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Under the Hood</B>
+<BR></FONT></A></H2>
+<P><B>by Charles L. Perkins</B>
+<BR></P>
+<P>On today, your final day, the inner workings of the Java system will be revealed.
+<BR></P>
+<P>You'll find out all about Java's vision, Java's virtual machine, those bytecodes you've heard so much about, that mysterious garbage collector, and why you might worry about security but don't have to.
+<BR></P>
+<P>Let's begin, however, with the big picture.
+<BR></P>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>The Big Picture</B>
+<BR></FONT></A></H3>
+<P>The Java team is very ambitious. Their ultimate goal is nothing less than to revolutionize the way software is written and distributed. They've started with the Internet, where they believe much of the interesting software of the future will live.
+<BR></P>
+<P>To achieve such an ambitious goal, a large fraction of the Internet programming community itself must be marshalled behind a similar goal and given the tools to help achieve it. The Java language, with its four S's (small, simple, safe, secure), and its flexible, Net-oriented environment, hopes to become the focal point for the rallying of this new legion of programmers.
+<BR></P>
+<P>To this end, Sun <A ID = "I5" NAME = "I5"  ></A>Microsystems has done something rather gutsy. What was originally a secret, tens-of-millions-of-dollars research and development project, and 100 percent proprietary, has become a free, open, and relatively unencumbered technology standard upon which anyone can build. They are literally <I>giving it away</I> and reserving only the rights they need to maintain and grow the standard.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Actually, as Sun's lawyers have had more and more time to think, the original intentions of the Java team get further obscured by legal details. It is still <I>relatively</I> unencumbered, but its earlier releases were completely unencumbered. Let's hope that this is not a pattern that will continue.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Any truly open standard must be supported by at least one excellent, freely available &quot;demonstration&quot; implementation. Sun has already shipped an alpha, and now a beta, of one to the Internet and plans on a final release soon. In parallel, several universities, companies, and individuals have already expressed their intention to duplicate the Java environment, based on the open API that Sun has created.
+<BR></P>
+<P>Several other languages are even contemplating compiling down to Java bytecodes, to help support them in becoming a more robust and widespread standard for moving executable content around on the Net.
+<BR></P>
+<H4><A ID = "I6" NAME = "I6"  >
+<foNT SIZE=3><B>Why It's a Powerful Vision</B>
+<BR></FONT></A></H4>
+<P>One of the reasons this brilliant move on Sun's part has a real chance of success is the pent-up frustration of literally a whole generation of programmers who desperately want to share their code with one another. Right now, the computer science world is balkanized into factions at universities and companies all over the world, with hundreds of languages, dozens of them widely used, dividing and separating us all. It's the worst sort of Tower of Babel. Java hopes to build some bridges and help tear down that tower. Because it is so simple, because it's so useful for programming over the Internet, and because the Internet is so &quot;hot&quot; right now&#151;this confluence of forces should help propel Java onto centerstage.
+<BR></P>
+<P>It deserves to be there. It is the natural outgrowth of ideas that, since the early 1970s inside the<A ID = "I7" NAME = "I7"  ></A> Smalltalk group at Xerox PARC, have lain relatively dormant in the mainstream. Smalltalk, in fact, invented the first object-oriented bytecode interpreter and pioneered many of the deep ideas that Java builds on today. Those efforts were not embraced over the intervening decades as a solution to the general problems of software, however. Today, with those problems becoming so much more obvious, and with the Net crying out for a new kind of programming, the soil is fertile to grow something stronger from those old roots, something that just might spread like wildfire. (Is it a coincidence that Java's previous internal names were Green and OAK?)
+<BR></P>
+<P>This new vision of software <A ID = "I8" NAME = "I8"  ></A><A ID = "I9" NAME = "I9"  ></A>is one in which the Net becomes an ocean of objects, classes, and the open APIs between them. Traditional applications have vanished, replaced by skeletal frameworks like the Eiffel tower, into which can be fitted any parts from this ocean, on demand, to suit any purpose. User interfaces will be mixed and matched, built in pieces and constructed to taste, whenever the need arises, <I>by </I><I>their own users</I>. Menus of choices will be filled by dynamic lists of <I>all</I> the choices available for that function, at that exact moment, across the entire ocean (of the Net).
+<BR></P>
+<P>In such a world, software<A ID = "I10" NAME = "I10"  ></A><A ID = "I11" NAME = "I11"  ></A> distribution is no longer an issue. Software will be <I>everywhere</I> and will be paid for via a plethora of new micro-accounting models, which charge tiny fractions of cents for the parts as they are assembled and used. Frameworks will come into existence to support entertainment, business, and the social (cyber-)spaces of the near future.
+<BR></P>
+<P>This is a dream that many of us have waited <I>all our lives</I> to be a part of. There are tremendous challenges to making it all come true, but the powerful winds of change we all feel must stir us into action, because, at last, there is a base on which to build that dream&#151;Java.
+<BR></P>
+<H3><A ID = "I12" NAME = "I12"  >
+<foNT SIZE=4><B>The Java Virtual Machine</B>
+<BR></FONT></A></H3>
+<P>To make visions like <A ID = "I13" NAME = "I13"  ></A><A ID = "I14" NAME = "I14"  ></A><A ID = "I15" NAME = "I15"  ></A>this possible, Java must be ubiquitous. It must be able to run on any computer and any operating system&#151;now, and in the future. In order to achieve this level of portability, Java must be very precise not only about the language itself, but about the environment in which the language lives. You can see, from earlier in the book and Appendix B, that the Java environment includes a generally useful set of packages of classes and a freely available implementation of them. This takes care of a part of what is needed, but it is crucial also to specify exactly how the run-time environment of Java behaves.
+<BR></P>
+<P>This final requirement is what has stymied many attempts at ubiquity in the past. If you base your system on any assumptions about what is &quot;beneath&quot; the run-time system, you lose. If you depend in any way on the computer or operating system below, you lose. Java solves this problem by <I>inventing</I> an abstract computer of its own and running on that.
+<BR></P>
+<P>This &quot;virtual&quot; machine runs a special set of &quot;instructions&quot; called bytecodes that are simply a stream of formatted bytes, each of which has a precise specification of exactly what each bytecode does to this virtual machine. The virtual machine is also responsible for certain fundamental capabilities of Java, such as object creation and garbage collection.
+<BR></P>
+<P>Finally, in order to be able to move <A ID = "I16" NAME = "I16"  ></A><A ID = "I17" NAME = "I17"  ></A>bytecodes safely across the Internet, you need a bulletproof model of security&#151;and how to maintain it&#151;and a precise format for how this stream of bytecodes can be sent from one virtual machine to another.
+<BR></P>
+<P>Each of these requirements is addressed in today's lesson.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> This discussion blurs the distinction between the run-time and the virtual machine of Java. This is intentional but a little unconventional. Think of the virtual machine as providing <I>all</I> the capabilities, even those that are conventionally assigned to the run-time. This book uses the words &quot;run-time&quot; and &quot;virtual machine&quot; interchangeably. Equating the two highlights the single <I>environment</I> that must be created to support Java.
+<BR>
+<BR>Much of the following description is based closely on the latest &quot;Virtual Machine Specifications&quot; documents (and the 1.0 bytecodes), so if you delve more deeply into the details online, you should cover some familiar ground.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I18" NAME = "I18"  >
+<foNT SIZE=3><B>An Overview</B>
+<BR></FONT></A></H4>
+<P>It is worth quoting the introduction<A ID = "I19" NAME = "I19"  ></A> to the Java virtual machine documentation here, because it is so relevant to the vision outlined earlier:
+<BR></P>
+<P>The Java virtual machine specification has a purpose that is both like and unlike equivalent documents for other languages and abstract machines. It is intended to present an abstract, logical machine design free from the distraction of inconsequential details of any implementation. It does not anticipate an implementation technology, or an implementation host. At the same time it gives a reader sufficient information to allow implementation of the abstract design in a range of technologies.
+<BR>
+<BR></P>
+<P>However, the intent of the [...] Java project is to create a language [...] that will allow the interchange over the Internet of &quot;executable content,&quot; which will be embodied by compiled Java code. The project specifically does not want Java to be a proprietary language and does not want to be the sole purveyor of Java language implementations. Rather, we hope to make documents like this one, and source code for our implementation, freely available for people to use as they choose.
+<BR>
+<BR></P>
+<P>This vision [...] can be <A ID = "I20" NAME = "I20"  ></A><A ID = "I21" NAME = "I21"  ></A><A ID = "I22" NAME = "I22"  ></A>achieved only if the executable content can be reliably shared between different Java implementations. These intentions prohibit the definition of the Java virtual machine from being fully abstract. Rather, relevant logical elements of the design have to be made sufficiently concrete to allow the interchange of compiled Java code. This does not collapse the Java virtual machine specification to a description of a Java implementation; elements of the design that do not play a part in the interchange of executable content remain abstract. But it does force us to specify, in addition to the abstract machine design, a concrete interchange format for compiled Java code.
+<BR>
+<BR></P>
+<P>The Java virtual machine specification consists of the following:
+<BR></P>
+<UL>
+<LI>The bytecode syntax, including opcode and operand sizes, values, and types, and their alignment and endian-ness
+<BR>
+<BR></LI>
+<LI>The values of any identifiers (for example, type identifiers) in bytecodes or in supporting structures
+<BR>
+<BR></LI>
+<LI>The layout of the supporting structures that appear in compiled Java code (for example, the constant pool)
+<BR>
+<BR></LI>
+<LI>The Java .class file format 
+<BR>
+<BR></LI></UL>
+<P>Each of these is covered today.
+<BR></P>
+<P>Despite this degree of specificity, there are still several elements of the design that remain (purposely) abstract, including the following:
+<BR></P>
+<UL>
+<LI>The layout and management of the run-time data areas
+<BR>
+<BR></LI>
+<LI>The particular garbage-collection algorithms, strategies, and constraints used
+<BR>
+<BR></LI>
+<LI>The compiler, development environment, and run-time extensions (apart from the need to generate and read valid Java bytecodes)
+<BR>
+<BR></LI>
+<LI>Any optimizations performed, once valid bytecodes are received 
+<BR>
+<BR></LI></UL>
+<P>These places are where the creativity of a virtual machine implementor has full rein.
+<BR></P>
+<H4><A ID = "I23" NAME = "I23"  >
+<foNT SIZE=3><B>The Fundamental Parts</B>
+<BR></FONT></A></H4>
+<P>The Java virtual machine can be divided into five fundamental pieces:
+<BR></P>
+<UL>
+<LI>A bytecode instruction set
+<BR>
+<BR></LI>
+<LI>A set of registers
+<BR>
+<BR></LI>
+<LI>A stack
+<BR>
+<BR></LI>
+<LI>A garbage-collected heap
+<BR>
+<BR></LI>
+<LI>An area for storing methods
+<BR>
+<BR></LI></UL>
+<P>Some of these might be implemented by using an interpreter, a native binary code compiler, or even a hardware chip&#151;but all these logical, abstract components of the virtual machine must be supplied in <I>some</I> form in every Java system.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The memory areas used by the Java virtual machine are not required to be at any particular place in memory, to be in any particular order, or even to use contiguous memory. However, all but the method area must be able to represent align 32-bit values (for example, the Java stack is 32 bits wide).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The virtual machine, and its supporting code, is often referred to as the run-time environment, and when this book refers to something being done at run-time, the virtual machine is what's doing it.
+<BR></P>
+<H5><A ID = "I24" NAME = "I24"  >
+<foNT SIZE=3><B>Java Bytecodes</B>
+<BR></FONT></A></H5>
+<P>The Java virtual machine <A ID = "I25" NAME = "I25"  ></A>instruction set is optimized to be small and compact. It is designed to travel across the Net, and so has traded off speed-of-interpretation for space. (Given that both Net bandwidth and mass storage speeds increase less rapidly than CPU speed, this seems like an appropriate trade-off.)
+<BR></P>
+<P>As mentioned, Java source code is &quot;compiled&quot; into bytecodes and stored in a .class file. On Sun's Java system, this is performed using the javac tool. It is not exactly a traditional &quot;compiler,&quot; because javac translates <A ID = "I26" NAME = "I26"  ></A><A ID = "I27" NAME = "I27"  ></A><A ID = "I28" NAME = "I28"  ></A>source code into bytecodes, a lower-level format that cannot be run directly, but must be further interpreted by each computer. Of course, it is exactly this level of &quot;indirection&quot; that buys you the power, flexibility, and extreme portability of Java code.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> Quotation marks are used around the word &quot;compiler&quot; when talking about javac because later today you will also learn about the &quot;just-in-time&quot; compiler, which acts more like the back end of a traditional compiler. The use of the same word &quot;compiler&quot; for these two different pieces of Java technology is unfortunate, but somewhat reasonable, because each is really one-half (either the front or the back end) of a more traditional compiler.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>A bytecode instruction consists of a <A ID = "I29" NAME = "I29"  ></A><A ID = "I30" NAME = "I30"  ></A>one-byte opcode that serves to identify the instruction involved and <A ID = "I31" NAME = "I31"  ></A><A ID = "I32" NAME = "I32"  ></A>zero or more operands, each of which may be more than one byte long, that encode the parameters the opcode requires.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>When operands are more than one byte long, they are stored in big-endian order, high-order byte first. These operands must be assembled from the byte stream at run-time. For example, a 16-bit parameter appears in the stream as two bytes so that its value is first_byte * 256 + second_byte. The bytecode instruction stream is only byte-aligned, and alignment of any larger quantities is not guaranteed (except for &quot;within&quot; the special bytecodes lookupswitch and tableswitch, which have special alignment rules of their own).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Bytecodes interpret data <A ID = "I33" NAME = "I33"  ></A><A ID = "I34" NAME = "I34"  ></A>in the run-time memory areas as belonging to a fixed set of types: the primitive types you've seen several times before, consisting of several signed integer types (8-bit byte, 16-bit short, 32-bit int, 64-bit long), one unsigned integer type (16-bit char), and two signed floating-point types (32-bit float, 64-bit double), plus the type &quot;reference to an object&quot; (a 32-bit pointer-like type). Some special bytecodes (for example, the dup instructions), treat run-time memory areas as raw data, without regard to type. This is the exception, however, not the rule.
+<BR></P>
+<P>These primitive types are distinguished and managed by the compiler, javac, not by the Java run-time environment. These types are not &quot;tagged&quot; in memory, and thus cannot be distinguished at run-time. Different bytecodes are designed to handle each of the various primitive types uniquely, and the compiler carefully chooses from this palette based on its knowledge of the actual types stored in the various memory areas. For example, when adding two integers, the compiler generates an iadd bytecode; for adding two floats, fadd is generated. (You'll see all this in gruesome detail later.)
+<BR></P>
+<H5><A ID = "I35" NAME = "I35"  >
+<foNT SIZE=3><B>Registers</B>
+<BR></FONT></A></H5>
+<P>The registers of <A ID = "I36" NAME = "I36"  ></A>the Java virtual machine are just like the registers inside a &quot;real&quot; computer.
+<BR></P>
+<P><I>Registers</I> hold the machine's state, affect its operation, and are updated after each bytecode is executed.
+<BR></P>
+<P>The following are the Java registers:
+<BR></P>
+<UL>
+<LI>pc, the program counter, which <A ID = "I37" NAME = "I37"  ></A>indicates what bytecode is being executed
+<BR>
+<BR></LI>
+<LI>optop, a pointer to the top of the <A ID = "I38" NAME = "I38"  ></A>operand stack, which is used to evaluate all arithmetic expressions
+<BR>
+<BR></LI>
+<LI>frame, a pointer to the execution environment <A ID = "I39" NAME = "I39"  ></A>of the current method, which includes an activation record for this method call and any associated debugging information
+<BR>
+<BR></LI>
+<LI>vars, a pointer <A ID = "I40" NAME = "I40"  ></A>to the first local variable of the currently executing method 
+<BR>
+<BR></LI></UL>
+<P>The virtual machine defines these registers to be 32 bits wide.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Because the virtual machine is primarily stack-based, it does not use any registers for passing or receiving arguments. This is a conscious choice skewed toward bytecode simplicity and compactness. It also aids efficient implementation on register-poor architectures, which most of today's computers, unfortunately, are. Perhaps when the majority of CPUs out there are a little more sophisticated, this choice will be reexamined, though simplicity and compactness may still be reason enough!
+<BR>
+<BR>By the way, the pc register is also used when the run-time handles exceptions; catch clauses are (ultimately) associated with ranges of the pc within a method's bytecodes.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I41" NAME = "I41"  >
+<foNT SIZE=3><B>The Stack</B>
+<BR></FONT></A></H5>
+<P>The Java virtual machine <A ID = "I42" NAME = "I42"  ></A>is stack-based. A Java stack frame is similar to the stack frame of a conventional programming language&#151;it holds the state for a single method call. Frames for nested method calls are stacked on top of this frame.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="more.gif" tppabs="http://newdata.box.sk/bx/java/more.gif" WIDTH = 35 HEIGHT = 35>The <I>stack</I> is used to supply parameters to bytecodes and methods, and to receive results back from them.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Each stack frame contains three (possibly empty) sets of data: the local variables <A ID = "I43" NAME = "I43"  ></A><A ID = "I44" NAME = "I44"  ></A> for the method call, its execution environment, and its operand stack. The sizes of these first two are fixed at the start of a method call, but the operand stack varies in size as bytecodes are executed in the method.
+<BR></P>
+<P>Local variables <A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A><A ID = "I47" NAME = "I47"  ></A>are stored in an array of 32-bit slots, indexed by the register vars. Most types take up one slot in the array, but the long and double types each take up two slots.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>long and double values, stored or referenced via an index N, take up the (32-bit) slots[]and[]+ 1. These 64-bit values are thus not guaranteed to be 64-bit-aligned. Implementors are free to decide the appropriate way to divide these values among the two slots.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The execution environment in a stack frame helps to maintain the stack itself. It contains a pointer to the previous stack frame, a pointer to the local variables of the method call, and pointers to the stack's current &quot;base&quot; and &quot;top.&quot; Additional debugging information can also be placed into the execution environment.
+<BR></P>
+<P>The operand stack, a 32-bit <A ID = "I48" NAME = "I48"  ></A><A ID = "I49" NAME = "I49"  ></A>first-in-first-out (FIFO) stack<A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A>, is used to store the parameters and return values of most bytecode instructions. For example, the iadd bytecode expects two integers to be stored on the top of the stack. It pops them, adds them together, and pushes the resulting sum back onto the stack.
+<BR></P>
+<P>Each primitive data type has unique instructions that know how to extract, operate, and push back operands of that type. For example, long and double operands take two &quot;slots&quot; on the stack, and the special bytecodes that handle these operands take this into account. It is illegal for the types on the stack and the instruction operating on them to be incompatible (javac outputs bytecodes that always obey this rule).
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The top of the operand stack and the top of the overall Java stack are almost always the same. Thus, &quot;the stack,&quot; refers to both stacks, collectively.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I52" NAME = "I52"  >
+<foNT SIZE=3><B>The Heap</B>
+<BR></FONT></A></H5>
+<P>The heap is that <A ID = "I53" NAME = "I53"  ></A><A ID = "I54" NAME = "I54"  ></A>part of memory from which newly created instances (objects) are allocated.
+<BR></P>
+<P>The heap is often assigned <A ID = "I55" NAME = "I55"  ></A><A ID = "I56" NAME = "I56"  ></A>a large, fixed size when the Java run-time system is started, but on systems that support virtual memory, it can grow as needed, in a nearly unbounded fashion.
+<BR></P>
+<P>Because objects are automatically garbage-collected in Java, programmers do <A ID = "I57" NAME = "I57"  ></A>not have to (and, in fact, <I>cannot</I>) manually free the memory allocated to an object when they are finished using it.
+<BR></P>
+<P>Java objects are referenced indirectly in the run-time, via handles<I>,</I> which are a kind of pointer into the heap.
+<BR></P>
+<P>Because objects are never referenced directly, parallel garbage collectors can be written that operate independently of your program, moving around objects in the heap at will. You'll learn more about garbage collection later.
+<BR></P>
+<H5><A ID = "I58" NAME = "I58"  >
+<foNT SIZE=3><B>The Method Area</B>
+<BR></FONT></A></H5>
+<P>Like the compiled <A ID = "I59" NAME = "I59"  ></A>code areas of conventional programming language environments, or the TEXT segment in a UNIX process, the method area stores the Java bytecodes that implement almost every method in the Java system. (Remember that some methods might be native, and thus implemented, for example, in C.) The method area also stores the symbol tables needed for dynamic linking, and any other additional information debuggers or development environments which might want to associate with each method's implementation.
+<BR></P>
+<P>Because bytecodes are stored as byte streams, the method area is aligned on byte boundaries. (The other areas are all aligned on 32-bit word boundaries.)
+<BR></P>
+<H4><A ID = "I60" NAME = "I60"  >
+<foNT SIZE=3><B>The Constant Pool</B>
+<BR></FONT></A></H4>
+<P>In the heap, each <A ID = "I61" NAME = "I61"  ></A>class has a constant pool &quot;attached&quot; to it. Usually created by javac, these constants encode all the names (of variables, methods, and so forth) used by any method in a class. The class contains a count of how many constants there are and an offset that specifies how far into the class description itself the array of constants begins. These constants are typed via specially coded bytes and have a precisely defined format when they appear in the .class file for a class. Later today, a little of this file format is covered, but everything is fully specified by the virtual machine specifications in your Java release.
+<BR></P>
+<H4><A ID = "I62" NAME = "I62"  >
+<foNT SIZE=3><B>Limitations</B>
+<BR></FONT></A></H4>
+<P>The virtual machine, as currently <A ID = "I63" NAME = "I63"  ></A><A ID = "I64" NAME = "I64"  ></A>defined, places some restrictions on legal Java programs by virtue of the choices it has made (some were previously described, and more will be detailed later today).
+<BR></P>
+<P>These limitations and their implications are
+<BR></P>
+<UL>
+<LI>32-bit pointers, which imply <A ID = "I65" NAME = "I65"  ></A><A ID = "I66" NAME = "I66"  ></A>that the virtual machine can address only 4G of memory (this may be relaxed in later releases)
+<BR>
+<BR></LI>
+<LI>Unsigned 16-bit indicies into <A ID = "I67" NAME = "I67"  ></A><A ID = "I68" NAME = "I68"  ></A>the exception, line number, and local variable tables, which limit the size of a method's bytecode implementation to 64K (this limitation may be eliminated in the final release)
+<BR>
+<BR></LI>
+<LI>Unsigned 16-bit indices into the constant pool, which limits the number of constants in a class to 64K (a limit on the complexity of a class)
+<BR>
+<BR></LI></UL>
+<P>In addition, Sun's implementation of the virtual machine uses so-called _quick bytecodes, <A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A>which further limit the system. Unsigned 8-bit offsets into objects may limit the number of methods in a class to 256 (this limit may not exist in the final release), and unsigned 8-bit argument counts limit the size of the argument list to 255 32-bit words. (Although this means that you can have up to 255 arguments of most types, you can have only 127 of them if they're all long or double.)
+<BR></P>
+<H3><A ID = "I71" NAME = "I71"  >
+<foNT SIZE=4><B>Bytecodes in More Detail</B>
+<BR></FONT></A></H3>
+<P>One of the main tasks of the virtual machine is the fast, efficient execution of the Java bytecodes in methods. Unlike in the discussion yesterday about generality versus efficiency, this is a case where speed is of the utmost importance. Every Java program suffers from a slow implementation here, so the run-time must use as many &quot;tricks&quot; as possible to make bytecodes run fast. The only other goal (or limitation) is that Java programmers must not be able to see these tricks in the behavior of their programs.
+<BR></P>
+<P>A Java run-time implementer must be extremely clever to satisfy both these goals.
+<BR></P>
+<H4><A ID = "I72" NAME = "I72"  >
+<foNT SIZE=3><B>The Bytecode Interpreter</B>
+<BR></FONT></A></H4>
+<P>A bytecode interpreter <A ID = "I73" NAME = "I73"  ></A><A ID = "I74" NAME = "I74"  ></A>examines each opcode byte (bytecode) in a method's bytecode stream, in turn, and executes a unique action for that bytecode. This might consume further bytes for the operands of the bytecode and might affect which bytecode will be examined next. It operates like the hardware CPU in a computer, which examines memory for instructions to carry out in exactly the same manner. It is the software CPU of the Java virtual machine.
+<BR></P>
+<P>Your first, naive attempt to write such a bytecode interpreter will almost certainly be disastrously slow. The inner loop, which dispatches one bytecode each time through the loop, is notoriously difficult to optimize. In fact, smart people have been thinking about this problem, in one form or another, for more than 20 years. Luckily, they've gotten results, all of which can be applied to Java.
+<BR></P>
+<P>The final result is that the interpreter shipped in the current release of Java has an extremely fast inner loop. In fact, on even a relatively slow computer, this interpreter can perform more than 590,000 bytecodes per second! This is really quite good, because the CPU in that computer does only about 30 times better using <I>hardware</I>.
+<BR></P>
+<P>This interpreter is fast enough for most Java programs (and for those <I>requiring</I> more speed, they can always use native methods&#151;see yesterday's discussion)&#151;but what if a smart implementor wants to do better?
+<BR></P>
+<H4><A ID = "I75" NAME = "I75"  >
+<foNT SIZE=3><B>The Just-in-Time Compiler</B>
+<BR></FONT></A></H4>
+<P>About a decade ago, a <A ID = "I76" NAME = "I76"  ></A><A ID = "I77" NAME = "I77"  ></A>really clever trick was discovered by Peter Deutsch while trying to make Smalltalk run faster. He called it &quot;dynamic translation&quot; during interpretation. Sun calls it &quot;just-in-time&quot; compiling.
+<BR></P>
+<P>The trick is to notice that the really fast interpreter you've just written&#151;in C, for example&#151;already has a useful sequence of native binary code for each bytecode that it interprets: <I>the binary code that the </I><I>interpreter itself is executing</I>. Because the interpreter has already been compiled from C into native binary code, for each bytecode that it interprets, it passes through a sequence of native code instructions for the hardware CPU on which it is running. By saving a copy of each binary instruction as it &quot;goes by,&quot; the interpreter can keep a running log of the binary code it <I>itself  </I>has run to interpret a bytecode. It can just as easily keep a log of the set of bytecodes 
+<BR>that it ran to interpret an entire method.
+<BR></P>
+<P>You take that log of instructions and &quot;peephole-optimize&quot; it, just as a smart compiler does. This eliminates redundant or unnecessary instructions from the log, and makes it look just like the optimized binary code that a good compiler might have produced.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>This is where the name compiler comes from, in &quot;just-in-time&quot; compiler, but it's really only the back end of a traditional compiler&#151;the part that does code generation. By the way, the front end here is javac.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Here's where the trick comes in. The next time that method is run (in exactly the same way), the interpreter can now simply execute directly the stored log of binary native code. Because this optimizes out the inner-loop overhead of each bytecode, as well as any other redundancies between the bytecodes in a method, it can gain a factor of 10 or more in speed. In fact, an experimental version of this technology at Sun has shown that Java programs using it can run as fast as compiled C programs.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The parenthetical in the last paragraph is needed because if anything is different about the input to the method, it takes a different path through the interpreter and must be relogged. (There are sophisticated versions of this technology that solve this, and other, difficulties.) The cache of native code for a method must be invalidated whenever the method has changed, and the interpreter must pay a small cost up front each time a method is run for the first time. However, these small bookkeeping costs are far outweighed by the amazing gains in speed possible.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I78" NAME = "I78"  >
+<foNT SIZE=3><B>The java2c Translator</B>
+<BR></FONT></A></H4>
+<P>Another, simpler, trick, which <A ID = "I79" NAME = "I79"  ></A><A ID = "I80" NAME = "I80"  ></A>works well whenever you have a good, portable C compiler on each system that runs your program, is to translate the bytecodes into C and then compile the C into binary native code. If you wait until the first use of a method or class, and then perform this as an &quot;invisible&quot; optimization, it gains you an additional speedup over the approach outlined previously, without the Java programmer needing to know about it.
+<BR></P>
+<P>Of course, this does limit you to systems with a C compiler, but as you learned yesterday, there are extremely good, freely available C compilers. In theory, your Java code might be able to travel with its own C compiler, or know where to pull one from the Net as needed, for each new computer and operating system it faced. (Because this violates some of the rules of normal Java code movement over the Net, though, it should be used sparingly.)
+<BR></P>
+<P>If you're using Java, for example, to write a server that lives only on <I>your </I>computer, it might be appropriate to use Java for its flexibility in writing and maintaining the server (and for its capability of dynamically linking new Java code on the fly), and then to run java2c by hand to translate the basic server itself entirely into native code. You'd link the Java run-time environment into that code so that your server remains a fully capable Java program, but it's now an extremely fast one.
+<BR></P>
+<P>In fact, an experimental version of the java2c translator inside Sun shows that it can reach the speed of compiled and optimized C code. This is the best that you can hope to do!
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Unfortunately, as of the 1.0 release, there is still no publicly available java2c tool, and Sun's virtual machine does not perform &quot;just-in-time&quot; compilation. Both of these have been promised in a later release (perhaps 1.1).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I81" NAME = "I81"  >
+<foNT SIZE=3><B>The Bytecodes Themselves</B>
+<BR></FONT></A></H4>
+<P>Let's look at a (progressively less and less) detailed description of each class of bytecodes.
+<BR></P>
+<P>For each bytecode, some brief text describes its function, and a textual &quot;picture&quot; of the stack, both <A ID = "I82" NAME = "I82"  ></A><A ID = "I83" NAME = "I83"  ></A>before and after the bytecode has been executed, is shown. This text picture will look like the following:
+<BR></P>
+<PRE>..., value1, value2 =&gt; ..., value3</PRE>
+<P>This means that the bytecode expects two operands&#151;value1 and value2&#151;to be on the top of the stack, pops them both off the stack, operates on them to produce value3, and pushes value3 back onto the top of the stack. You should read each stack from right to left, with the rightmost value being the top of the stack. The ... is read as &quot;the rest of the stack below,&quot; which is irrelevant to the current bytecode. All operands on the stack are 32-bits wide.
+<BR></P>
+<P>Because most bytecodes take their arguments from the stack and place their results back there, the brief text descriptions that follow only say something about the source or destination of values if they are <I>not</I> on the stack. For example, the description &quot;Load integer from local variable.&quot; means that the integer is loaded onto the stack, and &quot;Integer add.&quot; intends its integers to be taken from&#151;and the result returned to&#151;the stack.
+<BR></P>
+<P>Bytecodes that don't affect control flow simply move the pc onto the next bytecode that follows in sequence. Those that do affect the pc say so explicitly. Whenever you see byte1, byte2, and so forth, it refers to the first byte, second byte, and so on, that follow the opcode byte itself. After such a bytecode is executed, the pc automatically advances over these operand bytes to start the next bytecode in sequence.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The next few sections are in &quot;reference manual style,&quot; presenting each bytecode separately in all its (often redundant) detail. Later sections begin to collapse and coalesce this verbose style into something shorter, and more readable. The verbose form is shown at first because the online reference manuals will look more like it, and because it drives home the point that each bytecode &quot;function&quot; comes in many, nearly identical bytecodes, one for each primitive type in Java.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I84" NAME = "I84"  >
+<foNT SIZE=3><B>Pushing Constants onto the Stack</B>
+<BR></FONT></A></H5>
+<PRE>bipush        ... =&gt; ..., value</PRE>
+<P>Push one-byte signed integer. byte1 is interpreted <A ID = "I85" NAME = "I85"  ></A><A ID = "I86" NAME = "I86"  ></A><A ID = "I87" NAME = "I87"  ></A>as a signed 8-bit value. This value is expanded to an int and pushed onto the operand stack.
+<BR></P>
+<PRE>sipush        ... =&gt; ..., value</PRE>
+<P>Push two-byte signed integer. byte1 and byte2 are assembled into a signed 16-bit value. This value is expanded to an int and pushed onto the operand stack.
+<BR></P>
+<PRE>ldc1          ... =&gt; ..., item</PRE>
+<P>Push item from constant pool. byte1 is used as an unsigned 8-bit index into the constant pool of the current class. The item at that index is resolved and pushed onto the stack.
+<BR></P>
+<PRE>ldc2          ... =&gt; ..., item</PRE>
+<P>Push item from constant pool. byte1 and byte2 are used to construct an unsigned 16-bit index into the constant pool of the current class. The item at that index is resolved and pushed onto the stack.
+<BR></P>
+<PRE>ldc2w         ... =&gt; ..., constant-word1, constant-word2</PRE>
+<P>Push long or double from constant pool. byte1 and byte2 are used to construct an unsigned 16-bit index into the constant pool of the current class. The two-word constant at that index is resolved and pushed onto the stack.
+<BR></P>
+<PRE>aconst_null   ... =&gt; ..., null</PRE>
+<P>Push the null object reference onto the stack.
+<BR></P>
+<PRE>iconst_m1     ... =&gt; ..., -1</PRE>
+<P>Push the int -1 onto the stack.
+<BR></P>
+<PRE>iconst_&lt;I&gt;    ... =&gt; ..., &lt;I&gt;</PRE>
+<P>Push the int &lt;I&gt; onto the stack. There are six of these bytecodes, one for each of the integers 0-5: iconst_0, iconst_1, iconst_2, iconst_3, iconst_4, and iconst_5.
+<BR></P>
+<PRE>lconst_&lt;L&gt;    ... =&gt; ..., &lt;L&gt;-word1, &lt;L&gt;-word2</PRE>
+<P>Push the long &lt;L&gt; onto the stack. There are two of these bytecodes, one for each of the integers 0 and 1: lconst_0, and lconst_1.
+<BR></P>
+<PRE>fconst_&lt;F&gt;    ... =&gt; ..., &lt;F&gt;</PRE>
+<P>Push the float &lt;F&gt; onto the stack. There are three of these bytecodes, one for each of the integers 0-2: fconst_0, fconst_1, and fconst_2.
+<BR></P>
+<PRE>dconst_&lt;D&gt;    ... =&gt; ..., &lt;D&gt;-word1, &lt;D&gt;-word2</PRE>
+<P>Push the double &lt;D&gt; onto the stack. There are two of these bytecodes, one for each of the integers 0 and 1: dconst_0, and dconst_1.
+<BR></P>
+<H5><A ID = "I88" NAME = "I88"  >
+<foNT SIZE=3><B>Loading Local Variables onto the Stack</B>
+<BR></FONT></A></H5>
+<PRE>iload         ... =&gt; ..., value</PRE>
+<P>Load int from <A ID = "I89" NAME = "I89"  ></A><A ID = "I90" NAME = "I90"  ></A><A ID = "I91" NAME = "I91"  ></A>local variable. Local variable byte1 in the current Java frame must contain an int. The value of that variable is pushed onto the operand stack.
+<BR></P>
+<PRE>iload_&lt;I&gt;     ... =&gt; ..., value</PRE>
+<P>Load int from local variable. Local variable &lt;I&gt; in the current Java frame must contain an int. The value of that variable is pushed onto the operand stack. There are four of these bytecodes, one for each of the integers 0-3: iload_0, iload_1, iload_2, and iload_3.
+<BR></P>
+<PRE>lload         ... =&gt; ..., value-word1, value-word2</PRE>
+<P>Load long from local variable. Local variables byte1 and byte1 + 1 in the current Java frame must together contain a long integer. The values contained in those variables are pushed onto the operand stack.
+<BR></P>
+<PRE>lload_&lt;L&gt;     ... =&gt; ..., value-word1, value-word2</PRE>
+<P>Load long from local variable. Local variables &lt;L&gt; and &lt;L&gt; + 1 in the current Java frame must together contain a long integer. The value contained in those variables is pushed onto the operand stack. There are four of these bytecodes, one for each of the integers 0-3: lload_0, lload_1, lload_2, and lload_3.
+<BR></P>
+<PRE>fload         ... =&gt; ..., value</PRE>
+<P>Load float from local variable. Local variable byte1 in the current Java frame must contain a single precision floating-point number. The value of that variable is pushed onto the operand stack.
+<BR></P>
+<PRE>fload_&lt;F&gt;     ... =&gt; ..., value</PRE>
+<P>Load float from local variable. Local variable &lt;F&gt; in the current Java frame must contain a single precision floating-point number. The value of that variable is pushed onto the operand stack. There are four of these bytecodes, one for each of the integers 0-3: fload_0, fload_1, fload_2, and fload_3.
+<BR></P>
+<PRE>dload         ... =&gt; ..., value-word1, value-word2</PRE>
+<P>Load double from local variable. Local variables byte1 and byte1 + 1 in the current Java frame must together contain a double precision floating-point number. The value contained in those variables is pushed onto the operand stack.
+<BR></P>
+<PRE>dload_&lt;D&gt;     ... =&gt; ..., value-word1, value-word2</PRE>
+<P>Load double from local variable. Local variables &lt;D&gt; and &lt;D&gt; + 1 in the current Java frame must together contain a double precision floating-point number. The value contained in those variables is pushed onto the operand stack There are four of these bytecodes, one for each of the integers 0-3: dload_0, dload1, dload_2, and dload_3.
+<BR></P>
+<PRE>aload         ... =&gt; ..., value</PRE>
+<P>Load object reference from local variable. Local variable byte1 in the current Java frame must contain a return address or reference to an object or array. The value of that variable is pushed onto the operand stack.
+<BR></P>
+<PRE>aload_&lt;A&gt;     ... =&gt; ..., value</PRE>
+<P>Load object reference from local variable. Local variable &lt;A&gt; in the current Java frame must contain a return address or reference to an object. The value of that variable is pushed onto the operand stack. There are four of these bytecodes, one for each of the integers 0-3: aload_0, aload_1, aload_2, and aload_3.
+<BR></P>
+<H5><A ID = "I92" NAME = "I92"  >
+<foNT SIZE=3><B>Storing Stack Values into Local Variables</B>
+<BR></FONT></A></H5>
+<PRE>istore        ..., value =&gt; ...</PRE>
+<P>Store int into local <A ID = "I93" NAME = "I93"  ></A><A ID = "I94" NAME = "I94"  ></A><A ID = "I95" NAME = "I95"  ></A>variable. value must be an int. Local variable byte1 in the current Java frame is set to value.
+<BR></P>
+<PRE>istore_&lt;I&gt;    ..., value =&gt; ...</PRE>
+<P>Store int into local variable. value must be an int. Local variable &lt;I&gt; in the current Java frame is set to value. There are four of these bytecodes, one for each of the integers 0-3: istore_0, istore_1, istore_2, and istore_3.
+<BR></P>
+<PRE>lstore        ..., value-word1, value-word2 =&gt; ...</PRE>
+<P>Store long into local variable. value must be a long integer. Local variables byte1 and byte1 + 1 in the current Java frame are set to value.
+<BR></P>
+<PRE>lstore_&lt;L&gt;    ..., value-word1, value-word2 =&gt; ...</PRE>
+<P>Store long into local variable. value must be a long integer. Local variables &lt;L&gt; and &lt;L&gt; + 1 in the current Java frame are set to value. There are four of these bytecodes, one for each of the integers 0-3: lstore_0, lstore_1, lstore_2, and lstore_3.
+<BR></P>
+<PRE>fstore        ..., value =&gt; ...</PRE>
+<P>Store float into local variable. value must be a single precision floating-point number. Local variable byte1 in the current Java frame is set to value.
+<BR></P>
+<PRE>fstore_&lt;F&gt;    ..., value =&gt; ...</PRE>
+<P>Store float into local variable. value must be a single precision floating-point number. Local variable &lt;F&gt; in the current Java frame is set to value. There are four of these bytecodes, one for each of the integers 0-3: fstore_0, fstore_1, fstore_2, and fstore_3.
+<BR></P>
+<PRE>dstore        ..., value-word1, value-word2 =&gt; ...</PRE>
+<P>Store double into local variable. value must be a double precision floating-point number. Local variables byte1 and byte1 + 1 in the current Java frame are set to value.
+<BR></P>
+<PRE>dstore_&lt;D&gt;    ..., value-word1, value-word2 =&gt; ...</PRE>
+<P>Store double into local variable. value must be a double precision floating-point number. Local variables &lt;D&gt; and &lt;D&gt; + 1 in the current Java frame are set to value. There are four of these bytecodes, one for each of the integers 0-3: dstore_0, dstore_1, dstore_2, and dstore_3.
+<BR></P>
+<PRE>astore        ..., handle =&gt; ...</PRE>
+<P>Store object reference into local variable. handle must be a return address or a reference to an object. Local variable byte1 in the current Java frame is set to value.
+<BR></P>
+<PRE>astore_&lt;A&gt;    ..., handle =&gt; ...</PRE>
+<P>Store object reference into local variable. handle must be a return address or a reference to an object. Local variable &lt;A&gt; in the current Java frame is set to value. There are four of these bytecodes, one for each of the integers 0-3: astore_0, astore_1, astore_2, and astore_3.
+<BR></P>
+<PRE>iinc          -no change-</PRE>
+<P>Increment local variable by constant. Local variable byte1 in the current Java frame must contain an int. Its value is incremented by the value byte2, where byte2 is treated as a signed 8-bit quantity.
+<BR></P>
+<H5><A ID = "I96" NAME = "I96"  >
+<foNT SIZE=3><B>Managing Arrays</B>
+<BR></FONT></A></H5>
+<PRE>newarray        ..., size =&gt; result</PRE>
+<P>Allocate new <A ID = "I97" NAME = "I97"  ></A>array. size must be an int. It represents the number of elements in the new array. byte1 is an internal code that indicates the type of array to allocate. Possible values for byte1 are as follows: T_BOOLEAN (4), T_CHAR (5), T_FLOAT (6), T_DOUBLE (7), T_BYTE (8), T_SHORT (9), T_INT (10), and T_LONG (11).
+<BR></P>
+<P>An attempt is made to allocate a new array of the indicated type, capable of holding size elements. This will be the result. If size is less than zero, a NegativeArraySizeException is thrown. If there is not enough memory to allocate the array, an OutOfMemoryError is thrown. All elements of the array are initialized to their default values.
+<BR></P>
+<PRE>anewarray       ..., size =&gt; result</PRE>
+<P>Allocate new <A ID = "I98" NAME = "I98"  ></A><A ID = "I99" NAME = "I99"  ></A><A ID = "I100" NAME = "I100"  ></A>array of objects. size must be an int. It represents the number of elements in the new array. byte1 and byte2 are used to construct an index into the constant pool of the current class. The item at that index is resolved. The resulting entry must be a class.
+<BR></P>
+<P>An attempt is made to allocate a new array of the indicated class type, capable of holding size elements. This will be the result. If size is less than zero, a NegativeArraySizeException is thrown. If there is not enough memory to allocate the array, an OutOfMemoryError is thrown. All elements of the array are initialized to null.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>anewarray is used to create a single dimension of an array of objects. For example, the request new Thread[7] generates the following bytecodes:
+<BR>
+<BR>    bipush 7
+<BR>    anewarray &lt;Class &quot;java.lang.Thread&quot;&gt;
+<BR>
+<BR>anewarray can also be used to create the outermost dimension of a multidimensional array. For example, the array declaration new int[6][] generates this:
+<BR>
+<BR>    bipush 6
+<BR>    anewarray &lt;Class &quot;[I&quot;&gt;
+<BR>
+<BR>(See the section &quot;Method Signatures&quot; for more information on strings such as [I.)
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<PRE>multianewarray  ..., size1 size2...sizeN =&gt; result</PRE>
+<P>Allocate new multidimensional <A ID = "I101" NAME = "I101"  ></A><A ID = "I102" NAME = "I102"  ></A><A ID = "I103" NAME = "I103"  ></A>array. Each size&lt;I&gt; must be an int. Each represents the number of elements in a dimension of the array. byte1 and byte2 are used to construct an index into the constant pool of the current class. The item at that index is resolved. The resulting entry must be an array class of one or more dimensions.
+<BR></P>
+<P><A ID = "I104" NAME = "I104"  ></A>byte3 is a positive integer representing the number of dimensions being created. It must be less than or equal to the number of dimensions of the array class. byte3 is also the number of elements that are popped off the stack. All must be ints greater than or equal to zero. These are used as the sizes of the dimensions. An attempt is made to allocate a new array of the indicated class type, capable of holding size&lt;1&gt; * size&lt;2&gt; * ... * &lt;sizeN&gt; elements. This will be the result. If any of the size&lt;I&gt; arguments on the stack is less than zero, a NegativeArraySizeException is thrown. If there is not enough memory to allocate the array, an OutOfMemoryError is thrown.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>new int[6][3][] generates these bytecodes:
+<BR>
+<BR>    bipush 6
+<BR>    bipush 3
+<BR>    multianewarray &lt;Class &quot;[[[I&quot;&gt; 2
+<BR>
+<BR>It's more efficient to use newarray or anewarray when creating arrays of single dimension.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<PRE>arraylength     ..., array =&gt; ..., length</PRE>
+<P>Get length of array. array must be a reference to an array object. The length of the array is determined and replaces array on the top of the stack. If array is null, a NullPointerException is thrown.
+<BR></P>
+<PRE>iaload          ..., array, index =&gt; ..., value
+laload          ..., array, index =&gt; ..., value-word1, value-word2
+faload          ..., array, index =&gt; ..., value
+daload          ..., array, index =&gt; ..., value-word1, value-word2
+aaload          ..., array, index =&gt; ..., value
+baload          ..., array, index =&gt; ..., value
+caload          ..., array, index =&gt; ..., value
+saload          ..., array, index =&gt; ..., value</PRE>
+<P>Load &lt;<I>type</I>&gt; from array. array must be an array of &lt;<I>type</I>&gt;s. index must be an int. The &lt;<I>type</I>&gt; value at position number index in array is retrieved and pushed onto the top of the stack. If array is null, a NullPointerException is thrown. If index is not within the bounds of array, an ArrayIndexOutOfBoundsException is thrown. &lt;<I>type</I>&gt; is, in turn, int, long, float, double, object reference, byte, char, and short. &lt;<I>type</I>&gt;s long and double have two word values, as you've seen in previous load bytecodes.
+<BR></P>
+<PRE>iastore         ..., array, index, value =&gt; ...
+lastore         ..., array, index, value-word1, value-word2 =&gt; ...
+fastore         ..., array, index, value =&gt; ...
+dastore         ..., array, index, value-word1, value-word2 =&gt; ...
+aastore         ..., array, index, value =&gt; ...
+bastore         ..., array, index, value =&gt; ...
+castore         ..., array, index, value =&gt; ...
+sastore         ..., array, index, value =&gt; ...</PRE>
+<P>Store into &lt;<I>type</I>&gt; array. array must be an array of &lt;<I>type</I>&gt;s, index must be an int, and value a &lt;<I>type</I>&gt;. The &lt;<I>type</I>&gt; value is stored at position index in array. If array is null, a NullPointerException is thrown. If index is not within the bounds of array, an ArrayIndexOutOfBoundsException is thrown. &lt;<I>type</I>&gt; is, in turn, int, long, float, double, object reference, byte, char, and short. &lt;<I>type</I>&gt;s long and double have two word values, as you've seen in previous store bytecodes.
+<BR></P>
+<H5><A ID = "I105" NAME = "I105"  >
+<foNT SIZE=3><B>Stack Operations</B><A ID = "I106" NAME = "I106"  ></A>
+<BR></FONT></A></H5>
+<PRE>nop        -no change-</PRE>
+<P>Do nothing.
+<BR></P>
+<PRE>pop        ..., any =&gt; ...</PRE>
+<P>Pop the top word from the stack.<A ID = "I107" NAME = "I107"  ></A>
+<BR></P>
+<PRE>pop2       ..., any2, any1 =&gt; ...</PRE>
+<P>Pop the top two words from the stack.
+<BR></P>
+<PRE>dup        ..., any =&gt; ..., any, any</PRE>
+<P>Duplicate the <A ID = "I108" NAME = "I108"  ></A>top word on the stack.
+<BR></P>
+<PRE>dup2       ..., any2, any1 =&gt; ..., any2, any1, any2,any1</PRE>
+<P>Duplicate the top two words on the stack.
+<BR></P>
+<PRE>dup_x1     ..., any2, any1 =&gt; ..., any1, any2,any1</PRE>
+<P>Duplicate the top word on the stack and insert the copy two words down in the stack.
+<BR></P>
+<PRE>dup2_x1    ..., any3, any2, any1 =&gt; ..., any2, any1, any3,any2,any1</PRE>
+<P>Duplicate the top two words on the stack and insert the copies two words down in the stack.
+<BR></P>
+<PRE>dup_x2     ..., any3, any2, any1 =&gt; ..., any1, any3,any2,any1</PRE>
+<P>Duplicate the top word on the stack and insert the copy three words down in the stack.
+<BR></P>
+<PRE>dup2_x2    ..., any4, any3, any2, any1 =&gt; ..., any2, any1, any4,any3,any2,any1</PRE>
+<P>Duplicate the top two words on the stack and insert the copies three words down in the stack.
+<BR></P>
+<PRE>swap       ..., any2, any1 =&gt; ..., any1, any2</PRE>
+<P>Swap the top two elements on the stack.
+<BR></P>
+<H5><A ID = "I109" NAME = "I109"  >
+<foNT SIZE=3><B>Arithmetic Operations</B><A ID = "I110" NAME = "I110"  ></A>
+<BR></FONT></A></H5>
+<PRE>iadd       ..., v1, v2 =&gt; ..., result
+ladd       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2
+fadd       ..., v1, v2 =&gt; ..., result
+dadd       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2</PRE>
+<P>v1 and v2 must be &lt;<I>type</I>&gt;s. The vs are added and are replaced on the stack by their &lt;<I>type</I>&gt; sum. &lt;<I>type</I>&gt; is, in turn, int, long, float, and double.
+<BR></P>
+<PRE>isub       ..., v1, v2 =&gt; ..., result
+lsub       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2
+fsub       ..., v1, v2 =&gt; ..., result
+dsub       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2</PRE>
+<P>v1 and v2 must be &lt;type&gt;s. v2 is subtracted from v1, and both vs are replaced on the stack by their &lt;<I>type</I>&gt; difference. &lt;<I>type</I>&gt; is, in turn, int, long, float, and double.
+<BR></P>
+<PRE>imul       ..., v1, v2 =&gt; ..., result
+lmul       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2
+fmul       ..., v1, v2 =&gt; ..., result
+dmul       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2</PRE>
+<P>v1 and v2 must be &lt;<I>type</I>&gt;s. Both vs are replaced on the stack by their &lt;<I>type</I>&gt; product. &lt;<I>type</I>&gt; is, in turn, int, long, float, and double.
+<BR></P>
+<PRE>idiv       ..., v1, v2 =&gt; ..., result
+ldiv       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2
+fdiv       ..., v1, v2 =&gt; ..., result
+ddiv       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2</PRE>
+<P>v1 and v2 must be &lt;<I>type</I>&gt;s. v2 is divided by v1, and both vs are replaced on the stack by their &lt;<I>type</I>&gt; quotient. An attempt to divide by zero results in an ArithmeticException being thrown. &lt;<I>type</I>&gt; is, in turn, int, long, float, and double.
+<BR></P>
+<PRE>irem       ..., v1, v2 =&gt; ..., result
+lrem       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2
+frem       ..., v1, v2 =&gt; ..., result
+drem       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2</PRE>
+<P>v1 and v2 must be &lt;<I>type</I>&gt;s. v2 is divided by v1, and both vs are replaced on the stack by their &lt;<I>type</I>&gt; remainder. An attempt to divide by zero results in an ArithmeticException being thrown. &lt;<I>type</I>&gt; is, in turn, int, long, float, and double.
+<BR></P>
+<PRE>ineg       ..., value =&gt; ..., result
+lneg       ..., value-word1, value-word2 =&gt; ..., result-word1, result-word2
+fneg       ..., value =&gt; ..., result
+dneg       ..., value-word1, value-word2 =&gt; ..., result-word1, result-word2</PRE>
+<P>value must be a &lt;<I>type</I>&gt;. It is replaced on the stack by its arithmetic negation. &lt;<I>type</I>&gt; is, in turn, int, long, float, and double.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Now that you're familiar with the look of the bytecodes, the summaries that follow will become shorter and shorter (for space reasons). You can always get any desired level of detail from the full virtual machine specification in the latest Java release.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I111" NAME = "I111"  >
+<foNT SIZE=3><B>Logical Operations</B><A ID = "I112" NAME = "I112"  ></A>
+<BR></FONT></A></H5>
+<PRE>ishl       ..., v1, v2 =&gt; ..., result
+lshl       ..., v1-word1, v1-word2, v2 =&gt; ..., r-word1, r-word2
+ishr       ..., v1, v2 =&gt; ..., result
+lshr       ..., v1-word1, v1-word2, v2 =&gt; ..., r-word1, r-word2
+iushr      ..., v1, v2 =&gt; ..., result
+lushr      ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2</PRE>
+<P>For types int and long: arithmetic shift-left, shift-right, and logical shift-right.
+<BR></P>
+<PRE>iand       ..., v1, v2 =&gt; ..., result
+land       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2
+ior        ..., v1, v2 =&gt; ..., result
+lor        ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2
+ixor       ..., v1, v2 =&gt; ..., result
+lxor       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., r-word1, r-word2</PRE>
+<P>For types int and long: bitwise AND, OR, and XOR.
+<BR></P>
+<H5><A ID = "I113" NAME = "I113"  >
+<foNT SIZE=3><B>Conversion Operations</B><A ID = "I114" NAME = "I114"  ></A>
+<BR></FONT></A></H5>
+<PRE>i2l         ..., value =&gt; ..., result-word1, result-word2
+i2f         ..., value =&gt; ..., result
+i2d         ..., value =&gt; ..., result-word1, result-word2
+l2i         ..., value-word1, value-word2 =&gt; ..., result
+l2f         ..., value-word1, value-word2 =&gt; ..., result
+l2d         ..., value-word1, value-word2 =&gt; ..., result-word1, result-word2
+f2i         ..., value =&gt; ..., result
+f2l         ..., value =&gt; ..., result-word1, result-word2
+f2d         ..., value =&gt; ..., result-word1, result-word2
+d2i         ..., value-word1, value-word2 =&gt; ..., result
+d2l         ..., value-word1, value-word2 =&gt; ..., result-word1, result-word2
+d2f         ..., value-word1, value-word2 =&gt; ..., result
+int2byte    ..., value =&gt; ..., result
+int2char    ..., value =&gt; ..., result
+int2short   ..., value =&gt; ..., result</PRE>
+<P>These bytecodes convert from a value of type &lt;<I>lhs</I>&gt; to a result of type &lt;<I>rhs</I>&gt;. &lt;<I>lhs</I>&gt; and &lt;<I>rhs</I>&gt; can be any of i, l, f,and d, which represent int, long, float, and double, respectively. The final three bytecodes convert types that are self-explanatory.
+<BR></P>
+<H5><A ID = "I115" NAME = "I115"  >
+<foNT SIZE=3><B>Transfer of Control</B><A ID = "I116" NAME = "I116"  ></A>
+<BR></FONT></A></H5>
+<PRE>ifeq        ..., value =&gt; ...
+ifne        ..., value =&gt; ...
+iflt        ..., value =&gt; ...
+ifgt        ..., value =&gt; ...
+ifle        ..., value =&gt; ...
+ifge        ..., value =&gt; ...
+if_icmpeq   ..., value1, value2 =&gt; ...
+if_icmpne   ..., value1, value2 =&gt; ...
+if_icmplt   ..., value1, value2 =&gt; ...
+if_icmpgt   ..., value1, value2 =&gt; ...
+if_icmple   ..., value1, value2 =&gt; ...
+if_icmpge   ..., value1, value2 =&gt; ...
+ifnull      ..., value =&gt; ...
+ifnonnull   ..., value =&gt; ...</PRE>
+<P>When value &lt;<I>rel</I>&gt; 0 is true in the first set of bytecodes, value1 &lt;<I>rel</I>&gt; value2 is true in the second set, or value is null (or not null) in the third, byte1 and byte2 are used to construct a signed 16-bit offset. Execution proceeds at that offset from the pc. Otherwise, execution proceeds at the bytecode following. &lt;<I>rel</I>&gt; is one of eq, ne, lt, gt, le, and ge, which represent equal, not equal, less than, greater than, less than or equal, and greater than or equal, respectively.
+<BR></P>
+<PRE>lcmp        ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., result
+fcmpl       ..., v1, v2 =&gt; ..., result
+dcmpl       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., result
+fcmpg       ..., v1, v2 =&gt; ..., result
+dcmpg       ..., v1-word1, v1-word2, v2-word1, v2-word2 =&gt; ..., result</PRE>
+<P>v1 and v2 must be long, float, or double. They are both popped from the stack and compared. If v1 is greater than v2, the int value 1 is pushed onto the stack. If v1 is equal to v2, 0 is pushed onto the stack. If v1 is less than v2, -1 is pushed onto the stack. For floating-point, if either v1 or v2 is NaN, -1 is pushed onto the stack for the first pair of bytecodes, +1 for the second pair.
+<BR></P>
+<PRE>if_acmpeq   ..., value1, value2 =&gt; ...
+if_acmpne   ..., value1, value2 =&gt; ...</PRE>
+<P>Branch if object references are equal/not equal. value1 and value2 must be references to objects. They are both popped from the stack. If value1 is equal/not equal to value2, byte1 and byte2 are used to construct a signed 16-bit offset. Execution proceeds at that offset from the pc. Otherwise, execution proceeds at the bytecode following.
+<BR></P>
+<PRE>goto        -no change-
+goto_w      -no change-</PRE>
+<P>Branch always. byte1 and byte2 (plus byte3 and byte4 for goto_w) are used to construct a signed 16-bit (32-bit) offset. Execution proceeds at that offset from the pc.
+<BR></P>
+<PRE>jsr         ... =&gt; ..., return-address
+jsr&#151;w       ... =&gt; ..., return-address</PRE>
+<P>Jump subroutine. The address <A ID = "I117" NAME = "I117"  ></A>of the bytecode immediately following the jsr is pushed onto the stack. byte1 and byte2 (plus byte3 and byte4 for goto_w) are used to construct a signed 16-bit (32-bit) offset. Execution proceeds at that offset from the pc.
+<BR></P>
+<PRE>ret         -no change-
+ret2_w      -no change-</PRE>
+<P>Return from subroutine. Local variable byte1 (plus byte2 for ret_w are assembled into a 16-bit index) in the current Java frame must contain a return address. The contents of that local variable are written into the pc.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> jsr pushes the address onto the stack, and ret gets it out of a local variable. This asymmetry is intentional. The jsr and ret bytecodes are used in the implementation of Java's finally keyword.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I118" NAME = "I118"  >
+<foNT SIZE=3><B>Method Return</B>
+<BR></FONT></A></H5>
+<PRE>return      ... =&gt; [empty]</PRE>
+<P>Return (void) from method. All values <A ID = "I119" NAME = "I119"  ></A><A ID = "I120" NAME = "I120"  ></A>on the operand stack are discarded. The interpreter then returns control to its caller.
+<BR></P>
+<PRE>ireturn     ..., value =&gt; [empty]
+lreturn     ..., value-word1, value-word2 =&gt; [empty]
+freturn     ..., value =&gt; [empty]
+dreturn     ..., value-word1, value-word2 =&gt; [empty]
+areturn     ..., value =&gt; [empty]</PRE>
+<P>Return &lt;type&gt; from method. value must be a &lt;type&gt;. The value is pushed onto the stack of the previous execution environment. Any other values on the operand stack are discarded. The interpreter then returns control to its caller. &lt;type&gt; is, in turn, int, long, float, double, and object reference.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>The stack behavior of the &quot;return&quot; bytecodes may be confusing to anyone expecting the Java operand stack to be just like the C stack. Java's operand stack actually consists of a number of discontiguous segments, each corresponding to a method call. A return bytecode empties the Java operand stack segment corresponding to the frame of the returning call, but does not affect the segment of any parent calls.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I121" NAME = "I121"  >
+<foNT SIZE=3><B>Table Jumping</B>
+<BR></FONT></A></H5>
+<PRE>tableswitch   ..., index =&gt; ...</PRE>
+<P>tableswitch is a <A ID = "I122" NAME = "I122"  ></A><A ID = "I123" NAME = "I123"  ></A>variable-length bytecode. Immediately after the tableswitch opcode, zero to three 0 bytes are inserted as padding so that the next byte begins at an address that is a multiple of four. After the padding are a series of signed 4-byte quantities: default-offset, low, high, and then (high - low + 1) further signed 4-byte offsets. These offsets are treated as a 0-based jump table.
+<BR></P>
+<P>The index must be an int. If index is less than low or index is greater than high, default-offset is added to the pc. Otherwise, the (index - low)'th element of the jump table is extracted and added to the pc.
+<BR></P>
+<PRE>lookupswitch  ..., key =&gt; ...</PRE>
+<P>lookupswitch is a variable-length bytecode. Immediately after the lookupswitch opcode, zero to three 0 bytes are inserted as padding so that the next byte begins at an address that is a multiple of four. Immediately after the padding is a series of pairs of signed 4-byte quantities. The first pair is special; it contains the default-offset and the number of pairs that follow. Each subsequent pair consists of a match and an offset.
+<BR></P>
+<P>The key on the stack must be an int. This key is compared to each of the matches. If it is equal to one of them, the corresponding offset is added to the pc. If the key does not match any of the matches, the default-offset is added to the pc.
+<BR></P>
+<H5><A ID = "I124" NAME = "I124"  >
+<foNT SIZE=3><B>Manipulating Object Fields</B>
+<BR></FONT></A></H5>
+<PRE>putfield      ..., handle, value =&gt; ...
+putfield      ..., handle, value-word1, value-word2 =&gt; ...</PRE>
+<P>Set field in object. byte1 and byte2 are <A ID = "I125" NAME = "I125"  ></A><A ID = "I126" NAME = "I126"  ></A>used to construct an index into the constant pool of the current class. The constant pool item is a field reference to a class name and a field name. The item is resolved to a field block pointer containing the field's width and offset (both in bytes).
+<BR></P>
+<P>The field at that offset from the start of the instance pointed to by handle will be set to the value on the top of the stack. The first stack picture is for 32-bit, and the second for 64-bit wide fields. This bytecode handles both. If handle is null, a NullPointerException is thrown. If the specified field is a static field, an IncompatibleClassChangeError is thrown.
+<BR></P>
+<PRE>getfield      ..., handle =&gt; ..., value
+getfield      ..., handle =&gt; ..., value-word1, value-word2</PRE>
+<P>Fetch field from object. byte1 and byte2 are used to construct an index into the constant pool of the current class. The constant pool item will be a field reference to a class name and a field name. The item is resolved to a field block pointer containing the field's width and offset (both in bytes).
+<BR></P>
+<P>handle must be a reference to an object. The value at offset into the object referenced by handle replaces handle on the top of the stack. The first stack picture is for 32-bit, and the second for 64-bit wide fields. This bytecode handles both. If the specified field is a static field, an IncompatibleClassChangeError is thrown.
+<BR></P>
+<PRE>putstatic     ..., value =&gt; ...
+putstatic     ..., value-word1, value-word2 =&gt; ...</PRE>
+<P>Set static field in class. byte1 and byte2 are used to construct an index into the constant pool of the current class. The constant pool item will be a field reference to a static field of a class. That field will be set to have the value on the top of the stack. The first stack picture is for 32-bit, and the second for 64-bit wide fields. This bytecode handles both. If the specified field is not a static field, an IncompatibleClassChangeError is thrown.
+<BR></P>
+<PRE>getstatic     ..., =&gt; ..., value_
+getstatic     ..., =&gt; ..., value-word1, value-word2</PRE>
+<P>Get static field from class. byte1 and byte2 are used to construct an index into the constant pool of the current class. The constant pool item will be a field reference to a static field of a class. The value of that field is placed on the top of the stack. The first stack picture is for 32-bit, and the second for 64-bit wide fields. This bytecode handles both. If the specified field is not a static field, an IncompatibleClassChangeError is thrown.
+<BR></P>
+<H5><A ID = "I127" NAME = "I127"  >
+<foNT SIZE=3><B>Method Invocation</B>
+<BR></FONT></A></H5>
+<PRE>invokevirtual     ..., handle, [arg1, [arg2, ...]], ... =&gt; ...</PRE>
+<P>Invoke instance method based <A ID = "I128" NAME = "I128"  ></A><A ID = "I129" NAME = "I129"  ></A>on run-time type. The operand stack must contain a reference to an object and some number of arguments. byte1 and byte2 are used to construct an index into the constant pool of the current class. The item at that index in the constant pool contains the complete method signature. A pointer to the object's method table is retrieved from the object reference. The method signature is looked up in the method table. The method signature is guaranteed to exactly match one of the method signatures in the table.
+<BR></P>
+<P>The result of the lookup is an index into the method table of the named class that's used to look in the method table of the object's run-time type, where a pointer to the method block for the matched method is found. The method block indicates the type of method (native, synchronized, and so on) and the number of arguments (nargs) expected on the operand stack.
+<BR></P>
+<P>If the method is <A ID = "I130" NAME = "I130"  ></A><A ID = "I131" NAME = "I131"  ></A>marked synchronized, the monitor associated with handle is entered.
+<BR></P>
+<P>The base of the local variables array for the new Java stack frame is set to point to handle on the stack, making handle and the supplied arguments (arg1, arg2, ...) the first nargs local variables of the new frame. The total number of local variables used by the method is determined, and the execution environment of the new frame is pushed after leaving sufficient room for the locals. The base of the operand stack for this method invocation is set to the first word after the execution environment. Finally, execution continues with the first bytecode of the matched method.
+<BR></P>
+<P>If handle is null, a NullPointerException is thrown. If during the method invocation a stack overflow is detected, a StackOverflowError is thrown.
+<BR></P>
+<PRE>invokenonvirtual  ..., handle, [arg1, [arg2, ...]], ... =&gt; ...</PRE>
+<P>Invoke instance <A ID = "I132" NAME = "I132"  ></A>method based on compile-time type. The operand stack must contain a reference (handle) to an object and some number of arguments. byte1 and byte2 are used to construct an index into the constant pool of the current class. The item at that index in the constant pool contains the complete method signature and class. The method signature is looked up in the method table of the class indicated. The method signature is guaranteed to exactly match one of the method signatures in the table.
+<BR></P>
+<P>The result of the lookup is a method block. The <A ID = "I133" NAME = "I133"  ></A><A ID = "I134" NAME = "I134"  ></A>method block indicates the type of method (native, synchronized, and so on) and the number of arguments (nargs) expected on the operand stack. (The last three paragraphs are identical to the previous bytecode.)
+<BR></P>
+<PRE>invokestatic      ..., , [arg1, [arg2, ...]], ... =&gt; ...</PRE>
+<P>Invoke class (static) <A ID = "I135" NAME = "I135"  ></A>method. The operand stack must contain some number of arguments. byte1 and byte2 are used to construct an index into the constant pool of the current class. The item at that index in the constant pool contains the complete method signature and class. The method signature is looked up in the method table of the class indicated. The method signature is guaranteed to match one of the method signatures in the class's method table exactly.
+<BR></P>
+<P>The result of the lookup is a method block. The method block indicates the type of method (native, synchronized, and so on) and the number of arguments (nargs) expected on the operand stack.
+<BR></P>
+<P>If the method is marked synchronized, the monitor associated with the class is entered. (The last two paragraphs are identical to those in invokevirtual, except that no NullPointerException can be thrown.)
+<BR></P>
+<PRE>invokeinterface   ..., handle, [arg1, [arg2, ...]], ...=&gt; ...</PRE>
+<P>Invoke interface method. The operand stack must contain a reference (handle) to an object and some number of arguments. byte1 and byte2 are used to construct an index into the constant pool of the current class. The item at that index in the constant pool contains the complete method signature. A pointer to the object's method table is retrieved from the object reference. The method signature is looked up in the method table. The method signature is guaranteed to exactly match one of the method signatures in the table.
+<BR></P>
+<P>The result of the lookup is a method block. The method block indicates the type of method (native, synchronized, and so on) but, unlike the other &quot;invoke&quot; bytecodes, the number of available arguments (nargs) is taken from byte3; byte4 is reserved for future use. (The last three paragraphs are identical to those in invokevirtual.)
+<BR></P>
+<H5><A ID = "I136" NAME = "I136"  >
+<foNT SIZE=3><B>Exception Handling</B>
+<BR></FONT></A></H5>
+<PRE>athrow            ..., handle =&gt; [undefined]</PRE>
+<P>Throw <A ID = "I137" NAME = "I137"  ></A>exception. handle must be a handle to an exception object. That exception, which must be an instance of Throwable (or a subclass), is thrown. The current Java stack frame is searched for the most recent catch clause that handles the exception. If a matching &quot;catch-list&quot; entry is found, the pc is reset to the address indicated by the catch-list pointer, and execution continues there.
+<BR></P>
+<P>If no appropriate catch clause is found in the current stack frame, that frame is popped and the exception is rethrown, starting the process all over again in the parent frame. If handle is null, then a NullPointerException is thrown instead.
+<BR></P>
+<H5><A ID = "I138" NAME = "I138"  >
+<foNT SIZE=3><B>Miscellaneous Object Operations</B>
+<BR></FONT></A></H5>
+<PRE>new               ... =&gt; ..., handle</PRE>
+<P>Create new object. byte1 and byte2 are <A ID = "I139" NAME = "I139"  ></A>used to construct an index into the constant pool of the current class. The item at that index should be a class name that can be resolved to a class pointer, class. A new instance of that class is then created and a reference (handle) for the instance is placed on the top of the stack.
+<BR></P>
+<PRE>checkcast         ..., handle =&gt; ..., [handle | ...]</PRE>
+<P>Make sure object is of given type. handle must be a reference to an object. byte1 and byte2 are used to construct an index into the constant pool of the current class. The string at that index of the constant pool is presumed to be  a class name that can be resolved to a class pointer, class.
+<BR></P>
+<P>checkcast determines whether handle can be cast to a reference to an object of that class. (A null handle can be cast to any class.) If handle can be legally cast, execution proceeds at the next bytecode, and the handle remains on the stack. If not, a ClassCastException is thrown and the stack is emptied.
+<BR></P>
+<PRE>instanceof        ..., handle =&gt; ..., result</PRE>
+<P>Determine whether object is of given type. handle must be a reference to an object. byte1 and byte2 are used to construct an index into the constant pool of the current class. The string at that index of the constant pool is presumed to be a class name that can be resolved to a class pointer, class.
+<BR></P>
+<P>If handle is null, the result is 0 (false). Otherwise, instanceof determines whether handle can be cast to a reference to an object of that class. The result is 1 (true) if it can, and 0 (false) otherwise.
+<BR></P>
+<H5><A ID = "I140" NAME = "I140"  >
+<foNT SIZE=3><B>Monitors</B>
+<BR></FONT></A></H5>
+<PRE>monitorenter      ..., handle =&gt; ...</PRE>
+<P>Enter monitored <A ID = "I141" NAME = "I141"  ></A><A ID = "I142" NAME = "I142"  ></A>region of code. handle must be a reference to an object. The interpreter attempts to obtain exclusive access via a lock mechanism to handle. If another thread already has handle locked, the current thread waits until the handle is unlocked. If the current thread already has handle locked, execution continues normally. If handle has no lock on it, this bytecode obtains an exclusive lock. (A null in either bytecode throws NullPointerException.)
+<BR></P>
+<PRE>monitorexit       ..., handle =&gt; ...</PRE>
+<P>Exit monitored region of code. handle must be a reference to an object. The lock on handle is released. If this is the last lock that this thread has on that handle (one thread is allowed to have multiple locks on a single handle), other threads that are waiting for handle are allowed to proceed. (A null in either bytecode throws NullPointerException.)
+<BR></P>
+<H5><A ID = "I143" NAME = "I143"  >
+<foNT SIZE=3><B>Debugging</B>
+<BR></FONT></A></H5>
+<PRE>breakpoint        -no change-</PRE>
+<P>Call breakpoint <A ID = "I144" NAME = "I144"  ></A><A ID = "I145" NAME = "I145"  ></A>handler. The breakpoint bytecode is used to overwrite a bytecode to force control temporarily back to the debugger prior to the effect of the overwritten bytecode. The original bytecode's operands (if any) are not overwritten, and the original bytecode is restored when the breakpoint bytecode is removed.
+<BR></P>
+<H4><A ID = "I146" NAME = "I146"  >
+<foNT SIZE=3><B>The _quick Bytecodes</B>
+<BR></FONT></A></H4>
+<P>The following discussion, <A ID = "I147" NAME = "I147"  ></A><A ID = "I148" NAME = "I148"  ></A>straight out of the Java virtual machine documentation, shows you an example of the cleverness mentioned earlier that's needed to make a bytecode interpreter fast:
+<BR></P>
+<P>The following set of pseudo-bytecodes, suffixed by _quick, are all variants of standard Java bytecodes. They are used by the run-time to improve the execution speed of the bytecode interpreter. They aren't officially part of the virtual machine specification and are invisible outside a Java virtual machine implementation. However, inside that implementation they have proven to be an effective optimization.
+<BR>
+<BR></P>
+<P>First, you should know that javac still generates only non-_quick bytecodes. Second, all bytecodes that have a _quick variant reference the constant pool. When _quick optimization is turned on, each non-_quick bytecode (that has a _quick variant) resolves the specified item in the constant pool, signals an error if the item in the constant pool could not be resolved for some reason, turns itself into the _quick variant of itself, and then performs its intended operation.
+<BR>
+<BR></P>
+<P>This is identical to the actions of the non-_quick bytecode, except for the step of overwriting itself with its _quick variant. The _quick variant of a bytecode assumes that the item in the constant pool has already been resolved, and that this resolution did not produce any errors. It simply performs the intended operation on the resolved item.
+<BR>
+<BR></P>
+<P>Thus, as your bytecodes are being interpreted, they are automatically getting faster and faster! Here are all the _quick variants in the current Java run-time:
+<BR></P>
+<PRE>ldc1_quick
+ldc2_quick
+ldc2w_quick
+anewarray_quick
+multinewarray_quick
+putfield_quick
+putfield2_quick
+getfield_quick
+getfield2_quick
+putstatic_quick
+putstatic2_quick
+getstatic_quick
+getstatic2_quick
+invokevirtual_quick
+invokevirtualobject_quick
+invokenonvirtual_quick
+invokestatic_quick
+invokeinterface_quick
+new_quick
+checkcast_quick
+instanceof_quick</PRE>
+<P>If you'd like to go back in today's lesson and look at what each of these does, you can find the name of the original bytecode on which a _quick variant is based by simply removing the _quick from its name. The bytecodes putstatic, getstatic, putfield, and getfield have two _quick variants each, one for each stack picture in their original descriptions. invokevirtual has two variants: one for objects and one for arrays (to do fast lookups in java.lang.Object).
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>One last note on the _quick optimization, regarding the unusual handling of the constant pool (for detail fanatics only):
+<BR>
+<BR>When a class is read in, an array constant_pool[] of size nconstants is created and assigned to a field in the class. constant_pool[0] is set to point to a dynamically allocated array that indicates which fields in the constant_pool have already been resolved. constant_pool[1] through constant_pool[nconstants - 1] are set to point at the &quot;type&quot; field that corresponds to this constant item.
+<BR>
+<BR>When a bytecode is executed that references the constant pool, an index is generated, and constant_pool[0] is checked to see whether the index has already been resolved. If so, the value of constant_pool[index] is returned. If not, the value of constant_pool[index] is resolved to be the actual pointer or data, and overwrites whatever value was already in constant_pool[index].
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H3><A ID = "I149" NAME = "I149"  >
+<foNT SIZE=4><B>The .class File Format</B>
+<BR></FONT></A></H3>
+<P>You won't be given <A ID = "I150" NAME = "I150"  ></A><A ID = "I151" NAME = "I151"  ></A>the entire .class file format here, only a taste of what it's like. (You can read all about it in the release documentation.) It's mentioned here because it is one of the parts of Java that needs to be specified carefully if all Java implementations are to be compatible with one another, and if Java byte codes are expected to travel across arbitrary networks&#151;to and from arbitrary computers and operating systems&#151;and yet arrive safely.
+<BR></P>
+<P>The rest of this section paraphrases, and extensively condenses, the latest release of the .class documentation.
+<BR></P>
+<P>class files are used to hold the compiled versions of both Java classes and Java interfaces. Compliant Java interpreters must be capable of dealing with all .class files that conform to the following specification.
+<BR></P>
+<P>A Java .class file consists of a stream of 8-bit bytes. All 16-bit and 32-bit quantities are constructed by reading in two or four 8-bit bytes, respectively. The bytes are joined together in big-endian order. (Use java.io.DataInput and java.io.DataOutput to read and write class files.)
+<BR></P>
+<P>The class file format is presented below as a series of C-struct-like structures. However, unlike a C struct, there is no padding or alignment between pieces of the structure, each field of the structure may be of variable size, and an array may be of variable size (in this case, some field prior to the array gives the array's dimension). The types u1, u2, and u4 represent an unsigned 
+<BR>one-, two-, or four-byte quantity, respectively.
+<BR></P>
+<P>Attributes <A ID = "I152" NAME = "I152"  ></A><A ID = "I153" NAME = "I153"  ></A>are used at several different places in the .class format. All attributes have the following format:
+<BR></P>
+<PRE>GenericAttribute_info {
+    u2 attribute_name;
+    u4 attribute_length;
+    u1 info[attribute_length];
+}</PRE>
+<P>The attribute_name is a 16-bit index into the class's constant pool; the value of constant_pool[attribute_name] is a string giving the name of the attribute. The field attribute_length gives the length of the subsequent information in bytes. This length does not include the four bytes needed to store attribute_name and attribute_length. In the following text, whenever an attribute is required, names of all the attributes that are currently understood are listed. In the future, more attributes will be added. Class file readers are expected to skip over and ignore the information in any attributes that they do not understand.
+<BR></P>
+<P>The following pseudo-structure gives a top-level description of the format of a class file:
+<BR></P>
+<PRE>ClassFile {
+    u4  magic;
+    u2  minor_version
+    u2  major_version
+    u2  constant_pool_count;
+    cp_info         constant_pool[constant_pool_count - 1];
+    u2  access_flags;
+    u2  this_class;
+    u2  super_class;
+    u2  interfaces_count;
+    u2  interfaces[interfaces_count];
+    u2  fields_count;
+    field_info      fields[fields_count];
+    u2  methods_count;
+    method_info     methods[methods_count];
+    u2  attributes_count;
+    attribute_info  attributes[attribute_count];
+}</PRE>
+<P>Here's one of the smaller structures used:
+<BR></P>
+<PRE>method_info {
+    u2  access_flags;
+    u2  name_index;
+    u2  signature_index;
+    u2  attributes_count;
+    attribute_info  attributes[attribute_count];
+}</PRE>
+<P>Finally, here's a sample of one of the later structures in the .class file description:
+<BR></P>
+<PRE>Code_attribute {
+    u2  attribute_name_index;
+    u2  attribute_length;
+    u1  max_stack;
+    u1  max_locals;
+    u2  code_length;
+    u1  code[code_length];
+    u2  exception_table_length;
+    {  u2   start_pc;
+       u2   end_pc;
+       u2   handler_pc;
+       u2   catch_type;
+    }  exception_table[exception_table_length];
+    u2  attributes_count;
+    attribute_info  attributes[attribute_count];
+}</PRE>
+<P>None of this is meant to be completely comprehensible (though you might be able to guess at what a lot of the structure members are for), but just suggestive of the sort of structures that live inside .class files. Because the compiler and run-time sources are available, you can always begin with them if you actually have to read or write .class files yourself. Thus, you don't need to have a deep understanding of the details, even in that case.
+<BR></P>
+<H3><A ID = "I154" NAME = "I154"  >
+<foNT SIZE=4><B>Method Signatures</B>
+<BR></FONT></A></H3>
+<P>Because method signatures <A ID = "I155" NAME = "I155"  ></A><A ID = "I156" NAME = "I156"  ></A>are used in .class files, now is an appropriate time to explore them in the detail promised on earlier days&#151;but they're probably most useful to you when writing the native methods of yesterday's lesson.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="more.gif" tppabs="http://newdata.box.sk/bx/java/more.gif" WIDTH = 35 HEIGHT = 35>A <I>signature</I> is a <A ID = "I157" NAME = "I157"  ></A>string representing the type of a method, field, or array. 
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>A field signature represents <A ID = "I158" NAME = "I158"  ></A><A ID = "I159" NAME = "I159"  ></A>the value of an argument to a method or the value of a variable and is a series of bytes in the following grammar:
+<BR></P>
+<PRE>    &lt;field signature&gt; := &lt;field_type&gt;
+    &lt;field type&gt;      := &lt;base_type&gt; | &lt;object_type&gt; | &lt;array_type&gt;
+    &lt;base_type&gt;       := B | C | D | F | I | J | S | Z
+    &lt;object_type&gt;     := L &lt;full.ClassName&gt; ;
+    &lt;array_type&gt;      := [ &lt;optional_size&gt; &lt;field_type&gt;
+    &lt;optional_size&gt;   := [0-9]*</PRE>
+<P>Here are the meanings of the base types: B (byte), C (char), D (double), F (float), I (int), J (long), S (short), and Z (boolean).
+<BR></P>
+<P>A return-type <A ID = "I160" NAME = "I160"  ></A><A ID = "I161" NAME = "I161"  ></A>signature represents the return value from a method and is a series of bytes in the following grammar:
+<BR></P>
+<PRE>    &lt;return signature&gt;    := &lt;field type&gt; | V</PRE>
+<P>The character V (void) indicates that the method returns no value. Otherwise, the signature indicates the type of the return value. An argument signature represents an argument passed to a method:
+<BR></P>
+<PRE>    &lt;argument signature&gt;  := &lt;field type&gt;</PRE>
+<P>Finally, a method signature <A ID = "I162" NAME = "I162"  ></A><A ID = "I163" NAME = "I163"  ></A>represents the arguments that the method expects, and the value that it returns:
+<BR></P>
+<PRE>    &lt;method_signature&gt;    := (&lt;arguments signature&gt;) &lt;return signature&gt;
+    &lt;arguments signature&gt; := &lt;argument signature&gt;*</PRE>
+<P>Let's try out the new rules: a method called complexMethod()<A ID = "I164" NAME = "I164"  ></A><A ID = "I165" NAME = "I165"  ></A> in the class my.package.name.ComplexClass takes three arguments&#151;a long, a boolean, and a two-
+<BR>dimensional array of shorts&#151;and returns this. Then, (JZ[[S)Lmy.package.name.ComplexClass; is its method signature.
+<BR></P>
+<P>A method signature is often <A ID = "I166" NAME = "I166"  ></A>prefixed by the name of the method, or by its full package (using an underscore in the place of dots) and its class name followed by a slash / and the name of the method, to form <A ID = "I167" NAME = "I167"  ></A>a <I>complete method signature</I>. (You saw several of these generated in stub comments yesterday.) Now, at last, you have the full story! Thus, the following:
+<BR></P>
+<PRE>my_package_name_ComplexClass/complexMethod(JZ[[S)Lmy.package.name.ComplexClass;</PRE>
+<P>is the full, complete method signature of complexMethod(). (Phew!)
+<BR></P>
+<H3><A ID = "I168" NAME = "I168"  >
+<foNT SIZE=4><B>The Garbage Collector</B>
+<BR></FONT></A></H3>
+<P>Decades ago, programmers <A ID = "I169" NAME = "I169"  ></A>in both the Lisp and the Smalltalk community realized how extremely valuable it is to be able to ignore <A ID = "I170" NAME = "I170"  ></A><A ID = "I171" NAME = "I171"  ></A>memory deallocation. They realized that, although allocation is fundamental, deallocation is forced on the programmer by the laziness of the system&#151;<I>it</I> should be able to figure out what is no longer useful, and get rid of it. In relative obscurity, these pioneering programmers developed a whole series of garbage collectors to perform this job, each getting more sophisticated and efficient as the years went by. Finally, now that the mainstream programming community has begun to recognize the value of this automated technique, Java can become the first really widespread application of the technology those pioneers developed.
+<BR></P>
+<H4><A ID = "I172" NAME = "I172"  >
+<foNT SIZE=3><B>The Problem</B>
+<BR></FONT></A></H4>
+<P>Imagine that you're a programmer in a C-like language (probably not too difficult for you, because these languages are the dominant ones right now). Each time you create something, anything, <I>dynamically</I> in such a language, you are completely responsible for tracking the life of this object throughout your program and mentally deciding when it will be safe to deallocate it. This can be quite a difficult (sometimes impossible) task, because any of the other libraries or methods you've called might have &quot;squirreled away&quot; a pointer to the object, unbeknownst to you. When it becomes impossible to know, you simply choose <I>never</I> to deallocate the object, or at least to wait until every library and method call involved has completed, which could be nearly as long.
+<BR></P>
+<P>The uneasy feeling you get when writing such code is a natural, healthy response to what is inherently an unsafe and unreliable style of programming. If you have tremendous discipline&#151;and so does everyone who writes every library and method you call&#151;you can, in principle, survive this responsibility without too many mishaps. But aren't you human? Aren't they? There must be some small slips in this perfect discipline due to error. What's worse, such errors are virtually undetectable, as anyone who's tried to hunt down a stray pointer problem in C will tell you. What about the thousands of programmers who don't have that sort of discipline?
+<BR></P>
+<P>Another way to ask this question is: Why should any programmers be forced to have this discipline, when it is entirely possible for the system to remove this heavy burden from their shoulders?
+<BR></P>
+<P>Software engineering estimates have recently shown that for every 55 lines of production C-like code in the world, there is one bug. This means that your electric razor has about 80 bugs, and your TV, 400. Soon they will have even more, because the size of this kind of embedded computer software is growing exponentially. When you begin to think of how much C-like code is in your car's engine, it should give you pause.
+<BR></P>
+<P>Many of these errors are due to the misuse of pointers, by misunderstanding or by accident, and to the early, incorrect freeing of allocated objects in memory. Java addresses both of these&#151;the former, by eliminating explicit pointers from the Java language altogether and the latter, by including, in every Java system, a garbage collector that solves the problem.
+<BR></P>
+<H4><A ID = "I173" NAME = "I173"  >
+<foNT SIZE=3><B>The Solution</B>
+<BR></FONT></A></H4>
+<P>Imagine a run-time <A ID = "I174" NAME = "I174"  ></A>system that tracks each object you create, notices when the last reference to it has vanished, and frees the object for you. How could such a thing actually work?
+<BR></P>
+<P>One brute-force approach, tried early in the days of garbage collecting, is to attach a reference <A ID = "I175" NAME = "I175"  ></A><A ID = "I176" NAME = "I176"  ></A>counter to every object. When the object is created, the counter is set to 1. Each time a new reference to the object is made, the counter is incremented, and each time such a reference disappears, the counter is decremented. Because all such references are controlled by the language&#151;as variables and assignments, for example&#151;the compiler can tell whenever an object reference might be created or destroyed, just as it does in handling the scoping of local variables, and thus it can assist with this task. The system itself &quot;holds onto&quot; a set of root objects that are considered too important to be freed. The class Object is one example of such a V.I.P. object. (V.I.O.?) Finally, all that's needed is to test, after each decrement, whether the counter has hit 0. If it has, the object is freed.
+<BR></P>
+<P>If you think carefully about this approach, you will soon convince yourself that it is definitely correct when it decides to free anything. It is so simple that you can immediately tell that it will work. The low-level hacker in you might also feel that if it's <I>that</I> simple, it's probably not fast enough to run at the lowest level of the system&#151;and you'd be right.
+<BR></P>
+<P>Think about all the stack frames, local variables, method arguments, return values, and local variables created in the course of even a few hundred milliseconds of a program's life. For each of these tiny, nano-steps in the program, an extra increment&#151;at best&#151;or decrement, test, and deallocation&#151;at worst&#151;will be added to the running time of the program. In fact, the first garbage collectors were slow enough that many predicted they could never be used at all!
+<BR></P>
+<P>Luckily, a whole generation of smart programmers has invented a big bag of tricks to solve these overhead problems. One trick is to introduce special &quot;transient object&quot; areas that don't need to be reference counted. The best of these generational scavenging garbage collectors today can take less than 3 percent of the total time of your program&#151;a remarkable feat if you realize that many other language features, such as loop overheads, can be as large or larger!
+<BR></P>
+<P>There are other problems with garbage collection. If you are constantly freeing and reclaiming space in a program, won't the heap of objects soon become fragmented, with small holes everywhere and no room to create new, large objects? Because the programmer is now free from the chains of manual deallocation, won't they create even more objects than usual?
+<BR></P>
+<P>What's worse, there is another way that this simple reference counting scheme is inefficient, in space rather than time. If a long chain of object references eventually comes full circle, back to the starting object, each object's reference count remains at least 1 <I>forever</I>. None of these objects will ever be freed!
+<BR></P>
+<P>Together, these problems imply that a good garbage collector must, every once in a while, step back to compact or to clean up wasted memory.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="more.gif" tppabs="http://newdata.box.sk/bx/java/more.gif" WIDTH = 35 HEIGHT = 35><I>Compaction</I> occurs when <A ID = "I177" NAME = "I177"  ></A>a garbage collector steps back and reorganizes <A ID = "I178" NAME = "I178"  ></A><A ID = "I179" NAME = "I179"  ></A>memory, eliminating the holes created by fragmentation. Compacting memory is simply a matter of repositioning objects one-by-one into a new, compact grouping that places them all in a row, leaving all the free memory in the heap in one big piece. 
+<BR>
+<BR>Cleaning up the circular garbage still lying around after reference counting <A ID = "I180" NAME = "I180"  ></A>is called <I>marking and sweeping</I>. A mark-and-sweep of memory involves first marking every root object in the system and then following all the object references inside those objects to new objects to mark, and so on, recursively. Then, when you have no more references to follow, you &quot;sweep away&quot; all the unmarked objects, and compact memory as before.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The good news is that this solves the space problems you were having. The bad news is that when the garbage collector &quot;steps back&quot; and does these operations, a nontrivial amount of time passes during which your program is unable to run&#151;all its objects are being marked, swept, rearranged, and so forth, in what seems like an uninterruptible procedure. Your first hint to a solution is the word &quot;seems.&quot;
+<BR></P>
+<P>Garbage collecting can actually be done a little at a time, between or in parallel with normal program execution, thus dividing up the large time needed to &quot;step back&quot; into numerous so-small-you-don't-notice-them chunks of time that happen between the cracks. (Of course, years of smart thinking went into the abstruse algorithms that make all this possible!)
+<BR></P>
+<P>One final problem that might worry you a little has to do with these object references. Aren't these &quot;pointers&quot; scattered throughout your program and not just buried in objects? Even if they're only in objects, don't they have to be changed whenever the object they point to is moved by these procedures? The answer to both of these questions is a resounding <I>yes</I>, and overcoming them is the final hurdle to making an efficient garbage collector.
+<BR></P>
+<P>There are really only two choices. The first, brute force, assumes that all the memory containing object references needs to be searched on a regular basis, and whenever the object references found by this search match objects that have moved, the old reference is changed. This assumes that there are &quot;hard&quot; pointers in the heap's memory&#151;ones that point directly to other objects. By introducing various <A ID = "I181" NAME = "I181"  ></A><A ID = "I182" NAME = "I182"  ></A>kinds of &quot;soft&quot; pointers, including pointers that are like forwarding addresses, the algorithm improves greatly. Although these brute-force approaches sound slow, it turns out that modern computers can do them fast enough to be useful.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>You might wonder how the brute-force techniques identify object references. In early systems, references were specially tagged with a &quot;pointer bit,&quot; so they could be unambiguously located. Now, so-called conservative garbage collectors simply assume that if it looks like an object reference, it is&#151;at least for the purposes of the mark and sweep. Later, when actually trying to update it, they can find out whether it really is an object reference or not.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The final approach to handling object references, and the one Java currently uses, is also one of the very first ones tried. It involves using 100 percent &quot;soft&quot; pointers. An object reference is actually a handle, sometimes call an &quot;OOP,&quot; to the real pointer, and a large object table exists to map these handles into the actual object reference. Although this does introduce extra overhead on almost every object reference (some of which can be eliminated by clever tricks, as you might guess), it's not too high a price to pay for this incredibly valuable level of indirection.
+<BR></P>
+<P>This indirection allows the garbage collector, for example, to mark, sweep, move, or examine one object at a time. Each object can be independently moved &quot;out from under&quot; a running Java program by changing only the object table entries. This not only allows the &quot;step back&quot; phase to happen in the tiniest steps, but it makes a garbage collector that runs literally in parallel with your program much easier to write. This is what the Java garbage collector does.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="warning.gif" tppabs="http://newdata.box.sk/bx/java/warning.gif" WIDTH = 37 HEIGHT = 35><B>Warning:</B> You need to be very careful about garbage collection when you're doing critical, real-time programs (such as those mentioned yesterday that legitimately require native methods)&#151;but how often will your Java code be flying a commercial airliner in real-time, anyway?
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I183" NAME = "I183"  >
+<foNT SIZE=3><B>Java's Parallel Garbage Collector</B>
+<BR></FONT></A></H4>
+<P>Java applies almost all <A ID = "I184" NAME = "I184"  ></A><A ID = "I185" NAME = "I185"  ></A>these advanced techniques to give you a fast, efficient, parallel garbage collector. Running in a separate thread, it cleans up the Java environment of almost all trash (it is conservative), silently and in the background, is efficient in both space and time, and never steps back for more than a small amount of time. You should never need to know it's there.
+<BR></P>
+<P>By the way, if you want to force a full mark-and-sweep garbage collection to happen soon, you can do so simply by calling the System.gc() method<A ID = "I186" NAME = "I186"  ></A><A ID = "I187" NAME = "I187"  ></A>. You might want to do this if you just freed up a majority of the heap's memory in circular garbage, and want it all taken away quickly. You might also call this whenever you're idle, as a hint to the system about when it would be best to come and collect the garbage. This &quot;meta knowledge&quot; is rarely needed by the system, however.
+<BR></P>
+<P>Ideally, you'll never notice the garbage collector, and all those decades of programmers beating their brains out on your behalf will simply let you sleep better at night&#151;and what's wrong with that?
+<BR></P>
+<H3><A ID = "I188" NAME = "I188"  >
+<foNT SIZE=4><B>The Security Story</B>
+<BR></FONT></A></H3>
+<P>Speaking of <A ID = "I189" NAME = "I189"  ></A>sleeping well at night, if you haven't stepped back yet and said, &quot;My Goodness! You mean Java programs will be running rampant on the Internet!?!&quot; you better do so now, for it is a legitimate concern. In fact, it is one of the major technical stumbling blocks (the others being mostly social and economic) to achieving the dream of ubiquity and code sharing mentioned earlier in today's lesson.
+<BR></P>
+<H4><A ID = "I190" NAME = "I190"  >
+<foNT SIZE=3><B>Why You Should Worry</B>
+<BR></FONT></A></H4>
+<P>Any powerful, flexible technology can be abused. As the Net becomes mainstream and widespread, it, too, will be abused. Already, there have been many blips on the security radar screens of those of us who worry about such things, warning that (at least until today), not enough attention has been paid by the computer industry (or the media) to solving some of the problems that this new world brings with it. One of the benefits of constructively solving security once and for all will be a flowering unseen before in the virtual communities of the Net; whole new economies based on people's attention and creativity will spring to life, rapidly transforming our world in new and positive ways.
+<BR></P>
+<P>The downside to all this new technology, is that we (or someone!) must worry long and hard about how to make the playgrounds of the future safe for our children, and for us. Fortunately, Java is a big part of the answer.
+<BR></P>
+<H4><A ID = "I191" NAME = "I191"  >
+<foNT SIZE=3><B>Why You Might Not Have To</B>
+<BR></FONT></A></H4>
+<P>What gives me any confidence that the Java language and environment will be <I>safe</I>, that it will solve the technically daunting and extremely thorny problems inherent in any good form of security, especially for networks?
+<BR></P>
+<P>One simple reason is the history of the people, and the company, that created Java. Many of them are the very smart programmers referred to throughout the book, who helped pioneer many of the ideas that make Java great and who have worked hard over the decades to make techniques such as garbage collection a mainstream reality. They are technically capable of tackling and solving the hard problems that need to be solved. In particular, from discussions with Chuck McManis, one of Java's security gurus, I have confidence that he has thought through these hard problems deeply, and that he knows what needs to be done.
+<BR></P>
+<P>Sun Microsystems, the company, has been pushing networks as the central theme of all its software for more than a decade. Sun has the engineers and the commitment needed to solve these hard problems, because these same problems are at the very center of both its future business and its vision of the future, in which networking is the center of everything&#151;and global networks are nearly useless without good security. Just this year, Sun has advanced the state of the art in easy-to-use Internet security with its new SunScreen products, and it has assigned Whitfield Diffie to oversee them, who is the man who discovered the underlying ideas on which essentially <I>all</I> interesting forms of modern encryption are based.
+<BR></P>
+<P>Enough on &quot;deep background.&quot; What does the Java environment provide <I>right now</I> that helps me feel secure?
+<BR></P>
+<H4><A ID = "I192" NAME = "I192"  >
+<foNT SIZE=3><B>Java's Security Model</B>
+<BR></FONT></A></H4>
+<P>Java protects you <A ID = "I193" NAME = "I193"  ></A>against potential &quot;nasty&quot; Java code via a series of interlocking defenses that, together, form an imposing barrier to any and all such attacks.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="caution.gif" tppabs="http://newdata.box.sk/bx/java/caution.gif" WIDTH = 37 HEIGHT = 35><B>Caution: </B>Of course, no one can protect you from your own ignorance or carelessness. If you're the kind of person who blindly downloads binary executables from your Internet browser and runs them, you need read no further! You are already in more danger than Java will ever pose.
+<BR>
+<BR>As a user of this powerful new medium, the Internet, you should educate yourself to the possible threats this new and exciting world entails. In particular, downloading &quot;auto running macros&quot; or <A ID = "I194" NAME = "I194"  ></A><A ID = "I195" NAME = "I195"  ></A><A ID = "I196" NAME = "I196"  ></A><A ID = "I197" NAME = "I197"  ></A>reading e-mail with &quot;executable attachments&quot; is just as much a threat as downloading binaries from the Net and running them.
+<BR>
+<BR>Java does not introduce any new dangers here, but by being the first mainstream use of executable and mobile code on the Net, it is responsible for making people suddenly aware of the dangers that have always been there. Java is already, as you will soon see, much less dangerous than any of these common activities on the Net, and can be made safer still over time. Most of these other (dangerous) activities can never be made safe. So please, do not do them!
+<BR>
+<BR>A good <A ID = "I198" NAME = "I198"  ></A>rule of thumb on the Net is: Don't download anything that you plan to execute (or that will be automatically executed for you) except from someone (or some company) you know well and with whom you've had positive, personal experience. If you don't care about losing all the data on your hard drive, or about your privacy, you can do anything you like, but for most of us, this rule should be law.
+<BR>
+<BR>Fortunately, Java allows you to relax that law. You can run Java applets from anyone, anywhere, in relative safety.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Java's powerful security mechanisms act at four different levels of the system architecture. First, the Java language itself was designed to be safe, and the Java compiler ensures that source code doesn't violate these safety rules. Second, all bytecodes executed by the run-time are screened to be sure that they also obey these rules. (This layer guards against having an altered compiler produce code that violates the safety rules.) Third, the class loader ensures that classes don't violate name space or access restrictions when they are loaded into the system. Finally, API-specific security prevents applets from doing destructive things. This final layer depends on the security and integrity guarantees from the other three layers.
+<BR></P>
+<P>Let's now examine each of these layers in turn.
+<BR></P>
+<H5><A ID = "I199" NAME = "I199"  >
+<foNT SIZE=3><B>The Language and the Compiler</B>
+<BR></FONT></A></H5>
+<P>The Java language and <A ID = "I200" NAME = "I200"  ></A><A ID = "I201" NAME = "I201"  ></A><A ID = "I202" NAME = "I202"  ></A><A ID = "I203" NAME = "I203"  ></A>its compiler are the first line of defense. Java was designed to be a safe language.
+<BR></P>
+<P>Most other C-like languages have facilities to control access to &quot;objects,&quot; but also have ways to &quot;forge&quot; access to objects (or to parts of objects), usually by (mis-)using pointers. This introduces two fatal security flaws to any system built on these languages. One is that no object can protect itself from outside modification, duplication, or &quot;spoofing&quot; (others pretending to be that object). Another is that a language with powerful pointers is more likely to have serious bugs that compromise security. These pointer bugs, where a &quot;runaway pointer&quot; starts modifying some other object's memory, were responsible for most of the public (and not-so-public) security problems on the Internet this past decade.
+<BR></P>
+<P>Java eliminates these threats in one stroke by eliminating pointers from the language altogether. There are still pointers of a kind&#151;object references&#151;but these are carefully controlled to be safe: they are unforgeable, and all casts are checked for legality before being allowed. In addition, powerful new array facilities in Java not only help to offset the loss of pointers, but add additional safety by strictly enforcing array bounds, catching more bugs for the programmer (bugs that, in other languages, might lead to unexpected and, thus, bad-guy-exploitable problems).
+<BR></P>
+<P>The language definition, and the compilers that enforce it, create a powerful barrier to any &quot;nasty&quot; Java programmer.
+<BR></P>
+<P>Because an overwhelming majority of the &quot;net-savvy&quot; software on the Internet may soon be Java, its safe language definition and compilers help to guarantee that most of this software has a solid, secure base. With fewer bugs, Net software will be more predictable&#151;a property that thwarts attacks.
+<BR></P>
+<H5><A ID = "I204" NAME = "I204"  >
+<foNT SIZE=3><B>Verifying the Bytecodes</B>
+<BR></FONT></A></H5>
+<P>What if <A ID = "I205" NAME = "I205"  ></A><A ID = "I206" NAME = "I206"  ></A>that &quot;nasty&quot; programmer gets a little more determined, and rewrites the Java compiler to suit his nefarious purposes? The Java run-time, getting the lion's share of its bytecodes from the Net, can never tell whether those bytecodes were generated by a &quot;trustworthy&quot; compiler. Therefore, it must <I>verify</I> that they meet all the safety requirements.
+<BR></P>
+<P>Before running any bytecodes, the run-time subjects them to a rigorous series of tests that vary in complexity from simple format checks all the way to running a theorem prover, to make certain that they are playing by the rules. These tests verify that the bytecodes do not forge pointers, violate access restrictions, access objects as other than what they are (InputStreams are always used as InputStreams, and never as anything else), call methods with inappropriate argument values or types, nor overflow the stack.
+<BR></P>
+<P>Consider the following Java code sample:
+<BR></P>
+<PRE>public class VectorTest {
+    public int  array[];
+    public int  sum() {
+        int[]  localArray = array;
+        int    sum        = 0;
+        for (int  i = localArray.length;  &#151;i &gt;= 0;  )
+            sum += localArray[i];
+        return sum;
+    }
+}</PRE>
+<P>The bytecodes generated when this code is compiled look something like the following:
+<BR></P>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>    aload_0</P>
+<TD>
+<P>Load this</P>
+<TR>
+<TD>
+<P>    getfield #10</P>
+<TD>
+<P>Load this.array</P>
+<TR>
+<TD>
+<P>    astore_1</P>
+<TD>
+<P>Store in localArray</P>
+<TR>
+<TD>
+<P>    iconst_0</P>
+<TD>
+<P>Load 0</P>
+<TR>
+<TD>
+<P>    istore_2</P>
+<TD>
+<P>Store in sum</P>
+<TR>
+<TD>
+<P>    aload_1</P>
+<TD>
+<P>Load localArray</P>
+<TR>
+<TD>
+<P>    arraylength</P>
+<TD>
+<P>Gets its length</P>
+<TR>
+<TD>
+<P>    istore_3</P>
+<TD>
+<P>Store in i</P>
+<TR>
+<TD>
+<P> A:  iinc 3 -1</P>
+<TD>
+<P>Subtract 1 from i</P>
+<TR>
+<TD>
+<P>    iload_3</P>
+<TD>
+<P>Load i</P>
+<TR>
+<TD>
+<P>    iflt B</P>
+<TD>
+<P>Exit loop if  &lt; 0</P>
+<TR>
+<TD>
+<P>    iload_2</P>
+<TD>
+<P>Load sum</P>
+<TR>
+<TD>
+<P>    aload_1</P>
+<TD>
+<P>Load localArray</P>
+<TR>
+<TD>
+<P>    iload_3</P>
+<TD>
+<P>Load i</P>
+<TR>
+<TD>
+<P>    iaload</P>
+<TD>
+<P>Load localArray[i]</P>
+<TR>
+<TD>
+<P>    iadd</P>
+<TD>
+<P>Add sum</P>
+<TR>
+<TD>
+<P>    istore_2</P>
+<TD>
+<P>Store in sum</P>
+<TR>
+<TD>
+<P>    goto A</P>
+<TD>
+<P>Do it again</P>
+<TR>
+<TD>
+<P> B:  iload_2</P>
+<TD>
+<P>Load sum</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>    ireturn</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Return it</CENTER></P></TABLE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note:</B> The excellent examples and descriptions in this section of the book are paraphrased from the tremendously informative security paper in the (alpha) Java release. I'd encourage you to read whatever the latest version of this document is in newer releases, if you want to follow the ongoing Java security story.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H6>
+<foNT SIZE=3><B>Extra Type Information and Requirements</B>
+<BR></FONT></H6>
+<P>Java bytecodes encode <A ID = "I207" NAME = "I207"  ></A><A ID = "I208" NAME = "I208"  ></A>more type information than is strictly necessary for the interpreter. Even though, for example, the aload and iload opcodes do exactly the same thing, aload is always used to load an object reference and iload used to load an integer. Some bytecodes (such as getfield) include a symbol table reference&#151;and that symbol table has <I>even more </I>type information. This extra type information allows the run-time system to guarantee that Java objects and data aren't illegally manipulated.
+<BR></P>
+<P>Conceptually, before and after each bytecode is executed, every slot in the stack and every local variable has some type. This collection of type information&#151;all the slots and local variables&#151;is called the <I>type </I><I>state</I> of the execution environment. An important requirement of the Java type state is that it must be determinable statically by induction&#151;that is, before any program code is executed. As a result, as the run-time systems reads bytecodes, each is required to have the following inductive property: given only the type state before the execution of the bytecode, the type state afterward must be fully determined.
+<BR></P>
+<P>Given &quot;straight-line&quot; bytecodes (no branches), and starting with a known stack state, the state of each slot in the stack is therefore always known. For example, starting with an empty stack:
+<BR></P>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>iload_1</P>
+<TD>
+<P>Load integer variable. Stack type state is I.</P>
+<TR>
+<TD>
+<P>iconst 5</P>
+<TD>
+<P>Load integer constant. Stack type state is II.</P>
+<TR>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>iadd</CENTER></P>
+<TD>
+<P ALIGN="CENTER">
+<CENTER>Add two integers, producing an integer. Stack type state is I.</CENTER></P></TABLE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Smalltalk and PostScript bytecodes do not have this restriction. Their more dynamic type behavior does create additional flexibility in those systems, but Java needs to provide a secure execution environment. It must therefore know all types <I>at all times</I>, in order to guarantee a certain level of security.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>Another requirement made by the Java run-time is that when a set of bytecodes can take more than one path to arrive at the same point, all such paths must arrive there with exactly the same type state. This is a strict requirement, and implies, for example, that compilers cannot generate bytecodes that load all the elements of an array onto the stack. (Because each time through such a loop the stack's type state changes, the start of the loop&#151;&quot;the same point&quot; in multiple paths&#151;would have more than one type state, which is not allowed).
+<BR></P>
+<H6>
+<foNT SIZE=3><B>The Verifier</B>
+<BR></FONT></H6>
+<P>Bytecodes are <A ID = "I209" NAME = "I209"  ></A><A ID = "I210" NAME = "I210"  ></A><A ID = "I211" NAME = "I211"  ></A>checked for compliance with all these requirements, using the extra type information in a .class file, by a part of the run-time called the <I>verifier</I>. It examines each bytecode in turn, constructing the full type state as it goes, and verifies that all the types of parameters, arguments, and results are correct. Thus, the verifier acts as a gatekeeper to your run-time environment, letting in only those bytecodes that pass muster.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="warning.gif" tppabs="http://newdata.box.sk/bx/java/warning.gif" WIDTH = 37 HEIGHT = 35><B>Warning: </B>The verifier is <I>the crucial piece</I> of Java's security, and it depends on your having a correctly implemented (no bugs, intentional or otherwise) run-time system. As of this writing, only Sun is producing Java run-times, and theirs are secure. In the future, however, you should be careful when downloading or buying another company's (or individual's) version of the Java run-time environment. Eventually, Sun will implement validation suites for run-times, compilers, and so forth to be sure that they are safe and correct. In the meantime, <I>caveat </I><I>emptor</I>! Your run-time is the base on which all the rest of Java's security is built, so make sure it is a good, solid, secure base.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>When bytecodes have passed the verifier, they are guaranteed not to: cause any operand stack under- or overflows; use parameter, argument, or return types incorrectly; illegally convert data from one type to another (from an integer to a pointer, for example); nor access any object's fields illegally (that is, the verifier checks that the rules for public, private, package, and protected are obeyed).
+<BR></P>
+<P>As an added bonus, because the interpreter can now count on all these facts being true, it can run much faster than before. All the required checks for safety have been done up front, so it can run at full throttle. In addition, object references can now be treated as capabilities, because they are unforgeable&#151;capabilities allow, for example, advanced security models for file I/O and authentication to be safely built on top of Java.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Because you can now trust that a private variable really is private, and that no bytecode can perform some magic with casts to extract information from it (such as your credit card number), many of the security problems that might arise in other, less safe environments simply vanish! These guarantees also make erecting barriers against destructive applets possible, and easier. Because the Java system doesn't have to worry about &quot;nasty&quot; bytecodes, it can get on with creating the other levels of security it wants to provide to you.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H5><A ID = "I212" NAME = "I212"  >
+<foNT SIZE=3><B>The Class Loader</B>
+<BR></FONT></A></H5>
+<P>The class <A ID = "I213" NAME = "I213"  ></A><A ID = "I214" NAME = "I214"  ></A><A ID = "I215" NAME = "I215"  ></A>loader is another kind of gatekeeper, albeit a higher-level one. The verifier was the security of last resort. The class loader is the security of first resort.
+<BR></P>
+<P>When a new class is loaded into the system, it is placed into (lives in) one of several different &quot;realms.&quot; In the current release, there are three possible realms: your local computer, the firewall-guarded local network on which your computer is located, and the Internet (the global Net). Each of these realms is treated differently by the class loader.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Actually, there can be as many realms as your desired level of security (or paranoia) requires. This is because the class loader is under your control. As a programmer, you can make your own class loader that implements your own peculiar brand of security. (This is a radical step: you may have to give the users of your program a whole bunch of classes&#151;and they give you a whole lot of trust&#151;to accomplish this.)
+<BR>
+<BR>As a user, you can tell your Java-capable browser, or Java system, what realm of security (of the three) you'd like it to implement for you right now, or from now on.
+<BR>
+<BR>As a system administrator, Java has global security policies that you can set up to help guide your users to not &quot;give away the store&quot; (that is, set all their preferences to be unrestricted, promiscuous, &quot;hurt me please!&quot;).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>In particular, the class loader never allows a class from a &quot;less protected&quot; realm to replace a class from a more protected realm. The file system's I/O primitives, about which you should be <I>very</I> worried (and rightly so), are all defined in a local Java class, which means that they all live in the local-computer realm. Thus, no class from outside your computer (from either the supposedly trustworthy local network or from the Internet) can take the place of these classes and &quot;spoof&quot; Java code into using &quot;nasty&quot; versions of these primitives. In addition, classes in one realm cannot call upon the methods of classes in other realms, unless those classes have explicitly declared those methods public. This implies that classes from other than your local computer cannot even <I>see</I> the file system I/O methods, much less call them, unless you or the system wants them to.
+<BR></P>
+<P>In addition, every new applet loaded from the network is placed into a separate package-like namespace. This means that applets are protected even from each other! No applet can access another's methods (or variables) without its cooperation. Applets from inside the firewall can even be treated differently from those outside the firewall, if you like.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Actually, it's all a little more complex than this. In the current release, an applet is in a package &quot;namespace&quot; along with any other applets from that <I>source</I>. This source, or origin, is most often a host (domain name) on the Internet. This special &quot;subrealm&quot; is used extensively in the next section. Depending on where the source is located, outside the firewall (or inside), further restrictions may apply (or be removed entirely). This model is likely to be extended in future releases of Java, providing an even finer degree of control over which classes get to do what.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>The class loader essentially partitions the world of Java classes into small, protected little groups, about which you can safely make assumptions that will <I>always</I> be true. This type of predictability is the key to well-behaved and secure programs.
+<BR></P>
+<P>You've now seen the full lifetime of a method. It starts as source code on some computer, is compiled into bytecodes on some (possibly different) computer, and can then travel (as a .class file) into any file system or network anywhere in the world. When you run an applet in a Java-capable browser (or download a class and run it by hand using java), the method's bytecodes are extracted from its .class file and carefully looked over by the verifier. Once they are declared safe, the interpreter can execute them for you (or a code generator can generate native binary code for them using either the &quot;just-in-time&quot; compiler or java2c, and then run that native code directly).
+<BR></P>
+<P>At each stage, more and more security is added. The final level of that security is the Java class library itself, which has several carefully designed classes and APIs that add the final touches to the security of the system.
+<BR></P>
+<H5><A ID = "I216" NAME = "I216"  >
+<foNT SIZE=3><B>The Security Manager</B>
+<BR></FONT></A></H5>
+<P>SecurityManager is <A ID = "I217" NAME = "I217"  ></A><A ID = "I218" NAME = "I218"  ></A>an abstract class that was recently added to the Java system to collect, in one place, all the security policy decisions that the system has to make as bytecodes run. You learned before that you can create your own class loader. In fact, you may not have to, because you can subclass SecurityManager to perform most of the same customizations.
+<BR></P>
+<P>An instance of some subclass of SecurityManager is always installed as the current security manager. It has complete control over which of a well-defined set of &quot;dangerous&quot; methods are allowed to be called by any given class. It takes the realms from the last section into account, the source (origin) of the class, and the type of the class (stand-alone, or loaded by an applet). Each of these can be separately configured to have the effect you (the programmer) like on your Java system. For nonprogrammers, the system provides several levels of default security policies from which you can choose.
+<BR></P>
+<P>What is this &quot;well-defined set&quot; of methods that are protected?
+<BR></P>
+<P>File I/O is a part of the set, for obvious reasons. Applets, by default, can open, read, or write files only with the express permission of the user&#151;and even then, only in certain restricted directories. (Of course, users can always be stupid about this, but that's what system administrators are for!)
+<BR></P>
+<P>Also in this protected set are the methods that create and use network connections, both incoming and outgoing.
+<BR></P>
+<P>The final members of the set are those methods that allow one thread to access, control, and manipulate other threads. (Of course, additional methods can be protected as well, by creating a new subclass of SecurityManager that handles them.)
+<BR></P>
+<P>For both file and network access, the user of a Java-capable browser can choose between three realms (and one subrealm) of protection: 
+<BR></P>
+<UL>
+<LI><I>unrestricted</I> (allows applets<A ID = "I219" NAME = "I219"  ></A><A ID = "I220" NAME = "I220"  ></A> to do anything)
+<BR>
+<BR></LI>
+<LI><I>firewall</I> (allows applets within <A ID = "I221" NAME = "I221"  ></A><A ID = "I222" NAME = "I222"  ></A>the firewall to do anything)
+<BR>
+<BR></LI>
+<LI><I>source</I> (allows applets <A ID = "I223" NAME = "I223"  ></A><A ID = "I224" NAME = "I224"  ></A>to do things only with their origin Internet host, or with other applets from there)
+<BR>
+<BR></LI>
+<LI><I>local</I> (disallows all <A ID = "I225" NAME = "I225"  ></A><A ID = "I226" NAME = "I226"  ></A>file and network access) 
+<BR>
+<BR></LI></UL>
+<P>For file access, the <I>source</I> subrealm is not meaningful, so it really has only three realms of protection. (As a programmer, of course, you have full access to the security manager and can set up your own peculiar criteria for granting and revoking privileges to your heart's content.)
+<BR></P>
+<P>For network access, you can imagine wanting many more realms. For example, you might specify different groups of trusted domains (companies), each of which is allowed added privileges when applets from that group are loaded. Some groups can be more trusted than others, and you might even allow groups to grow automatically by allowing existing members to recommend new members for admission. (The Java seal of approval?)
+<BR></P>
+<P>In any case, the possibilities are endless, as long as there is a secure way of recognizing the original creator of an applet.
+<BR></P>
+<P>You might think this problem has already been solved, because classes are tagged with their origin. In fact, the Java run-time goes far out of its way to be sure that that origin information is never lost&#151;any executing method can be dynamically restricted by this information anywhere in the call chain. So why <I>isn't</I> this enough?
+<BR></P>
+<P>Because what you'd really <A ID = "I227" NAME = "I227"  ></A><A ID = "I228" NAME = "I228"  ></A>like to be able to do is permanently &quot;tag&quot; an applet with its original creator (its true origin), and no matter where it has traveled, a browser could verify the integrity and authenticate the creator of that applet. Just because you don't know the company or individual that operates a particular server machine doesn't mean that you <I>want</I> to mistrust every applet stored on that machine. It's just that, currently, to be really safe, you <I>should</I> mistrust those applets.
+<BR></P>
+<P>If somehow those applets were irrevocably tagged with a digital signature by their creator, and that signature could also guarantee that the applet had not been tampered with, you'd be golden.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>Luckily, Sun is planning to do exactly that for Java, as soon as export restrictions can be resolved.
+<BR>
+<BR>Here's a helpful hint of where the team would like to go, from the security documentation: &quot;...a mechanism exists whereby public keys and cryptographic message digests can be securely attached to code fragments that not only identify who originated the code, but guarantee its integrity as well. This latter mechanism will be implemented in future releases.&quot;
+<BR>
+<BR>Look for these sorts of features in every release of Java; they will be a key part of the future of the Internet!
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>One final note about security. Despite the best efforts of the Java team, there is always a trade-off between useful functionality and absolute security. For example, Java applets can create windows, an extremely useful capability, but a &quot;nasty&quot; applet could use this to spoof the user into typing private password information, by showing a familiar program (or operating system) window and then asking an expected, legitimate-looking question in it. (The beta release adds a special banner to applet-created windows to solve this problem.)
+<BR></P>
+<P>Flexibility and security can't both be maximized. Thus far on the Net, people have chosen maximum flexibility, and have lived with the minimal security the Net now provides. Let's hope that Java can help tip the scales a bit, enabling much better security, while sacrificing only a minimal amount of the flexibility that has drawn so many to the Net.
+<BR></P>
+<H3><A ID = "I229" NAME = "I229"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Today, you learned about the grand vision that some of us have for Java, and about the exciting future it promises.
+<BR></P>
+<P>Under the hood, the inner workings of the virtual machine, the bytecode interpreter (and all its bytecodes), the garbage collector, the class loader, the verifier, the security manager, and the powerful security features of Java were all revealed.
+<BR></P>
+<P>You now know <I>almost</I> enough to write a Java run-time environment of your own&#151;but luckily, you don't have to. You can simply download the latest release of Java&#151;or use a Java-capable browser to enjoy most of the benefits of Java right away.
+<BR></P>
+<P>I hope that Java ends up opening new roads in your mind, as it has in mine.
+<BR></P>
+<H3><A ID = "I230" NAME = "I230"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: I'm still a little unclear about why the Java language and compiler </B><B>make the Net safer. Can't they just be &quot;side-stepped&quot; by nasty </B><B>bytecodes?</B>
+<BR></P>
+<P><B>A: </B>Yes, they can&#151;but don't forget that the whole point of using a safe language and compiler was to make the Net <I>as a whole</I> safer as more Java code is written. An overwhelming majority of this Java code will be written by &quot;honest&quot; Java programmers, who will produce safe bytecodes. This makes the Net more predictable over time, and thus more secure.
+<BR></P>
+<P><B>Q: I know you said that garbage collection is something I don't have to </B><B>worry about, but what if I want (or need) to?</B>
+<BR></P>
+<P><B>A: </B>So, you <I>are</I> planning to fly a plane with Java. Cool! For just such cases, there is a way to ask the Java run-time, during startup (java -noasyncgc), <I>not</I> to run garbage collection unless forced to, either by an explicit call (System.gc()) or by running out of memory. (This can be quite useful if you have multiple threads that are messing each other up and want to &quot;get the gc thread out of the way&quot; while testing them.) Don't forget that turning garbage collection off means that any object you create will live a <I>long, long time</I>. If you're real-time, you never want to &quot;step back&quot; for a full gc&#151;so be sure to reuse objects often, and don't create too many of them!
+<BR></P>
+<P><B>Q: I like the control above; is there anything else I can do to the </B><B>garbage collector?</B>
+<BR></P>
+<P><B>A: </B>You can also force the finalize() methods of any recently freed objects to be called immediately via System.runFinalization(). You might want to do this if you're about to ask for some resources that you suspect might still be tied up by objects that are &quot;gone but not forgotten&quot; (waiting for finalize()). This is even rarer than starting a gc by hand, but it's mentioned here for completeness.
+<BR></P>
+<P><B>Q: What's the last word on Java?</B>
+<BR></P>
+<P><B>A: </B>Java adds much more than it can ever take away. It has always done so for me, and now, I hope it will for you, as well.
+<BR>
+<BR>The future of the Net is filled with as-yet-undreamt horizons, and the road is long and hard, but Java is a great traveling companion. 
+<BR></P>
+<P><A HREF = "tyj20x.html" tppabs="http://newdata.box.sk/bx/java/tyj20x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyjxax.html" tppabs="http://newdata.box.sk/bx/java/tyjxax.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

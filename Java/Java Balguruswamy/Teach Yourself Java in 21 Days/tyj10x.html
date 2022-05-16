@@ -1,0 +1,707 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj10x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj11x.html" tppabs="http://newdata.box.sk/bx/java/tyj11x.html">
+<LINK REL="Previous" HREF="tyj09x.html" tppabs="http://newdata.box.sk/bx/java/tyj09x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj09x.html" tppabs="http://newdata.box.sk/bx/java/tyj09x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj11x.html" tppabs="http://newdata.box.sk/bx/java/tyj11x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >Day 10</A></LI>
+<UL>
+<LI>
+<A HREF = "#I3"  >Simple Animation and Threads</A></LI>
+<UL>
+<LI>
+<A HREF = "#I4"  >Creating Animation in Java</A></LI>
+<UL>
+<LI>
+<A HREF = "#I7"  >Painting and Repainting</A></LI>
+<LI>
+<A HREF = "#I12"  >Starting and Stopping an Applet's Execution</A></LI>
+<LI>
+<A HREF = "#I19"  >Putting It Together</A></LI></UL>
+<LI>
+<A HREF = "#I24"  >Threads What They Are and Why You Need Them</A></LI>
+<UL>
+<LI>
+<A HREF = "#I28"  >The Problem with the Digital Clock Applet</A></LI>
+<LI>
+<A HREF = "#I31"  >Writing Applets with Threads</A></LI>
+<LI>
+<A HREF = "#I42"  >Fixing The Digital Clock</A></LI></UL>
+<LI>
+<A HREF = "#I45"  >Reducing Animation Flicker</A></LI>
+<UL>
+<LI>
+<A HREF = "#I49"  >Flicker and How to Avoid It</A></LI>
+<LI>
+<A HREF = "#I54"  >How to Override Update</A></LI>
+<LI>
+<A HREF = "#I58"  >Solution One Don't Clear the Screen</A></LI>
+<LI>
+<A HREF = "#I68"  >Solution Two Redraw Only What You Have To</A></LI></UL>
+<LI>
+<A HREF = "#I73"  >Summary</A></LI>
+<LI>
+<A HREF = "#I74"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 10</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Simple Animation and Threads</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>The first thing I ever saw Java do was an animation: a large red &quot;Hi there!&quot; that ran across the screen from the right to left. Even that simple form of animation was enough to make me stop and think, &quot;this is really cool.&quot;
+<BR></P>
+<P>That sort of simple animation takes only a few methods to implement in Java, but those few methods are the basis for any Java applet that you want to update the screen dynamically. Starting with simple animations is a good way to build up to more complicated applets. Today, you'll learn the fundamentals of animation in Java: how the various parts of the system all work together so that you can create moving figures and dynamically updateable applets. Specifically, you'll explore the following:
+<BR></P>
+<UL>
+<LI>How Java animations work&#151;the paint() and repaint() methods, starting and stopping dynamic applets, and how to use and override these methods in your own applets
+<BR>
+<BR></LI>
+<LI>Threads&#151;what they are and how they can make your applets more well-behaved with other applets and with the Java system in general
+<BR>
+<BR></LI>
+<LI>Reducing animation flicker, a common problem with animation in Java
+<BR>
+<BR></LI></UL>
+<P>Throughout today, you'll also work with lots of examples of real applets that create animations or perform some kind of dynamic movement.
+<BR></P>
+<H3><A ID = "I4" NAME = "I4"  >
+<foNT SIZE=4><B>Creating Animation in Java</B>
+<BR></FONT></A></H3>
+<P>Animation in Java <A ID = "I5" NAME = "I5"  ></A><A ID = "I6" NAME = "I6"  ></A>involves two steps: constructing a frame of animation, and then asking Java to paint that frame. Repeat as necessary to create the illusion of movement. The basic, static applets that you created yesterday taught you how to accomplish the first part; all that's left is how to tell Java to paint a frame.
+<BR></P>
+<H4><A ID = "I7" NAME = "I7"  >
+<foNT SIZE=3><B>Painting and Repainting</B>
+<BR></FONT></A></H4>
+<P>The paint() method, as you <A ID = "I8" NAME = "I8"  ></A><A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A><A ID = "I11" NAME = "I11"  ></A>learned yesterday, is called by Java whenever the applet needs to be painted&#151;when the applet is initially drawn, when the window containing it is moved, or when another window is moved from over it. You can also, however, ask Java to repaint the applet at a time you choose. So, to change the appearance of what is on the screen, you construct the image or &quot;frame&quot; you want to paint, and then ask Java to paint this frame. If you do this repeatedly, and fast enough, you get animation inside your Java applet. That's all there is to it.
+<BR></P>
+<P>Where does all this take place? Not in the paint() method itself. All paint() does is put dots on the screen. paint(), in other words, is responsible only for the current frame of the animation. The real work of changing what paint() does, of modifying the frame for an animation, actually occurs somewhere else in the definition of your applet.
+<BR></P>
+<P>In that &quot;somewhere else,&quot; you construct the frame (set variables for paint() to use, create Color or Font or other objects that paint() will need), and then call the repaint() method. repaint() is the trigger that causes Java to call paint() and causes your frame to get drawn.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Technical Note:</B> Because a Java applet can contain many different components that all need to be painted (as you'll learn later on this week), and in fact, applets are embedded inside a larger Java application that also paints to the screen in similar ways, when you call repaint() (and therefore paint()) you're not actually immediately drawing to the screen as you do in other window or graphics toolkits. Instead, repaint() is a <I>request</I> for Java to repaint your applet as soon as it can. Also, if too many repaint() requests are made in a short amount of time, the system may only call repaint() once for all of them. Much of the time, the delay between the call and the actual repaint is negligible.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H4><A ID = "I12" NAME = "I12"  >
+<foNT SIZE=3><B>Starting and Stopping an Applet's Execution</B>
+<BR></FONT></A></H4>
+<P>Remember start() and stop() <A ID = "I13" NAME = "I13"  ></A><A ID = "I14" NAME = "I14"  ></A>from Day 8? These are the methods that trigger your applet to start and stop running. You didn't use <A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A><A ID = "I17" NAME = "I17"  ></A><A ID = "I18" NAME = "I18"  ></A>start() and stop() yesterday, because the applets on that day did nothing except paint once. With animations and other Java applets that are actually processing and running over time, you'll need to make use of start() and stop() to trigger the start of your applet's execution, and to stop it from running when you leave the page that contains that applet. For many applets, you'll want to override start and stop for just this reason.
+<BR></P>
+<P>The start() method triggers the execution of the applet. You can either do all the applet's work inside that method, or you can call other object's methods in order to do so. Usually, start() is used to create and begin execution of a thread so the applet can run in its own time.
+<BR></P>
+<P>stop(), on the other hand, suspends an applet's execution so when you move off the page on which the applet is displaying, it doesn't keep running and using up system resources. Most of the time when you create a start() method, you should also create a corresponding stop().
+<BR></P>
+<H4><A ID = "I19" NAME = "I19"  >
+<foNT SIZE=3><B>Putting It Together</B>
+<BR></FONT></A></H4>
+<P>Explaining how to do Java animation is more of a task than actually showing you how it works in code. An example or two will help make the relationship between all these methods clearer.
+<BR></P>
+<P>Listing 10.1 shows a sample applet that, at first glance, uses basic applet animation to display the date and time and constantly updates it every second, creating a very simple animated digital clock (a frame from that clock is shown in Figure 10.1). 
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/10tyj01.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/10tyj01.gif'" tppabs="http://newdata.box.sk/bx/java/10tyj01.gif"  >Figure 10.1. The digital clock.</B></A>
+<BR></P>
+<P>The words &quot;at first glance&quot; in the previous paragraph are very important: this applet doesn't work! However, despite the fact that it doesn't work, you can still learn a lot about basic animation with it, so working through the code will still be valuable. In the next section, you'll learn just what's wrong with it.
+<BR></P>
+<P>See whether you can figure out what's going on with this code before you go on to the analysis.
+<BR></P>
+<UL>
+<LH><B>Listing 10.1. The Date applet.</B><A ID = "I20" NAME = "I20"  ></A></LH></UL>
+<PRE> 1:  import java.awt.Graphics;
+ 2:  import java.awt.Font;
+ 3:  import java.util.Date;
+ 4:
+ 5:  public class DigitalClock extends java.applet.Applet {
+ 6: 
+ 7:      Font theFont = new Font(&quot;TimesRoman&quot;, Font.BOLD, 24);
+ 8:      Date theDate;
+ 9:
+10:     public void start() {
+11:       while (true) {
+12:             theDate = new Date();
+13:             repaint();
+14:             try { Thread.sleep(1000); }
+15:             catch (InterruptedException e) { }
+16:         }
+17:     }
+18:
+19:     public void paint(Graphics g) {
+20:         g.setFont(theFont);
+21:         g.drawString(theDate.toString(), 10, 50);
+22:     }
+23: }</PRE>
+<P>Think you've got the basic idea? Let's go through it, line by line.
+<BR></P>
+<P>Lines 7 and 8 define two basic instance variables: theFont and theDate, which hold objects representing the current font and the current date, respectively. More about these later.
+<BR></P>
+<P>The start() method triggers the actual execution of the applet. Note the while loop inside this method; given that the test (true) always returns true, the loop never exits. A single animation frame is constructed inside that while loop, with the following steps:
+<BR></P>
+<UL>
+<LI>The Date class represents <A ID = "I21" NAME = "I21"  ></A>a date and time (Date is part of the java.util package&#151;note that it was specifically imported in line three). Line 12 creates a new instance of the Date class, which holds the current date and time, and assigns it to the theDate instance variable.
+<BR>
+<BR></LI>
+<LI>The repaint() method is called.
+<BR>
+<BR></LI>
+<LI>Lines 14 and 15, as complicated as they look, do nothing except pause for 1000 milliseconds (one second) before the loop repeats. The sleep() <A ID = "I22" NAME = "I22"  ></A><A ID = "I23" NAME = "I23"  ></A>method there, part of the Thread class, is what causes the applet to pause. Without a specific sleep() method, the applet would run as fast as it possibly could, which, for most computer systems, would be too fast for the eye to see. Using sleep() enables you to control exactly how fast the animation takes place. The try and catch stuff around it enables Java to manage errors if they occur. try and catch handle exceptions and are described on Day 17, next week.
+<BR>
+<BR></LI></UL>
+<P>On to the paint() method. Here, inside paint(), all that happens is that the current font (in the variable theFont) is set, and the date itself is printed to the screen (note that you have to call the toString() method to convert the date to a string). Because paint() is called repeatedly with whatever value happens to be in theDate, the string is updated every second to reflect the new date.
+<BR></P>
+<P>There are a few things to note about this example. First, you might think it would be easier to create the new Date object inside the paint() method. That way you could use a local variable and not need an instance variable to pass the Date object around. Although doing things that way creates cleaner code, it also results in a less efficient program. The paint() method is called every time a frame needs to be changed. In this case, it's not that important, but in an animation that needs to change frames very quickly, the paint() method has to pause to create that new object every time. By leaving paint() to do what it does best&#151;painting the screen&#151;and calculating new objects before hand, you can make painting as efficient as possible. This is precisely the same reason why the Font object is also in an instance variable.
+<BR></P>
+<H3><A ID = "I24" NAME = "I24"  >
+<foNT SIZE=4><B>Threads What They Are and Why You Need Them</B>
+<BR></FONT></A></H3>
+<P>Depending on your experience <A ID = "I25" NAME = "I25"  ></A>with operating systems and with environments within those systems, you may or may not have run into the concept of threads. Let's start from the beginning with some definitions.
+<BR></P>
+<P>When a program runs, it starts executing, runs its initialization code, calls methods or procedures, and continues running and processing until it's complete or until the program is exited. That program uses a single thread&#151;where the thread is a single locus of control for the program.
+<BR></P>
+<P>Multithreading, as <A ID = "I26" NAME = "I26"  ></A><A ID = "I27" NAME = "I27"  ></A>in Java, enables several different execution threads to run at the same time inside the same program, in parallel, without interfering with each other.
+<BR></P>
+<P>Here's a simple example. Suppose you have a long computation near the start of a program's execution. This long computation may not be needed until later on in the program's execution&#151;it's actually tangential to the main point of the program, but it needs to get done eventually. In a single-threaded program, you have to wait for that computation to finish before the rest of the program can continue running. In a multithreaded system, you can put that computation into its own thread, enabling the rest of the program to continue running independently.
+<BR></P>
+<P>Using threads in Java, you can create an applet so that it runs in its own thread, and it will happily run all by itself without interfering with any other part of the system. Using threads, you can have lots of applets running at once on the same page. Depending on how many you have, you may eventually tax the system so that all of them will run slower, but all of them will still run independently.
+<BR></P>
+<P>Even if you don't have lots of applets, using threads in your applets is good Java programming practice. The general rule of thumb for well-behaved applets: whenever you have any bit of processing that is likely to continue for a long time (such as an animation loop, or a bit of code that takes a long time to execute), put it in a thread.
+<BR></P>
+<H4><A ID = "I28" NAME = "I28"  >
+<foNT SIZE=3><B>The Problem with the Digital Clock Applet</B>
+<BR></FONT></A></H4>
+<P>That Digital Clock applet in <A ID = "I29" NAME = "I29"  ></A><A ID = "I30" NAME = "I30"  ></A>the last section doesn't use threads. Instead, you put the while loop that cycles through the animation directly into the start() method so that when the applet starts running it keeps going until you quit the browser or applet viewer. Although this may seem like a good way to approach the problem, the digital clock won't work because the while loop in the start() method is monopolizing all the resources in the system&#151;including painting. If you try compiling and running the digital clock applet, all you get is a blank screen. You also won't be able to stop the applet normally, because there's no way a stop() method can ever be called.
+<BR></P>
+<P>The solution to this problem is to rewrite the applet to use threads. Threads enable this applet to animate on its own without interfering with other system operations, enable it to be started and stopped, and enable you to run it in parallel with other applets.
+<BR></P>
+<H4><A ID = "I31" NAME = "I31"  >
+<foNT SIZE=3><B>Writing Applets with Threads</B>
+<BR></FONT></A></H4>
+<P>How do you create an <A ID = "I32" NAME = "I32"  ></A><A ID = "I33" NAME = "I33"  ></A><A ID = "I34" NAME = "I34"  ></A>applet that uses threads? There are several things you need to do. Fortunately, none of them are difficult, and a lot of the basics of using threads in applets is just boilerplate code that you can copy and paste from one applet to another. Because it's so easy, there's almost no reason <I>not</I> to use threads in your applets, given the benefits.
+<BR></P>
+<P>There are four modifications you need to make to create an applet that uses threads:
+<BR></P>
+<UL>
+<LI>Change the signature of your applet class to include the words implements Runnable.
+<BR>
+<BR></LI>
+<LI>Include an instance variable to hold this applet's thread.
+<BR>
+<BR></LI>
+<LI>Modify your start() method to do nothing but spawn a thread and start it running.
+<BR>
+<BR></LI>
+<LI>Create a run() method that contains the actual code that starts your applet running.
+<BR>
+<BR></LI></UL>
+<P>The first change is to the first line of your class definition. You've already got something like this:
+<BR></P>
+<PRE>public class MyAppletClass extends java.applet.Applet {
+...
+}</PRE>
+<P>You need to change it to the following:
+<BR></P>
+<PRE>public class MyAppletClass extends java.applet.Applet  implements Runnable {
+...
+}</PRE>
+<P>What does this do? It includes support for the <A ID = "I35" NAME = "I35"  ></A>Runnable interface in your applet. If you think way back to Day 2, you'll remember that interfaces are a way to collect method names common to different classes, which can then be mixed in and implemented inside different classes that need to implement that behavior. Here, the Runnable interface defines the behavior your applet needs to run a thread; in particular, it gives you a default definition for the run() method. By implementing Runnable you tell others that they can call the Run() method<A ID = "I36" NAME = "I36"  ></A><A ID = "I37" NAME = "I37"  ></A> on your instances.
+<BR></P>
+<P>The second step is to add an <A ID = "I38" NAME = "I38"  ></A><A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A>instance variable to hold this applet's thread. Call it anything you like; it's a variable of the type Thread (Thread is a class in java.lang, so you don't have to import it):
+<BR></P>
+<PRE>Thread runner;</PRE>
+<P>Third, add a start() method or modify the existing one so that it does nothing but create a new thread and start it running. Here's a typical example of a start() method:
+<BR></P>
+<PRE>public void start() {
+   if (runner == null); {
+       runner = new Thread(this);
+       runner.start();
+   }
+}</PRE>
+<P>If you modify start() to do <A ID = "I41" NAME = "I41"  ></A>nothing but spawn a thread, where does the body of your applet go? It goes into a new method, run(), which looks like this:
+<BR></P>
+<PRE>public void run() {
+    // what your applet actually does
+}</PRE>
+<P>run() can contain anything you want to run in the separate thread: initialization code, the actual loop for your applet, or anything else that needs to run in its own thread. You also can create new objects and call methods from inside run(), and they'll also run inside that thread. The run method is the real heart of your applet.
+<BR></P>
+<P>Finally, now that you've got threads running and a start method to start them, you should add a stop() method to suspend execution of that thread (and therefore whatever the applet is doing at the time) when the reader leaves the page. stop(), like start(), is usually something along these lines:
+<BR></P>
+<PRE>public void stop() {
+  if (runner != null) {
+      runner.stop();
+      runner = null;
+  }
+}</PRE>
+<P>The stop() method here does two things: it stops the thread from executing and also sets the thread's variable runner to null. Setting the variable to null makes the Thread object it previously contained available for garbage collection so that the applet can be removed from memory after a certain amount of time. If the reader comes back to this page and this applet, the start method creates a new thread and starts up the applet once again.
+<BR></P>
+<P>And that's it! Four basic modifications, and now you have a well-behaved applet that runs in its own thread.
+<BR></P>
+<H4><A ID = "I42" NAME = "I42"  >
+<foNT SIZE=3><B>Fixing The Digital Clock</B>
+<BR></FONT></A></H4>
+<P>Remember the problems <A ID = "I43" NAME = "I43"  ></A>you had with the Digital Clock applet at the beginning of this section? Let's fix them so you can get an idea of how a real applet with threads looks. You'll follow the four steps outlined in the previous section.
+<BR></P>
+<P>First, modify the class definition to include the Runnable interface (the class is renamed to DigitalThreads instead of DigitalClock):
+<BR></P>
+<PRE>public class DigitalThreads extends java.applet.Applet implements Runnable {
+    ...
+}</PRE>
+<P>Second, add an instance variable for the Thread:
+<BR></P>
+<PRE>Thread runner;</PRE>
+<P>For the third step, swap the way you did things. Because the bulk of the applet is currently in a method called start(), but you want it to be in a method called run(), rather than do a lot of copying and pasting, just rename the existing start() to run():
+<BR></P>
+<PRE>public void run() {
+  ...
+}</PRE>
+<P>Finally, add the boilerplate start() and stop() methods:
+<BR></P>
+<PRE>public void start() {
+        if (runner == null); {
+            runner = new Thread(this);
+            runner.start();
+        }
+    }
+    public void stop() {
+        if (runner != null) {
+            runner.stop();
+            runner = null;
+        }
+    }</PRE>
+<P>You're finished! One applet converted to use threads in less than a minute flat. The code for the final applet appears in Listing 10.2.
+<BR></P>
+<UL>
+<LH><B>Listing 10.2. The fixed digital clock applet.</B><A ID = "I44" NAME = "I44"  ></A></LH></UL>
+<PRE> 1:  import java.awt.Graphics;
+ 2:  import java.awt.Font;
+ 3:  import java.util.Date;
+ 4:
+ 5:  public class DigitalThreads extends java.applet.Applet
+ 6:      implements Runnable {
+ 7:
+ 8:      Font theFont = new Font(&quot;TimesRoman&quot;, Font.BOLD, 24);
+ 9:      Date theDate;
+10:      Thread runner;
+11:
+12:     public void start() {
+13:         if (runner == null); {
+14:             runner = new Thread(this);
+15:             runner.start();
+16:         }
+17:     }
+18:
+19:     public void stop() {
+20:         if (runner != null) {
+21:             runner.stop();
+22:             runner = null;
+23:         }
+24:     }
+25:
+26: public void run() {
+27:     while (true) {
+28:         theDate = new Date();
+29:         repaint();
+30:         try { Thread.sleep(1000); }
+31:         catch (InterruptedException e) { }
+32:     }
+33: }
+34:
+35:     public void paint(Graphics g) {
+36:         g.setFont(theFont);
+37:         g.drawString(theDate.toString(),10,50);
+38:     }
+39: }
+40:</PRE>
+<H3><A ID = "I45" NAME = "I45"  >
+<foNT SIZE=4><B>Reducing Animation Flicker</B>
+<BR></FONT></A></H3>
+<P>If you've been following <A ID = "I46" NAME = "I46"  ></A><A ID = "I47" NAME = "I47"  ></A><A ID = "I48" NAME = "I48"  ></A>along with this book and trying the examples as you go, rather than reading this book on an airplane or in the bathtub, you may have noticed that when the date program runs every once in a while, there's an annoying flicker in the animation. (Not that there's anything wrong with reading this book in the bathtub, but you won't see the flicker if you do that, so just trust me&#151;there's a flicker.) This isn't a mistake or an error in the program; in fact, that flicker is a side effect of creating animations in Java. Because it is really annoying, however, you'll learn how to reduce flicker in this part of today's lesson so that your animations run cleaner and look better on the screen.
+<BR></P>
+<H4><A ID = "I49" NAME = "I49"  >
+<foNT SIZE=3><B>Flicker and How to Avoid It</B>
+<BR></FONT></A></H4>
+<P>Flicker is caused by the way Java paints and repaints each frame of an applet. At the beginning of today's lesson, you learned that when you call the repaint() method, repaint() calls paint(). That's not precisely true. A call to paint() does indeed occur in response to a repaint(), but what actually happens are the following steps:
+<BR></P>
+<OL>
+<LI>The call to repaint() results in a call to the method update().
+<BR>
+<BR></LI>
+<LI>The update() method <A ID = "I50" NAME = "I50"  ></A><A ID = "I51" NAME = "I51"  ></A><A ID = "I52" NAME = "I52"  ></A><A ID = "I53" NAME = "I53"  ></A>clears the screen of any existing contents (in essence, fills it with the current background color), and then calls paint().
+<BR>
+<BR></LI>
+<LI>The paint() method then draws the contents of the current frame.
+<BR>
+<BR></LI></OL>
+<P>It's Step 2, the call to update(), that causes animation flicker. Because the screen is cleared between frames, the parts of the screen that don't change alternate rapidly between being painted and being cleared. Hence, flickering.
+<BR></P>
+<P>There are two major ways to avoid flicker in your Java applets:
+<BR></P>
+<UL>
+<LI>Override update() either not to clear the screen at all, or to clear only the parts of the screen you've changed.
+<BR>
+<BR></LI>
+<LI>Override both update() and paint(), and use double-buffering.
+<BR>
+<BR></LI></UL>
+<P>If the second way sounds complicated, that's because it is. Double-buffering involves drawing to an offscreen graphics surface and then copying that entire surface to the screen. Because it's more complicated, you'll explore that one tomorrow. Today, let's cover the easier solution: overriding update().
+<BR></P>
+<H4><A ID = "I54" NAME = "I54"  >
+<foNT SIZE=3><B>How to Override Update</B>
+<BR></FONT></A></H4>
+<P>The cause of flickering <A ID = "I55" NAME = "I55"  ></A><A ID = "I56" NAME = "I56"  ></A><A ID = "I57" NAME = "I57"  ></A>lies in the update() method. To reduce flickering, therefore, override update(). Here's what the default version of update() does (in the Component class, which you'll learn more about on Day 13):
+<BR></P>
+<PRE>public void update(Graphics g) {
+    g.setColor(getBackground());
+    g.fillRect(0, 0, width, height);
+    g.setColor(getForeground());
+    paint(g);
+}</PRE>
+<P>Basically, update() clears the screen (or, to be exact, fills the applet's bounding rectangle with the background color), sets things back to normal, and then calls paint(). When you override update(), you have to keep these two things in mind and make sure that your version of update() does something similar. In the next two sections, you'll work through some examples of overriding update() in different cases to reduce flicker.
+<BR></P>
+<H4><A ID = "I58" NAME = "I58"  >
+<foNT SIZE=3><B>Solution One Don't Clear the Screen</B>
+<BR></FONT></A></H4>
+<P>The first solution to reducing flicker is not to clear the screen at all. This works only for some applets, of course. Here's an example of an applet of this type. The <A ID = "I59" NAME = "I59"  ></A><A ID = "I60" NAME = "I60"  ></A>ColorSwirl applet prints a single string to the screen (&quot;All the swirly colors&quot;), but that string is presented in different colors that fade into each other dynamically. This applet flickers terribly when it's run. Listing 10.3 shows the source for this applet, and Figure 10.2 shows the result.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/10tyj02.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/10tyj02.gif'" tppabs="http://newdata.box.sk/bx/java/10tyj02.gif"  >Figure 10.2. The ColorSwirl applet.</B></A>
+<BR></P>
+<UL>
+<LH><B>Listing 10.3. The ColorSwirl applet.</B><A ID = "I61" NAME = "I61"  ></A></LH></UL>
+<PRE> 1:  import java.awt.Graphics;
+ 2:  import java.awt.Color;
+ 3:  import java.awt.Font;
+ 4: 
+ 5: public class ColorSwirl extends java.applet.Applet
+ 6:     implements Runnable {
+ 7:
+ 8:    Font f = new Font(&quot;TimesRoman&quot;,Font.BOLD,48);
+ 9:    Color colors[] = new Color[50];
+10:    Thread runThread;
+11:
+12:    public void start() {
+13:        if (runThread == null) {
+14:            runThread = new Thread(this);
+15:            runThread.start();
+16:        }
+17:    }
+18:
+19:    public void stop() {
+20:        if (runThread != null) {
+21:            runThread.stop();
+22:            runThread = null;
+23:        }
+24:    }
+25:
+26:    public void run() {
+27:
+28:        // initialize the color array
+29:        float c = 0;
+30:        for (int i = 0; i &lt; colors.length; i++) {
+31:            colors[i] =
+32:            Color.getHSBColor(c, (float)1.0,(float)1.0);
+33:            c += .02;
+34:        }
+35:
+36:        // cycle through the colors
+37:        int i = 0;
+38:        while (true) {
+39:            setForeground(colors[i]);
+40:            repaint();
+41:            i++;
+42:            try { Thread.sleep(50); }
+43:            catch (InterruptedException e) { }
+44:            if (i == colors.length ) i = 0;
+45:        }
+46:    }
+47:
+48:    public void paint(Graphics g) {
+49:        g.setFont(f);
+50:        g.drawString(&quot;All the Swirly Colors&quot;, 15, 50);
+51:    }
+52: }</PRE>
+<P>There are three new things to note about this applet that might look strange to you:
+<BR></P>
+<UL>
+<LI>When the applet starts, the first thing you do (in lines 28 through 34) is to create an array <A ID = "I62" NAME = "I62"  ></A><A ID = "I63" NAME = "I63"  ></A>of Color objects that contains all the colors the text will display. By creating all the colors beforehand, you can then just draw text in that color, one at a time; it's easier to precompute all the colors at once.
+<BR>
+<BR></LI>
+<LI>To create the different <A ID = "I64" NAME = "I64"  ></A><A ID = "I65" NAME = "I65"  ></A>colors, a method in the Color class called getHSBColor()<A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A> creates a color object based on values for hue, saturation, and brightness, rather than the standard red, green, and blue. By incrementing the hue value and keeping saturation and brightness constant you can create a range of colors without having to know the RGB for each one. If you don't understand this, don't worry about it; it's just an easy way to create the color array.
+<BR>
+<BR></LI>
+<LI>The applet then cycles through the array of colors, setting the foreground to each one in turn and calling repaint. When it gets to the end of the array, it starts over again (line 44), so the process repeats over and over ad infinitum.
+<BR>
+<BR></LI></UL>
+<P>Now that you understand what the applet does, let's fix the flicker. Flicker here results because each time the applet is painted, there's a moment where the screen is cleared. Instead of the text cycling neatly from red to a nice pink to purple, it's going from red to grey, to pink to grey, to purple to grey, and so on&#151;not very nice looking at all.
+<BR></P>
+<P>Because the screen clearing is all that's causing the problem, the solution is easy: override update() and remove the part where the screen gets cleared. It doesn't really need to get cleared anyhow, because nothing is changing except the color of the text. With the screen clearing behavior removed from update(), all update needs to do is call paint(). Here's what the update() method looks like in this applet:
+<BR></P>
+<PRE>public void update(Graphics g) {
+   paint(g);
+}</PRE>
+<P>With that&#151;with one small three-line addition&#151;no more flicker. Wasn't that easy?
+<BR></P>
+<H4><A ID = "I68" NAME = "I68"  >
+<foNT SIZE=3><B>Solution Two Redraw Only What You Have To</B>
+<BR></FONT></A></H4>
+<P>For some applets, it won't be quite that easy. Here's another example. In this applet, called Checkers, a red oval (a checker piece) moves from a black square to a white square, as if on a checkerboard. Listing 10.4 shows the code for this applet, and Figure 10.3 shows the applet itself.
+<BR></P>
+<P>
+<BR><B><A HREF = "javascript:if(confirm('http://newdata.box.sk/bx/java/10tyj03.gif  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://newdata.box.sk/bx/java/10tyj03.gif'" tppabs="http://newdata.box.sk/bx/java/10tyj03.gif"  >Figure 10.3. The Checkers applet.</B></A>
+<BR></P>
+<UL>
+<LH><B>Listing 10.4. The Checkers applet.</B><A ID = "I69" NAME = "I69"  ></A></LH></UL>
+<PRE> 1:   import java.awt.Graphics;
+ 2:     import java.awt.Color;
+ 3: 
+ 4:   public class Checkers extends java.applet.Applet
+ 5:       implements Runnable {
+ 6: 
+ 7:       Thread runner;
+ 8:       int xpos;
+ 9: 
+10:       public void start() {
+11:          if (runner == null); {
+12:              runner = new Thread(this);
+13:              runner.start();
+14:          }
+15:      }
+16: 
+17:      public void stop() {
+18:          if (runner != null) {
+19:              runner.stop();
+20:              runner = null;
+21:          }
+22:      }
+23:  
+24:  public void run() {
+25:      setBackground(Color.blue);
+26:      while (true) {
+27:          for (xpos = 5; xpos &lt;= 105; xpos+=4) {
+28:              repaint();
+29:              try { Thread.sleep(100); }
+30:              catch (InterruptedException e) { }
+31:          }
+32:          for (xpos = 105; xpos &gt; 5; xpos -=4) {
+33:              repaint();
+34:              try { Thread.sleep(100); }
+35:              catch (InterruptedException e) { }
+36:          }
+37:      }
+38:  }
+39:
+40:      public void paint(Graphics g) {
+41:          // Draw background
+42:          g.setColor(Color.black);
+43:          g.fillRect(0, 0, 100, 100);
+44:          g.setColor(Color.white);
+45:          g.fillRect(101, 0, 100, 100);
+46:
+47:          // Draw checker
+48:          g.setColor(Color.red);
+49:          g.fillOval(xpos, 5, 90, 90);
+50:      }
+51:  }</PRE>
+<P>Here's a quick run-through of what this applet does: an instance variable, xpos, keeps track of the current starting position of the checker (because it moves horizontally, the y stays constant and the x changes). In the run() method, you change the value of x and repaint, waiting 100 milliseconds between each move. The checker moves from one side of the screen to the other and then moves back (hence the two for loops in that method).
+<BR></P>
+<P>In the actual paint() method, the background squares are painted (one black and one white), and then the checker is drawn at its current position.
+<BR></P>
+<P>This applet, like the Swirling Colors applet, also has a terrible flicker. (In line 25, the background is blue to emphasize it, so if you run this applet you'll definitely see the flicker.)
+<BR></P>
+<P>However, the solution to solving the flicker problem for this applet is more difficult than for the last one, because you actually want to clear the screen before the next frame is drawn. Otherwise, the red checker won't have the appearance of leaving one position and moving to another; it'll just leave a red smear from one side of the checkerboard to the other.
+<BR></P>
+<P>How do you get around this? You still clear the screen, in order to get the animation effect, but, rather than clearing the entire screen, you clear only the part that you actually changed. By limiting the redraw to only a small area, you can eliminate much of the flicker you get from redrawing the entire screen.
+<BR></P>
+<P>To limit what gets redrawn, you need a couple of things. First, you need a way to restrict the drawing area so that each time paint() is called, only the part that needs to get redrawn actually gets redrawn. Fortunately, this is easy by using a mechanism called clipping.
+<BR></P>
+<P><I>Clipping,</I> part of the <A ID = "I70" NAME = "I70"  ></A>graphics class, enables you to restrict the drawing area to a small portion of the full screen; although the entire screen may get instructions to redraw, only the portions inside the clipping area are actually drawn.
+<BR></P>
+<P>The second thing you need is a<A ID = "I71" NAME = "I71"  ></A> way to keep track of the actual area to redraw. Both the left and right edges of the drawing area change for each frame of the animation (one side to draw the new oval, the other to erase the bit of the oval left over from the previous frame), so to keep track of those two x values, you need instance variables for both the left side and the right.
+<BR></P>
+<P>With those two concepts in mind, let's start modifying the Checkers applet to redraw only what needs to be redrawn. First, you'll add instance variables for the left and right edges of the drawing area. Let's call those instance variables ux1 and ux2 (u for update), where ux1 is the left side of the area to draw and ux2 the right.
+<BR></P>
+<PRE>int ux1,ux2;</PRE>
+<P>Now let's modify the run() method so that it keeps track of the actual area to be drawn, which you would think is easy&#151;just update each side for each iteration of the animation. Here, however, things can get complicated because of the way Java uses paint() and repaint().
+<BR></P>
+<P>The problem with updating the edges of the drawing area with each frame of the animation is that for every call to repaint() there may not be an individual corresponding paint(). If system resources get tight (because of other programs running on the system or for any other reason), paint() may not get executed immediately and several calls to paint() may queue up waiting for their turn to change the pixels on the screen. In this case, rather than trying to make all those calls to paint() in order (and be potentially behind all the time), Java catches up by executing only the <I>most recent</I> call to paint() and skips all the others.
+<BR></P>
+<P>If you update the edges of the drawing area with each repaint(), and a couple of calls to paint() are skipped, you end up with bits of the drawing surface not being updated and bits of the oval left behind. There's a simple way around this: update the leading edge of the oval each time the frame updates, but only update the trailing edge if the most recent paint has actually occurred. This way, if a couple of calls to paint() get skipped, the drawing area will get larger for each frame, and when paint() finally gets caught up, everything will get repainted correctly.
+<BR></P>
+<P>Yes, this is horrifyingly complex. If I could have written this applet simpler, I would have, but without this mechanism the applet will not get repainted correctly. Let's step through it slowly in the code so you can get a better grasp of what's going on at each step. 
+<BR></P>
+<P>Let's start with run(), where each frame of the animation takes place. Here's where you calculate each side of the drawing area based on the old position of the oval and the new position of the oval. When the oval is moving toward the left side of the screen, this is easy. The value of ux1 (the left side of the drawing area) is the previous oval's x position (xpos), and the value of ux2 is the x position of the current oval plus the width of that oval (90 pixels in this example). 
+<BR></P>
+<P>Here's what the old run() method looked like, to refresh your memory:
+<BR></P>
+<PRE>public void run() {
+    setBackground(Color.blue);
+    while (true) {
+        for (xpos = 5; xpos &lt;= 105; xpos += 4) {
+            repaint();
+            try { Thread.sleep(100); }
+            catch (InterruptedException e) { }
+        }
+        for (xpos = 105; xpos &gt; 5; xpos -= 4) {
+            repaint();
+            try { Thread.sleep(100); }
+            catch (InterruptedException e) { }
+        }
+    }
+}</PRE>
+<P>In the first for loop in the run() method, where the oval is moving towards the right, you first update ux2 (the right edge of the drawing area):
+<BR></P>
+<PRE>ux2 = xpos + 90;</PRE>
+<P>Then, after the repaint() has occurred, you update ux1 to reflect the old x position of the oval. However, you want to update this value only if the paint actually happened. How can you tell if the paint actually happened? You can reset ux1 in paint() to a given value (0), and then test to see whether you can update that value or whether you have to wait for the paint() to occur:
+<BR></P>
+<PRE>if (ux1 == 0) ux1 = xpos;</PRE>
+<P>Here's the new, completed for loop for when the oval is moving to the right: 
+<BR></P>
+<PRE>for (xpos = 5; xpos &lt;= 105; xpos += 4) {
+    ux2 = xpos + 90;
+    repaint();
+    try { Thread.sleep(100); }
+    catch (InterruptedException e) { }
+    if (ux1 == 0) ux1 = xpos;
+}</PRE>
+<P>When the oval is moving to the left, everything flips. ux1, the left side, is the leading edge of the oval that gets updated every time, and ux2, the right side, has to wait to make sure it gets updated. So, in the second for loop, you first update ux1 to be the x position of the current oval:
+<BR></P>
+<PRE>ux1 = xpos;</PRE>
+<P>Then, after the repaint() is called, you test to make sure the paint happened and update ux2:
+<BR></P>
+<PRE>if (ux2 == 0) ux2 = xpos + 90;</PRE>
+<P>Here's the new version of the second for loop inside run():
+<BR></P>
+<PRE>for (xpos = 105; xpos &gt; 5; xpos -= 4) {
+    ux1 = xpos;
+    repaint();
+    try { Thread.sleep(100); }
+    catch (InterruptedException e) { }
+    if (ux2 == 0) ux2 = xpos + 90;
+}</PRE>
+<P>Those are the only modifications run() needs. Let's override update() to limit the region that is being painted to the left and right edges of the drawing area that you set inside run(). To clip the drawing area to a specific rectangle, use the clipRect() method. clipRect(), like drawRect(), fillRect(), and clearRect(), is defined for graphics objects and takes four arguments: x and y starting positions, and width and height of the region.
+<BR></P>
+<P>Here's where ux1 and ux2 come into play. ux1 is the x point of the top corner of the region; then use ux2 to get the width of the region by subtracting ux1 from that value. Finally, to finish update(), you call paint():
+<BR></P>
+<PRE>public void update(Graphics g) {
+        g.clipRect(ux1, 5, ux2 - ux1, 95);
+        paint(g);
+    }</PRE>
+<P>Note that with the clipping region in place, you don't have to do anything to the actual paint() method. paint() goes ahead and draws to the entire screen each time, but only the areas inside the clipping region actually get changed on screen. 
+<BR></P>
+<P>You need to update the trailing edge of each drawing area inside paint() in case several calls to paint() were skipped. Because you are testing for a value of 0 inside run(), you merely reset ux1 and ux2 to 0 after drawing everything:
+<BR></P>
+<PRE>ux1 = ux2 = 0;</PRE>
+<P>Those are the only changes you have to make to this applet in order to draw only the parts of the applet that changed (and to manage the case where some frames don't get updated immediately). Although this doesn't totally eliminate flickering in the animation, it does reduce it a great deal. Try it and see. Listing 10.5 shows the final code for the Checkers applet.
+<BR></P>
+<UL>
+<LH><B>Listing 10.5. The final Checkers applet.</B><A ID = "I72" NAME = "I72"  ></A></LH></UL>
+<PRE> 1: import java.awt.Graphics;
+ 2: import java.awt.Color;
+ 3: 
+ 4: public class Checkers2 extends java.applet.Applet implements Runnable {
+ 5: 
+ 6:     Thread runner;
+ 7:     int xpos;
+ 8:     int ux1,ux2;
+ 9: 
+10:     public void start() {
+11:         if (runner == null); {
+12:             runner = new Thread(this);
+13:             runner.start();
+14:         }
+15:     }
+16:
+17:     public void stop() {
+18:         if (runner != null) {
+19:             runner.stop();
+20:             runner = null;
+21:         }
+22:     }
+23:
+24:     public void run() {
+25:         setBackground(Color.blue);
+26:         while (true) {
+27:             for (xpos = 5; xpos &lt;= 105; xpos += 4) {
+28:                 ux2 = xpos + 90;
+29:                 repaint();
+30:                 try { Thread.sleep(100); }
+31:                 catch (InterruptedException e) { }
+32:                 if (ux1 == 0) ux1 = xpos;
+33:             }
+34:             for (xpos = 105; xpos &gt; 5; xpos -= 4) {
+35:                 ux1 = xpos;
+36:                 repaint();
+37:                 try { Thread.sleep(100); }
+38:                 catch (InterruptedException e) { }
+39:                 if (ux2 == 0) ux2 = xpos + 90;
+40:             }
+41:         }
+42:     }
+43:     public void update(Graphics g) {
+44:         g.clipRect(ux1, 5, ux2 - ux1, 95);
+45:         paint(g);
+46:     }
+47:
+48:     public void paint(Graphics g) {
+49:         // Draw background
+50:         g.setColor(Color.black);
+51:         g.fillRect(0, 0, 100, 100);
+52:         g.setColor(Color.white);
+53:         g.fillRect(101, 0, 100, 100);
+54:
+55:         // Draw checker
+56:         g.setColor(Color.red);
+57:         g.fillOval(xpos, 5, 90, 90);
+58:
+59:         // reset the drawing area
+60:         ux1 = ux2 = 0;
+61:     }
+62: }</PRE>
+<H3><A ID = "I73" NAME = "I73"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Congratulations on getting through Day 10! This day was a bit rough; you've learned a lot, and it all might seem overwhelming. You learned about a plethora of methods to use and override: start(), stop(), paint(), repaint(), run(), and update()&#151;and you got a solid foundation in creating and using threads.
+<BR></P>
+<P>After today, you're over the worst hurdles in terms of understanding applets. Other than handling bitmap images, which you'll learn about tomorrow, you now have the basic background to create just about any animation you want in Java.
+<BR></P>
+<H3><A ID = "I74" NAME = "I74"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: Why all the indirection with </B><B>paint</B><B>()</B><B> and </B><B>repaint</B><B>()</B><B> and </B><B>update</B><B>()</B><B> and all that? Why </B><B>not have a simple paint method that just puts stuff on the screen when </B><B>you want it there?</B>
+<BR></P>
+<P><B>A: </B>The Java AWT toolkit enables you to nest drawable surfaces within other drawable surfaces. When a paint() takes place, all the parts of the system are redrawn, starting from the outermost surface and moving downward into the most nested one. Because the drawing of your applet takes place at the same time everything else is drawn, your applet doesn't get any special treatment. Your applet will be painted when everything else is painted. Although with this system you sacrifice some of the immediacy of instant painting, it enables your applet to co-exist with the rest of the system more cleanly.
+<BR></P>
+<P><B>Q: Are Java threads like threads on other systems?</B>
+<BR></P>
+<P><B>A: </B>Java threads have been influenced by other thread systems, and if you're used to working with threads, many of the concepts in Java threads will be very familiar to you. You learned the basics today; you'll learn more next week on Day 18.
+<BR></P>
+<P><B>Q: When an applet uses threads, I just have to tell the thread to start </B><B>and it starts, and tell it to stop and it stops? That's it? I don't have </B><B>to test anything in my loops or keep track of its state? It just stops?</B>
+<BR></P>
+<P>A: It just stops. When you put your applet into a thread, Java can control the execution of your applet much more readily. By causing the thread to stop, your applet just stops running, and then resumes when the thread starts up again. Yes, it's all automatic. Neat, isn't it?
+<BR></P>
+<P><B>Q: The Swirling Colors applet seems to display only five or six colors. </B><B>What's going on here?</B>
+<BR></P>
+<P><B>A: </B>This is the same problem that you ran into yesterday wherein, on some systems, there might not be enough colors to be able to display all of them reliably. If you're running into this problem, other than upgrading your hardware, you might try quitting other applications running on your system that use color. Other browsers or color tools in particular might be hogging colors that Java wants to be able to use.
+<BR></P>
+<P><B>Q: Even with the changes you made, the Checkers applet still flickers.</B>
+<BR></P>
+<P><B>A: </B>And, unfortunately, it will continue to do so. Reducing the size of the drawing area by using clipping does significantly reduce the flickering, but it doesn't stop it entirely. For many applets, using either of the methods described today may be enough to reduce animation flicker to the point where your applet looks good. To get totally flicker-free animation, you'll need to use a technique called double-buffering, which you'll learn about tomorrow.</P>
+<P><A HREF = "tyj09x.html" tppabs="http://newdata.box.sk/bx/java/tyj09x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj11x.html" tppabs="http://newdata.box.sk/bx/java/tyj11x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

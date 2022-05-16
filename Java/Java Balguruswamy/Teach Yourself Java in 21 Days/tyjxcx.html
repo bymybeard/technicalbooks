@@ -1,0 +1,869 @@
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyjxcx.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyjxdx.html" tppabs="http://newdata.box.sk/bx/java/tyjxdx.html">
+<LINK REL="Previous" HREF="tyjxbx.html" tppabs="http://newdata.box.sk/bx/java/tyjxbx.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyjxbx.html" tppabs="http://newdata.box.sk/bx/java/tyjxbx.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyjxdx.html" tppabs="http://newdata.box.sk/bx/java/tyjxdx.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<LI>
+<A HREF = "#I1"  >C</A></LI>
+<UL>
+<LI>
+<A HREF = "#I2"  >The Java Class Library</A></LI>
+<UL>
+<LI>
+<A HREF = "#I5"  >java.lang</A></LI>
+<UL>
+<LI>
+<A HREF = "#I8"  >(d)Interfaces</A></LI>
+<LI>
+<A HREF = "#I11"  >Classes</A></LI></UL>
+<LI>
+<A HREF = "#I14"  >java.util</A></LI>
+<UL>
+<LI>
+<A HREF = "#I17"  >Interfaces</A></LI>
+<LI>
+<A HREF = "#I20"  >Classes</A></LI></UL>
+<LI>
+<A HREF = "#I23"  >java.io</A></LI>
+<UL>
+<LI>
+<A HREF = "#I26"  >Interfaces</A></LI>
+<LI>
+<A HREF = "#I29"  >Classes</A></LI></UL>
+<LI>
+<A HREF = "#I32"  >java.net</A></LI>
+<UL>
+<LI>
+<A HREF = "#I35"  >Interfaces</A></LI>
+<LI>
+<A HREF = "#I38"  >Classes</A></LI></UL>
+<LI>
+<A HREF = "#I41"  >java.awt</A></LI>
+<UL>
+<LI>
+<A HREF = "#I44"  >Interfaces</A></LI>
+<LI>
+<A HREF = "#I47"  >Classes</A></LI></UL>
+<LI>
+<A HREF = "#I50"  >java.awt.image</A></LI>
+<UL>
+<LI>
+<A HREF = "#I53"  >Interfaces</A></LI>
+<LI>
+<A HREF = "#I56"  >Classes</A></LI></UL>
+<LI>
+<A HREF = "#I59"  >java.awt.peer</A></LI>
+<LI>
+<A HREF = "#I62"  >java.applet</A></LI>
+<UL>
+<LI>
+<A HREF = "#I65"  >Interfaces</A></LI>
+<LI>
+<A HREF = "#I68"  >Classes</A></LI></UL></UL></UL></UL>
+
+<H1><A ID = "I1" NAME = "I1"  >
+<BR>
+<foNT SIZE=5><B>C</B>
+<BR></FONT></A></H1>
+<H2><A ID = "I2" NAME = "I2"  >
+<foNT SIZE=5><B>The Java Class Library</B>
+<BR></FONT></A></H2>
+<P><B>by Laura Lemay</B>
+<BR></P>
+<P>This appendix provides <A ID = "I3" NAME = "I3"  ></A><A ID = "I4" NAME = "I4"  ></A>a general overview of the classes available in the standard Java packages (that is, the classes that are guaranteed to be available in any Java implementation). This appendix is intended for general reference; for more information about class inheritance and the exceptions defined for each package, see Appendix B. For more specific information about each class and the methods within each class, see the API documentation from Sun at <A HREF = "javascript:if(confirm('http://java.sun.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://java.sun.com/'" tppabs="http://java.sun.com/"  > http://java.sun.com</A>. A copy of the 1.0 API documentation is on the CD-ROM included with this book.
+<BR></P>
+<H3><A ID = "I5" NAME = "I5"  >
+<foNT SIZE=4><B>java.lang</B>
+<BR></FONT></A></H3>
+<P>The java.lang package <A ID = "I6" NAME = "I6"  ></A><A ID = "I7" NAME = "I7"  ></A>contains the classes and interfaces that make up the core Java language.
+<BR></P>
+<H4><A ID = "I8" NAME = "I8"  >
+<foNT SIZE=3><B>(d)Interfaces</B><A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>Cloneable</P>
+<TD>
+<P>Inteface indicating that an object may be copied or cloned</P>
+<TR>
+<TD>
+<P>Runnable </P>
+<TD>
+<P>Methods for classes that want to run as threads</P></TABLE>
+<H4><A ID = "I11" NAME = "I11"  >
+<foNT SIZE=3><B>Classes</B><A ID = "I12" NAME = "I12"  ></A><A ID = "I13" NAME = "I13"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>Boolean</P>
+<TD>
+<P>Object wrapper for boolean values</P>
+<TR>
+<TD>
+<P>Character</P>
+<TD>
+<P>Object wrapper for char values</P>
+<TR>
+<TD>
+<P>Class</P>
+<TD>
+<P>Run-time representations of classes</P>
+<TR>
+<TD>
+<P>ClassLoader</P>
+<TD>
+<P>Abstract behavior for handling loading of classes</P>
+<TR>
+<TD>
+<P>Compiler</P>
+<TD>
+<P>System class that gives access to the Java compiler</P>
+<TR>
+<TD>
+<P>Double</P>
+<TD>
+<P>Object wrapper for double values</P>
+<TR>
+<TD>
+<P>Float</P>
+<TD>
+<P>Object wrapper for float values</P>
+<TR>
+<TD>
+<P>Integer</P>
+<TD>
+<P>Object wrapper for int values</P>
+<TR>
+<TD>
+<P>Long</P>
+<TD>
+<P>Object wrapper for long values</P>
+<TR>
+<TD>
+<P>Math</P>
+<TD>
+<P>Utility class for math operations</P>
+<TR>
+<TD>
+<P>Number</P>
+<TD>
+<P>Abstract superclass of all number classes (Integer, Float, and so on)</P>
+<TR>
+<TD>
+<P>Object</P>
+<TD>
+<P>Generic Object class, at top of inheritance hierarchy</P>
+<TR>
+<TD>
+<P>Process</P>
+<TD>
+<P>Abstract behavior for processes such as those spawned using methods in the System class</P>
+<TR>
+<TD>
+<P>Runtime</P>
+<TD>
+<P>Access to the Java run-time</P>
+<TR>
+<TD>
+<P>SecurityManager</P>
+<TD>
+<P>Abstract behavior for implementing security policies</P>
+<TR>
+<TD>
+<P>String</P>
+<TD>
+<P>Character strings</P>
+<TR>
+<TD>
+<P>StringBuffer</P>
+<TD>
+<P>Mutable strings</P>
+<TR>
+<TD>
+<P>System</P>
+<TD>
+<P>Access to Java's system-level behavior, provided in a platform-independent way</P>
+<TR>
+<TD>
+<P>Thread</P>
+<TD>
+<P>Methods for managing threads and classes that run in threads</P>
+<TR>
+<TD>
+<P>ThreadDeath</P>
+<TD>
+<P>Class of object thrown when a thread is asynchronously terminated.</P>
+<TR>
+<TD>
+<P>ThreadGroup</P>
+<TD>
+<P>A group of threads</P>
+<TR>
+<TD>
+<P>Throwable</P>
+<TD>
+<P>Generic Exception class; all objects thrown must be a Throwable</P></TABLE>
+<H3><A ID = "I14" NAME = "I14"  >
+<foNT SIZE=4><B>java.util</B>
+<BR></FONT></A></H3>
+<P>The java.util package<A ID = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A> contains various utility classes and interfaces, including random numbers, system properties, and other useful classes.
+<BR></P>
+<H4><A ID = "I17" NAME = "I17"  >
+<foNT SIZE=3><B>Interfaces</B><A ID = "I18" NAME = "I18"  ></A><A ID = "I19" NAME = "I19"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>Enumeration</P>
+<TD>
+<P>Methods for enumerating sets of values</P>
+<TR>
+<TD>
+<P>Observer</P>
+<TD>
+<P>Methods for allowing classes to observe Observable objects</P></TABLE>
+<H4><A ID = "I20" NAME = "I20"  >
+<foNT SIZE=3><B>Classes</B><A ID = "I21" NAME = "I21"  ></A><A ID = "I22" NAME = "I22"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>BitSet</P>
+<TD>
+<P>A set of bits</P>
+<TR>
+<TD>
+<P>Date</P>
+<TD>
+<P>The current system date, as well as methods for generating and parsing dates</P>
+<TR>
+<TD>
+<P>Dictionary</P>
+<TD>
+<P>An abstract class that maps between keys and values (superclass of HashTable)</P>
+<TR>
+<TD>
+<P>Hashtable</P>
+<TD>
+<P>A hash table</P>
+<TR>
+<TD>
+<P>Observable</P>
+<TD>
+<P>An abstract class for observable objects</P>
+<TR>
+<TD>
+<P>Properties</P>
+<TD>
+<P>A hashtable that contains behavior for setting and retrieving persistent properties of the system or of a class</P>
+<TR>
+<TD>
+<P>Random</P>
+<TD>
+<P>Utilities for generating random numbers</P>
+<TR>
+<TD>
+<P>Stack</P>
+<TD>
+<P>A stack (a last-in-first-out queue)</P>
+<TR>
+<TD>
+<P>StringTokenizer</P>
+<TD>
+<P>Utilities for splitting strings into a sequence of individual &quot;tokens&quot;</P>
+<TR>
+<TD>
+<P>Vector</P>
+<TD>
+<P>A growable array of Objects</P></TABLE>
+<H3><A ID = "I23" NAME = "I23"  >
+<foNT SIZE=4><B>java.io</B>
+<BR></FONT></A></H3>
+<P>The java.io package<A ID = "I24" NAME = "I24"  ></A><A ID = "I25" NAME = "I25"  ></A> provides input and output classes and interfaces for streams and files.
+<BR></P>
+<H4><A ID = "I26" NAME = "I26"  >
+<foNT SIZE=3><B>Interfaces</B><A ID = "I27" NAME = "I27"  ></A><A ID = "I28" NAME = "I28"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>DataInput</P>
+<TD>
+<P>Methods for reading machine-independent typed input streams</P>
+<TR>
+<TD>
+<P>DataOutput</P>
+<TD>
+<P>Methods for writing machine-independent typed output streams</P>
+<TR>
+<TD>
+<P>FilenameFilter</P>
+<TD>
+<P>Methods for filtering file names</P></TABLE>
+<H4><A ID = "I29" NAME = "I29"  >
+<foNT SIZE=3><B>Classes</B><A ID = "I30" NAME = "I30"  ></A><A ID = "I31" NAME = "I31"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>BufferedInputStream</P>
+<TD>
+<P>A buffered input stream</P>
+<TR>
+<TD>
+<P>BufferedOutputStream</P>
+<TD>
+<P>A buffered output stream</P>
+<TR>
+<TD>
+<P>ByteArrayInputStream</P>
+<TD>
+<P>An input stream from a byte array</P>
+<TR>
+<TD>
+<P>ByteArrayOutputStream</P>
+<TD>
+<P>An output stream to a byte array</P>
+<TR>
+<TD>
+<P>DataInputStream</P>
+<TD>
+<P>Enables you to read primitive Java types (ints, chars, booleans, and so on) from a stream in a machine-independent way</P>
+<TR>
+<TD>
+<P>DataOutputStream</P>
+<TD>
+<P>Enables you to write primitive Java data types (ints, chars, booleans, and so on) to a stream in a machine-independent way</P>
+<TR>
+<TD>
+<P>File</P>
+<TD>
+<P>Represents a file on the host's file system</P>
+<TR>
+<TD>
+<P>FileDescriptor</P>
+<TD>
+<P>Holds onto the UNIX-like file descriptor of a file or socket</P>
+<TR>
+<TD>
+<P>FileInputStream</P>
+<TD>
+<P>An input stream from a file, constructed using a filename or descriptor</P>
+<TR>
+<TD>
+<P>FileOutputStream</P>
+<TD>
+<P>An output stream to a file, constructed using a filename or descriptor</P>
+<TR>
+<TD>
+<P>FilterInputStream</P>
+<TD>
+<P>Abstract class which provides a filter for input streams (and for adding stream functionality such as buffering)</P>
+<TR>
+<TD>
+<P>FilterOutputStream</P>
+<TD>
+<P>Abstract class which provides a filter for output streams (and for adding stream functionality such as buffering)</P>
+<TR>
+<TD>
+<P>InputStream</P>
+<TD>
+<P>An abstract class representing an input stream of bytes; the parent of all input streams in this package</P>
+<TR>
+<TD>
+<P>LineNumberInputStream</P>
+<TD>
+<P>An input stream that keeps track of line numbers</P>
+<TR>
+<TD>
+<P>OutputStream</P>
+<TD>
+<P>An abstract class representing an output stream of bytes; the parent of all output streams in this package</P>
+<TR>
+<TD>
+<P>PipedInputStream</P>
+<TD>
+<P>A piped input stream, which should be connected to a PipedOutputStream to be useful</P>
+<TR>
+<TD>
+<P>PipedOutputStream</P>
+<TD>
+<P>A piped output stream, which should be connected to a PipedInputStream to be useful (together they provide safe communication between threads)</P>
+<TR>
+<TD>
+<P>PrintStream</P>
+<TD>
+<P>An output stream for printing (used by System.out.println(...))</P>
+<TR>
+<TD>
+<P>PushbackInputStream</P>
+<TD>
+<P>An input stream with a 1-byte push back buffer</P>
+<TR>
+<TD>
+<P>RandomAccessFile</P>
+<TD>
+<P>Provides random-access to a file, constructed from filenames, descriptors, or objects</P>
+<TR>
+<TD>
+<P>SequenceInputStream</P>
+<TD>
+<P>Converts a sequence of input streams into a single input steam</P>
+<TR>
+<TD>
+<P>StreamTokenizer</P>
+<TD>
+<P>Converts an input stream into a sequence of individual tokens</P>
+<TR>
+<TD>
+<P>StringBufferInputStream</P>
+<TD>
+<P>An input stream from a String object</P></TABLE>
+<H3><A ID = "I32" NAME = "I32"  >
+<foNT SIZE=4><B>java.net</B>
+<BR></FONT></A></H3>
+<P>The java.net package <A ID = "I33" NAME = "I33"  ></A><A ID = "I34" NAME = "I34"  ></A>contains classes and interfaces for performing network operations, such as sockets and URLs.
+<BR></P>
+<H4><A ID = "I35" NAME = "I35"  >
+<foNT SIZE=3><B>Interfaces</B><A ID = "I36" NAME = "I36"  ></A><A ID = "I37" NAME = "I37"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>ContentHandlerFactory</P>
+<TD>
+<P>Methods for creating ContentHandler objects</P>
+<TR>
+<TD>
+<P>SocketImplFactory</P>
+<TD>
+<P>Methods for creating socket implementations (instance of the SocketImpl class)</P>
+<TR>
+<TD>
+<P>URLStreamHandlerFactory</P>
+<TD>
+<P>Methods for creating URLStreamHandler objects</P></TABLE>
+<H4><A ID = "I38" NAME = "I38"  >
+<foNT SIZE=3><B>Classes</B><A ID = "I39" NAME = "I39"  ></A><A ID = "I40" NAME = "I40"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>ContentHandler</P>
+<TD>
+<P>Abstract behavior for reading data from a URL connection and constructing the appropriate local object, based on MIME types</P>
+<TR>
+<TD>
+<P>DatagramPacket</P>
+<TD>
+<P>A datagram packet (UDP)</P>
+<TR>
+<TD>
+<P>DatagramSocket</P>
+<TD>
+<P>A datagram socket</P>
+<TR>
+<TD>
+<P>InetAddress</P>
+<TD>
+<P>An object representation of an Internet host (host name, IP address)</P>
+<TR>
+<TD>
+<P>ServerSocket</P>
+<TD>
+<P>A server-side socket</P>
+<TR>
+<TD>
+<P>Socket</P>
+<TD>
+<P>A socket</P>
+<TR>
+<TD>
+<P>SocketImpl</P>
+<TD>
+<P>An abstract class for specific socket implementations</P>
+<TR>
+<TD>
+<P>URL</P>
+<TD>
+<P>An object representation of a URL</P>
+<TR>
+<TD>
+<P>URLConnection</P>
+<TD>
+<P>Abstract behavior for a socket that can handle various Web-based protocols (http, ftp, and so on)</P>
+<TR>
+<TD>
+<P>URLEucoder</P>
+<TD>
+<P>Turns strings into x-www-form-urlencoded format</P>
+<TR>
+<TD>
+<P>URLStreamHandler</P>
+<TD>
+<P>Abstract class for managing streams to object referenced by URLs</P></TABLE>
+<H3><A ID = "I41" NAME = "I41"  >
+<foNT SIZE=4><B>java.awt</B>
+<BR></FONT></A></H3>
+<P>The java.awt package <A ID = "I42" NAME = "I42"  ></A><A ID = "I43" NAME = "I43"  ></A>contains the classes and interfaces that make up the Abstract Windowing Toolkit.
+<BR></P>
+<H4><A ID = "I44" NAME = "I44"  >
+<foNT SIZE=3><B>Interfaces</B><A ID = "I45" NAME = "I45"  ></A><A ID = "I46" NAME = "I46"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>LayoutManager</P>
+<TD>
+<P>Methods for laying out containers</P>
+<TR>
+<TD>
+<P>MenuContainer</P>
+<TD>
+<P>Methods for menu-related containers</P></TABLE>
+<H4><A ID = "I47" NAME = "I47"  >
+<foNT SIZE=3><B>Classes</B><A ID = "I48" NAME = "I48"  ></A><A ID = "I49" NAME = "I49"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>BorderLayout</P>
+<TD>
+<P>A layout manager for arranging items in border formation</P>
+<TR>
+<TD>
+<P>Button</P>
+<TD>
+<P>A UI pushbutton</P>
+<TR>
+<TD>
+<P>Canvas </P>
+<TD>
+<P>A canvas for drawing and performing other graphics operations</P>
+<TR>
+<TD>
+<P>CardLayout</P>
+<TD>
+<P>A layout manager for HyperCard-like metaphors</P>
+<TR>
+<TD>
+<P>Checkbox</P>
+<TD>
+<P>A checkbox</P>
+<TR>
+<TD>
+<P>CheckboxGroup</P>
+<TD>
+<P>A group of exclusive checkboxes (radio buttons)</P>
+<TR>
+<TD>
+<P>CheckboxMenuItem</P>
+<TD>
+<P>A toggle menu item</P>
+<TR>
+<TD>
+<P>Choice</P>
+<TD>
+<P>A popup menu of choices</P>
+<TR>
+<TD>
+<P>Color</P>
+<TD>
+<P>An abstract representation of a color</P>
+<TR>
+<TD>
+<P>Component</P>
+<TD>
+<P>The abstract generic class for all UI components</P>
+<TR>
+<TD>
+<P>Container</P>
+<TD>
+<P>Abstract behavior for a component that can hold other components or containers</P>
+<TR>
+<TD>
+<P>Dialog</P>
+<TD>
+<P>A window for brief interactions with users</P>
+<TR>
+<TD>
+<P>Dimension</P>
+<TD>
+<P>An object representing width and height</P>
+<TR>
+<TD>
+<P>Event</P>
+<TD>
+<P>An object representing events caused by the system or based on user input</P>
+<TR>
+<TD>
+<P>FileDialog</P>
+<TD>
+<P>A dialog for getting file names from the local file system</P>
+<TR>
+<TD>
+<P>FlowLayout</P>
+<TD>
+<P>A layout manager that lays out objects from left to right in rows</P>
+<TR>
+<TD>
+<P>Font</P>
+<TD>
+<P>An abstract representation of a font</P>
+<TR>
+<TD>
+<P>FontMetrics</P>
+<TD>
+<P>Abstract class for holding information about a specific font's character shapes and height and width infor-mation</P>
+<TR>
+<TD>
+<P>Frame</P>
+<TD>
+<P>A top-level window with a title</P>
+<TR>
+<TD>
+<P>Graphics</P>
+<TD>
+<P>Abstract behavior for representing a graphics context, and for drawing and painting shapes and objects</P>
+<TR>
+<TD>
+<P>GridBagConstraints</P>
+<TD>
+<P>Constraints for components laid out using GridBagLayout</P>
+<TR>
+<TD>
+<P>GridBagLayout</P>
+<TD>
+<P>A layout manager that aligns components horizontally and vertically based on their values from GridBagConstraints</P>
+<TR>
+<TD>
+<P>GridLayout</P>
+<TD>
+<P>A layout manager with rows and columns; elements are added to each cell in the grid</P>
+<TR>
+<TD>
+<P>Image</P>
+<TD>
+<P>An abstract representation of a bitmap image</P>
+<TR>
+<TD>
+<P>Insets</P>
+<TD>
+<P>Distances from the outer border of the window; used to lay out components</P>
+<TR>
+<TD>
+<P>Label</P>
+<TD>
+<P>A text label for UI components</P>
+<TR>
+<TD>
+<P>List</P>
+<TD>
+<P>A scrolling list</P>
+<TR>
+<TD>
+<P>MediaTracker</P>
+<TD>
+<P>A way to keep track of the status of media objects being loaded over the net</P>
+<TR>
+<TD>
+<P>Menu</P>
+<TD>
+<P>A menu, which can contain menu items and is a container on a menubar</P>
+<TR>
+<TD>
+<P>MenuBar</P>
+<TD>
+<P>A menubar (container for menus)</P>
+<TR>
+<TD>
+<P>MenuComponent</P>
+<TD>
+<P>The abstract superclass of all menu elements</P>
+<TR>
+<TD>
+<P>MenuItem</P>
+<TD>
+<P>An individual menu item</P>
+<TR>
+<TD>
+<P>Panel</P>
+<TD>
+<P>A container that is displayed</P>
+<TR>
+<TD>
+<P>Point</P>
+<TD>
+<P>An object representing a point (x and y coordinates)</P>
+<TR>
+<TD>
+<P>Polygon</P>
+<TD>
+<P>An object representing a set of points</P>
+<TR>
+<TD>
+<P>Rectangle</P>
+<TD>
+<P>An object representing a rectangle (x and y coordinates for the top corner, plus width and height)</P>
+<TR>
+<TD>
+<P>Scrollbar</P>
+<TD>
+<P>A UI scrollbar object</P>
+<TR>
+<TD>
+<P>TextArea</P>
+<TD>
+<P>A multiline, scrollable, editable text field</P>
+<TR>
+<TD>
+<P>TextComponent</P>
+<TD>
+<P>The superclass of all editable text components</P>
+<TR>
+<TD>
+<P>TextField</P>
+<TD>
+<P>A fixed-size editable text field</P>
+<TR>
+<TD>
+<P>Toolkit</P>
+<TD>
+<P>Abstract behavior for binding the abstract AWT classes to a platform-specific toolkit implementation</P>
+<TR>
+<TD>
+<P>Window</P>
+<TD>
+<P>A top-level window, and the superclass of the Frame and Dialog classes</P></TABLE>
+<H3><A ID = "I50" NAME = "I50"  >
+<foNT SIZE=4><B>java.awt.image</B>
+<BR></FONT></A></H3>
+<P>The java.awt.image <A ID = "I51" NAME = "I51"  ></A><A ID = "I52" NAME = "I52"  ></A>package is a subpackage of the AWT that provides classes for managing bitmap images.
+<BR></P>
+<H4><A ID = "I53" NAME = "I53"  >
+<foNT SIZE=3><B>Interfaces</B><A ID = "I54" NAME = "I54"  ></A><A ID = "I55" NAME = "I55"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>ImageConsumer</P>
+<TD>
+<P>Methods for receiving image data created by an ImageProducer</P>
+<TR>
+<TD>
+<P>ImageObserver</P>
+<TD>
+<P>Methods to track the loading and construction of an image</P>
+<TR>
+<TD>
+<P>ImageProducer</P>
+<TD>
+<P>Methods for producing image data received by an ImageConsumer</P></TABLE>
+<H4><A ID = "I56" NAME = "I56"  >
+<foNT SIZE=3><B>Classes</B><A ID = "I57" NAME = "I57"  ></A><A ID = "I58" NAME = "I58"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>ColorModel</P>
+<TD>
+<P>An abstract class for managing color information for images</P>
+<TR>
+<TD>
+<P>CropImageFilter</P>
+<TD>
+<P>A filter for cropping images to a particular size</P>
+<TR>
+<TD>
+<P>DirectColorModel</P>
+<TD>
+<P>A specific color model for managing and translating pixel color values</P>
+<TR>
+<TD>
+<P>FilteredImageSource</P>
+<TD>
+<P>An ImageProducer that takes an image and an ImageFilter object and produces an image for an ImageConsumer</P>
+<TR>
+<TD>
+<P>ImageFilter</P>
+<TD>
+<P>A filter that takes image data from an ImageProducer, modifies it in some way, and hands it off to a ImageConsumer</P>
+<TR>
+<TD>
+<P>IndexColorModel</P>
+<TD>
+<P>A specific color model for managing and translating color values in a fixed-color map</P>
+<TR>
+<TD>
+<P>MemoryImageSource</P>
+<TD>
+<P>An image producer that gets its image from memory; used after constructing an image by hand</P>
+<TR>
+<TD>
+<P>PixelGrabber</P>
+<TD>
+<P>An ImageConsumer that retrieves a subset of the pixels in an image</P>
+<TR>
+<TD>
+<P>RGBImageFilter</P>
+<TD>
+<P>Abstract behavior for a filter that modifies the RGB values of pixels in RGB images</P></TABLE>
+<H3><A ID = "I59" NAME = "I59"  >
+<foNT SIZE=4><B>java.awt.peer</B>
+<BR></FONT></A></H3>
+<P>The java.awt.peer package <A ID = "I60" NAME = "I60"  ></A><A ID = "I61" NAME = "I61"  ></A>is a subpackage of AWT that provides the (hidden) platform-specific AWT classes (for example, for Motif, Macintosh, or Windows 95) with platform-independent interfaces to implement. Thus, callers using these interfaces need not know which platform's window system these hidden AWT classes are currently implementing.
+<BR></P>
+<P>Each class in the AWT that inherits from either Component or MenuComponent has a corresponding peer class. Each of those classes is the name of the Component with -Peer added (for example, ButtonPeer, DialogPeer, and WindowPeer). Because each one provides similar behavior, they are not enumerated here.
+<BR></P>
+<H3><A ID = "I62" NAME = "I62"  >
+<foNT SIZE=4><B>java.applet</B>
+<BR></FONT></A></H3>
+<P>The java.applet package <A ID = "I63" NAME = "I63"  ></A><A ID = "I64" NAME = "I64"  ></A>provides applet-specific behavior.
+<BR></P>
+<H4><A ID = "I65" NAME = "I65"  >
+<foNT SIZE=3><B>Interfaces</B><A ID = "I66" NAME = "I66"  ></A><A ID = "I67" NAME = "I67"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>AppletContext</P>
+<TD>
+<P>Methods to refer to the applet's context</P>
+<TR>
+<TD>
+<P>AppletStub</P>
+<TD>
+<P>Methods for implementing applet viewers</P>
+<TR>
+<TD>
+<P>AudioClip</P>
+<TD>
+<P>Methods for playing audio files</P></TABLE>
+<H4><A ID = "I68" NAME = "I68"  >
+<foNT SIZE=3><B>Classes</B><A ID = "I69" NAME = "I69"  ></A><A ID = "I70" NAME = "I70"  ></A>
+<BR></FONT></A></H4>
+<TABLE BORDER>
+<TR>
+<TD>
+<P>Applet</P>
+<TD>
+<P>The base applet class</P></TABLE>
+<P><A ID = "I71" NAME = "I71"  ></A></P>
+<P><A HREF = "tyjxbx.html" tppabs="http://newdata.box.sk/bx/java/tyjxbx.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyjxdx.html" tppabs="http://newdata.box.sk/bx/java/tyjxdx.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>

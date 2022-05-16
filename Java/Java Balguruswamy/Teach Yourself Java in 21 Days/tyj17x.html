@@ -1,0 +1,444 @@
+
+<HTML>
+<HEAD>
+<TITLE>Teach Yourself Java in 21 Days tyj17x.htm</TITLE>
+<LINK REL="ToC" HREF="httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html">
+<LINK REL="Index" HREF="htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html">
+<LINK REL="Next" HREF="tyj18x.html" tppabs="http://newdata.box.sk/bx/java/tyj18x.html">
+<LINK REL="Previous" HREF="tyj16x.html" tppabs="http://newdata.box.sk/bx/java/tyj16x.html"></HEAD>
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" BACKGROUND="yellzig.gif" tppabs="http://newdata.box.sk/bx/java/yellzig.gif">
+
+<P><A HREF = "tyj16x.html" tppabs="http://newdata.box.sk/bx/java/tyj16x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj18x.html" tppabs="http://newdata.box.sk/bx/java/tyj18x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P><UL>
+<UL>
+<LI>
+<A HREF = "#I1"  >Day 17</A></LI>
+<LI>
+<A HREF = "#I3"  >Exceptions</A></LI>
+<UL>
+<LI>
+<A HREF = "#I6"  >Programming in the Large</A></LI>
+<LI>
+<A HREF = "#I22"  >Programming in the Small</A></LI>
+<LI>
+<A HREF = "#I42"  >The Limitations Placed on the Programmer</A></LI>
+<LI>
+<A HREF = "#I45"  >The finally Clause</A></LI>
+<LI>
+<A HREF = "#I48"  >Summary</A></LI>
+<LI>
+<A HREF = "#I49"  >Q&amp;A</A></LI></UL></UL></UL>
+
+<H2><A ID = "I1" NAME = "I1"  >
+<foNT SIZE=5><A ID = "I2" NAME = "I2"  ></A><B>Day 17</B>
+<BR></FONT></A></H2>
+<H2><A ID = "I3" NAME = "I3"  >
+<foNT SIZE=5><B>Exceptions</B>
+<BR></FONT></A></H2>
+<P><B>by Charles L. Perkins</B>
+<BR></P>
+<P>Today, you'll learn about exceptional conditions in Java:
+<BR></P>
+<UL>
+<LI>How to declare when you are expecting one
+<BR>
+<BR></LI>
+<LI>How to handle them in your code
+<BR>
+<BR></LI>
+<LI>How to create them
+<BR>
+<BR></LI>
+<LI>How your code is limited, yet made more robust by them
+<BR>
+<BR></LI></UL>
+<P>Let's begin by motivating why new ways of handling exceptions were invented.
+<BR></P>
+<P>Programming languages have long labored to solve the following common problem:
+<BR></P>
+<PRE>int  status = callSomethingThatAlmostAlwaysWorks();
+if (status == FUNNY_RETURN_VALUE) {
+    . . .        // something unusual happened, handle it
+    switch(someGlobalErrorIndicator) {
+        . . .        // handle more specific problems
+    }
+} else {
+    . . .        // all is well, go your merry way
+}</PRE>
+<P>Somehow this seems like a lot of work to do to handle a rare case. What's worse, if the function called returns an int as part of its normal answer, you must distinguish one special integer (FUNNY_RETURN_VALUE) to indicate an error. What if that function really needs all the integers? You must d
+o something even more ugly.
+<BR></P>
+<P>Even if you manage to find a distinguished value (such as NULL in C for pointers, -1 for integers, and so forth), what if there are multiple errors that must <A ID = "I4" NAME = "I4"  ></A>be produced by the same function? Often, some global variable is used as an error indicator. The function s
+tores a value in it and prays that no one else changes it before the caller gets to handle the error. Multiple errors propagate badly, if at all, and there are numerous problems with generalizing this to large programs, complex errors, and so forth.
+<BR></P>
+<P>Luckily, there is an alternative: using exceptions to help you handle abnormal conditions in your program, making the normal, nonexceptional code cleaner and easier to read.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="more.gif" tppabs="http://newdata.box.sk/bx/java/more.gif" WIDTH = 35 HEIGHT = 35>An <I>exception</I> is <A ID = "I5" NAME = "I5"  ></A>any object that is an instance of the class Throwable (or any of its subclasses).
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H3><A ID = "I6" NAME = "I6"  >
+<foNT SIZE=4><B>Programming in the Large</B>
+<BR></FONT></A></H3>
+<P>When you begin to build <A ID = "I7" NAME = "I7"  ></A><A ID = "I8" NAME = "I8"  ></A>complex programs in Java, you discover that after designing the classes and interfaces, and their methods descriptions, you still have not defined all the behavior of your objects. After all, an interface descr
+ibes the normal way to use an object and doesn't include any strange, exceptional cases. In many systems, the documentation takes care of this problem by explicitly listing the distinguished values used in &quot;hacks&quot; like the previous example. Because the system knows nothing about these hac
+ks, it cannot check them for consistency. In fact, the compiler can do nothing at all to help you with these exceptional conditions, in contrast to the helpful warnings and errors it produces if a method is used incorrectly.
+<BR></P>
+<P>More importantly, you have not captured in your design this important aspect of your program. Instead, you are forced to make up a way to describe it in the documentation and hope you have not made any mistakes when you implement it later. What's worse, everyone else makes up a different way of
+describing the same thing. Clearly, you need some uniform way of declaring the intentions of classes and methods with respect to these exceptional conditions. Java provides just such a way:
+<BR></P>
+<PRE>public class  MyFirstExceptionalClass {
+    public void  anExceptionalMethod() throws MyFirstException {
+        . . .
+    }
+}</PRE>
+<P>Here, you warn the reader (and the compiler) that the code . . . may throw an exception called MyFirstException.
+<BR></P>
+<P>You can think of a method's description as a contract between the designer of that method (or class) and you, the caller of the method. Usually, this description tells the types of a method's arguments, what it returns, and the general semantics of what it normally does. You are now being told,
+as well, what abnormal things it can do. This is a promise, just like the method promises to return a value of a certain type, and you can count on it when writing your code. These new promises help to tease apart and make explicit all the places where exceptional conditions should be handled in yo
+ur program, and that makes large-scale design easier.
+<BR></P>
+<P>Because exceptions are <A ID = "I9" NAME = "I9"  ></A><A ID = "I10" NAME = "I10"  ></A>instances of classes, they can be put into a hierarchy that can naturally describe the relationships among the different types of exceptions. In fact, if you take a moment to glance in Appendix B at the diagra
+ms for java.lang-errors and java.lang-exceptions, you'll see that the class Throwable actually has two large hierarchies of classes beneath it. The roots of these two hierarchies are subclasses of Throwable called Exception and Error. These hierarchies embody the rich set of relationships that exis
+t between exceptions and errors in the Java run-time environment.
+<BR></P>
+<P>When you know that a particular kind of error or exception can occur in your method, you are supposed to either handle it yourself or explicitly warn potential callers about the possibility via the throws clause. Not all errors and exceptions must be listed; instances of either class Error or Ru
+ntimeException (or any of their subclasses) do not have to be listed in your throws clause. They get special treatment because they can occur anywhere within a Java program and are usually conditions that you, as the programmer, did not directly cause. One good example is the OutOfMemoryError, whic
+h can happen anywhere, at any time, and for any number of reasons.
+<BR></P>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>You can, of course, choose to list these errors and run-time exceptions in <A ID = "I11" NAME = "I11"  ></A><A ID = "I12" NAME = "I12"  ></A>your throws clause if you like, but the callers of your methods will not be forced to handle them; onl
+y non-run-time exception <I>must</I> be handled.
+<BR>
+<BR>Whenever you see the word &quot;exception&quot; by itself, it almost always means &quot;exception or error&quot; (that is, an instance of Throwable). The previous discussion makes it clear that Exceptions and Errors actually <A ID = "I13" NAME = "I13"  ></A><A ID = "I14" NAME = "I14"  ></A><A I
+D = "I15" NAME = "I15"  ></A><A ID = "I16" NAME = "I16"  ></A>form two separate hierarchies, but except for the throws clause rule, they act exactly the same.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>If you examine the diagrams in Appendix B more carefully, you'll notice that there are only six types <A ID = "I17" NAME = "I17"  ></A>of exceptions (in java.lang) that must be listed in a throws clause (remember that all Errors and RuntimeExceptions are exempt):
+<BR></P>
+<UL>
+<LI>ClassNotFoundException
+<BR>
+<BR></LI>
+<LI>CloneNotSupportedException
+<BR>
+<BR></LI>
+<LI>IllegalAccessException
+<BR>
+<BR></LI>
+<LI>InstantiationException
+<BR>
+<BR></LI>
+<LI>InterrupedException
+<BR>
+<BR></LI>
+<LI>NoSuchMethodException
+<BR>
+<BR></LI></UL>
+<P>Each of these names suggests something that is explicitly caused by the programmer, not some behind-the-scenes event such as OutOfMemoryError.
+<BR></P>
+<P>If you look further in Appendix B, near the bottom of the diagrams for java.util and java.io, you'll see that each package adds some new exceptions. The former is adding two exceptions somewhat akin to ArrayStoreException<A ID = "I18" NAME = "I18"  ></A> and IndexOutOfBoundsException<A ID = "I19
+" NAME = "I19"  ></A>, and so decides to place them under RuntimeException. The latter is adding a whole new tree of IOExceptions, which are more explicitly caused by the programmer, and so they are rooted under Exception. Thus, IOExceptions must be described in throws clauses. Finally, package jav
+a.awt (in diagram java.awt-components) defines one of each style, implicit and explicit.
+<BR></P>
+<P>The Java class library uses exceptions <A ID = "I20" NAME = "I20"  ></A><A ID = "I21" NAME = "I21"  ></A>everywhere, and to good effect. If you examine the detailed API documentation in your Java release, you see that many of the methods in the library have throws clauses, and some of them even
+document (when they believe it will make something clearer to the reader) when they may throw one of the implicit errors or exceptions. This is just a nicety on the documenter's part, because you are not required to catch conditions like that. If it wasn't obvious that such a condition could happen
+ there, and for some reason you really cared about catching it, this would be useful information.
+<BR></P>
+<H3><A ID = "I22" NAME = "I22"  >
+<foNT SIZE=4><B>Programming in the Small</B>
+<BR></FONT></A></H3>
+<P>Now that you have a feeling for <A ID = "I23" NAME = "I23"  ></A><A ID = "I24" NAME = "I24"  ></A>how exceptions can help you design a program and a class library better, how do you actually use exceptions? Let's try to call anExceptionalMethod()<A ID = "I25" NAME = "I25"  ></A><A ID = "I26" NAM
+E = "I26"  ></A> defined in today's first example:
+<BR></P>
+<PRE>public void  anotherExceptionalMethod() throws MyFirstException {
+    MyFirstExceptionalClass  aMFEC = new MyFirstExceptionalClass();
+    aMFEC.anExceptionalMethod();
+}</PRE>
+<P>Let's examine this example more closely. If you assume that MyFirstException is a subclass of Exception, it means that if you don't handle it in anotherExceptionalMethod()'s code, you must warn your callers about it. Because your code simply calls anExceptionalMethod() without doing anything abo
+ut the fact that it may throw MyFirstException, you must add that exception to your throws clause. This is perfectly legal, but it does defer to your caller something that perhaps you should be responsible for doing yourself. (It depends on the circumstances, of course.)
+<BR></P>
+<P>Suppose that that you feel responsible today and decide to handle the exception. Because you're now declaring a method without a throws clause, you must &quot;catch&quot; the expected exception and do something useful with it:
+<BR></P>
+<PRE>public void  responsibleMethod() {
+    MyFirstExceptionalClass  aMFEC = new MyFirstExceptionalClass();
+    try {
+        aMFEC.anExceptionalMethod();
+    } catch (MyFirstException m) {
+        . . .    // do something terribly significant and responsible
+    }
+}</PRE>
+<P>The try statement says basically: &quot;Try running the code inside these braces, and if there are exceptions thrown, I will attach handlers to take <A ID = "I27" NAME = "I27"  ></A><A ID = "I28" NAME = "I28"  ></A>care of them.&quot; (You first saw a try statement on Day 10.) You can have as ma
+ny catch clauses at the end of a try as you need. Each allows you to handle any and all exceptions that are instances: of the class listed in parentheses, of any of its subclasses, or of a class that implements the interface listed in parentheses. In the catch in this example, exceptions of the cla
+ss MyFirstException (or any of its subclasses) are being handled.
+<BR></P>
+<P>What if you want to combine both the approaches shown so far? You'd like to handle the exception yourself, but also reflect it up to your caller. This can be done, by <A ID = "I29" NAME = "I29"  ></A><A ID = "I30" NAME = "I30"  ></A>explicitly rethrowing the exception:
+<BR></P>
+<PRE>public void  responsibleExceptionalMethod() throws MyFirstException {
+    MyFirstExceptionalClass  aMFEC = new MyFirstExceptionalClass();
+    try {
+        aMFEC.anExceptionalMethod();
+    } catch (MyFirstException m) {
+        . . .        // do something responsible
+        throw m;     // re-throw the exception
+    }
+}</PRE>
+<P>This works because exception <A ID = "I31" NAME = "I31"  ></A><A ID = "I32" NAME = "I32"  ></A><A ID = "I33" NAME = "I33"  ></A>handlers can be nested. You handle the exception by doing something responsible with it, but decide that it is too important to not give an exception handler that might
+ be in your caller a chance to handle it as well. Exceptions float all the way up the chain of method callers this way (usually not being handled by most of them) until at last, the system itself handles any uncaught ones by aborting your program and printing an error message. In a stand-alone prog
+ram, this is not such a bad idea; but in an applet, it can cause the browser to crash. Most browsers protect themselves from this disaster by catching all exceptions themselves whenever they run an applet, but you can never tell. If it's possible for you to catch an exception and do something intel
+ligent with it, you should.
+<BR></P>
+<P>Let's see what throwing a new exception looks like. How about fleshing out today's first example:
+<BR></P>
+<PRE>public class  MyFirstExceptionalClass {
+    public void  anExceptionalMethod() throws MyFirstException {
+        . . .
+        if (someThingUnusualHasHappened()) {
+            throw new MyFirstException();
+            // execution never reaches here
+        }
+    }
+}</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>throw is a little like a break statement&#151;nothing &quot;beyond it&quot; is <A ID = "I34" NAME = "I34"  ></A><A ID = "I35" NAME = "I35"  ></A>executed.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<P>This is the fundamental way that all exceptions are generated; someone, somewhere, has to create an exception object and throw it. In fact, the whole hierarchy under the class Throwable would be worth much less if there were not throw statements scattered throughout the code in the Java library
+at just the right places. Because exceptions propagate up from any depth down inside methods, any method call you make might generate a plethora of possible errors and exceptions. Luckily, only the ones listed in the throws clause of that method need be thought about; the rest travel silently past
+on their way to becoming an error message (or being caught and handled &quot;higher up&quot; in the system).
+<BR></P>
+<P>Here's an unusual demonstration of this, where the throw, and the handler that catches it, are very close together:
+<BR></P>
+<PRE>System.out.print(&quot;Now &quot;);
+try {
+    System.out.print(&quot;is &quot;);
+    throw new MyFirstException();
+    System.out.print(&quot;a &quot;);
+} catch (MyFirstException m) {
+    System.out.print(&quot;the &quot;);
+}
+System.out.print(&quot;time.\n&quot;);</PRE>
+<P>It prints out Now is the time.
+<BR></P>
+<P>Exceptions are really a quite powerful way of partitioning the space of all possible error <A ID = "I36" NAME = "I36"  ></A><A ID = "I37" NAME = "I37"  ></A>conditions into manageable pieces. Because the first catch clause that matches is executed, you can build chains such as the following:
+<BR></P>
+<PRE>try {
+    someReallyExceptionalMethod();
+} catch (NullPointerException n) {  // a subclass of RuntimeException
+    . . .
+} catch (RuntimeException r) {      // a subclass of Exception
+    . . .
+} catch (IOException i) {           // a subclass of Exception
+    . . .
+} catch (MyFirstException m) {      // our subclass of Exception
+    . . .
+} catch (Exception e) {             // a subclass of Throwable
+    . . .
+} catch (Throwable t) {
+    . . .  // Errors, plus anything not caught above are caught here
+}</PRE>
+<P>By listing subclasses before their parent classes, the parent catches anything it would normally catch that's also <I>not</I> one of the subclasses above it. By juggling chains like these, you can express almost any combination of tests. If there's some really obscure case you can't handle, perh
+aps you can use an interface to catch it instead. That would allow you to design your (peculiar) exceptions hierarchy using multiple inheritance. Catching an interface rather than a class can also be used to test for a property that many exceptions share but that cannot be expressed in the single-i
+nheritance tree alone.
+<BR></P>
+<P>Suppose, for example, that a scattered set of your exception classes require a reboot after <A ID = "I38" NAME = "I38"  ></A><A ID = "I39" NAME = "I39"  ></A>being thrown. You create an interface called NeedsReboot, and all these classes implement the interface. (None of them needs to have a com
+mon parent exception class.) Then, the highest level of exception handler simply catches classes that implement NeedsReboot<A ID = "I40" NAME = "I40"  ></A><A ID = "I41" NAME = "I41"  ></A> and performs a reboot:
+<BR></P>
+<PRE>public interface  NeedsReboot { }   // needs no contents at all
+try {
+    someMethodThatGeneratesExceptionsThatImplementNeedsReboot();
+} catch (NeedsReboot n) {    // catch an interface
+    . . .                    // cleanup
+    SystemClass.reboot();    // reboot using a made-up system class
+}</PRE>
+<P>By the way, if you need really unusual behavior during an exception, you can place the behavior into the exception class itself! Remember that an exception is also a normal class, so it can contain instance variables and methods. Although using them is a little unusual, it might be valuable on a
+ few occasions. Here's what this might look like:
+<BR></P>
+<PRE>try {
+    someExceptionallyStrangeMethod();
+} catch (ComplexException e) {
+    switch (e.internalState()) {    // probably returns an instance variable value
+        case e.COMPLEX_CASE:        // a class variable of the exception's class
+            e.performComplexBehavior(myState, theContext, etc);
+            break;
+        . . .
+    }
+}</PRE>
+<H3><A ID = "I42" NAME = "I42"  >
+<foNT SIZE=4><B>The Limitations Placed on the Programmer</B>
+<BR></FONT></A></H3>
+<P>As powerful as all this <A ID = "I43" NAME = "I43"  ></A><A ID = "I44" NAME = "I44"  ></A>sounds, isn't it a little limiting, too? For example, suppose you want to override one of the standard methods of the Object class, toString(), to be smarter about how you print yourself:
+<BR></P>
+<PRE>public class  MyIllegalClass {
+    public String  toString() {
+        someReallyExceptionalMethod();
+        . . .        // returns some String
+    }
+}</PRE>
+<P>Because the superclass (Object) defined the method declaration for toString() without a throws clause, any implementation of it in any subclass must obey this restriction. In particular, you cannot just call someReallyExceptionalMethod(), as you did previously, because it will generate a host of
+ errors and exceptions, some of which are not exempt from being listed in a throws clause (such as IOException and MyFirstException). If all the exceptions thrown were exempt, you would have no problem, but because some are not, you have to catch at least those few exceptions for this to be legal J
+ava:
+<BR></P>
+<PRE>public class  MyLegalClass {
+    public String  toString() {
+        try {
+            someReallyExceptionalMethod();
+        } catch (IOException e) {
+        } catch (MyFirstException m) {
+        }
+        . . .        // returns some String
+    }
+}</PRE>
+<P>In both cases, you elect to catch the exceptions and do absolutely nothing with them. Although this is legal, it is not always the right thing to do. You may need to think for a while to come up with the best, nontrivial behavior for any particular catch clause. This extra thought and care makes
+ your program more robust, better able to handle unusual input, and more likely to work correctly when used by multiple threads (you'll see this tomorrow).
+<BR></P>
+<P>MyIllegalClass's toString() method produces a compiler error to remind you to reflect on these issues. This extra care will richly reward you as you reuse your classes in later projects and in larger and larger programs. Of course, the Java class library has been written with exactly this degree
+ of care, and that's one of the reasons it's robust enough to be used in constructing all your Java projects.
+<BR></P>
+<H3><A ID = "I45" NAME = "I45"  >
+<foNT SIZE=4><B>The </B><B>finally</B><B> Clause</B>
+<BR></FONT></A></H3>
+<P>Finally, for finally. Suppose <A ID = "I46" NAME = "I46"  ></A><A ID = "I47" NAME = "I47"  ></A>there is some action that you absolutely must do, no matter what happens. Usually, this is to free some external resource after acquiring it, to close a file after opening it, or something similar. To
+ be sure that &quot;no matter what&quot; includes exceptions as well, you use a clause of the try statement designed for exactly this sort of thing, finally:
+<BR></P>
+<PRE>SomeFileClass  f = new SomeFileClass();
+if (f.open(&quot;/a/file/name/path&quot;)) {
+    try {
+        someReallyExceptionalMethod();
+    } finally {
+        f.close();
+    }
+}</PRE>
+<P>This use of finally behaves very much like the following:
+<BR></P>
+<PRE>SomeFileClass  f = new SomeFileClass();
+if (f.open(&quot;/a/file/name/path&quot;)) {
+    try {
+        someReallyExceptionalMethod();
+    } catch (Throwable t) {
+        f.close();
+        throw t;
+    }
+}</PRE>
+<P>except that finally can also be used to clean up not only after exceptions but after return, break, and continue statements as well. Here's a complex demonstration:
+<BR></P>
+<PRE>public class  MyFinalExceptionalClass extends ContextClass {
+    public static void  main(String argv[]) {
+        int  mysteriousState = getContext();
+        while (true) {
+            System.out.print(&quot;Who &quot;);
+            try {
+                System.out.print(&quot;is &quot;);
+                if (mysteriousState == 1)
+                    return;
+                System.out.print(&quot;that &quot;);
+                if (mysteriousState == 2)
+                    break;
+                System.out.print(&quot;strange &quot;);
+                if (mysteriousState == 3)
+                    continue;
+                System.out.print(&quot;but kindly &quot;);
+                if (mysteriousState == 4)
+                    throw new UncaughtException();
+                System.out.print(&quot;not at all &quot;);
+            } finally {
+                System.out.print(&quot;amusing man?\n&quot;);
+            }
+            System.out.print(&quot;I'd like to meet the man&quot;);
+        }
+        System.out.print(&quot;Please tell me.\n&quot;);
+    }
+}</PRE>
+<P>Here is the output produced depending on the value of mysteriousState:
+<BR></P>
+<PRE>1     Who is amusing man?
+2     Who is that amusing man? Please tell me
+3     Who is that strange amusing man?
+      ...
+4     Who is that strange but kindly amusing man?
+5     Who is that strange but kindly not at all amusing man?
+      I'd like to meet the man Who is that strange...?</PRE>
+<HR ALIGN=CENTER>
+<NOTE>
+<IMG SRC="note.gif" tppabs="http://newdata.box.sk/bx/java/note.gif" WIDTH = 35 HEIGHT = 35><B>Note: </B>In cases 3 and 5, the output never ends until you press Ctrl+C. In 4, an error message generated by the UncaughtException is also printed.
+<BR></NOTE>
+<HR ALIGN=CENTER>
+<H3><A ID = "I48" NAME = "I48"  >
+<foNT SIZE=4><B>Summary</B>
+<BR></FONT></A></H3>
+<P>Today, you learned about how exceptions aid your program's design, robustness, and multithreading capability (more on this tomorrow).
+<BR></P>
+<P>You also learned about the vast array of exceptions defined and thrown in the Java class library, and how to try methods while catch-ing any of a hierarchically ordered set of possible exceptions and errors. Java's reliance on strict exception handling does place some restrictions on the program
+mer, but you learned that these restrictions are light compared to the rewards.
+<BR></P>
+<P>Finally, the finally clause was discussed, which provides a fool-proof way to be certain that something is accomplished, no matter what.
+<BR></P>
+<H3><A ID = "I49" NAME = "I49"  >
+<foNT SIZE=4><B>Q&amp;A</B>
+<BR></FONT></A></H3>
+<P><B>Q: I'd like to test the last example you gave, but where does </B><B>getContext()</B><B> </B><B>come from?</B>
+<BR></P>
+<P>A: That example wasn't meant to be executable as it stands, but you can make it so as follows. First, remove the clause extends ContextClass  from line one. Then, replace getContext() in the third line with
+<BR>Integer.parseInt(argv[0]). You can now compile, then run, the example via the following:
+<BR>
+<BR>java MyFinalExceptionClass N
+<BR>
+<BR>where[]is the mysterious state you want.
+<BR></P>
+<P><B>Q: I'm still not sure I understand the differences between </B><B>Exceptions, Errors, and </B><B>RuntimeExceptions.</B><B> Is there another way of looking at them?</B>
+<BR></P>
+<P>A: Errors are caused by dynamic linking, or virtual machine problems, and are thus too low-level for most programs to care about (although sophisticated development libraries and environments probably care a great deal about them). RuntimeExceptions are generated by the normal execution of Java
+code, and though they occasionally reflect a condition you will want to handle explicitly, more often they reflect a coding mistake by the programmer and thus simply need to print an error to help flag that mistake. Exceptions that are not RuntimeExceptions (IOExceptions, for example) are condition
+s that, because of their nature, should be explicitly handled by any robust and well-thought-out code. The Java class library has been written using only a few of these, but those few are extremely important to using the system safely and correctly. The compiler helps you handle these exceptions pr
+operly via its throws clause checks and restrictions.
+<BR></P>
+<P><B>Q: Is there any way to &quot;get around&quot; the strict restrictions placed on </B><B>methods by the </B><B>throws</B><B> clause?</B>
+<BR></P>
+<P><B>A: </B>Yes. Suppose you thought long and hard and have decided that you need to circumvent this restriction. This is almost never the case, because the right solution is to go back and redesign your methods to reflect the exceptions that you need to throw. Imagine, however, that for some reas
+on a system class has you in a straitjacket. Your first solution is to subclass RuntimeException to make up a new, exempt exception of your own. Now you can throw it to your heart's content, because the throws clause that was annoying you does not need to include this new exception. If you need a l
+ot of such exceptions, an elegant approach is to mix in some novel exception interfaces to your new Runtime classes. You're free to choose whatever subset of these new interfaces you want to catch (none of the normal Runtime exceptions need be caught), while any leftover (new) Runtime exceptions ar
+e (legally) allowed to go through that otherwise annoying standard method in the library.
+<BR></P>
+<P><B>Q: I'm still a little confused by long chains of catch clauses. Can you </B><B>label the previous example with which exceptions are handled by each </B><B>line of code?</B>
+<BR></P>
+<P>A: Certainly, here it is:
+<BR>
+<BR>try {
+<BR>    someReallyExceptionalMethod();
+<BR>} catch (NullPointerException n) {
+<BR>    . . .  // handles NullPointerExceptions
+<BR>} catch (RuntimeException r) {
+<BR>    . . .  // handles RuntimeExceptions that are not NullPointerExceptions
+<BR>} catch (IOException i) {
+<BR>    . . .  // handles IOExceptions
+<BR>} catch (MyFirstException m) {
+<BR>    . . .  // handles MyFirstExceptions
+<BR>} catch (Exception e) {  // handles Exceptions that are not RuntimeExceptions
+<BR>    . . .                //            nor IOExceptions nor MyFirstExceptions
+<BR>} catch (Throwable t) {
+<BR>    . . .  // handles Throwables that are not Exceptions (i.e., Errors)
+<BR>}
+<BR></P>
+<P><B>Q: Given how annoying it can sometimes be to handle exceptional </B><B>conditions properly, what's stopping me from surrounding any method as </B><B>follows:</B>
+<BR>
+<BR><B>try { thatAnnoyingMethod(); } catch (Throwable t) { }</B>
+<BR>
+<BR><B>and simply ignoring all exceptions?</B>
+<BR></P>
+<P>A: Nothing, other than your own conscience. In some cases, you <I>should</I> do nothing, because it is the correct thing to do for your method's implementation. Otherwise, you should struggle through the annoyance and gain experience. Good style is a struggle even for the best of programmers, bu
+t the rewards are rich indeed.
+<BR></P>
+<P><A HREF = "tyj16x.html" tppabs="http://newdata.box.sk/bx/java/tyj16x.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="blutoc.gif" tppabs="http://newdata.box.sk/bx/java/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+<A HREF = "htindex.html" tppabs="http://newdata.box.sk/bx/java/htindex.html"  ><IMG SRC="bluindex.gif" tppabs="http://newdata.box.sk/bx/java/bluindex.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Index"></A>
+<A HREF = "tyj18x.html" tppabs="http://newdata.box.sk/bx/java/tyj18x.html"  ><IMG SRC="blunext.gif" tppabs="http://newdata.box.sk/bx/java/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+<A HREF = "httoc.html" tppabs="http://newdata.box.sk/bx/java/httoc.html"  ><IMG SRC="bluprev.gif" tppabs="http://newdata.box.sk/bx/java/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+</P></BODY></HTML>
+

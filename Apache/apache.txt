@@ -1,0 +1,31 @@
+To configure Apache Plug-in with Weblogic Server, follow the steps below
+
+1. To make Apache server run on a different port say 8080, other than the dafault (80).
+Modify the httpd.conf present at 
+D:\Program Files\Apache Group\Apache2\conf
+Change the Listen port to 8080 in the httpd.conf file
+
+Listen 8080
+
+2. Copy the mod_wl_20.so from \wlserver_10.3\server\plugin\win\32 to 
+D:\Program Files\Apache Group\Apache2\modules
+
+3. Apply the plug-n module by adding these in the httpd.conf file
+
+LoadModule weblogic_module modules/mod_wl_20.so
+
+
+<Location />
+SetHandler weblogic-handler
+</Location>
+
+<IfModule mod_weblogic.c>
+WebLogicCluster localhost:7003,localhost:7005
+Debug ON
+WLLogFile c:/temp/wlproxy.log
+WLTempDir c:/temp
+</IfModule>
+
+
+
+4. Restart the Apache Server
