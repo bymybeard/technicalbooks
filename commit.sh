@@ -15,7 +15,7 @@ function commit_message() {
 }
 
 function push_remote() {
-    echo "pushed to remote"
+    echo "pushing to remote"
     git push
 
 }
