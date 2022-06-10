@@ -1,0 +1,9 @@
+// Increment Bean Methods
+public int increment() {
+
+	int value = getThevalue();
+	value++;
+	setThevalue(value);
+
+	return value;
+}
